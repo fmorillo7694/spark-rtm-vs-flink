@@ -1,0 +1,67 @@
+# Shared single-node Kafka 4.1 in KRaft mode (no ZooKeeper).
+# Exposes two listeners:
+#   - kafka:9092      for other containers on the spark-flink network
+#   - localhost:29092 for the producer/consumer running on the host
+#
+# Used by both the Spark and the Flink runs (brought up first, torn down last).
+name: spark-flink
+
+networks:
+  bench:
+    name: spark-flink-bench
+
+services:
+  kafka:
+    image: ${KAFKA_IMAGE:-apache/kafka:4.1.0}
+    container_name: kafka
+    hostname: kafka
+    networks: [bench]
+    ports:
+      - "29092:29092"
+    environment:
+      # --- KRaft single-node: this node is both broker and controller ---
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      # --- Listeners: internal (container) + host + controller ---
+      KAFKA_LISTENERS: INTERNAL://0.0.0.0:9092,HOST://0.0.0.0:29092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,HOST:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      # --- Single-node durability/throughput tuning ---
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_NUM_PARTITIONS: ${TOPIC_PARTITIONS:-3}
+      # Low-latency leaning: small linger, large socket buffers.
+      KAFKA_LOG_FLUSH_INTERVAL_MESSAGES: 10000
+      KAFKA_HEAP_OPTS: "-Xmx1g -Xms1g"
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 >/dev/null 2>&1 || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  # One-shot: create input/output topics with the configured partition count, then exit.
+  topic-init:
+    image: ${KAFKA_IMAGE:-apache/kafka:4.1.0}
+    container_name: kafka-topic-init
+    networks: [bench]
+    depends_on:
+      kafka:
+        condition: service_healthy
+    entrypoint: ["/bin/bash", "-c"]
+    command:
+      - |
+        set -e
+        BS=kafka:9092
+        for t in "${INPUT_TOPIC:-input-events}" "${OUTPUT_TOPIC:-output-events}"; do
+          /opt/kafka/bin/kafka-topics.sh --bootstrap-server $$BS \
+            --create --if-not-exists --topic "$$t" \
+            --partitions "${TOPIC_PARTITIONS:-3}" --replication-factor 1
+        done
+        echo "=== topics ==="
+        /opt/kafka/bin/kafka-topics.sh --bootstrap-server $$BS --list
