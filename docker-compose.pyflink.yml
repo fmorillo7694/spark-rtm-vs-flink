@@ -1,0 +1,55 @@
+# PyFlink variant of the Flink session cluster: same topology, but the image carries
+# Python 3 + apache-flink so the Table API Python UDF can execute on the taskmanager.
+name: spark-flink
+
+networks:
+  bench:
+    name: spark-flink-bench
+    external: true
+
+services:
+  jobmanager:
+    image: pyflink-bench:2.2.0
+    pull_policy: never
+    container_name: flink-jobmanager
+    hostname: jobmanager
+    networks: [bench]
+    command: jobmanager
+    ports:
+      - "8081:8081"
+    environment:
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 4
+        parallelism.default: 3
+        execution.buffer-timeout: 0ms
+    volumes:
+      - ./flink:/workspace/flink:ro
+      - ./results:/workspace/results
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8081/overview >/dev/null || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  taskmanager:
+    image: pyflink-bench:2.2.0
+    pull_policy: never
+    container_name: flink-taskmanager
+    hostname: taskmanager
+    networks: [bench]
+    depends_on:
+      jobmanager:
+        condition: service_healthy
+    command: taskmanager
+    environment:
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 4
+        taskmanager.memory.process.size: 2560m
+        parallelism.default: 3
+        execution.buffer-timeout: 0ms
+    volumes:
+      - ./flink:/workspace/flink:ro
+      - ./results:/workspace/results
