@@ -1,0 +1,74 @@
+# eksctl manifest — fresh production-grade EKS cluster for the RTM-vs-Flink benchmark.
+# Account 985539754032 / us-east-1. ARCC baseline applied: KMS secrets envelope
+# encryption, OIDC for IRSA, private+public endpoint, managed node group on private
+# subnets, IMDSv2 required. Sized for a 100k+ evt/s run with Spark + Flink + Strimzi.
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: rtm-flink-bench2
+  region: us-east-1
+  version: "1.31"
+  tags:
+    project: spark-rtm-vs-flink
+    owner: fmorillo
+    lifecycle: ephemeral-benchmark
+    teardown: "yes"
+
+# IAM OIDC provider so operators (Spark/Flink/Strimzi) can use IRSA.
+iam:
+  withOIDC: true
+
+# @secure_recommendation: KMS envelope encryption for Kubernetes secrets (ARCC eks baseline)
+secretsEncryption:
+  # CMK auto-created by eksctl if this is omitted; we let eksctl manage a dedicated key.
+  keyARN: "arn:aws:kms:us-west-2:985539754032:key/919411d4-a383-45e3-8272-3fd0fca5bc35"  # populated by bootstrap script after creating the KMS key (see eks/00_kms.sh)
+
+# Control-plane logging to CloudWatch (audit/authenticator) — observability + ARCC.
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["api", "audit", "authenticator", "controllerManager", "scheduler"]
+
+# @secure_recommendation: reuse the existing benchmark VPC's subnets so we create NO new
+# VPC and NO new EIP/NAT (account is at both limits). Nodes land on the private subnets
+# (existing NAT for egress); control-plane ENIs span public+private. Public endpoint kept
+# ON only so this session's kubectl can reach the API; destroyed at teardown.
+vpc:
+  id: vpc-07640f12a3b8c4b26
+  subnets:
+    public:
+      us-east-1d: { id: subnet-0a63a490f50c57526 }
+      us-east-1f: { id: subnet-05b1b9542a711a4f5 }
+    private:
+      us-east-1d: { id: subnet-0bd0ca28303badfdf }
+      us-east-1f: { id: subnet-0499a4ee9233cdaa2 }
+  clusterEndpoints:
+    publicAccess: true
+    privateAccess: true
+
+managedNodeGroups:
+  - name: bench-ng
+    instanceType: m5.2xlarge        # 8 vCPU / 32 GiB
+    desiredCapacity: 6              # 48 vCPU / 192 GiB total
+    minSize: 6
+    maxSize: 8
+    volumeSize: 100
+    volumeType: gp3
+    volumeEncrypted: true           # @secure_recommendation: encrypted EBS (ARCC ec2 baseline)
+    privateNetworking: true         # @secure_recommendation: nodes in private subnets
+    disableIMDSv1: true             # @secure_recommendation: IMDSv2 required (ARCC ec2 baseline)
+    labels:
+      workload: bench
+    tags:
+      project: spark-rtm-vs-flink
+      lifecycle: ephemeral-benchmark
+    iam:
+      withAddonPolicies:
+        ebs: true                   # for EBS CSI dynamic volumes (Kafka/checkpoints)
+        cloudWatch: true
+
+addons:
+  - name: vpc-cni
+  - name: coredns
+  - name: kube-proxy
+  - name: aws-ebs-csi-driver        # dynamic gp3 PVCs for Strimzi brokers
