@@ -1,0 +1,25 @@
+{
+  "engine": "spark-rtm-scala",
+  "topic": "output-events",
+  "kept_records": 4008934,
+  "seen_records": 4585350,
+  "window_seconds": 130,
+  "warmup_seconds": 20,
+  "throughput_eps": 30838.0,
+  "pipeline_ms": {
+    "count": 4008934,
+    "p50": 7.886,
+    "p95": 784.343,
+    "p99": 1062.994,
+    "max": 1435.712,
+    "mean": 112.436
+  },
+  "e2e_ms": {
+    "count": 4008934,
+    "p50": 50.279,
+    "p95": 985.14,
+    "p99": 1200.325,
+    "max": 1485.972,
+    "mean": 248.119
+  }
+}
