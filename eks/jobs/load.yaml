@@ -1,0 +1,52 @@
+# Distributed load generator for the EKS run. The producer Job fans out to N parallel
+# pods, each emitting ~12.5k/s, to reach ~100k/s aggregate. The consumer Job measures
+# latency on output-events and writes a summary to its log (scraped by the run script).
+# Replace __REGISTRY__/__TAG__/__ENGINE__/__PRODPODS__/__RATE__ via envsubst.
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: latency-consumer
+  namespace: kafka
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels: { app: latency-consumer }
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: consumer
+          image: "__REGISTRY__/rtm-bench/load:__TAG__"
+          command: ["python", "latency_consumer.py"]
+          args: ["--engine", "__ENGINE__", "--bootstrap", "bench-kafka-bootstrap.kafka.svc:9092",
+                 "--topic", "output-events", "--warmup", "20", "--seconds", "150", "--outdir", "/tmp"]
+          resources:
+            requests: { cpu: "1", memory: 1Gi }
+            limits:   { cpu: "2", memory: 2Gi }
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: producer
+  namespace: kafka
+spec:
+  completions: __PRODPODS__
+  parallelism: __PRODPODS__
+  completionMode: Indexed
+  backoffLimit: 0
+  template:
+    metadata:
+      labels: { app: producer }
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: producer
+          image: "__REGISTRY__/rtm-bench/load:__TAG__"
+          command: ["python", "producer.py"]
+          # each pod emits __RATE__/s at __PAYLOAD__ bytes/event; PRODPODS pods => aggregate
+          args: ["--rate", "__RATE__", "--seconds", "140", "--payload-bytes", "__PAYLOAD__",
+                 "--bootstrap", "bench-kafka-bootstrap.kafka.svc:9092", "--topic", "input-events"]
+          resources:
+            requests: { cpu: "1", memory: 512Mi }
+            limits:   { cpu: "2", memory: 1Gi }

@@ -1,0 +1,57 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=output-events engine=flink-1kb warmup=20s window=130s
+[consumer] seen=61015 kept=0 (warmup)
+[consumer] seen=227725 kept=0 (warmup)
+[consumer] seen=394442 kept=0 (warmup)
+[consumer] seen=561341 kept=23 (steady)
+[consumer] seen=727671 kept=166353 (steady)
+[consumer] seen=894028 kept=332710 (steady)
+[consumer] seen=1060285 kept=498967 (steady)
+[consumer] seen=1227094 kept=665776 (steady)
+[consumer] seen=1393591 kept=832273 (steady)
+[consumer] seen=1560100 kept=998782 (steady)
+[consumer] seen=1727225 kept=1165907 (steady)
+[consumer] seen=1893967 kept=1332649 (steady)
+[consumer] seen=2060740 kept=1499422 (steady)
+[consumer] seen=2227262 kept=1665944 (steady)
+[consumer] seen=2393535 kept=1832217 (steady)
+[consumer] seen=2560292 kept=1998974 (steady)
+[consumer] seen=2726474 kept=2165156 (steady)
+[consumer] seen=2892789 kept=2331471 (steady)
+[consumer] seen=3060261 kept=2498943 (steady)
+[consumer] seen=3226391 kept=2665073 (steady)
+[consumer] seen=3393073 kept=2831755 (steady)
+[consumer] seen=3559432 kept=2998114 (steady)
+[consumer] seen=3726765 kept=3165447 (steady)
+[consumer] seen=3892966 kept=3331648 (steady)
+[consumer] seen=4058876 kept=3497558 (steady)
+[consumer] seen=4225838 kept=3664520 (steady)
+[consumer] seen=4392452 kept=3831134 (steady)
+[consumer] seen=4558884 kept=3997566 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-1kb",
+  "topic": "output-events",
+  "kept_records": 4020054,
+  "seen_records": 4581372,
+  "window_seconds": 130,
+  "warmup_seconds": 20,
+  "throughput_eps": 30923.5,
+  "pipeline_ms": {
+    "count": 4020054,
+    "p50": 6.716,
+    "p95": 33.399,
+    "p99": 48.382,
+    "max": 137.515,
+    "mean": 9.931
+  },
+  "e2e_ms": {
+    "count": 4020054,
+    "p50": 14.512,
+    "p95": 52.119,
+    "p99": 70.434,
+    "max": 232.509,
+    "mean": 20.537
+  }
+}
+[consumer] wrote /tmp/flink-1kb_latency.csv and /tmp/flink-1kb_summary.json
