@@ -1,0 +1,25 @@
+{
+  "engine": "pyflink",
+  "topic": "output-events",
+  "kept_records": 350367,
+  "seen_records": 393652,
+  "window_seconds": 105,
+  "warmup_seconds": 15,
+  "throughput_eps": 3336.8,
+  "pipeline_ms": {
+    "count": 350367,
+    "p50": 7.158,
+    "p95": 11.537,
+    "p99": 12.881,
+    "max": 34.829,
+    "mean": 7.553
+  },
+  "e2e_ms": {
+    "count": 350367,
+    "p50": 16.722,
+    "p95": 18.788,
+    "p99": 21.1,
+    "max": 49.239,
+    "mean": 16.862
+  }
+}
