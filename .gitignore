@@ -1,0 +1,36 @@
+# Medium article lives on Medium, not in the repo
+  
+  # Python
+  .venv/
+  __pycache__/
+  *.pyc
+  
+  # Build artifacts
+  spark/scala-rtm/target/
+  spark/scala-rtm/project/target/
+  spark/java-rtm/target/
+  flink/java-datastream/target/
+  **/.bsp/
+  
+  # EKS local/generated state (secrets & machine-specific)
+  eks/kubeconfig
+  eks/.registry.env
+  eks/cluster.rendered.yaml
+  
+  # Large raw per-record latency dumps (keep summaries + stats, drop the multi-MB CSVs)
+  results/*_latency.csv
+  results/eks/*_latency.csv
+  
+  # Build/run logs (but keep EKS consumer summaries, which carry the latency JSON)
+  /build.log
+  **/build.log
+  sbt_build.log
+  mvn_build.log
+  !results/eks/*_consumer.log
+  eks/cluster.local.yaml
+  PUBLISHING_KIT.md
+  eks/02b_irsa_s3.local.sh
+  .DS_Store
+  **/.DS_Store
+  dependency-reduced-pom.xml
+  results/eks/_archive_run1/
