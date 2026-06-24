@@ -4,6 +4,7 @@ Generate PNG charts for the article from the measured results. All numbers are t
 figures recorded in REPORT.md / results/. Outputs to docs/charts/.
 """
 import os
+import re
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -142,6 +143,68 @@ def chart_recovery():
     save(fig, "06_recovery.png")
 
 
+def _resource_series(label):
+    """Per-timestamp summed CPU (cores) and mem (MB) for an engine's own pods,
+    parsed from results/eks/<label>_top.txt (format: ts ns pod cpu mem)."""
+    import statistics as st
+    p = os.path.join(OUT, "..", "..", "results", "eks", f"{label}_top.txt")
+    if not os.path.exists(p):
+        return None
+    per = {}
+    for line in open(p):
+        f = line.split()
+        if len(f) < 5 or f[1] not in ("spark", "flink"):
+            continue
+        if not any(k in f[2] for k in ("rtm-bench", "flink-bench")):
+            continue
+        try:
+            mc = int(f[3].rstrip("m")); mi = int(re.sub(r"[^0-9]", "", f[4]))
+        except ValueError:
+            continue
+        per.setdefault(f[0], [0, 0]); per[f[0]][0] += mc; per[f[0]][1] += mi
+    cpus = [v[0] / 1000 for v in per.values()]; mems = [v[1] for v in per.values()]
+    if not cpus:
+        return None
+    return {"mean_cpu": st.mean(cpus), "peak_cpu": max(cpus),
+            "mean_mem": st.mean(mems) / 1024, "peak_mem": max(mems) / 1024}
+
+
+# 8/9. CPU and memory per engine (EKS), mean + peak bars
+def _resource_chart(metric, ylabel, title, fname):
+    import numpy as np
+    order = [("flink", "Flink\n(Java)", C_FLINK), ("pyflink", "PyFlink", C_FLINK2),
+             ("spark-rtm-java", "Spark RTM\n(Java)", C_SPARK),
+             ("spark-rtm-scala", "Spark RTM\n(Scala)", C_SPARK),
+             ("pyspark-rtm", "PySpark\nRTM", C_SPARK2)]
+    rows = [(lbl, c, _resource_series(k)) for k, lbl, c in order]
+    rows = [(lbl, c, r) for lbl, c, r in rows if r]
+    labels = [r[0] for r in rows]; colors = [r[1] for r in rows]
+    mean = [r[2][f"mean_{metric}"] for r in rows]; peak = [r[2][f"peak_{metric}"] for r in rows]
+    fig, ax = plt.subplots(figsize=(8.5, 4.4))
+    x = np.arange(len(labels)); w = 0.38
+    ax.bar(x - w/2, mean, w, label="mean", color=colors)
+    ax.bar(x + w/2, peak, w, label="peak", color=colors, alpha=0.5)
+    for i, (m, p) in enumerate(zip(mean, peak)):
+        ax.text(i - w/2, m + max(peak)*0.01, f"{m:.1f}", ha="center", fontsize=8)
+        ax.text(i + w/2, p + max(peak)*0.01, f"{p:.1f}", ha="center", fontsize=8)
+    ax.set_xticks(x); ax.set_xticklabels(labels, fontsize=9); ax.set_ylabel(ylabel)
+    ax.set_title(title); ax.legend()
+    ax.text(0.5, -0.19, "PySpark's executor pods weren't matched by the sampler; "
+            "its real usage tracks Spark-Java (~3 cores / ~9 GB)",
+            transform=ax.transAxes, ha="center", fontsize=8, style="italic", color="#888")
+    save(fig, fname)
+
+
+def chart_cpu():
+    _resource_chart("cpu", "CPU (cores)",
+                    "EKS ~100k evt/s: CPU usage per engine (engine pods)", "08_cpu.png")
+
+
+def chart_memory():
+    _resource_chart("mem", "memory (GB)",
+                    "EKS ~100k evt/s: memory usage per engine (engine pods)", "09_memory.png")
+
+
 def _main():
     chart_hero()
     chart_floor()
@@ -150,6 +213,8 @@ def _main():
     chart_datarate()
     chart_efficiency()
     chart_recovery()
+    chart_cpu()
+    chart_memory()
     print("\nAll charts in", OUT)
 
 
@@ -157,27 +222,31 @@ def _main():
 def chart_hero():
     import numpy as np
     fig, ax = plt.subplots(figsize=(9, 4.8))
-    groups = ["median\n(p50)", "tail p99\n(no checkpoint)", "tail p99\n(durable checkpoint)"]
-    spark = [7.3, 183, 1319]
-    flink = [6.9, 76, 46.4]
+    # Production-realistic: BOTH engines with durable checkpointing (no real streaming
+    # job runs without it). Median ties; tail diverges ~28x. pipeline p50/p99.
+    groups = ["median (p50)", "tail (p99)"]
+    spark = [8.1, 1319]
+    flink = [6.8, 46.4]
     x = np.arange(len(groups)); w = 0.36
     b1 = ax.bar(x - w/2, spark, w, label="Spark RTM", color=C_SPARK)
     b2 = ax.bar(x + w/2, flink, w, label="Flink", color=C_FLINK)
     ax.set_yscale("log")
-    ax.set_ylabel("end-to-end latency (ms, log scale)")
+    ax.set_ylabel("pipeline latency (ms, log scale)")
     ax.set_xticks(x); ax.set_xticklabels(groups)
-    ax.set_title("Spark 4.1 Real-time Mode vs Flink: tied at the median,\nworlds apart at the tail (EKS, ~100k evt/s)",
+    ax.set_title("Spark 4.1 Real-time Mode vs Flink, with durable checkpointing:\n"
+                 "tied at the median, ~28x apart at the tail (EKS, ~100k evt/s)",
                  fontsize=13, fontweight="bold")
     ax.legend(loc="upper left", fontsize=11)
     for bars in (b1, b2):
         for b in bars:
             v = b.get_height()
-            ax.text(b.get_x()+b.get_width()/2, v*1.12,
-                    f"{v:g}", ha="center", fontsize=9)
-    ax.annotate("Spark RTM ~26x\nFlink's tail", xy=(1.82, 1325), xytext=(0.95, 430),
-                fontsize=11, color=C_SPARK, fontweight="bold",
-                arrowprops=dict(arrowstyle="->", color=C_SPARK))
-    ax.set_ylim(top=3500)
+            ax.text(b.get_x()+b.get_width()/2, v*1.13, f"{v:g} ms", ha="center", fontsize=10)
+    ax.annotate("~28x", xy=(1.18, 1319), xytext=(1.5, 320),
+                fontsize=14, color=C_SPARK, fontweight="bold",
+                arrowprops=dict(arrowstyle="->", color=C_SPARK, lw=1.5))
+    ax.set_ylim(top=4000)
+    fig.text(0.5, -0.01, "Spark RTM's synchronous checkpoint commit stalls the data path; "
+             "Flink's is asynchronous", ha="center", fontsize=9.5, style="italic", color="#444")
     save(fig, "00_hero.png")
 
 
