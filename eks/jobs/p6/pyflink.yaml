@@ -11,7 +11,7 @@ spec:
   imagePullPolicy: Always
   flinkVersion: v2_0
   flinkConfiguration:
-    taskmanager.numberOfTaskSlots: "4"
+    taskmanager.numberOfTaskSlots: "3"
     execution.buffer-timeout: "0 ms"
     python.fn-execution.bundle.time: "1"
     python.fn-execution.bundle.size: "1000"
@@ -32,8 +32,8 @@ spec:
   jobManager:
     resource: { memory: "2048m", cpu: 1 }
   taskManager:
-    replicas: 3
-    resource: { memory: "4096m", cpu: 3 }
+    replicas: 2
+    resource: { memory: "6144m", cpu: 3 }
   job:
     jarURI: "local:///opt/flink/opt/flink-python-2.2.0.jar"   # python driver shim
     entryClass: "org.apache.flink.client.python.PythonDriver"
@@ -46,5 +46,5 @@ spec:
       - "input-events"
       - "output-events"
       - "12"
-    parallelism: 12
+    parallelism: 6
     upgradeMode: stateless

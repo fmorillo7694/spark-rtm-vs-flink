@@ -38,5 +38,5 @@ spec:
     serviceAccount: spark-operator-spark
   executor:
     instances: 4
-    cores: 4
+    cores: 3
     memory: "3g"

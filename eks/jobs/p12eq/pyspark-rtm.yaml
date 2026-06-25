@@ -1,31 +1,22 @@
-# Spark RTM SparkApplication template — works for both Scala and Java mains via __MAINCLASS__/
-# __JAR__/__TYPE__ substitution. Driver+executors sized so 12 input partitions get >=1 core.
+# PySpark RTM SparkApplication — Python driver, py4j bridge for Trigger.RealTime,
+# out_ts via reflect() (no executor Python). type: Python.
 apiVersion: sparkoperator.k8s.io/v1beta2
 kind: SparkApplication
 metadata:
   name: rtm-bench
   namespace: spark
 spec:
-  type: __TYPE__
+  type: Python
+  pythonVersion: "3"
   mode: cluster
   image: "__REGISTRY__/rtm-bench/spark:__TAG__"
   imagePullPolicy: Always
-  mainClass: __MAINCLASS__
-  mainApplicationFile: "__JAR__"
+  mainApplicationFile: "local:///opt/spark/work-dir/rtm_pyspark_measured.py"
   sparkVersion: "4.1.2"
-  arguments:
-    - "rtm"
-    - "bench-kafka-bootstrap.kafka.svc:9092"
-    - "input-events"
-    - "output-events"
-    - "s3a://rtm-flink-bench-ckpt-__ACCOUNT__/__CKPTNAME__"
-    - "60 seconds"
   sparkConf:
     spark.sql.adaptive.enabled: "false"
     spark.sql.shuffle.partitions: "12"
     spark.hadoop.fs.s3a.aws.credentials.provider: "software.amazon.awssdk.auth.credentials.WebIdentityTokenFileCredentialsProvider"
-  # Fault tolerance: on driver/executor failure the operator restarts the driver, which
-  # resumes the RTM query from checkpointLocation (the production recovery path).
   restartPolicy:
     type: OnFailure
     onFailureRetries: 5
@@ -36,7 +27,13 @@ spec:
     cores: 1
     memory: "2g"
     serviceAccount: spark-operator-spark
+    env:
+      - { name: KAFKA_BOOTSTRAP_INTERNAL, value: "bench-kafka-bootstrap.kafka.svc:9092" }
+      - { name: INPUT_TOPIC, value: "input-events" }
+      - { name: OUTPUT_TOPIC, value: "output-events" }
+      - { name: RTM_TRIGGER, value: "60 seconds" }
+      - { name: CHECKPOINT_LOCATION, value: "s3a://rtm-flink-bench-ckpt-__ACCOUNT__/pyspark-rtm" }
   executor:
     instances: 4
-    cores: 4
+    cores: 3
     memory: "3g"

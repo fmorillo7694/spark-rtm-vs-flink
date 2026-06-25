@@ -10,7 +10,7 @@ spec:
   imagePullPolicy: Always
   flinkVersion: v2_0
   flinkConfiguration:
-    taskmanager.numberOfTaskSlots: "4"
+    taskmanager.numberOfTaskSlots: "3"
     execution.buffer-timeout: "0 ms"
     state.backend.type: "hashmap"
     # Fault tolerance: periodic checkpoints to durable S3 + auto restart on TM loss.
@@ -34,9 +34,9 @@ spec:
       memory: "2048m"
       cpu: 1
   taskManager:
-    replicas: 3        # 3 TMs x 4 slots = 12 slots for parallelism 12
+    replicas: 2        # 2 TMs x 3 slots = 6 slots for parallelism 6
     resource:
-      memory: "4096m"
+      memory: "6144m"
       cpu: 3
   job:
     jarURI: "local:///opt/flink/usrlib/flink-stateless.jar"
@@ -45,6 +45,6 @@ spec:
       - "bench-kafka-bootstrap.kafka.svc:9092"
       - "input-events"
       - "output-events"
-      - "12"
-    parallelism: 12
+      - "6"
+    parallelism: 6
     upgradeMode: stateless

@@ -16,11 +16,14 @@ ENGINE="$1"
 PRODPODS="${2:-${PRODPODS:-8}}"
 RATE="${3:-${RATE:-12500}}"
 PAYLOAD_BYTES="${4:-${PAYLOAD_BYTES:-0}}"
-RUN_SECONDS="${RUN_SECONDS:-150}"
-TAG="${TAG:-v2}"
+RUN_SECONDS="${RUN_SECONDS:-300}"     # steady-state measurement window
+WARMUP="${WARMUP:-60}"                # skip the first checkpoint cycle (60s interval)
+CONSUMER_SECONDS=$((WARMUP + RUN_SECONDS))
+PRODUCER_SECONDS=$((CONSUMER_SECONDS + 20))   # produce a bit longer than we measure
+TAG="${TAG:-v3}"
 LABEL="${LABEL:-$ENGINE}"
 mkdir -p results/eks
-echo "==> ENGINE=$ENGINE pods=$PRODPODS rate=$RATE/pod payload=${PAYLOAD_BYTES}B label=$LABEL"
+echo "==> ENGINE=$ENGINE pods=$PRODPODS rate=$RATE/pod payload=${PAYLOAD_BYTES}B label=$LABEL win=${RUN_SECONDS}s warmup=${WARMUP}s"
 
 # ACCOUNT defaults to the caller's account id (for the S3 checkpoint bucket name).
 ACCOUNT="${ACCOUNT:-$(aws sts get-caller-identity --query Account --output text 2>/dev/null)}"
@@ -28,6 +31,8 @@ render() { sed -e "s#__REGISTRY__#$REGISTRY#g" -e "s#__TAG__#$TAG#g" \
                -e "s#__ENGINE__#$LABEL#g" -e "s#__PRODPODS__#$PRODPODS#g" \
                -e "s#__RATE__#$RATE#g" -e "s#__PAYLOAD__#$PAYLOAD_BYTES#g" \
                -e "s#__ACCOUNT__#$ACCOUNT#g" \
+               -e "s#__WARMUP__#$WARMUP#g" -e "s#__CONSUMER_SECONDS__#$CONSUMER_SECONDS#g" \
+               -e "s#__PRODUCER_SECONDS__#$PRODUCER_SECONDS#g" \
                -e "s#/flink-java\"#/flink-java${CKPT_SUFFIX}\"#g" \
                -e "s#/pyflink\"#/pyflink${CKPT_SUFFIX}\"#g" \
                -e "s#/pyspark-rtm\"#/pyspark-rtm${CKPT_SUFFIX}\"#g" "$1"; }
@@ -67,7 +72,7 @@ render eks/jobs/load.yaml | kubectl create -f -
 
 # ---- 4. sample pod CPU/mem + Kafka lag during the run ----
 echo "==> [4/6] Sample CPU/mem + Kafka consumer-group lag"
-( for i in $(seq 1 70); do
+( for i in $(seq 1 140); do
     ts=$(date +%s)
     kubectl top pods -n spark --no-headers 2>/dev/null | sed "s/^/$ts spark /"
     kubectl top pods -n flink --no-headers 2>/dev/null | sed "s/^/$ts flink /"
@@ -79,7 +84,7 @@ TOP=$!
 # Sample input & output topic total end-offsets over time. If the engine keeps up, output
 # grows at input_rate * filter_pass(~0.33); a growing (input_delta - output_delta/0.33)
 # gap = the engine falling behind. Columns: ts in_end out_end
-( for i in $(seq 1 45); do
+( for i in $(seq 1 100); do
     ts=$(date +%s)
     ine=$(kubectl exec -n kafka bench-brokers-0 -- bin/kafka-get-offsets.sh --bootstrap-server localhost:9092 --topic input-events 2>/dev/null | awk -F: '{s+=$3} END{print s}')
     oute=$(kubectl exec -n kafka bench-brokers-0 -- bin/kafka-get-offsets.sh --bootstrap-server localhost:9092 --topic output-events 2>/dev/null | awk -F: '{s+=$3} END{print s}')
@@ -94,7 +99,7 @@ LAG=$!
 echo "==> [5/6] Stream consumer logs + wait (~${RUN_SECONDS}s)"
 ( kubectl -n kafka logs -f job/latency-consumer > results/eks/${LABEL}_consumer.log 2>/dev/null ) &
 LOGF=$!
-kubectl -n kafka wait --for=condition=complete job/latency-consumer --timeout=$((RUN_SECONDS+120))s || \
+kubectl -n kafka wait --for=condition=complete job/latency-consumer --timeout=$((CONSUMER_SECONDS+150))s || \
   kubectl -n kafka wait --for=condition=failed job/latency-consumer --timeout=10s || true
 sleep 3; kill $TOP $LAG $LOGF 2>/dev/null || true
 # Fallback: only if the streamed log didn't capture the summary, try once more by pod.

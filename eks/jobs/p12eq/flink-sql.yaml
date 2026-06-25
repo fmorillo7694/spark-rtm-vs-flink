@@ -1,23 +1,22 @@
-# PyFlink Table API job as a FlinkDeployment (application mode, python entrypoint).
-# Uses the pyflink image (Flink 2.2 + python + apache-flink + sql-kafka connector).
-# Bundle tuning is in the job itself (python.fn-execution.bundle.time=1).
+# Flink SQL (Table API) job as a FlinkDeployment (application mode), parallelism 12 to
+# match input partitions. Schema-based json format + keyed-by-user_id output, so the JSON
+# path and partitioning match Spark RTM. Equal resources to every other engine (13c/14GB).
 apiVersion: flink.apache.org/v1beta1
 kind: FlinkDeployment
 metadata:
   name: flink-bench
   namespace: flink
 spec:
-  image: "__REGISTRY__/rtm-bench/pyflink:__TAG__"
+  image: "__REGISTRY__/rtm-bench/flink:__TAG__"
   imagePullPolicy: Always
   flinkVersion: v2_0
   flinkConfiguration:
-    taskmanager.numberOfTaskSlots: "4"
+    taskmanager.numberOfTaskSlots: "3"
     execution.buffer-timeout: "0 ms"
-    python.fn-execution.bundle.time: "1"
-    python.fn-execution.bundle.size: "1000"
+    state.backend.type: "hashmap"
     execution.checkpointing.interval: "60 s"
     execution.checkpointing.mode: "AT_LEAST_ONCE"
-    state.checkpoints.dir: "s3://rtm-flink-bench-ckpt-__ACCOUNT__/pyflink"
+    state.checkpoints.dir: "s3://rtm-flink-bench-ckpt-__ACCOUNT__/flink-sql"
     restart-strategy.type: "fixed-delay"
     restart-strategy.fixed-delay.attempts: "10"
     restart-strategy.fixed-delay.delay: "2 s"
@@ -30,18 +29,18 @@ spec:
             - name: ENABLE_BUILT_IN_PLUGINS
               value: "flink-s3-fs-presto-2.2.0.jar"
   jobManager:
-    resource: { memory: "2048m", cpu: 1 }
+    resource:
+      memory: "2048m"
+      cpu: 1
   taskManager:
-    replicas: 3
-    resource: { memory: "4096m", cpu: 3 }
+    replicas: 4        # 4 TMs x 3 slots = 12 slots for parallelism 12
+    resource:
+      memory: "3072m"
+      cpu: 3
   job:
-    jarURI: "local:///opt/flink/opt/flink-python-2.2.0.jar"   # python driver shim
-    entryClass: "org.apache.flink.client.python.PythonDriver"
+    jarURI: "local:///opt/flink/usrlib/flink-sql.jar"
+    entryClass: "bench.SqlPipeline"
     args:
-      - "-pyclientexec"
-      - "/usr/bin/python3"
-      - "-py"
-      - "/opt/pyflink/stateless_pipeline.py"
       - "bench-kafka-bootstrap.kafka.svc:9092"
       - "input-events"
       - "output-events"

@@ -31,8 +31,11 @@ test -f spark/scala-rtm/target/scala-2.13/scala-rtm_2.13-0.1.0.jar || { echo "sc
 test -f spark/java-rtm/target/java-rtm.jar || { echo "java jar missing"; exit 1; }
 docker buildx build --platform $PLATFORM -t "$REGISTRY/rtm-bench/spark:$TAG" -f eks/images/spark.Dockerfile . --push
 
-echo "==> [2/4] flink image (Java DataStream jar baked in)"
+echo "==> [2/4] flink image (DataStream + SQL jars baked in)"
 ( cd flink/java-datastream && mvn -q -B package >/tmp/mvn_build.log 2>&1 )
+( cd flink/java-sql && mvn -q -B package >/tmp/mvn_sql_build.log 2>&1 )
+test -f flink/java-datastream/target/flink-stateless.jar || { echo "flink datastream jar missing"; exit 1; }
+test -f flink/java-sql/target/flink-sql.jar || { echo "flink sql jar missing"; exit 1; }
 docker buildx build --platform $PLATFORM -t "$REGISTRY/rtm-bench/flink:$TAG" -f eks/images/flink.Dockerfile . --push
 
 echo "==> [3/4] pyflink image"

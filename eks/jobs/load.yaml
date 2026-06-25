@@ -20,7 +20,7 @@ spec:
           image: "__REGISTRY__/rtm-bench/load:__TAG__"
           command: ["python", "latency_consumer.py"]
           args: ["--engine", "__ENGINE__", "--bootstrap", "bench-kafka-bootstrap.kafka.svc:9092",
-                 "--topic", "output-events", "--warmup", "20", "--seconds", "150", "--outdir", "/tmp"]
+                 "--topic", "output-events", "--warmup", "__WARMUP__", "--seconds", "__CONSUMER_SECONDS__", "--outdir", "/tmp"]
           resources:
             requests: { cpu: "1", memory: 1Gi }
             limits:   { cpu: "2", memory: 2Gi }
@@ -45,7 +45,7 @@ spec:
           image: "__REGISTRY__/rtm-bench/load:__TAG__"
           command: ["python", "producer.py"]
           # each pod emits __RATE__/s at __PAYLOAD__ bytes/event; PRODPODS pods => aggregate
-          args: ["--rate", "__RATE__", "--seconds", "140", "--payload-bytes", "__PAYLOAD__",
+          args: ["--rate", "__RATE__", "--seconds", "__PRODUCER_SECONDS__", "--payload-bytes", "__PAYLOAD__",
                  "--bootstrap", "bench-kafka-bootstrap.kafka.svc:9092", "--topic", "input-events"]
           resources:
             requests: { cpu: "1", memory: 512Mi }
