@@ -31,7 +31,7 @@ spec:
       - { name: KAFKA_BOOTSTRAP_INTERNAL, value: "bench-kafka-bootstrap.kafka.svc:9092" }
       - { name: INPUT_TOPIC, value: "input-events" }
       - { name: OUTPUT_TOPIC, value: "output-events" }
-      - { name: RTM_TRIGGER, value: "5 seconds" }
+      - { name: RTM_TRIGGER, value: "60 seconds" }
       - { name: CHECKPOINT_LOCATION, value: "s3a://rtm-flink-bench-ckpt-__ACCOUNT__/pyspark-rtm" }
   executor:
     instances: 4

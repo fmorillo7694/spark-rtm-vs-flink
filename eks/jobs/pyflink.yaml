@@ -15,7 +15,7 @@ spec:
     execution.buffer-timeout: "0 ms"
     python.fn-execution.bundle.time: "1"
     python.fn-execution.bundle.size: "1000"
-    execution.checkpointing.interval: "10 s"
+    execution.checkpointing.interval: "60 s"
     execution.checkpointing.mode: "AT_LEAST_ONCE"
     state.checkpoints.dir: "s3://rtm-flink-bench-ckpt-__ACCOUNT__/pyflink"
     restart-strategy.type: "fixed-delay"
