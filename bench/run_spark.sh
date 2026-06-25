@@ -24,12 +24,12 @@ echo "==> [3/7] Spark cluster up"
 docker compose -f docker-compose.spark.yml up -d >/dev/null
 until [ "$(docker inspect -f '{{.State.Health.Status}}' spark-master 2>/dev/null)" = "healthy" ]; do sleep 2; done
 # writable dirs for ivy + checkpoints on every node (survives recreation)
-for c in spark-master spark-worker-1 spark-worker-2; do
+for c in spark-master spark-worker-1; do
   docker exec -u root "$c" bash -c 'mkdir -p /opt/spark/.ivy2 /tmp/spark-checkpoints && chmod -R 777 /opt/spark/.ivy2 /tmp/spark-checkpoints'
 done
-# wait for 2 workers to register
-until [ "$(curl -s http://localhost:8080/json/ | $PY -c 'import sys,json;print(len(json.load(sys.stdin)["workers"]))' 2>/dev/null)" = "2" ]; do sleep 2; done
-echo "    2 workers registered"
+# wait for the worker (6 cores) to register
+until [ "$(curl -s http://localhost:8080/json/ | $PY -c 'import sys,json;print(len(json.load(sys.stdin)["workers"]))' 2>/dev/null)" = "1" ]; do sleep 2; done
+echo "    1 worker registered (6 cores)"
 
 echo "==> [4/7] Submit $MODE job"
 docker exec -e KAFKA_BOOTSTRAP_INTERNAL="$KAFKA_BOOTSTRAP_INTERNAL" -e INPUT_TOPIC="$INPUT_TOPIC" \
@@ -42,7 +42,7 @@ if ! grep -q 'RtmPipeline]' /tmp/${ENGINE}_submit.log; then
 fi
 
 echo "==> [5/7] Sample docker stats"
-bash bench/collect_stats.sh "results/${ENGINE}_stats.csv" kafka spark-master spark-worker-1 spark-worker-2 &
+bash bench/collect_stats.sh "results/${ENGINE}_stats.csv" kafka spark-master spark-worker-1 &
 STATS_PID=$!
 
 echo "==> [6/7] Produce ${RUN_SECONDS}s @ ${TARGET_RATE}/s + measure latency"
