@@ -1,0 +1,55 @@
+# Flink 2.2 session cluster: 1 JobManager + 1 TaskManager (6 slots, 3072m total).
+# Matched 1:1 to the Spark worker (6 cores, 3072m) for a fair local comparison.
+# Latency-leaning config. Brought up alongside docker-compose.kafka.yml.
+name: spark-flink
+
+networks:
+  bench:
+    name: spark-flink-bench
+    external: true
+
+services:
+  jobmanager:
+    image: ${FLINK_IMAGE:-flink:2.2.0-scala_2.12-java17}
+    container_name: flink-jobmanager
+    hostname: jobmanager
+    networks: [bench]
+    command: jobmanager
+    ports:
+      - "8081:8081"   # Flink web UI
+    environment:
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 6
+        parallelism.default: 6
+        execution.buffer-timeout: 0ms
+        rest.flamegraph.enabled: true
+    volumes:
+      - ./flink:/workspace/flink:ro
+      - ./results:/workspace/results
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8081/overview >/dev/null || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+
+  taskmanager:
+    image: ${FLINK_IMAGE:-flink:2.2.0-scala_2.12-java17}
+    container_name: flink-taskmanager
+    hostname: taskmanager
+    networks: [bench]
+    depends_on:
+      jobmanager:
+        condition: service_healthy
+    command: taskmanager
+    environment:
+      FLINK_PROPERTIES: |
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 6
+        taskmanager.memory.process.size: 3072m
+        parallelism.default: 6
+        execution.buffer-timeout: 0ms
+    volumes:
+      - ./flink:/workspace/flink:ro
+      - ./results:/workspace/results

@@ -1,0 +1,47 @@
+# Spark RTM SparkApplication template — works for both Scala and Java mains via __MAINCLASS__/
+# __JAR__/__TYPE__ substitution. Driver+executors sized so 12 input partitions get >=1 core.
+apiVersion: sparkoperator.k8s.io/v1beta2
+kind: SparkApplication
+metadata:
+  name: rtm-bench
+  namespace: spark
+spec:
+  type: __TYPE__
+  mode: cluster
+  image: "__REGISTRY__/rtm-bench/spark:__TAG__"
+  imagePullPolicy: Always
+  mainClass: __MAINCLASS__
+  mainApplicationFile: "__JAR__"
+  sparkVersion: "4.1.2"
+  arguments:
+    - "rtm"
+    - "bench-kafka-bootstrap.kafka.svc:9092"
+    - "input-events"
+    - "output-events"
+    - "s3a://rtm-flink-bench-ckpt-__ACCOUNT__/__CKPTNAME__"
+    - "60 seconds"
+  sparkConf:
+    spark.sql.adaptive.enabled: "false"
+    spark.sql.shuffle.partitions: "6"
+    spark.hadoop.fs.s3a.aws.credentials.provider: "software.amazon.awssdk.auth.credentials.WebIdentityTokenFileCredentialsProvider"
+  # Fault tolerance: on driver/executor failure the operator restarts the driver, which
+  # resumes the RTM query from checkpointLocation (the production recovery path).
+  restartPolicy:
+    type: OnFailure
+    onFailureRetries: 5
+    onFailureRetryInterval: 5
+    onSubmissionFailureRetries: 3
+    onSubmissionFailureRetryInterval: 5
+  # Pod-total memory is set to EXACTLY match Flink's JM/TM pods (driver 2048m, executor
+  # 6144m): Spark pod memory = memory + memoryOverhead, so we split each so the sum equals
+  # Flink's figure. Cores match too (1 driver + 2×3 executor = 7, = Flink's 1 JM + 2×3 TM).
+  driver:
+    cores: 1
+    memory: "1536m"
+    memoryOverhead: "512m"     # 1536 + 512 = 2048m pod, = Flink JobManager
+    serviceAccount: spark-operator-spark
+  executor:
+    instances: 2
+    cores: 3
+    memory: "5120m"
+    memoryOverhead: "1024m"    # 5120 + 1024 = 6144m pod, = Flink TaskManager
