@@ -1,0 +1,25 @@
+{
+  "engine": "spark-rtm-java-p12eq",
+  "topic": "output-events",
+  "kept_records": 10001122,
+  "seen_records": 11935036,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 33337.1,
+  "pipeline_ms": {
+    "count": 10001122,
+    "p50": 9.032,
+    "p95": 51.861,
+    "p99": 1298.769,
+    "max": 5274.811,
+    "mean": 53.823
+  },
+  "e2e_ms": {
+    "count": 10001122,
+    "p50": 44.286,
+    "p95": 488.392,
+    "p99": 2173.794,
+    "max": 6709.533,
+    "mean": 128.496
+  }
+}
