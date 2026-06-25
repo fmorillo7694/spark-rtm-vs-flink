@@ -19,16 +19,25 @@ echo "==> [2/6] PyFlink cluster up (image: pyflink-bench:2.2.0)"
 docker image inspect pyflink-bench:2.2.0 >/dev/null 2>&1 || { echo "!! build first: docker build -t pyflink-bench:2.2.0 flink/pyflink/"; exit 1; }
 docker compose -f docker-compose.pyflink.yml up -d >/dev/null
 until [ "$(docker inspect -f '{{.State.Health.Status}}' flink-jobmanager 2>/dev/null)" = "healthy" ]; do sleep 2; done
-until [ "$(curl -s http://localhost:8081/overview | $PY -c 'import sys,json;print(json.load(sys.stdin)["slots-total"])' 2>/dev/null)" -ge 3 ] 2>/dev/null; do sleep 2; done
+until [ "$(curl -s http://localhost:8081/overview | $PY -c 'import sys,json;print(json.load(sys.stdin)["slots-total"])' 2>/dev/null)" -ge 6 ] 2>/dev/null; do sleep 2; done
 echo "    taskmanager slots ready"
 
 echo "==> [3/6] Submit PyFlink job"
+# The Table API INSERT ... .wait() keeps the `flink run --python` client alive, so run the
+# submit in the BACKGROUND and discover the JobID + RUNNING state from the REST API.
 docker exec -e KAFKA_BOOTSTRAP_INTERNAL="$KAFKA_BOOTSTRAP_INTERNAL" -e INPUT_TOPIC="$INPUT_TOPIC" \
   -e OUTPUT_TOPIC="$OUTPUT_TOPIC" -e TOPIC_PARTITIONS="$TOPIC_PARTITIONS" \
-  flink-jobmanager bash /workspace/flink/submit-pyflink.sh >/tmp/pyflink_submit.log 2>&1
-JOBID=$(grep -oE 'JobID [a-f0-9]+' /tmp/pyflink_submit.log | awk '{print $2}')
-echo "    JobID=$JOBID"; sleep 12
-STATE=$(curl -s http://localhost:8081/jobs/overview | $PY -c 'import sys,json;j=json.load(sys.stdin)["jobs"];print(j[0]["state"] if j else "NONE")' 2>/dev/null || echo UNKNOWN)
+  -e CHECKPOINT_MS="${FLINK_CHECKPOINT_MS:-0}" \
+  flink-jobmanager bash /workspace/flink/submit-pyflink.sh >/tmp/pyflink_submit.log 2>&1 &
+SUBMIT_PID=$!
+STATE=UNKNOWN
+for i in $(seq 1 40); do
+  STATE=$(curl -s http://localhost:8081/jobs/overview | $PY -c 'import sys,json;j=json.load(sys.stdin)["jobs"];print(j[0]["state"] if j else "NONE")' 2>/dev/null || echo UNKNOWN)
+  JOBID=$(curl -s http://localhost:8081/jobs/overview | $PY -c 'import sys,json;j=json.load(sys.stdin)["jobs"];print(j[0]["jid"] if j else "")' 2>/dev/null || echo "")
+  [ "$STATE" = "RUNNING" ] && break
+  sleep 2
+done
+echo "    JobID=$JOBID state=$STATE"
 [ "$STATE" = "RUNNING" ] || { echo "!! job not RUNNING ($STATE)"; tail -20 /tmp/pyflink_submit.log; exit 1; }
 
 echo "==> [4/6] Sample docker stats"
@@ -45,6 +54,7 @@ kill $STATS_PID 2>/dev/null || true
 
 echo "==> [6/6] Cancel job + tear down (Kafka stays up)"
 [ -n "$JOBID" ] && docker exec flink-jobmanager /opt/flink/bin/flink cancel "$JOBID" >/dev/null 2>&1 || true
+kill "$SUBMIT_PID" 2>/dev/null || true   # the backgrounded blocking submit client
 docker compose -f docker-compose.pyflink.yml down >/dev/null 2>&1
 
 echo "==> DONE. Latency summary:"

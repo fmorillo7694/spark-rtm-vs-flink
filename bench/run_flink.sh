@@ -21,12 +21,13 @@ echo "==> [2/7] Build Flink jar"
 echo "==> [3/7] Flink cluster up"
 docker compose -f docker-compose.flink.yml up -d >/dev/null
 until [ "$(docker inspect -f '{{.State.Health.Status}}' flink-jobmanager 2>/dev/null)" = "healthy" ]; do sleep 2; done
-until [ "$(curl -s http://localhost:8081/overview | $PY -c 'import sys,json;print(json.load(sys.stdin)["slots-total"])' 2>/dev/null)" -ge 3 ] 2>/dev/null; do sleep 2; done
+until [ "$(curl -s http://localhost:8081/overview | $PY -c 'import sys,json;print(json.load(sys.stdin)["slots-total"])' 2>/dev/null)" -ge 6 ] 2>/dev/null; do sleep 2; done
 echo "    taskmanager slots ready"
 
 echo "==> [4/7] Submit job"
 docker exec -e KAFKA_BOOTSTRAP_INTERNAL="$KAFKA_BOOTSTRAP_INTERNAL" -e INPUT_TOPIC="$INPUT_TOPIC" \
   -e OUTPUT_TOPIC="$OUTPUT_TOPIC" -e TOPIC_PARTITIONS="$TOPIC_PARTITIONS" \
+  -e CHECKPOINT_MS="${FLINK_CHECKPOINT_MS:-0}" \
   flink-jobmanager bash /workspace/flink/submit-flink.sh >/tmp/flink_submit.log 2>&1
 JOBID=$(grep -oE 'JobID [a-f0-9]+' /tmp/flink_submit.log | awk '{print $2}')
 echo "    JobID=$JOBID"; sleep 8

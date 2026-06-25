@@ -1,4 +1,5 @@
-# Flink 2.2 session cluster: 1 JobManager + 1 TaskManager (4 slots).
+# Flink 2.2 session cluster: 1 JobManager + 1 TaskManager (6 slots, 3072m total).
+# Matched 1:1 to the Spark worker (6 cores, 3072m) for a fair local comparison.
 # Latency-leaning config. Brought up alongside docker-compose.kafka.yml.
 name: spark-flink
 
@@ -19,8 +20,8 @@ services:
     environment:
       FLINK_PROPERTIES: |
         jobmanager.rpc.address: jobmanager
-        taskmanager.numberOfTaskSlots: 4
-        parallelism.default: 3
+        taskmanager.numberOfTaskSlots: 6
+        parallelism.default: 6
         execution.buffer-timeout: 0ms
         rest.flamegraph.enabled: true
     volumes:
@@ -45,9 +46,9 @@ services:
     environment:
       FLINK_PROPERTIES: |
         jobmanager.rpc.address: jobmanager
-        taskmanager.numberOfTaskSlots: 4
-        taskmanager.memory.process.size: 2560m
-        parallelism.default: 3
+        taskmanager.numberOfTaskSlots: 6
+        taskmanager.memory.process.size: 3072m
+        parallelism.default: 6
         execution.buffer-timeout: 0ms
     volumes:
       - ./flink:/workspace/flink:ro

@@ -1,5 +1,7 @@
-# Spark 4.1.2 standalone cluster: 1 master + 2 workers (4 cores each = 8 worker cores).
-# Honors the article's "one core per input partition" rule (3 partitions -> >=3 cores).
+# Spark 4.1.2 standalone cluster: 1 master + 1 worker (6 cores), matched 1:1 to Flink's
+# single TaskManager (6 slots) for a 6-partition stateless input. Parallelism 6 on both
+# engines; one core/slot per partition. Worker memory is capped to 3072m total to equal
+# Flink's taskmanager.memory.process.size (see submit-rtm.sh for the heap+overhead split).
 # JupyterLab is the driver host used by the PySpark py4j RTM demo.
 #
 # Brought up alongside docker-compose.kafka.yml (shared `spark-flink-bench` network).
@@ -36,7 +38,8 @@ services:
       retries: 20
       start_period: 10s
 
-  spark-worker-1: &worker
+  # Single worker, 6 cores, 3072m total — matched 1:1 to Flink's single 6-slot TaskManager.
+  spark-worker-1:
     image: ${SPARK_IMAGE:-apache/spark:4.1.2-scala2.13-java17-ubuntu}
     container_name: spark-worker-1
     hostname: spark-worker-1
@@ -48,20 +51,12 @@ services:
       SPARK_NO_DAEMONIZE: "true"
     command: >
       /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
-      spark://spark-master:7077 --cores 4 --memory 2g --webui-port 8081
+      spark://spark-master:7077 --cores 6 --memory 3072m --webui-port 8081
     volumes:
       - ./spark:/workspace/spark:ro
       - ./results:/workspace/results
       - spark-ivy:/opt/spark/.ivy2
       - spark-ckpt:/tmp/spark-checkpoints
-
-  spark-worker-2:
-    <<: *worker
-    container_name: spark-worker-2
-    hostname: spark-worker-2
-    command: >
-      /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
-      spark://spark-master:7077 --cores 4 --memory 2g --webui-port 8081
 
   # Driver host for the PySpark py4j RTM demo. Built-in PySpark matches the cluster.
   jupyter:
