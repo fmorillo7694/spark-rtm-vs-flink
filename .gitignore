@@ -18,6 +18,7 @@ flink/java-sql/target/
 
 # EKS local/generated state (secrets & machine-specific)
 eks/kubeconfig
+eks/kubeconfig.*
 eks/.registry.env
 eks/cluster.rendered.yaml
 
@@ -32,9 +33,32 @@ sbt_build.log
 mvn_build.log
 !results/eks/*_consumer.log
 eks/cluster.local.yaml
+eks/cluster.*.local.yaml
 PUBLISHING_KIT.md
 eks/02b_irsa_s3.local.sh
 .DS_Store
 **/.DS_Store
 dependency-reduced-pom.xml
-results/eks/_archive_run1/
+
+# Local 4.3 matrix: raw per-record dumps and runner logs stay local
+results/local-4.3/*_latency.csv*
+results/local-4.3/logs/
+
+# EKS 4.3 matrix runner logs stay local
+results/eks-4.3/logs/
+
+# Stateful runs: raw captures, per-record dumps and runner logs stay local
+results/local-stateful/captures/
+results/local-stateful/logs/
+results/local-stateful/**/*_latency.csv
+results/local-stateful/**/*_latency.csv.gz
+results/eks-stateful/logs/
+# session D: 45-min truth-sample files (~650 MB) stay in S3 (runner prefix in RESULTS.md); verdicts are in scaling.json
+results/eks-session-d/runs/*/truth.jsonl
+results/eks-session-d/runs/*/maxcnt.json
+results/eks-session-d2/**/truth.jsonl
+results/eks-session-d2/**/maxcnt.json
+# final run: raw sampler / truth files stay in S3 (runner prefixes in results/final-run/RESULTS.md)
+results/final-run/**/cadvisor.jsonl
+results/final-run/**/truth.jsonl
+results/final-run/**/maxcnt.json

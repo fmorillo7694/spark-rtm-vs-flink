@@ -1,0 +1,20 @@
+spark ip-192-168-89-69.ec2.internal stateful-bench-driver
+spark ip-192-168-89-69.ec2.internal stateful-bench-s4-rtm-8d7e86a1c6f048f6-exec-1
+spark ip-192-168-106-68.ec2.internal stateful-bench-s4-rtm-8d7e86a1c6f048f6-exec-2
+kafka ip-192-168-79-70.ec2.internal bench-brokers-0
+kafka ip-192-168-124-132.ec2.internal bench-brokers-1
+kafka ip-192-168-73-120.ec2.internal bench-brokers-2
+kafka ip-192-168-112-100.ec2.internal bench-entity-operator-9c457c8cc-ttwzx
+kafka ip-192-168-112-100.ec2.internal st-consumer-czlx5
+kafka ip-192-168-124-132.ec2.internal st-producer-0-wpnfd
+kafka ip-192-168-79-70.ec2.internal st-producer-1-nnkwv
+kafka ip-192-168-73-120.ec2.internal st-producer-2-qhtwv
+kafka ip-192-168-79-70.ec2.internal st-producer-3-vcp44
+kafka ip-192-168-124-132.ec2.internal st-producer-4-ndr8p
+kafka ip-192-168-73-120.ec2.internal st-producer-5-v6vzm
+kafka ip-192-168-112-100.ec2.internal st-producer-6-97dkf
+kafka ip-192-168-112-100.ec2.internal st-producer-7-x2knx
+kafka ip-192-168-112-100.ec2.internal st-ref-load-xp8fw
+kafka ip-192-168-112-100.ec2.internal stateful-runner-btgvw
+kafka ip-192-168-112-100.ec2.internal strimzi-cluster-operator-8455547d9f-vczq2
+engine_nodes=dedicated shared_with_kafka_ns=[]

@@ -1,0 +1,107 @@
+# Session D (scaling) Flink DataStream S1 job: the same job and pod sizes as
+# flink-stateful-datastream.yaml (JM 1c / 2048m, TMs 3c / 6144m, 3 slots each), on a 24-partition
+# topic (scale-topics.yaml), max parallelism 120. Arms (eks/stateful/run_matrix_incluster.sh):
+#   flink-auto     native + adaptive scheduler + operator job autoscaler (in-place rescale),
+#                  starts at parallelism 6 (2 TMs), vertices 3..12
+#   flink-auto-ro  the same, autoscaler in report-only mode (job.autoscaler.scaling.enabled false)
+#   flink-reactive standalone application mode + scheduler-mode reactive; TM replicas (start 2)
+#                  driven by the HPA in hpa-reactive.yaml through the FlinkDeployment scale
+#                  subresource
+#   flink-peak     native, static parallelism 12 (= 4 TMs), the peak-sized baseline
+# Native arms drop the taskManager.replicas line (the runner deletes it): the JobManager sizes
+# the TaskManager count from the parallelism.
+# Autoscaler timings are shortened so a decision fits a 17-20 min load phase (defaults:
+# stabilization 5 min, window 15 min, scale-down interval 1 h; see SCALING_PLAN.md).
+# last-state upgrades (a rescale the operator cannot do in place falls back to a restart from
+# the latest checkpoint, never a stateless one) need Kubernetes HA; its metadata goes next to the
+# run's checkpoints. Engine pods carry safe-to-evict=false: Cluster Autoscaler then removes only
+# empty engine nodes and never evicts a running JobManager or TaskManager to consolidate.
+# Placeholders: those of flink-stateful-datastream.yaml plus native (native|standalone)
+#   jobmanager.scheduler/adaptive true true 6 2
+apiVersion: flink.apache.org/v1beta1
+kind: FlinkDeployment
+metadata:
+  name: flink-stateful
+  namespace: flink
+  labels: { bench: stateful }
+spec:
+  image: "<ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/flink:v43d"
+  imagePullPolicy: Always
+  flinkVersion: v2_3
+  mode: native
+  flinkConfiguration:
+    taskmanager.numberOfTaskSlots: "3"
+    execution.buffer-timeout: "0 ms"
+    restart-strategy.type: "fixed-delay"
+    restart-strategy.fixed-delay.attempts: "100"
+    restart-strategy.fixed-delay.delay: "2 s"
+    pipeline.max-parallelism: "120"
+    # the job sets the same dir in code; the operator requires it in the spec for last-state
+    execution.checkpointing.dir: "s3://<BUCKET>/stateful/flink-auto-s1-update-scalein-r1-1794404494"
+    high-availability.type: "kubernetes"
+    high-availability.storageDir: "s3://<BUCKET>/stateful/flink-auto-s1-update-scalein-r1-1794404494/ha"
+    jobmanager.scheduler: "adaptive"
+    job.autoscaler.enabled: "true"
+    job.autoscaler.scaling.enabled: "true"
+    job.autoscaler.stabilization.interval: "2 min"
+    job.autoscaler.metrics.window: "4 min"
+    job.autoscaler.scale-down.interval: "6 min"
+    job.autoscaler.restart.time: "1 min"
+    job.autoscaler.restart.time-tracking.enabled: "true"
+    job.autoscaler.catch-up.duration: "5 min"
+    job.autoscaler.vertex.max-parallelism: "12"
+    job.autoscaler.vertex.min-parallelism: "3"
+  serviceAccount: flink
+  podTemplate:
+    metadata:
+      annotations: { cluster-autoscaler.kubernetes.io/safe-to-evict: "false" }
+    spec:
+      nodeSelector: { bench/role: engine }
+      tolerations: [{ key: bench/role, operator: Equal, value: engine, effect: NoSchedule }]
+      containers:
+        - name: flink-main-container
+          env:
+            - name: ENABLE_BUILT_IN_PLUGINS
+              value: "flink-s3-fs-presto-2.3.0.jar"
+  jobManager:
+    # standalone (flink-reactive) only, uncommented by the runner: the operator mounts an empty
+    # user-lib-dir over /opt/flink/usrlib on the standalone JobManager, hiding the baked job jar
+    # (ClassNotFoundException bench.StatefulDataStream, session D reactive r1), so copy it in.
+    # TaskManagers get the code from the JobManager and have no user-lib-dir volume.
+#JMUSRLIB#    podTemplate: { spec: { initContainers: [ { name: usrlib, image: "<ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/flink:v43d", command: [sh, -c, "cp /opt/flink/usrlib/flink-stateless.jar /mnt/usrlib/"], volumeMounts: [ { name: user-lib-dir, mountPath: /mnt/usrlib } ] } ] } }
+    resource:
+      memory: "2048m"
+      cpu: 1
+  taskManager:
+    podTemplate:
+      spec:
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector: { matchLabels: { component: taskmanager } }
+                topologyKey: kubernetes.io/hostname
+    resource:
+      memory: "6144m"
+      cpu: 3
+  job:
+    jarURI: "local:///opt/flink/usrlib/flink-stateless.jar"
+    entryClass: "bench.StatefulDataStream"
+    args:
+      - "s1-update"
+      - "bench-kafka-bootstrap.kafka.svc:9092"
+      - "st-input"
+      - "st-output"
+      - "6"
+      - "60000"
+      - "s3://<BUCKET>/stateful/flink-auto-s1-update-scalein-r1-1794404494"
+      - "AT_LEAST_ONCE"
+      - "latest"
+      - "5"
+      - "10"
+      - "5000"
+      - "5000"
+      - "0"
+      - ""
+      - "10"
+    parallelism: 6
+    upgradeMode: last-state

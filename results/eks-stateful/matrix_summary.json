@@ -1,0 +1,2758 @@
+{
+  "flink-ds-bt100:s1-update": [
+    {
+      "run": 1,
+      "kept": 14879972,
+      "eps": 49599.9,
+      "pipe": {
+        "count": 14879972,
+        "p50": 55.308,
+        "p95": 204.267,
+        "p99": 1378.812,
+        "max": 2510.678,
+        "mean": 93.602
+      },
+      "e2e": {
+        "count": 14879972,
+        "p50": 79.299,
+        "p95": 246.099,
+        "p99": 1402.32,
+        "max": 2529.59,
+        "mean": 117.717
+      },
+      "win": {
+        "count": 14879972,
+        "p50": -4943.0,
+        "p95": -300.0,
+        "p99": 52.0,
+        "max": 440.0,
+        "mean": -4906.237
+      },
+      "res": {
+        "cpu_mean": 1.98,
+        "cpu_peak": 3.6,
+        "mem_mean_gb": 5.62,
+        "mem_peak_gb": 6.13,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 2200.0,
+        "near_max": 2500.0,
+        "far_p99": 260.0,
+        "far_max": 470.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848496 vs input 18848496 (diff 0)"
+    },
+    {
+      "run": 2,
+      "kept": 14881516,
+      "eps": 49605.1,
+      "pipe": {
+        "count": 14881516,
+        "p50": 56.138,
+        "p95": 271.869,
+        "p99": 1727.953,
+        "max": 2908.216,
+        "mean": 109.975
+      },
+      "e2e": {
+        "count": 14881516,
+        "p50": 81.745,
+        "p95": 305.217,
+        "p99": 1755.702,
+        "max": 3033.012,
+        "mean": 135.462
+      },
+      "win": {
+        "count": 14881516,
+        "p50": -4825.0,
+        "p95": -443.0,
+        "p99": -42.0,
+        "max": 112.0,
+        "mean": -4889.871
+      },
+      "res": {
+        "cpu_mean": 2.06,
+        "cpu_peak": 4.48,
+        "mem_mean_gb": 5.73,
+        "mem_peak_gb": 6.2,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 2500.0,
+        "near_max": 2900.0,
+        "far_p99": 240.0,
+        "far_max": 520.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848496 vs input 18848496 (diff 0)"
+    },
+    {
+      "run": 3,
+      "kept": 14881131,
+      "eps": 49603.8,
+      "pipe": {
+        "count": 14881131,
+        "p50": 55.154,
+        "p95": 187.359,
+        "p99": 1341.01,
+        "max": 2525.782,
+        "mean": 91.736
+      },
+      "e2e": {
+        "count": 14881131,
+        "p50": 79.334,
+        "p95": 230.369,
+        "p99": 1367.127,
+        "max": 2549.312,
+        "mean": 116.048
+      },
+      "win": {
+        "count": 14881131,
+        "p50": -4941.0,
+        "p95": -441.0,
+        "p99": -41.0,
+        "max": 126.0,
+        "mean": -4908.183
+      },
+      "res": {
+        "cpu_mean": 1.95,
+        "cpu_peak": 4.21,
+        "mem_mean_gb": 5.66,
+        "mem_peak_gb": 6.21,
+        "pods": 3,
+        "samples": 73
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 2200.0,
+        "near_max": 2500.0,
+        "far_p99": 250.0,
+        "far_max": 510.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848496 vs input 18848496 (diff 0)"
+    }
+  ],
+  "flink-ds-bt100:s2": [
+    {
+      "run": 1,
+      "kept": 14881809,
+      "eps": 49606.0,
+      "pipe": {
+        "count": 14881809,
+        "p50": 51.768,
+        "p95": 102.307,
+        "p99": 263.746,
+        "max": 1572.194,
+        "mean": 59.787
+      },
+      "e2e": {
+        "count": 14881809,
+        "p50": 75.819,
+        "p95": 130.059,
+        "p99": 294.929,
+        "max": 1598.778,
+        "mean": 83.141
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 1.6,
+        "cpu_peak": 4.21,
+        "mem_mean_gb": 5.34,
+        "mem_peak_gb": 5.63,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1140.0,
+        "near_max": 1570.0,
+        "far_p99": 100.0,
+        "far_max": 210.0
+      },
+      "inv": true,
+      "inv_why": "out 18848496 vs unique 18848496 (diff 0)"
+    },
+    {
+      "run": 2,
+      "kept": 14881026,
+      "eps": 49603.4,
+      "pipe": {
+        "count": 14881026,
+        "p50": 51.841,
+        "p95": 102.422,
+        "p99": 281.401,
+        "max": 1598.355,
+        "mean": 60.117
+      },
+      "e2e": {
+        "count": 14881026,
+        "p50": 76.426,
+        "p95": 130.906,
+        "p99": 303.358,
+        "max": 1622.106,
+        "mean": 84.139
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 1.67,
+        "cpu_peak": 4.3,
+        "mem_mean_gb": 5.34,
+        "mem_peak_gb": 5.62,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1160.0,
+        "near_max": 1590.0,
+        "far_p99": 100.0,
+        "far_max": 180.0
+      },
+      "inv": true,
+      "inv_why": "out 18848496 vs unique 18848496 (diff 0)"
+    },
+    {
+      "run": 3,
+      "kept": 14880158,
+      "eps": 49600.5,
+      "pipe": {
+        "count": 14880158,
+        "p50": 51.905,
+        "p95": 102.429,
+        "p99": 234.982,
+        "max": 1472.132,
+        "mean": 59.456
+      },
+      "e2e": {
+        "count": 14880158,
+        "p50": 76.503,
+        "p95": 130.736,
+        "p99": 264.897,
+        "max": 1497.281,
+        "mean": 83.174
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 1.6,
+        "cpu_peak": 3.06,
+        "mem_mean_gb": 5.34,
+        "mem_peak_gb": 5.62,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1100.0,
+        "near_max": 1470.0,
+        "far_p99": 100.0,
+        "far_max": 170.0
+      },
+      "inv": true,
+      "inv_why": "out 18848496 vs unique 18848496 (diff 0)"
+    }
+  ],
+  "flink-ds-bt100:s3": [
+    {
+      "run": 1,
+      "kept": 11737745,
+      "eps": 39125.8,
+      "pipe": {
+        "count": 11737745,
+        "p50": 69.987,
+        "p95": 3135.938,
+        "p99": 4404.234,
+        "max": 6069.563,
+        "mean": 468.621
+      },
+      "e2e": {
+        "count": 11737745,
+        "p50": 95.065,
+        "p95": 3189.958,
+        "p99": 4454.687,
+        "max": 6089.783,
+        "mean": 503.407
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.42,
+        "cpu_peak": 5.58,
+        "mem_mean_gb": 5.97,
+        "mem_peak_gb": 6.74,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.97,
+        "near_p99": 4500.0,
+        "near_max": 4800.0,
+        "far_p99": 4300.0,
+        "far_max": 6000.0
+      },
+      "inv": null,
+      "inv_why": "out 14898073, input 18848496 (count not checkable)"
+    },
+    {
+      "run": 2,
+      "kept": 11737367,
+      "eps": 39124.6,
+      "pipe": {
+        "count": 11737367,
+        "p50": 69.394,
+        "p95": 3078.915,
+        "p99": 4399.438,
+        "max": 6495.958,
+        "mean": 465.685
+      },
+      "e2e": {
+        "count": 11737367,
+        "p50": 94.19,
+        "p95": 3115.562,
+        "p99": 4444.068,
+        "max": 6508.474,
+        "mean": 495.357
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.31,
+        "cpu_peak": 5.62,
+        "mem_mean_gb": 5.98,
+        "mem_peak_gb": 6.81,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 7.05,
+        "near_p99": 4500.0,
+        "near_max": 5000.0,
+        "far_p99": 4300.0,
+        "far_max": 6400.0
+      },
+      "inv": null,
+      "inv_why": "out 14896709, input 18848496 (count not checkable)"
+    },
+    {
+      "run": 3,
+      "kept": 11739755,
+      "eps": 39132.5,
+      "pipe": {
+        "count": 11739755,
+        "p50": 68.253,
+        "p95": 3152.834,
+        "p99": 4405.112,
+        "max": 6197.99,
+        "mean": 468.621
+      },
+      "e2e": {
+        "count": 11739755,
+        "p50": 93.042,
+        "p95": 3215.741,
+        "p99": 4455.094,
+        "max": 6214.722,
+        "mean": 505.398
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.45,
+        "cpu_peak": 5.72,
+        "mem_mean_gb": 6.03,
+        "mem_peak_gb": 6.84,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 7.14,
+        "near_p99": 4500.0,
+        "near_max": 4800.0,
+        "far_p99": 4300.0,
+        "far_max": 6100.0
+      },
+      "inv": null,
+      "inv_why": "out 14901944, input 18848434 (count not checkable)"
+    }
+  ],
+  "flink-ds-eo:s2": [
+    {
+      "run": 1,
+      "kept": 14880266,
+      "eps": 49600.9,
+      "pipe": {
+        "count": 14880266,
+        "p50": 6.844,
+        "p95": 10.092,
+        "p99": 335.936,
+        "max": 1688.127,
+        "mean": 16.088
+      },
+      "e2e": {
+        "count": 14880266,
+        "p50": 43948.027,
+        "p95": 60270.637,
+        "p99": 61783.595,
+        "max": 62860.387,
+        "mean": 43850.281
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.35,
+        "cpu_peak": 6.02,
+        "mem_mean_gb": 5.36,
+        "mem_peak_gb": 5.66,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1340.0,
+        "near_max": 1680.0,
+        "far_p99": 21.0,
+        "far_max": 130.0
+      },
+      "inv": true,
+      "inv_why": "out 18848562 - unique 18848310 = 252 (markers <= 324)"
+    },
+    {
+      "run": 2,
+      "kept": 14879578,
+      "eps": 49598.6,
+      "pipe": {
+        "count": 14879578,
+        "p50": 6.824,
+        "p95": 9.846,
+        "p99": 308.219,
+        "max": 1768.999,
+        "mean": 15.574
+      },
+      "e2e": {
+        "count": 14879578,
+        "p50": 43864.699,
+        "p95": 60359.2,
+        "p99": 61853.024,
+        "max": 63217.047,
+        "mean": 43760.478
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.29,
+        "cpu_peak": 5.98,
+        "mem_mean_gb": 5.41,
+        "mem_peak_gb": 5.66,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.66,
+        "near_p99": 1300.0,
+        "near_max": 1760.0,
+        "far_p99": 22.0,
+        "far_max": 100.0
+      },
+      "inv": true,
+      "inv_why": "out 18848624 - unique 18848372 = 252 (markers <= 324)"
+    }
+  ],
+  "flink-ds:s1-update": [
+    {
+      "run": 1,
+      "kept": 14880764,
+      "eps": 49602.5,
+      "pipe": {
+        "count": 14880764,
+        "p50": 6.809,
+        "p95": 182.495,
+        "p99": 1499.918,
+        "max": 2901.724,
+        "mean": 53.644
+      },
+      "e2e": {
+        "count": 14880764,
+        "p50": 27.546,
+        "p95": 218.148,
+        "p99": 1525.058,
+        "max": 2920.838,
+        "mean": 75.207
+      },
+      "win": {
+        "count": 14880764,
+        "p50": -4992.0,
+        "p95": -493.0,
+        "p99": -92.0,
+        "max": 8.0,
+        "mean": -4945.687
+      },
+      "res": {
+        "cpu_mean": 3.39,
+        "cpu_peak": 5.19,
+        "mem_mean_gb": 5.68,
+        "mem_peak_gb": 6.26,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 2400.0,
+        "near_max": 2900.0,
+        "far_p99": 210.0,
+        "far_max": 470.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848496 vs input 18848496 (diff 0)"
+    },
+    {
+      "run": 2,
+      "kept": 14880661,
+      "eps": 49602.2,
+      "pipe": {
+        "count": 14880661,
+        "p50": 6.88,
+        "p95": 152.406,
+        "p99": 1360.273,
+        "max": 2582.523,
+        "mean": 47.836
+      },
+      "e2e": {
+        "count": 14880661,
+        "p50": 27.441,
+        "p95": 193.521,
+        "p99": 1390.262,
+        "max": 2627.821,
+        "mean": 69.643
+      },
+      "win": {
+        "count": 14880661,
+        "p50": -4992.0,
+        "p95": -359.0,
+        "p99": -22.0,
+        "max": 416.0,
+        "mean": -4953.59
+      },
+      "res": {
+        "cpu_mean": 3.56,
+        "cpu_peak": 6.01,
+        "mem_mean_gb": 5.68,
+        "mem_peak_gb": 6.12,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 2200.0,
+        "near_max": 2500.0,
+        "far_p99": 210.0,
+        "far_max": 470.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848372 vs input 18848372 (diff 0)"
+    },
+    {
+      "run": 3,
+      "kept": 14880386,
+      "eps": 49601.3,
+      "pipe": {
+        "count": 14880386,
+        "p50": 6.937,
+        "p95": 155.273,
+        "p99": 1404.866,
+        "max": 2760.409,
+        "mean": 49.435
+      },
+      "e2e": {
+        "count": 14880386,
+        "p50": 27.442,
+        "p95": 196.705,
+        "p99": 1429.589,
+        "max": 2787.258,
+        "mean": 71.032
+      },
+      "win": {
+        "count": 14880386,
+        "p50": -4993.0,
+        "p95": -281.0,
+        "p99": 524.0,
+        "max": 1314.0,
+        "mean": -4950.092
+      },
+      "res": {
+        "cpu_mean": 3.4,
+        "cpu_peak": 6.01,
+        "mem_mean_gb": 5.64,
+        "mem_peak_gb": 6.14,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 2300.0,
+        "near_max": 2700.0,
+        "far_p99": 200.0,
+        "far_max": 440.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848434 vs input 18848434 (diff 0)"
+    }
+  ],
+  "flink-ds:s1-window": [
+    {
+      "run": 1,
+      "kept": 11732167,
+      "eps": 39107.2,
+      "pipe": {
+        "count": 11732167,
+        "p50": 10112.764,
+        "p95": 15087.683,
+        "p99": 15799.724,
+        "max": 17988.203,
+        "mean": 10309.513
+      },
+      "e2e": {
+        "count": 11732167,
+        "p50": 11307.417,
+        "p95": 16546.82,
+        "p99": 17658.45,
+        "max": 19108.424,
+        "mean": 11484.179
+      },
+      "win": {
+        "count": 11732167,
+        "p50": 5658.0,
+        "p95": 6612.0,
+        "p99": 7260.0,
+        "max": 7995.0,
+        "mean": 5720.382
+      },
+      "res": {
+        "cpu_mean": 3.15,
+        "cpu_peak": 5.06,
+        "mem_mean_gb": 5.96,
+        "mem_peak_gb": 6.65,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.61,
+        "near_p99": 12700.0,
+        "near_max": 13300.0,
+        "far_p99": 15800.0,
+        "far_max": 17900.0
+      },
+      "inv": null,
+      "inv_why": "out 14459757, input 18848496 (count not checkable)"
+    },
+    {
+      "run": 2,
+      "kept": 11732150,
+      "eps": 39107.2,
+      "pipe": {
+        "count": 11732150,
+        "p50": 10040.757,
+        "p95": 15016.916,
+        "p99": 15665.406,
+        "max": 17141.088,
+        "mean": 10239.218
+      },
+      "e2e": {
+        "count": 11732150,
+        "p50": 11280.233,
+        "p95": 16521.776,
+        "p99": 17620.052,
+        "max": 18924.516,
+        "mean": 11457.986
+      },
+      "win": {
+        "count": 11732150,
+        "p50": 5621.0,
+        "p95": 6271.0,
+        "p99": 6731.0,
+        "max": 7150.0,
+        "mean": 5650.124
+      },
+      "res": {
+        "cpu_mean": 3.14,
+        "cpu_peak": 5.53,
+        "mem_mean_gb": 5.94,
+        "mem_peak_gb": 6.71,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.29,
+        "near_p99": 13700.0,
+        "near_max": 14100.0,
+        "far_p99": 15600.0,
+        "far_max": 17100.0
+      },
+      "inv": null,
+      "inv_why": "out 14456325, input 18848434 (count not checkable)"
+    }
+  ],
+  "flink-ds:s2": [
+    {
+      "run": 1,
+      "kept": 14880326,
+      "eps": 49601.1,
+      "pipe": {
+        "count": 14880326,
+        "p50": 6.762,
+        "p95": 8.168,
+        "p99": 312.967,
+        "max": 1723.314,
+        "mean": 15.381
+      },
+      "e2e": {
+        "count": 14880326,
+        "p50": 26.518,
+        "p95": 35.809,
+        "p99": 334.886,
+        "max": 1772.651,
+        "mean": 35.481
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.09,
+        "cpu_peak": 4.72,
+        "mem_mean_gb": 5.34,
+        "mem_peak_gb": 5.66,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1250.0,
+        "near_max": 1720.0,
+        "far_p99": 20.0,
+        "far_max": 100.0
+      },
+      "inv": true,
+      "inv_why": "out 18848496 vs unique 18848496 (diff 0)"
+    },
+    {
+      "run": 2,
+      "kept": 14880590,
+      "eps": 49602.0,
+      "pipe": {
+        "count": 14880590,
+        "p50": 6.858,
+        "p95": 8.05,
+        "p99": 337.895,
+        "max": 1828.252,
+        "mean": 15.804
+      },
+      "e2e": {
+        "count": 14880590,
+        "p50": 26.974,
+        "p95": 35.413,
+        "p99": 361.126,
+        "max": 1847.308,
+        "mean": 36.149
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.36,
+        "cpu_peak": 6.02,
+        "mem_mean_gb": 5.35,
+        "mem_peak_gb": 5.63,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1310.0,
+        "near_max": 1820.0,
+        "far_p99": 13.0,
+        "far_max": 230.0
+      },
+      "inv": true,
+      "inv_why": "out 18848496 vs unique 18848496 (diff 0)"
+    },
+    {
+      "run": 3,
+      "kept": 14880512,
+      "eps": 49601.7,
+      "pipe": {
+        "count": 14880512,
+        "p50": 6.797,
+        "p95": 8.026,
+        "p99": 313.289,
+        "max": 1719.783,
+        "mean": 15.177
+      },
+      "e2e": {
+        "count": 14880512,
+        "p50": 26.688,
+        "p95": 35.247,
+        "p99": 335.808,
+        "max": 1743.37,
+        "mean": 35.224
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.25,
+        "cpu_peak": 5.25,
+        "mem_mean_gb": 5.33,
+        "mem_peak_gb": 5.63,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1250.0,
+        "near_max": 1710.0,
+        "far_p99": 15.0,
+        "far_max": 130.0
+      },
+      "inv": true,
+      "inv_why": "out 18848496 vs unique 18848496 (diff 0)"
+    }
+  ],
+  "flink-ds:s3": [
+    {
+      "run": 1,
+      "kept": 11718423,
+      "eps": 39061.4,
+      "pipe": {
+        "count": 11718423,
+        "p50": 8.431,
+        "p95": 3217.195,
+        "p99": 4438.788,
+        "max": 5787.489,
+        "mean": 448.734
+      },
+      "e2e": {
+        "count": 11718423,
+        "p50": 34.353,
+        "p95": 3262.333,
+        "p99": 4477.174,
+        "max": 5801.876,
+        "mean": 479.953
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 4.87,
+        "cpu_peak": 5.95,
+        "mem_mean_gb": 6.05,
+        "mem_peak_gb": 6.78,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.92,
+        "near_p99": 4500.0,
+        "near_max": 4700.0,
+        "far_p99": 4300.0,
+        "far_max": 5700.0
+      },
+      "inv": null,
+      "inv_why": "out 14889694, input 18848434 (count not checkable)"
+    },
+    {
+      "run": 2,
+      "kept": 11716478,
+      "eps": 39054.9,
+      "pipe": {
+        "count": 11716478,
+        "p50": 8.443,
+        "p95": 3127.519,
+        "p99": 4305.558,
+        "max": 5568.232,
+        "mean": 430.265
+      },
+      "e2e": {
+        "count": 11716478,
+        "p50": 34.352,
+        "p95": 3175.351,
+        "p99": 4348.694,
+        "max": 5630.569,
+        "mean": 461.963
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 4.77,
+        "cpu_peak": 6.03,
+        "mem_mean_gb": 5.99,
+        "mem_peak_gb": 6.69,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.92,
+        "near_p99": 4300.0,
+        "near_max": 4600.0,
+        "far_p99": 4200.0,
+        "far_max": 5500.0
+      },
+      "inv": null,
+      "inv_why": "out 14888029, input 18848434 (count not checkable)"
+    },
+    {
+      "run": 3,
+      "kept": 11717122,
+      "eps": 39057.1,
+      "pipe": {
+        "count": 11717122,
+        "p50": 8.479,
+        "p95": 3390.624,
+        "p99": 4583.869,
+        "max": 6059.756,
+        "mean": 487.312
+      },
+      "e2e": {
+        "count": 11717122,
+        "p50": 34.56,
+        "p95": 3427.414,
+        "p99": 4623.068,
+        "max": 6076.891,
+        "mean": 516.488
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 4.94,
+        "cpu_peak": 6.04,
+        "mem_mean_gb": 6.02,
+        "mem_peak_gb": 6.75,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.9,
+        "near_p99": 4600.0,
+        "near_max": 4800.0,
+        "far_p99": 4500.0,
+        "far_max": 6000.0
+      },
+      "inv": null,
+      "inv_why": "out 14881351, input 18848310 (count not checkable)"
+    }
+  ],
+  "flink-sql-bt100:s1": [
+    {
+      "run": 1,
+      "kept": 11682551,
+      "eps": 38941.8,
+      "pipe": {
+        "count": 11682551,
+        "p50": 11234.701,
+        "p95": 16214.277,
+        "p99": 16911.39,
+        "max": 18554.303,
+        "mean": 11432.684
+      },
+      "e2e": {
+        "count": 11682551,
+        "p50": 12410.666,
+        "p95": 17673.245,
+        "p99": 18790.495,
+        "max": 20250.889,
+        "mean": 12587.598
+      },
+      "win": {
+        "count": 11682551,
+        "p50": 6822.0,
+        "p95": 7489.0,
+        "p99": 7961.0,
+        "max": 8571.0,
+        "mean": 6844.02
+      },
+      "res": {
+        "cpu_mean": 2.13,
+        "cpu_peak": 4.21,
+        "mem_mean_gb": 6.05,
+        "mem_peak_gb": 6.71,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 7.25,
+        "near_p99": 16900.0,
+        "near_max": 17500.0,
+        "far_p99": 16900.0,
+        "far_max": 18500.0
+      },
+      "inv": null,
+      "inv_why": "out 14635099, input 18848496 (count not checkable)"
+    },
+    {
+      "run": 2,
+      "kept": 11659191,
+      "eps": 38864.0,
+      "pipe": {
+        "count": 11659191,
+        "p50": 11250.409,
+        "p95": 16230.018,
+        "p99": 16936.016,
+        "max": 18518.883,
+        "mean": 11448.289
+      },
+      "e2e": {
+        "count": 11659191,
+        "p50": 12363.66,
+        "p95": 17614.64,
+        "p99": 18731.624,
+        "max": 20169.996,
+        "mean": 12540.656
+      },
+      "win": {
+        "count": 11659191,
+        "p50": 6840.0,
+        "p95": 7570.0,
+        "p99": 8016.0,
+        "max": 8526.0,
+        "mean": 6859.42
+      },
+      "res": {
+        "cpu_mean": 2.05,
+        "cpu_peak": 4.3,
+        "mem_mean_gb": 6.06,
+        "mem_peak_gb": 6.58,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 7.35,
+        "near_p99": 12000.0,
+        "near_max": 12500.0,
+        "far_p99": 16900.0,
+        "far_max": 18500.0
+      },
+      "inv": null,
+      "inv_why": "out 14491229, input 18848434 (count not checkable)"
+    },
+    {
+      "run": 3,
+      "kept": 11730988,
+      "eps": 39103.3,
+      "pipe": {
+        "count": 11730988,
+        "p50": 11215.505,
+        "p95": 16196.211,
+        "p99": 16890.775,
+        "max": 18355.295,
+        "mean": 11413.287
+      },
+      "e2e": {
+        "count": 11730988,
+        "p50": 12352.355,
+        "p95": 17609.303,
+        "p99": 18729.336,
+        "max": 20155.934,
+        "mean": 12529.013
+      },
+      "win": {
+        "count": 11730988,
+        "p50": 6805.0,
+        "p95": 7467.0,
+        "p99": 7879.0,
+        "max": 8365.0,
+        "mean": 6824.578
+      },
+      "res": {
+        "cpu_mean": 2.03,
+        "cpu_peak": 4.74,
+        "mem_mean_gb": 6.05,
+        "mem_peak_gb": 6.69,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 7.67,
+        "near_p99": 10900.0,
+        "near_max": 11400.0,
+        "far_p99": 16900.0,
+        "far_max": 18300.0
+      },
+      "inv": null,
+      "inv_why": "out 14650663, input 18848496 (count not checkable)"
+    }
+  ],
+  "flink-sql-bt100:s2": [
+    {
+      "run": 1,
+      "kept": 14879930,
+      "eps": 49599.8,
+      "pipe": {
+        "count": 14879930,
+        "p50": 51.072,
+        "p95": 103.099,
+        "p99": 556.455,
+        "max": 1886.269,
+        "mean": 64.244
+      },
+      "e2e": {
+        "count": 14879930,
+        "p50": 75.065,
+        "p95": 130.822,
+        "p99": 578.69,
+        "max": 1909.712,
+        "mean": 87.399
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 1.93,
+        "cpu_peak": 4.04,
+        "mem_mean_gb": 5.79,
+        "mem_peak_gb": 6.3,
+        "pods": 3,
+        "samples": 73
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1470.0,
+        "near_max": 1880.0,
+        "far_p99": 100.0,
+        "far_max": 180.0
+      },
+      "inv": true,
+      "inv_why": "out 18848496 vs unique 18848496 (diff 0)"
+    },
+    {
+      "run": 2,
+      "kept": 14880962,
+      "eps": 49603.2,
+      "pipe": {
+        "count": 14880962,
+        "p50": 50.957,
+        "p95": 102.924,
+        "p99": 534.603,
+        "max": 2028.758,
+        "mean": 63.792
+      },
+      "e2e": {
+        "count": 14880962,
+        "p50": 73.851,
+        "p95": 129.248,
+        "p99": 553.873,
+        "max": 2084.701,
+        "mean": 86.029
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 1.93,
+        "cpu_peak": 4.91,
+        "mem_mean_gb": 5.79,
+        "mem_peak_gb": 6.31,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1460.0,
+        "near_max": 2000.0,
+        "far_p99": 100.0,
+        "far_max": 250.0
+      },
+      "inv": true,
+      "inv_why": "out 18848496 vs unique 18848496 (diff 0)"
+    },
+    {
+      "run": 3,
+      "kept": 14880497,
+      "eps": 49601.7,
+      "pipe": {
+        "count": 14880497,
+        "p50": 50.785,
+        "p95": 102.841,
+        "p99": 607.975,
+        "max": 2086.024,
+        "mean": 64.875
+      },
+      "e2e": {
+        "count": 14880497,
+        "p50": 74.229,
+        "p95": 129.088,
+        "p99": 628.891,
+        "max": 2103.199,
+        "mean": 87.416
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 2.02,
+        "cpu_peak": 4.6,
+        "mem_mean_gb": 5.82,
+        "mem_peak_gb": 6.31,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1530.0,
+        "near_max": 2000.0,
+        "far_p99": 100.0,
+        "far_max": 160.0
+      },
+      "inv": true,
+      "inv_why": "out 18848496 vs unique 18848496 (diff 0)"
+    }
+  ],
+  "flink-sql-eo:s2": [
+    {
+      "run": 1,
+      "kept": 14879862,
+      "eps": 49599.5,
+      "pipe": {
+        "count": 14879862,
+        "p50": 6.889,
+        "p95": 14.312,
+        "p99": 661.208,
+        "max": 2063.445,
+        "mean": 22.449
+      },
+      "e2e": {
+        "count": 14879862,
+        "p50": 44733.525,
+        "p95": 60579.402,
+        "p99": 62107.353,
+        "max": 63394.152,
+        "mean": 44579.095
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.63,
+        "cpu_peak": 6.06,
+        "mem_mean_gb": 5.89,
+        "mem_peak_gb": 6.4,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1640.0,
+        "near_max": 2000.0,
+        "far_p99": 27.0,
+        "far_max": 140.0
+      },
+      "inv": true,
+      "inv_why": "out 18848748 - unique 18848496 = 252 (markers <= 324)"
+    },
+    {
+      "run": 2,
+      "kept": 14879901,
+      "eps": 49599.7,
+      "pipe": {
+        "count": 14879901,
+        "p50": 6.821,
+        "p95": 15.933,
+        "p99": 751.969,
+        "max": 5057.601,
+        "mean": 24.325
+      },
+      "e2e": {
+        "count": 14879901,
+        "p50": 44600.449,
+        "p95": 60677.508,
+        "p99": 62263.789,
+        "max": 65734.484,
+        "mean": 44530.947
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.81,
+        "cpu_peak": 6.02,
+        "mem_mean_gb": 5.84,
+        "mem_peak_gb": 6.34,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1780.0,
+        "near_max": 2200.0,
+        "far_p99": 25.0,
+        "far_max": 5000.0
+      },
+      "inv": true,
+      "inv_why": "out 18848750 - unique 18848496 = 254 (markers <= 324)"
+    }
+  ],
+  "flink-sql:s1": [
+    {
+      "run": 1,
+      "kept": 11731254,
+      "eps": 39104.2,
+      "pipe": {
+        "count": 11731254,
+        "p50": 11251.906,
+        "p95": 16230.665,
+        "p99": 16917.61,
+        "max": 18390.443,
+        "mean": 11450.66
+      },
+      "e2e": {
+        "count": 11731254,
+        "p50": 12369.122,
+        "p95": 17618.873,
+        "p99": 18733.051,
+        "max": 20105.164,
+        "mean": 12546.478
+      },
+      "win": {
+        "count": 11731254,
+        "p50": 6849.0,
+        "p95": 7452.0,
+        "p99": 7837.0,
+        "max": 8391.0,
+        "mean": 6862.466
+      },
+      "res": {
+        "cpu_mean": 2.1,
+        "cpu_peak": 4.26,
+        "mem_mean_gb": 6.1,
+        "mem_peak_gb": 6.7,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 7.67,
+        "near_p99": 10900.0,
+        "near_max": 11400.0,
+        "far_p99": 16900.0,
+        "far_max": 18300.0
+      },
+      "inv": null,
+      "inv_why": "out 14681242, input 18848496 (count not checkable)"
+    },
+    {
+      "run": 2,
+      "kept": 11731611,
+      "eps": 39105.4,
+      "pipe": {
+        "count": 11731611,
+        "p50": 11158.317,
+        "p95": 16207.944,
+        "p99": 16961.035,
+        "max": 18092.221,
+        "mean": 11352.308
+      },
+      "e2e": {
+        "count": 11731611,
+        "p50": 12314.738,
+        "p95": 17615.626,
+        "p99": 18803.543,
+        "max": 20387.799,
+        "mean": 12486.965
+      },
+      "win": {
+        "count": 11731611,
+        "p50": 6854.0,
+        "p95": 7555.0,
+        "p99": 7800.0,
+        "max": 8096.0,
+        "mean": 6765.171
+      },
+      "res": {
+        "cpu_mean": 2.18,
+        "cpu_peak": 4.89,
+        "mem_mean_gb": 6.13,
+        "mem_peak_gb": 6.8,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 5.98,
+        "near_p99": 16500.0,
+        "near_max": 17000.0,
+        "far_p99": 16900.0,
+        "far_max": 18000.0
+      },
+      "inv": null,
+      "inv_why": "out 14421938, input 18848496 (count not checkable)"
+    },
+    {
+      "run": 3,
+      "kept": 11732990,
+      "eps": 39110.0,
+      "pipe": {
+        "count": 11732990,
+        "p50": 11277.625,
+        "p95": 16255.692,
+        "p99": 16953.547,
+        "max": 18472.559,
+        "mean": 11475.444
+      },
+      "e2e": {
+        "count": 11732990,
+        "p50": 12410.755,
+        "p95": 17665.266,
+        "p99": 18784.745,
+        "max": 20245.492,
+        "mean": 12586.853
+      },
+      "win": {
+        "count": 11732990,
+        "p50": 6859.0,
+        "p95": 7570.0,
+        "p99": 8078.0,
+        "max": 8485.0,
+        "mean": 6885.715
+      },
+      "res": {
+        "cpu_mean": 2.06,
+        "cpu_peak": 4.51,
+        "mem_mean_gb": 5.99,
+        "mem_peak_gb": 6.56,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 7.3,
+        "near_p99": 12000.0,
+        "near_max": 12500.0,
+        "far_p99": 16900.0,
+        "far_max": 18400.0
+      },
+      "inv": null,
+      "inv_why": "out 14327288, input 18848434 (count not checkable)"
+    }
+  ],
+  "flink-sql:s2": [
+    {
+      "run": 1,
+      "kept": 14880883,
+      "eps": 49602.9,
+      "pipe": {
+        "count": 14880883,
+        "p50": 6.889,
+        "p95": 9.945,
+        "p99": 724.472,
+        "max": 5099.333,
+        "mean": 23.455
+      },
+      "e2e": {
+        "count": 14880883,
+        "p50": 27.208,
+        "p95": 39.221,
+        "p99": 747.948,
+        "max": 5145.704,
+        "mean": 43.85
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.66,
+        "cpu_peak": 6.08,
+        "mem_mean_gb": 5.83,
+        "mem_peak_gb": 6.34,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1690.0,
+        "near_max": 2100.0,
+        "far_p99": 20.0,
+        "far_max": 5000.0
+      },
+      "inv": false,
+      "inv_why": "out 18848502 vs unique 18848496 (diff 6)"
+    },
+    {
+      "run": 2,
+      "kept": 14881429,
+      "eps": 49604.8,
+      "pipe": {
+        "count": 14881429,
+        "p50": 6.868,
+        "p95": 9.623,
+        "p99": 624.339,
+        "max": 2088.548,
+        "mean": 21.304
+      },
+      "e2e": {
+        "count": 14881429,
+        "p50": 26.944,
+        "p95": 38.849,
+        "p99": 647.007,
+        "max": 2103.58,
+        "mean": 41.556
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.48,
+        "cpu_peak": 5.99,
+        "mem_mean_gb": 5.85,
+        "mem_peak_gb": 6.35,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1640.0,
+        "near_max": 2000.0,
+        "far_p99": 22.0,
+        "far_max": 94.0
+      },
+      "inv": true,
+      "inv_why": "out 18848434 vs unique 18848434 (diff 0)"
+    },
+    {
+      "run": 3,
+      "kept": 14881035,
+      "eps": 49603.4,
+      "pipe": {
+        "count": 14881035,
+        "p50": 6.831,
+        "p95": 8.691,
+        "p99": 723.812,
+        "max": 2050.803,
+        "mean": 23.426
+      },
+      "e2e": {
+        "count": 14881035,
+        "p50": 26.736,
+        "p95": 36.973,
+        "p99": 747.303,
+        "max": 2075.941,
+        "mean": 43.412
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.57,
+        "cpu_peak": 5.9,
+        "mem_mean_gb": 5.82,
+        "mem_peak_gb": 6.35,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": null,
+        "async_exec": null,
+        "pipelined": false,
+        "ckpt_counts": "{'restored': 0, 'total': 8, 'in_progress': 0, 'completed': 7, 'failed': 1}"
+      },
+      "bnd": {
+        "boundaries": 7,
+        "near_share_pct": 6.67,
+        "near_p99": 1710.0,
+        "near_max": 2000.0,
+        "far_p99": 18.0,
+        "far_max": 100.0
+      },
+      "inv": true,
+      "inv_why": "out 18848496 vs unique 18848496 (diff 0)"
+    }
+  ],
+  "spark-mb:s1": [
+    {
+      "run": 1,
+      "kept": 14091774,
+      "eps": 46972.6,
+      "pipe": {
+        "count": 14091774,
+        "p50": 3256.82,
+        "p95": 4678.069,
+        "p99": 5103.793,
+        "max": 5906.358,
+        "mean": 3291.115
+      },
+      "e2e": {
+        "count": 14091774,
+        "p50": 3637.753,
+        "p95": 5133.727,
+        "p99": 5635.373,
+        "max": 6848.73,
+        "mean": 3673.778
+      },
+      "win": {
+        "count": 14091774,
+        "p50": -1867.0,
+        "p95": 3392.0,
+        "p99": 4179.0,
+        "max": 5180.0,
+        "mean": -1679.978
+      },
+      "res": {
+        "cpu_mean": 3.23,
+        "cpu_peak": 4.4,
+        "mem_mean_gb": 8.38,
+        "mem_peak_gb": 9.03,
+        "pods": 3,
+        "samples": 73
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": false,
+        "ckpt_counts": null
+      },
+      "bnd": null,
+      "inv": null,
+      "inv_why": "out 17739118, input 18848496 (count not checkable)"
+    },
+    {
+      "run": 2,
+      "kept": 14025259,
+      "eps": 46750.9,
+      "pipe": {
+        "count": 14025259,
+        "p50": 3483.551,
+        "p95": 4944.38,
+        "p99": 5339.307,
+        "max": 6388.296,
+        "mean": 3514.73
+      },
+      "e2e": {
+        "count": 14025259,
+        "p50": 3895.356,
+        "p95": 5432.545,
+        "p99": 5952.772,
+        "max": 7163.024,
+        "mean": 3926.857
+      },
+      "win": {
+        "count": 14025259,
+        "p50": -1691.0,
+        "p95": 3668.0,
+        "p99": 4555.0,
+        "max": 5615.0,
+        "mean": -1452.954
+      },
+      "res": {
+        "cpu_mean": 3.3,
+        "cpu_peak": 5.07,
+        "mem_mean_gb": 8.39,
+        "mem_peak_gb": 9.02,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": false,
+        "ckpt_counts": null
+      },
+      "bnd": null,
+      "inv": null,
+      "inv_why": "out 17702301, input 18848496 (count not checkable)"
+    }
+  ],
+  "spark-rtm:s1": [
+    {
+      "run": 1,
+      "kept": 14879743,
+      "eps": 49599.1,
+      "pipe": {
+        "count": 14879743,
+        "p50": 39.027,
+        "p95": 4528.696,
+        "p99": 6614.318,
+        "max": 7418.702,
+        "mean": 546.138
+      },
+      "e2e": {
+        "count": 14879743,
+        "p50": 65.591,
+        "p95": 4611.352,
+        "p99": 6643.604,
+        "max": 7438.828,
+        "mean": 598.506
+      },
+      "win": {
+        "count": 14879743,
+        "p50": -4549.0,
+        "p95": 631.0,
+        "p99": 2821.0,
+        "max": 7226.0,
+        "mean": -4453.292
+      },
+      "res": {
+        "cpu_mean": 3.57,
+        "cpu_peak": 6.01,
+        "mem_mean_gb": 8.22,
+        "mem_peak_gb": 9.22,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 5,
+        "near_share_pct": 6.67,
+        "near_p99": 4700.0,
+        "near_max": 5100.0,
+        "far_p99": 6600.0,
+        "far_max": 7400.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848496 vs input 18848496 (diff 0)"
+    },
+    {
+      "run": 2,
+      "kept": 15193328,
+      "eps": 50644.4,
+      "pipe": {
+        "count": 15193328,
+        "p50": 40.167,
+        "p95": 5323.686,
+        "p99": 7200.627,
+        "max": 8983.308,
+        "mean": 748.433
+      },
+      "e2e": {
+        "count": 15193328,
+        "p50": 66.526,
+        "p95": 5403.833,
+        "p99": 7232.857,
+        "max": 9035.648,
+        "mean": 816.774
+      },
+      "win": {
+        "count": 15193328,
+        "p50": -4411.0,
+        "p95": 1384.0,
+        "p99": 4391.0,
+        "max": 7740.0,
+        "mean": -4271.332
+      },
+      "res": {
+        "cpu_mean": 3.74,
+        "cpu_peak": 6.0,
+        "mem_mean_gb": 8.22,
+        "mem_peak_gb": 9.32,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 5,
+        "near_share_pct": 6.64,
+        "near_p99": 8500.0,
+        "near_max": 8900.0,
+        "far_p99": 7100.0,
+        "far_max": 8600.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848434 vs input 18848434 (diff 0)"
+    },
+    {
+      "run": 3,
+      "kept": 14991570,
+      "eps": 49971.9,
+      "pipe": {
+        "count": 14991570,
+        "p50": 38.828,
+        "p95": 4808.593,
+        "p99": 6715.499,
+        "max": 7578.168,
+        "mean": 608.29
+      },
+      "e2e": {
+        "count": 14991570,
+        "p50": 64.903,
+        "p95": 4879.286,
+        "p99": 6746.326,
+        "max": 7603.902,
+        "mean": 660.565
+      },
+      "win": {
+        "count": 14991570,
+        "p50": -4497.0,
+        "p95": 793.0,
+        "p99": 3854.0,
+        "max": 6610.0,
+        "mean": -4392.139
+      },
+      "res": {
+        "cpu_mean": 3.85,
+        "cpu_peak": 6.01,
+        "mem_mean_gb": 8.3,
+        "mem_peak_gb": 9.21,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 5,
+        "near_share_pct": 6.62,
+        "near_p99": 5100.0,
+        "near_max": 5800.0,
+        "far_p99": 6700.0,
+        "far_max": 7500.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848434 vs input 18848434 (diff 0)"
+    }
+  ],
+  "spark-rtm:s2": [
+    {
+      "run": 1,
+      "kept": 14881247,
+      "eps": 49604.2,
+      "pipe": {
+        "count": 14881247,
+        "p50": 38.422,
+        "p95": 5968.929,
+        "p99": 8055.8,
+        "max": 9401.755,
+        "mean": 730.102
+      },
+      "e2e": {
+        "count": 14881247,
+        "p50": 65.345,
+        "p95": 6046.29,
+        "p99": 8086.56,
+        "max": 9422.044,
+        "mean": 797.584
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.38,
+        "cpu_peak": 5.6,
+        "mem_mean_gb": 8.1,
+        "mem_peak_gb": 9.11,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 5,
+        "near_share_pct": 6.67,
+        "near_p99": 5600.0,
+        "near_max": 6100.0,
+        "far_p99": 8100.0,
+        "far_max": 9400.0
+      },
+      "inv": true,
+      "inv_why": "out 18848434 vs unique 18848434 (diff 0)"
+    },
+    {
+      "run": 2,
+      "kept": 14880360,
+      "eps": 49601.2,
+      "pipe": {
+        "count": 14880360,
+        "p50": 38.29,
+        "p95": 5723.796,
+        "p99": 8008.541,
+        "max": 9449.968,
+        "mean": 722.926
+      },
+      "e2e": {
+        "count": 14880360,
+        "p50": 63.243,
+        "p95": 5792.424,
+        "p99": 8035.797,
+        "max": 9468.128,
+        "mean": 769.248
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.46,
+        "cpu_peak": 5.85,
+        "mem_mean_gb": 8.21,
+        "mem_peak_gb": 9.12,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 5,
+        "near_share_pct": 6.67,
+        "near_p99": 5700.0,
+        "near_max": 6200.0,
+        "far_p99": 8000.0,
+        "far_max": 9400.0
+      },
+      "inv": true,
+      "inv_why": "out 18848434 vs unique 18848434 (diff 0)"
+    },
+    {
+      "run": 3,
+      "kept": 14881389,
+      "eps": 49604.6,
+      "pipe": {
+        "count": 14881389,
+        "p50": 38.124,
+        "p95": 5584.388,
+        "p99": 7664.354,
+        "max": 9104.645,
+        "mean": 696.317
+      },
+      "e2e": {
+        "count": 14881389,
+        "p50": 63.45,
+        "p95": 5633.792,
+        "p99": 7699.967,
+        "max": 9131.471,
+        "mean": 752.613
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 3.36,
+        "cpu_peak": 5.7,
+        "mem_mean_gb": 8.29,
+        "mem_peak_gb": 9.3,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 5,
+        "near_share_pct": 6.67,
+        "near_p99": 5700.0,
+        "near_max": 6500.0,
+        "far_p99": 7700.0,
+        "far_max": 9100.0
+      },
+      "inv": true,
+      "inv_why": "out 18848434 vs unique 18848434 (diff 0)"
+    }
+  ],
+  "spark-rtm:s3": [
+    {
+      "run": 1,
+      "kept": 6464757,
+      "eps": 21549.2,
+      "pipe": {
+        "count": 6464757,
+        "p50": 109840.672,
+        "p95": 175056.425,
+        "p99": 182823.328,
+        "max": 183942.75,
+        "mean": 107247.235
+      },
+      "e2e": {
+        "count": 6464757,
+        "p50": 109873.234,
+        "p95": 175127.847,
+        "p99": 182853.804,
+        "max": 183977.641,
+        "mean": 107284.118
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 5.49,
+        "cpu_peak": 6.03,
+        "mem_mean_gb": 8.43,
+        "mem_peak_gb": 9.56,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 2,
+        "near_share_pct": 3.27,
+        "near_p99": 118100.0,
+        "near_max": 119300.0,
+        "far_p99": 182800.0,
+        "far_max": 183900.0
+      },
+      "inv": null,
+      "inv_why": "out 15552678, input 18848434 (count not checkable)"
+    },
+    {
+      "run": 2,
+      "kept": 6496839,
+      "eps": 21656.1,
+      "pipe": {
+        "count": 6496839,
+        "p50": 106597.398,
+        "p95": 173247.675,
+        "p99": 179522.057,
+        "max": 184739.859,
+        "mean": 104962.45
+      },
+      "e2e": {
+        "count": 6496839,
+        "p50": 106631.523,
+        "p95": 173294.175,
+        "p99": 179552.9,
+        "max": 184770.391,
+        "mean": 104999.78
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 5.53,
+        "cpu_peak": 6.05,
+        "mem_mean_gb": 8.49,
+        "mem_peak_gb": 9.53,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 2,
+        "near_share_pct": 3.27,
+        "near_p99": 111500.0,
+        "near_max": 112000.0,
+        "far_p99": 179500.0,
+        "far_max": 184700.0
+      },
+      "inv": null,
+      "inv_why": "out 15691471, input 18848372 (count not checkable)"
+    },
+    {
+      "run": 3,
+      "kept": 6324237,
+      "eps": 21080.8,
+      "pipe": {
+        "count": 6324237,
+        "p50": 111493.82,
+        "p95": 165639.834,
+        "p99": 182365.332,
+        "max": 187200.891,
+        "mean": 108302.459
+      },
+      "e2e": {
+        "count": 6324237,
+        "p50": 111533.148,
+        "p95": 165679.206,
+        "p99": 182428.322,
+        "max": 187270.562,
+        "mean": 108339.987
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 5.53,
+        "cpu_peak": 6.03,
+        "mem_mean_gb": 8.54,
+        "mem_peak_gb": 9.59,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 2,
+        "near_share_pct": 3.3,
+        "near_p99": 136600.0,
+        "near_max": 138700.0,
+        "far_p99": 182500.0,
+        "far_max": 187200.0
+      },
+      "inv": null,
+      "inv_why": "out 15323059, input 18848434 (count not checkable)"
+    }
+  ],
+  "spark-rtm-sw1:s1": [
+    {
+      "run": 1,
+      "kept": 15562629,
+      "eps": 51875.4,
+      "pipe": {
+        "count": 15562629,
+        "p50": 112.584,
+        "p95": 16590.702,
+        "p99": 21454.925,
+        "max": 23213.463,
+        "mean": 3692.308
+      },
+      "e2e": {
+        "count": 15562629,
+        "p50": 143.409,
+        "p95": 16620.775,
+        "p99": 21488.205,
+        "max": 23234.627,
+        "mean": 3719.9
+      },
+      "win": {
+        "count": 15562629,
+        "p50": -2350.0,
+        "p95": 11889.0,
+        "p99": 16978.0,
+        "max": 22686.0,
+        "mean": -1331.639
+      },
+      "res": {
+        "cpu_mean": 5.59,
+        "cpu_peak": 6.09,
+        "mem_mean_gb": 8.38,
+        "mem_peak_gb": 9.44,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 5,
+        "near_share_pct": 7.97,
+        "near_p99": 22500.0,
+        "near_max": 22800.0,
+        "far_p99": 20400.0,
+        "far_max": 23200.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848372 vs input 18848372 (diff 0)"
+    },
+    {
+      "run": 2,
+      "kept": 15639284,
+      "eps": 52130.9,
+      "pipe": {
+        "count": 15639284,
+        "p50": 66.282,
+        "p95": 16984.759,
+        "p99": 19066.821,
+        "max": 21072.498,
+        "mean": 3483.609
+      },
+      "e2e": {
+        "count": 15639284,
+        "p50": 93.363,
+        "p95": 17017.092,
+        "p99": 19097.694,
+        "max": 21099.316,
+        "mean": 3510.532
+      },
+      "win": {
+        "count": 15639284,
+        "p50": -2579.0,
+        "p95": 12086.0,
+        "p99": 16389.0,
+        "max": 20574.0,
+        "mean": -1489.099
+      },
+      "res": {
+        "cpu_mean": 5.58,
+        "cpu_peak": 6.21,
+        "mem_mean_gb": 8.39,
+        "mem_peak_gb": 9.51,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 5,
+        "near_share_pct": 7.93,
+        "near_p99": 20400.0,
+        "near_max": 21000.0,
+        "far_p99": 18700.0,
+        "far_max": 20600.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848372 vs input 18848372 (diff 0)"
+    },
+    {
+      "run": 3,
+      "kept": 15640710,
+      "eps": 52135.7,
+      "pipe": {
+        "count": 15640710,
+        "p50": 1942.42,
+        "p95": 21838.684,
+        "p99": 23835.135,
+        "max": 25805.982,
+        "mean": 5405.109
+      },
+      "e2e": {
+        "count": 15640710,
+        "p50": 2008.737,
+        "p95": 21871.679,
+        "p99": 23868.416,
+        "max": 25829.428,
+        "mean": 5457.131
+      },
+      "win": {
+        "count": 15640710,
+        "p50": -1558.0,
+        "p95": 17096.0,
+        "p99": 21264.0,
+        "max": 25611.0,
+        "mean": 385.1
+      },
+      "res": {
+        "cpu_mean": 5.62,
+        "cpu_peak": 6.03,
+        "mem_mean_gb": 8.39,
+        "mem_peak_gb": 9.52,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 5,
+        "near_share_pct": 7.93,
+        "near_p99": 24900.0,
+        "near_max": 25800.0,
+        "far_p99": 23300.0,
+        "far_max": 25700.0
+      },
+      "inv": true,
+      "inv_why": "updates 18848434 vs input 18848434 (diff 0)"
+    }
+  ],
+  "spark-rtm-sw1:s2": [
+    {
+      "run": 1,
+      "kept": 15298290,
+      "eps": 50994.3,
+      "pipe": {
+        "count": 15298290,
+        "p50": 21.456,
+        "p95": 7811.438,
+        "p99": 9301.884,
+        "max": 10227.63,
+        "mean": 1626.162
+      },
+      "e2e": {
+        "count": 15298290,
+        "p50": 47.41,
+        "p95": 7844.742,
+        "p99": 9329.742,
+        "max": 10260.605,
+        "mean": 1653.233
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 5.55,
+        "cpu_peak": 6.06,
+        "mem_mean_gb": 8.2,
+        "mem_peak_gb": 9.28,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 5,
+        "near_share_pct": 7.43,
+        "near_p99": 9400.0,
+        "near_max": 9900.0,
+        "far_p99": 9200.0,
+        "far_max": 10200.0
+      },
+      "inv": true,
+      "inv_why": "out 18848434 vs unique 18848434 (diff 0)"
+    },
+    {
+      "run": 2,
+      "kept": 10713294,
+      "eps": 35711.0,
+      "pipe": {
+        "count": 10713294,
+        "p50": 74450.535,
+        "p95": 141704.844,
+        "p99": 146433.845,
+        "max": 148394.828,
+        "mean": 83185.442
+      },
+      "e2e": {
+        "count": 10713294,
+        "p50": 74484.195,
+        "p95": 141735.224,
+        "p99": 146464.798,
+        "max": 148443.156,
+        "mean": 83501.277
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 2.8,
+        "cpu_peak": 6.06,
+        "mem_mean_gb": 8.08,
+        "mem_peak_gb": 9.29,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 2,
+        "near_share_pct": 2.31,
+        "near_p99": 61800.0,
+        "near_max": 62400.0,
+        "far_p99": 146400.0,
+        "far_max": 148300.0
+      },
+      "inv": true,
+      "inv_why": "out 18848434 vs unique 18848434 (diff 0)"
+    },
+    {
+      "run": 3,
+      "kept": 15287480,
+      "eps": 50958.3,
+      "pipe": {
+        "count": 15287480,
+        "p50": 22.34,
+        "p95": 7317.836,
+        "p99": 9177.305,
+        "max": 10673.239,
+        "mean": 1357.41
+      },
+      "e2e": {
+        "count": 15287480,
+        "p50": 47.747,
+        "p95": 7347.175,
+        "p99": 9209.157,
+        "max": 10728.76,
+        "mean": 1383.507
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 5.61,
+        "cpu_peak": 6.03,
+        "mem_mean_gb": 8.28,
+        "mem_peak_gb": 9.29,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 5,
+        "near_share_pct": 7.28,
+        "near_p99": 9300.0,
+        "near_max": 10300.0,
+        "far_p99": 9100.0,
+        "far_max": 10600.0
+      },
+      "inv": true,
+      "inv_why": "out 18848434 vs unique 18848434 (diff 0)"
+    }
+  ],
+  "spark-rtm-sw1:s3": [
+    {
+      "run": 1,
+      "kept": 6473155,
+      "eps": 21577.2,
+      "pipe": {
+        "count": 6473155,
+        "p50": 130800.203,
+        "p95": 173444.192,
+        "p99": 184292.932,
+        "max": 193323.812,
+        "mean": 120749.787
+      },
+      "e2e": {
+        "count": 6473155,
+        "p50": 130832.914,
+        "p95": 173487.278,
+        "p99": 184346.739,
+        "max": 193384.547,
+        "mean": 120787.06
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 5.58,
+        "cpu_peak": 6.03,
+        "mem_mean_gb": 8.77,
+        "mem_peak_gb": 9.83,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 2,
+        "near_share_pct": 3.24,
+        "near_p99": 158200.0,
+        "near_max": 158500.0,
+        "far_p99": 184300.0,
+        "far_max": 193300.0
+      },
+      "inv": null,
+      "inv_why": "out 13903631, input 18848434 (count not checkable)"
+    },
+    {
+      "run": 2,
+      "kept": 6404040,
+      "eps": 21346.8,
+      "pipe": {
+        "count": 6404040,
+        "p50": 128027.055,
+        "p95": 171810.141,
+        "p99": 184063.659,
+        "max": 192271.25,
+        "mean": 118630.737
+      },
+      "e2e": {
+        "count": 6404040,
+        "p50": 128058.078,
+        "p95": 171851.281,
+        "p99": 184131.979,
+        "max": 192446.078,
+        "mean": 118668.604
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 5.55,
+        "cpu_peak": 6.04,
+        "mem_mean_gb": 8.57,
+        "mem_peak_gb": 9.75,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 2,
+        "near_share_pct": 3.36,
+        "near_p99": 151800.0,
+        "near_max": 152900.0,
+        "far_p99": 184200.0,
+        "far_max": 192200.0
+      },
+      "inv": null,
+      "inv_why": "out 14052909, input 18848434 (count not checkable)"
+    },
+    {
+      "run": 3,
+      "kept": 6411086,
+      "eps": 21370.3,
+      "pipe": {
+        "count": 6411086,
+        "p50": 131443.68,
+        "p95": 169929.699,
+        "p99": 183478.005,
+        "max": 193654.562,
+        "mean": 121057.691
+      },
+      "e2e": {
+        "count": 6411086,
+        "p50": 131474.492,
+        "p95": 169965.734,
+        "p99": 183536.739,
+        "max": 193699.016,
+        "mean": 121095.225
+      },
+      "win": {},
+      "res": {
+        "cpu_mean": 5.73,
+        "cpu_peak": 6.18,
+        "mem_mean_gb": 8.53,
+        "mem_peak_gb": 9.49,
+        "pods": 3,
+        "samples": 72
+      },
+      "ev": {
+        "async_log_write": 0,
+        "async_exec": 0,
+        "pipelined": true,
+        "ckpt_counts": null
+      },
+      "bnd": {
+        "boundaries": 2,
+        "near_share_pct": 3.3,
+        "near_p99": 148500.0,
+        "near_max": 149400.0,
+        "far_p99": 183500.0,
+        "far_max": 193600.0
+      },
+      "inv": null,
+      "inv_why": "out 13955020, input 18848496 (count not checkable)"
+    }
+  ]
+}

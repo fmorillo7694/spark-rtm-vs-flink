@@ -1,0 +1,28 @@
+# Session D (scaling) topics: 24 partitions (main matrix: 6), so Kafka sources can scale past 6
+# subtasks; Flink vertices then run at 3..12 (12 divides 24), Spark RTM reads with 24 source tasks.
+# Recreated before every run.
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: st-input
+  namespace: kafka
+  labels: { strimzi.io/cluster: bench, bench: stateful }
+spec:
+  partitions: 24
+  replicas: 3
+  config:
+    min.insync.replicas: "2"
+    retention.ms: "7200000"
+---
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: st-output
+  namespace: kafka
+  labels: { strimzi.io/cluster: bench, bench: stateful }
+spec:
+  partitions: 24
+  replicas: 3
+  config:
+    min.insync.replicas: "2"
+    retention.ms: "7200000"

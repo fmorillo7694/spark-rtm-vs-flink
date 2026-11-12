@@ -1,0 +1,25 @@
+{
+  "engine": "flink-sql-s2-r2",
+  "topic": "st-output",
+  "kept_records": 14881429,
+  "seen_records": 17767429,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 49604.8,
+  "pipeline_ms": {
+    "count": 14881429,
+    "p50": 6.868,
+    "p95": 9.623,
+    "p99": 624.339,
+    "max": 2088.548,
+    "mean": 21.304
+  },
+  "e2e_ms": {
+    "count": 14881429,
+    "p50": 26.944,
+    "p95": 38.849,
+    "p99": 647.007,
+    "max": 2103.58,
+    "mean": 41.556
+  }
+}

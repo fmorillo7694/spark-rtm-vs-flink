@@ -1,0 +1,22 @@
+# flink-ds-bt100-s4 flink evidence at 2026-11-09T12:20:03Z job=ce056e8d638b3597368fd5fbdc600ea5
+--- checkpoint config
+{"mode":"exactly_once","interval":60000,"timeout":600000,"min_pause":0,"max_concurrent":1,"externalization":{"enabled":false,"delete_on_cancellation":true},"state_backend":"EmbeddedRocksDBStateBackend","checkpoint_storage":"FileSystemCheckpointStorage","unaligned_checkpoints":false,"tolerable_failed_checkpoints":0,"aligned_checkpoint_timeout":0,"checkpoints_after_tasks_finish":true,"state_changelog_enabled":false,"changelog_periodic_materialization_interval":600000,"changelog_storage":"memory"}
+--- checkpoint counts
+{'restored': 0, 'total': 3, 'in_progress': 0, 'completed': 2, 'failed': 1}
+latest completed: id 2 state_size 4974 checkpointed_size 4974 duration_ms 8
+  ckpt 2 COMPLETED trigger 1794226787249 dur_ms 8 size 4974 
+  ckpt 1 COMPLETED trigger 1794226727247 dur_ms 22 size 4974 
+--- JM log: checkpoint failures
+2026-11-09 12:16:59,523 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job e1bd5eaf1466bdcbe5819ca89a628a42 since Checkpoint triggering task Source: kafka-source -> s4-static-ref-join -> kafka-sink: Writer -> kafka-sink: Committer (2/6) of jo
+2026-11-09 12:18:03,238 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job d19d426a41f6b077f0c4fb1f5939c8a2 since Checkpoint triggering task Source: kafka-source -> s4-static-ref-join -> kafka-sink: Writer -> kafka-sink: Committer (1/6) of jo
+2026-11-09 12:18:45,739 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using failover strategy org.apache.flink.runtime.executiongraph.failover.RestartPipelinedRegionFailoverStrategy@6e759c6a for flink-stateful-s4-at-least-once (ce056e8d638b3597368fd5fbdc600ea5).
+2026-11-09 12:18:47,246 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job ce056e8d638b3597368fd5fbdc600ea5 since Checkpoint triggering task Source: kafka-source -> s4-static-ref-join -> kafka-sink: Writer -> kafka-sink: Committer (2/6) of jo
+--- job vertices
+6 RUNNING Source: kafka-source -> s4-static-ref-join -> kafka-sink: Writer -> kafka-sink: Committer
+--- TM log: state backend
+   6 2026-11-09 12:18:47,242 INFO  org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackend   [] - Using predefined options: DEFAULT.
+   6 2026-11-09 12:18:47,242 INFO  org.apache.flink.runtime.state.StateBackendLoader            [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory
+   6 2026-11-09 12:18:45,920 INFO  org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackend   [] - Using predefined options: DEFAULT.
+   6 2026-11-09 12:18:45,919 INFO  org.apache.flink.runtime.state.StateBackendLoader            [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory
+   6 2026-11-09 12:18:45,864 INFO  org.apache.flink.streaming.runtime.tasks.StreamTask          [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory
+   6 2026-11-09 12:18:45,864 INFO  org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackend   [] - Using predefined options: DEFAULT.

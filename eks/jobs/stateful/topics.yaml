@@ -1,0 +1,28 @@
+# Stateful-run topics (separate from the stateless input-events/output-events). Recreated
+# before every run by the in-cluster runner (delete CRs, wait for the topics to disappear,
+# re-apply), so each run starts with empty topics. 6 partitions, RF 3, keyed by user_id.
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: st-input
+  namespace: kafka
+  labels: { strimzi.io/cluster: bench, bench: stateful }
+spec:
+  partitions: 6
+  replicas: 3
+  config:
+    min.insync.replicas: "2"
+    retention.ms: "3600000"
+---
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: st-output
+  namespace: kafka
+  labels: { strimzi.io/cluster: bench, bench: stateful }
+spec:
+  partitions: 6
+  replicas: 3
+  config:
+    min.insync.replicas: "2"
+    retention.ms: "3600000"

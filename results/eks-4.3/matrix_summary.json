@@ -1,0 +1,232 @@
+{
+  "spark-rtm-java-p6": {
+    "name": "Spark RTM Java",
+    "runs": [
+      {
+        "run": "spark-rtm-java-p6-r1",
+        "kept_records": 10001162,
+        "throughput_eps": 33337.2,
+        "pipeline_ms_p50": 6.232,
+        "pipeline_ms_p99": 39.207,
+        "pipeline_ms_max": 182.133,
+        "e2e_ms_p50": 17.228,
+        "e2e_ms_p99": 77.286,
+        "e2e_ms_max": 231.821,
+        "res": {
+          "cpu_mean": 1.64,
+          "cpu_peak": 3.57,
+          "mem_mean_gb": 7.63,
+          "mem_peak_gb": 8.05,
+          "pods": 3,
+          "samples": 85
+        },
+        "evidence": {
+          "async_log_write_threads": 1,
+          "async_exec_frames": 1,
+          "tm_pods": null,
+          "last_commit": "v2 {\"nextBatchWatermarkMs\":0}",
+          "n_offsets": 6,
+          "n_commits": 6
+        },
+        "flink_ckpt_counts": null,
+        "boundary": {
+          "boundaries": 6,
+          "near_share_pct": 8.33,
+          "near_p99": 42.0,
+          "near_max": 180.0,
+          "far_p99": 39.0,
+          "far_max": 170.0
+        }
+      },
+      {
+        "run": "spark-rtm-java-p6-r2",
+        "kept_records": 9997369,
+        "throughput_eps": 33324.6,
+        "pipeline_ms_p50": 6.122,
+        "pipeline_ms_p99": 37.914,
+        "pipeline_ms_max": 202.196,
+        "e2e_ms_p50": 17.266,
+        "e2e_ms_p99": 78.169,
+        "e2e_ms_max": 306.8,
+        "res": {
+          "cpu_mean": 1.78,
+          "cpu_peak": 3.85,
+          "mem_mean_gb": 7.72,
+          "mem_peak_gb": 8.02,
+          "pods": 3,
+          "samples": 87
+        },
+        "evidence": {
+          "async_log_write_threads": 1,
+          "async_exec_frames": 1,
+          "tm_pods": null,
+          "last_commit": "v2 {\"nextBatchWatermarkMs\":0}",
+          "n_offsets": 6,
+          "n_commits": 6
+        },
+        "flink_ckpt_counts": null,
+        "boundary": {
+          "boundaries": 6,
+          "near_share_pct": 8.33,
+          "near_p99": 110.0,
+          "near_max": 200.0,
+          "far_p99": 33.0,
+          "far_max": 150.0
+        }
+      },
+      {
+        "run": "spark-rtm-java-p6-r3",
+        "kept_records": 10003486,
+        "throughput_eps": 33345.0,
+        "pipeline_ms_p50": 6.198,
+        "pipeline_ms_p99": 38.014,
+        "pipeline_ms_max": 168.987,
+        "e2e_ms_p50": 17.164,
+        "e2e_ms_p99": 73.645,
+        "e2e_ms_max": 229.41,
+        "res": {
+          "cpu_mean": 1.77,
+          "cpu_peak": 4.7,
+          "mem_mean_gb": 7.74,
+          "mem_peak_gb": 8.01,
+          "pods": 3,
+          "samples": 89
+        },
+        "evidence": {
+          "async_log_write_threads": 1,
+          "async_exec_frames": 1,
+          "tm_pods": null,
+          "last_commit": "v2 {\"nextBatchWatermarkMs\":0}",
+          "n_offsets": 6,
+          "n_commits": 6
+        },
+        "flink_ckpt_counts": null,
+        "boundary": {
+          "boundaries": 6,
+          "near_share_pct": 8.33,
+          "near_p99": 100.0,
+          "near_max": 160.0,
+          "far_p99": 33.0,
+          "far_max": 160.0
+        }
+      }
+    ],
+    "geomean": {
+      "pipeline_ms_p50": 6.1838286532198605,
+      "pipeline_ms_p99": 38.37386967474062,
+      "pipeline_ms_max": 183.93801651740395,
+      "e2e_ms_p50": 17.219281867133738,
+      "e2e_ms_p99": 76.3412999833301,
+      "e2e_ms_max": 253.6336227982211,
+      "cpu_mean": 1.73,
+      "mem_mean_gb": 7.696666666666666,
+      "near_p99": 77.30614052515926,
+      "far_p99": 34.88972092143222
+    },
+    "previous": {
+      "pipeline_ms_p50": 6.221,
+      "pipeline_ms_p99": 642.343,
+      "pipeline_ms_max": 1270.889,
+      "e2e_ms_p50": 17.024,
+      "e2e_ms_p99": 839.972,
+      "e2e_ms_max": 1281.763
+    }
+  },
+  "spark-rtm-scala-p6": {
+    "name": "Spark RTM Scala",
+    "runs": [
+      {
+        "run": "spark-rtm-scala-p6-r1",
+        "kept_records": 10002840,
+        "throughput_eps": 33342.8,
+        "pipeline_ms_p50": 6.17,
+        "pipeline_ms_p99": 34.923,
+        "pipeline_ms_max": 181.679,
+        "e2e_ms_p50": 17.046,
+        "e2e_ms_p99": 70.206,
+        "e2e_ms_max": 215.648,
+        "res": {
+          "cpu_mean": 1.68,
+          "cpu_peak": 4.3,
+          "mem_mean_gb": 7.61,
+          "mem_peak_gb": 7.99,
+          "pods": 3,
+          "samples": 88
+        },
+        "evidence": {
+          "async_log_write_threads": 1,
+          "async_exec_frames": 1,
+          "tm_pods": null,
+          "last_commit": "v2 {\"nextBatchWatermarkMs\":0}",
+          "n_offsets": 6,
+          "n_commits": 6
+        },
+        "flink_ckpt_counts": null,
+        "boundary": {
+          "boundaries": 6,
+          "near_share_pct": 8.33,
+          "near_p99": 100.0,
+          "near_max": 180.0,
+          "far_p99": 31.0,
+          "far_max": 140.0
+        }
+      },
+      {
+        "run": "spark-rtm-scala-p6-r2",
+        "kept_records": 10000268,
+        "throughput_eps": 33334.2,
+        "pipeline_ms_p50": 6.321,
+        "pipeline_ms_p99": 35.316,
+        "pipeline_ms_max": 231.561,
+        "e2e_ms_p50": 16.714,
+        "e2e_ms_p99": 66.801,
+        "e2e_ms_max": 270.615,
+        "res": {
+          "cpu_mean": 1.57,
+          "cpu_peak": 3.53,
+          "mem_mean_gb": 7.68,
+          "mem_peak_gb": 8.09,
+          "pods": 3,
+          "samples": 86
+        },
+        "evidence": {
+          "async_log_write_threads": 0,
+          "async_exec_frames": 0,
+          "tm_pods": null,
+          "last_commit": "",
+          "n_offsets": 24,
+          "n_commits": 24
+        },
+        "flink_ckpt_counts": null,
+        "boundary": {
+          "boundaries": 24,
+          "near_share_pct": 8.33,
+          "near_p99": 110.0,
+          "near_max": 190.0,
+          "far_p99": 31.0,
+          "far_max": 230.0
+        }
+      }
+    ],
+    "geomean": {
+      "pipeline_ms_p50": 6.245043634755485,
+      "pipeline_ms_p99": 35.11895026904991,
+      "pipeline_ms_max": 205.10916829581257,
+      "e2e_ms_p50": 16.879183748037104,
+      "e2e_ms_p99": 68.48234083323963,
+      "e2e_ms_max": 241.5731432092565,
+      "cpu_mean": 1.625,
+      "mem_mean_gb": 7.645,
+      "near_p99": 104.88088481701524,
+      "far_p99": 31.0
+    },
+    "previous": {
+      "pipeline_ms_p50": 6.206,
+      "pipeline_ms_p99": 701.535,
+      "pipeline_ms_max": 1558.932,
+      "e2e_ms_p50": 17.069,
+      "e2e_ms_p99": 905.673,
+      "e2e_ms_max": 1575.513
+    }
+  }
+}

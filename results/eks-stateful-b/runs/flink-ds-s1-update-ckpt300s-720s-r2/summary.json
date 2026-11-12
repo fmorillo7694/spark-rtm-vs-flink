@@ -1,0 +1,35 @@
+{
+  "engine": "flink-ds-s1-update-ckpt300s-720s-r2",
+  "topic": "st-output",
+  "kept_records": 35713008,
+  "seen_records": 38548362,
+  "window_seconds": 720,
+  "warmup_seconds": 60,
+  "throughput_eps": 49601.4,
+  "started_at": 1794271209.639,
+  "ended_at": 1794271989.669,
+  "pipeline_ms": {
+    "count": 35713008,
+    "p50": 6.796,
+    "p95": 19.958,
+    "p99": 275.627,
+    "max": 3241.441,
+    "mean": 21.18
+  },
+  "e2e_ms": {
+    "count": 35713008,
+    "p50": 27.784,
+    "p95": 66.622,
+    "p99": 320.087,
+    "max": 3284.553,
+    "mean": 43.403
+  },
+  "window_ms": {
+    "count": 35713008,
+    "p50": -4990.0,
+    "p95": -469.0,
+    "p99": -61.0,
+    "max": 2338.0,
+    "mean": -4977.911
+  }
+}

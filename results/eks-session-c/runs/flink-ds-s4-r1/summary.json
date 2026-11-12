@@ -1,0 +1,27 @@
+{
+  "engine": "flink-ds-s4-r1",
+  "topic": "st-output",
+  "kept_records": 14582823,
+  "seen_records": 17344264,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 48609.4,
+  "started_at": 1794310441.382,
+  "ended_at": 1794310801.395,
+  "pipeline_ms": {
+    "count": 14582823,
+    "p50": 6.404,
+    "p95": 7.351,
+    "p99": 17.391,
+    "max": 235.407,
+    "mean": 6.679
+  },
+  "e2e_ms": {
+    "count": 14582823,
+    "p50": 27.172,
+    "p95": 34.802,
+    "p99": 49.709,
+    "max": 260.475,
+    "mean": 27.659
+  }
+}

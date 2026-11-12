@@ -1,0 +1,3 @@
+# flink-p6-r1 evidence at 2026-11-11T17:42:17Z ckpt=flink-java-p6-43b-1794418473
+jobId=48340f29d50a2f46dac450d8bf3117df checkpoints: {'restored': 0, 'total': 9, 'in_progress': 0, 'completed': 8, 'failed': 1}
+taskmanager pods: 2

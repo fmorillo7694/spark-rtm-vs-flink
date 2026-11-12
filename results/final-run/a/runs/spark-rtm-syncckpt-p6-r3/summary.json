@@ -1,0 +1,25 @@
+{
+  "engine": "spark-rtm-syncckpt-p6-r3",
+  "topic": "output-events",
+  "kept_records": 10000708,
+  "seen_records": 11980100,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 33335.7,
+  "pipeline_ms": {
+    "count": 10000708,
+    "p50": 6.291,
+    "p95": 7.805,
+    "p99": 591.255,
+    "max": 1266.382,
+    "mean": 18.599
+  },
+  "e2e_ms": {
+    "count": 10000708,
+    "p50": 17.352,
+    "p95": 41.509,
+    "p99": 797.602,
+    "max": 1285.047,
+    "mean": 37.312
+  }
+}

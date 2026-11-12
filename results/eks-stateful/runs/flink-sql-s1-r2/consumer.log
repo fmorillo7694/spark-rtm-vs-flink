@@ -1,0 +1,108 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-sql-s1-r2 warmup=60s window=300s
+[consumer] seen=0 kept=0 (warmup)
+[consumer] seen=0 kept=0 (warmup)
+[consumer] seen=0 kept=0 (warmup)
+[consumer] seen=79664 kept=0 (warmup)
+[consumer] seen=373421 kept=0 (warmup)
+[consumer] seen=735875 kept=0 (warmup)
+[consumer] seen=736875 kept=0 (warmup)
+[consumer] seen=1126812 kept=0 (warmup)
+[consumer] seen=1178812 kept=0 (warmup)
+[consumer] seen=1517704 kept=0 (warmup)
+[consumer] seen=1590704 kept=0 (warmup)
+[consumer] seen=1908722 kept=0 (warmup)
+[consumer] seen=1991722 kept=83000 (steady)
+[consumer] seen=2299903 kept=391181 (steady)
+[consumer] seen=2388903 kept=480181 (steady)
+[consumer] seen=2691042 kept=782320 (steady)
+[consumer] seen=2891042 kept=982320 (steady)
+[consumer] seen=3082188 kept=1173466 (steady)
+[consumer] seen=3155188 kept=1246466 (steady)
+[consumer] seen=3473407 kept=1564685 (steady)
+[consumer] seen=3607407 kept=1698685 (steady)
+[consumer] seen=3864552 kept=1955830 (steady)
+[consumer] seen=4007552 kept=2098830 (steady)
+[consumer] seen=4255441 kept=2346719 (steady)
+[consumer] seen=4398441 kept=2489719 (steady)
+[consumer] seen=4646437 kept=2737715 (steady)
+[consumer] seen=4786437 kept=2877715 (steady)
+[consumer] seen=5037377 kept=3128655 (steady)
+[consumer] seen=5309046 kept=3400324 (steady)
+[consumer] seen=5428635 kept=3519913 (steady)
+[consumer] seen=5528635 kept=3619913 (steady)
+[consumer] seen=5819793 kept=3911071 (steady)
+[consumer] seen=5973062 kept=4064340 (steady)
+[consumer] seen=6210914 kept=4302192 (steady)
+[consumer] seen=6369247 kept=4460525 (steady)
+[consumer] seen=6601833 kept=4693111 (steady)
+[consumer] seen=6756167 kept=4847445 (steady)
+[consumer] seen=6993125 kept=5084403 (steady)
+[consumer] seen=7201125 kept=5292403 (steady)
+[consumer] seen=7384221 kept=5475499 (steady)
+[consumer] seen=7751801 kept=5843079 (steady)
+[consumer] seen=7775331 kept=5866609 (steady)
+[consumer] seen=8010452 kept=6101730 (steady)
+[consumer] seen=8166509 kept=6257787 (steady)
+[consumer] seen=8449509 kept=6540787 (steady)
+[consumer] seen=8557483 kept=6648761 (steady)
+[consumer] seen=8835011 kept=6926289 (steady)
+[consumer] seen=8948729 kept=7040007 (steady)
+[consumer] seen=9243226 kept=7334504 (steady)
+[consumer] seen=9339513 kept=7430791 (steady)
+[consumer] seen=9631513 kept=7722791 (steady)
+[consumer] seen=9730210 kept=7821488 (steady)
+[consumer] seen=10121339 kept=8212617 (steady)
+[consumer] seen=10121339 kept=8212617 (steady)
+[consumer] seen=10393339 kept=8484617 (steady)
+[consumer] seen=10511986 kept=8603264 (steady)
+[consumer] seen=10861022 kept=8952300 (steady)
+[consumer] seen=10902758 kept=8994036 (steady)
+[consumer] seen=11271957 kept=9363235 (steady)
+[consumer] seen=11293805 kept=9385083 (steady)
+[consumer] seen=11671003 kept=9762281 (steady)
+[consumer] seen=11685077 kept=9776355 (steady)
+[consumer] seen=12066140 kept=10157418 (steady)
+[consumer] seen=12076114 kept=10167392 (steady)
+[consumer] seen=12467296 kept=10558574 (steady)
+[consumer] seen=12467296 kept=10558574 (steady)
+[consumer] seen=12858415 kept=10949693 (steady)
+[consumer] seen=12858415 kept=10949693 (steady)
+[consumer] seen=13249280 kept=11340558 (steady)
+[consumer] seen=13249280 kept=11340558 (steady)
+[consumer] seen=13640333 kept=11731611 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-sql-s1-r2",
+  "topic": "st-output",
+  "kept_records": 11731611,
+  "seen_records": 13640333,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 39105.4,
+  "pipeline_ms": {
+    "count": 11731611,
+    "p50": 11158.317,
+    "p95": 16207.944,
+    "p99": 16961.035,
+    "max": 18092.221,
+    "mean": 11352.308
+  },
+  "e2e_ms": {
+    "count": 11731611,
+    "p50": 12314.738,
+    "p95": 17615.626,
+    "p99": 18803.543,
+    "max": 20387.799,
+    "mean": 12486.965
+  },
+  "window_ms": {
+    "count": 11731611,
+    "p50": 6854.0,
+    "p95": 7555.0,
+    "p99": 7800.0,
+    "max": 8096.0,
+    "mean": 6765.171
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-sql-s1-r2_summary.json

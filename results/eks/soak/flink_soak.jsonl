@@ -1,0 +1,4 @@
+{"engine": "flink", "window_index": 0, "window_min": 30.0, "kept": 59999847, "throughput_eps": 33333.2, "pipeline_ms": {"p50": 6.602, "p99": 60.499, "max": 703.148}, "e2e_ms": {"p99": 122.612}}
+{"engine": "flink", "window_index": 1, "window_min": 30.0, "kept": 72268233, "throughput_eps": 40149.0, "pipeline_ms": {"p50": 6.994, "p99": 62.805, "max": 427.157}, "e2e_ms": {"p99": 43704.817}}
+{"engine": "flink", "window_index": 2, "window_min": 30.0, "kept": 72863650, "throughput_eps": 40479.8, "pipeline_ms": {"p50": 6.954, "p99": 60.095, "max": 592.61}, "e2e_ms": {"p99": 68621.064}}
+{"engine": "flink", "window_index": 3, "window_min": 29.0, "kept": 72874375, "throughput_eps": 41881.9, "pipeline_ms": {"p50": 6.952, "p99": 59.705, "max": 423.838}, "e2e_ms": {"p99": 68426.382}}

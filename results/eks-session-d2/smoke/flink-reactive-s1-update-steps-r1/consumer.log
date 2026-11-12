@@ -1,0 +1,170 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-reactive-s1-update-steps-r1 warmup=60s window=600s
+[consumer] seen=13000 kept=0 (warmup)
+[consumer] seen=254000 kept=0 (warmup)
+[consumer] seen=500557 kept=0 (warmup)
+[consumer] seen=757138 kept=0 (warmup)
+[consumer] seen=995293 kept=0 (warmup)
+[consumer] seen=1260293 kept=0 (warmup)
+[consumer] seen=1504710 kept=0 (warmup)
+[consumer] seen=1757710 kept=0 (warmup)
+[consumer] seen=1995860 kept=0 (warmup)
+[consumer] seen=2254860 kept=0 (warmup)
+[consumer] seen=2495321 kept=0 (warmup)
+[consumer] seen=2752321 kept=12515 (steady)
+[consumer] seen=2990942 kept=251136 (steady)
+[consumer] seen=3248942 kept=509136 (steady)
+[consumer] seen=3486441 kept=746635 (steady)
+[consumer] seen=3674331 kept=934525 (steady)
+[consumer] seen=3992881 kept=1253075 (steady)
+[consumer] seen=4241881 kept=1502075 (steady)
+[consumer] seen=4479794 kept=1739988 (steady)
+[consumer] seen=4733794 kept=1993988 (steady)
+[consumer] seen=4979180 kept=2239374 (steady)
+[consumer] seen=5234180 kept=2494374 (steady)
+[consumer] seen=5472952 kept=2733146 (steady)
+[consumer] seen=5731952 kept=2992146 (steady)
+[consumer] seen=5995348 kept=3255542 (steady)
+[consumer] seen=6525348 kept=3785542 (steady)
+[consumer] seen=6978128 kept=4238322 (steady)
+[consumer] seen=7447176 kept=4707370 (steady)
+[consumer] seen=7984466 kept=5244660 (steady)
+[consumer] seen=8527466 kept=5787660 (steady)
+[consumer] seen=8978209 kept=6238403 (steady)
+[consumer] seen=9530209 kept=6790403 (steady)
+[consumer] seen=9979581 kept=7239775 (steady)
+[consumer] seen=10531581 kept=7791775 (steady)
+[consumer] seen=10980253 kept=8240447 (steady)
+[consumer] seen=11535253 kept=8795447 (steady)
+[consumer] seen=11985355 kept=9245549 (steady)
+[consumer] seen=12535355 kept=9795549 (steady)
+[consumer] seen=12984313 kept=10244507 (steady)
+[consumer] seen=13378739 kept=10638933 (steady)
+[consumer] seen=13822633 kept=11082827 (steady)
+[consumer] seen=14421633 kept=11681827 (steady)
+[consumer] seen=14944633 kept=12204827 (steady)
+[consumer] seen=15525633 kept=12785827 (steady)
+[consumer] seen=15987290 kept=13247484 (steady)
+[consumer] seen=16537290 kept=13797484 (steady)
+[consumer] seen=16985933 kept=14246127 (steady)
+[consumer] seen=17540933 kept=14801127 (steady)
+[consumer] seen=17992286 kept=15252480 (steady)
+[consumer] seen=18541286 kept=15801480 (steady)
+[consumer] seen=18989630 kept=16249824 (steady)
+[consumer] seen=19392645 kept=16652839 (steady)
+[consumer] seen=19933645 kept=17193839 (steady)
+[consumer] seen=20458645 kept=17718839 (steady)
+[consumer] seen=20968645 kept=18228839 (steady)
+[consumer] seen=21497645 kept=18757839 (steady)
+[consumer] seen=22025159 kept=19285353 (steady)
+[consumer] seen=22571159 kept=19831353 (steady)
+[consumer] seen=23021111 kept=20281305 (steady)
+[consumer] seen=23571111 kept=20831305 (steady)
+[consumer] seen=24027950 kept=21288144 (steady)
+[consumer] seen=24572950 kept=21833144 (steady)
+[consumer] seen=25028102 kept=22288296 (steady)
+[consumer] seen=25396024 kept=22656218 (steady)
+[consumer] seen=25800224 kept=23060418 (steady)
+[consumer] seen=25924688 kept=23184882 (steady)
+[consumer] seen=26308688 kept=23568882 (steady)
+[consumer] seen=26659688 kept=23919882 (steady)
+[consumer] seen=27196688 kept=24456882 (steady)
+[consumer] seen=27779688 kept=25039882 (steady)
+[consumer] seen=28361688 kept=25621882 (steady)
+[consumer] seen=28940688 kept=26200882 (steady)
+[consumer] seen=29520688 kept=26780882 (steady)
+[consumer] seen=30120688 kept=27380882 (steady)
+[consumer] seen=30695688 kept=27955882 (steady)
+[consumer] seen=31284688 kept=28544882 (steady)
+[consumer] seen=31870688 kept=29130882 (steady)
+[consumer] seen=32484688 kept=29744882 (steady)
+[consumer] seen=33079688 kept=30339882 (steady)
+[consumer] seen=33688688 kept=30948882 (steady)
+[consumer] seen=34258688 kept=31518882 (steady)
+[consumer] seen=34807688 kept=32067882 (steady)
+[consumer] seen=35313688 kept=32573882 (steady)
+[consumer] seen=35873688 kept=33133882 (steady)
+[consumer] seen=36388127 kept=33648321 (steady)
+[consumer] seen=36909127 kept=34169321 (steady)
+[consumer] seen=37389729 kept=34649923 (steady)
+[consumer] seen=37909729 kept=35169923 (steady)
+[consumer] seen=38383736 kept=35643930 (steady)
+[consumer] seen=38870157 kept=36130351 (steady)
+[consumer] seen=39403157 kept=36663351 (steady)
+[consumer] seen=39923157 kept=37183351 (steady)
+[consumer] seen=40421769 kept=37681963 (steady)
+[consumer] seen=40931769 kept=38191963 (steady)
+[consumer] seen=41408284 kept=38668478 (steady)
+[consumer] seen=41933284 kept=39193478 (steady)
+[consumer] seen=42420857 kept=39681051 (steady)
+[consumer] seen=42934857 kept=40195051 (steady)
+[consumer] seen=43417749 kept=40677943 (steady)
+[consumer] seen=43937749 kept=41197943 (steady)
+[consumer] seen=44418780 kept=41678974 (steady)
+[consumer] seen=44866881 kept=42127075 (steady)
+[consumer] seen=45417881 kept=42678075 (steady)
+[consumer] seen=45938881 kept=43199075 (steady)
+[consumer] seen=46425132 kept=43685326 (steady)
+[consumer] seen=46939132 kept=44199326 (steady)
+[consumer] seen=47428846 kept=44689040 (steady)
+[consumer] seen=47940846 kept=45201040 (steady)
+[consumer] seen=48428553 kept=45688747 (steady)
+[consumer] seen=48935553 kept=46195747 (steady)
+[consumer] seen=49430778 kept=46690972 (steady)
+[consumer] seen=49942778 kept=47202972 (steady)
+[consumer] seen=50429758 kept=47689952 (steady)
+[consumer] seen=50879015 kept=48139209 (steady)
+[consumer] seen=51356771 kept=48616965 (steady)
+[consumer] seen=51666771 kept=48926965 (steady)
+[consumer] seen=52148619 kept=49408813 (steady)
+[consumer] seen=52538666 kept=49798860 (steady)
+[consumer] seen=53045666 kept=50305860 (steady)
+[consumer] seen=53629666 kept=50889860 (steady)
+[consumer] seen=54199666 kept=51459860 (steady)
+[consumer] seen=54774666 kept=52034860 (steady)
+[consumer] seen=55361666 kept=52621860 (steady)
+[consumer] seen=55965666 kept=53225860 (steady)
+[consumer] seen=56550666 kept=53810860 (steady)
+[consumer] seen=57095666 kept=54355860 (steady)
+[consumer] seen=57627666 kept=54887860 (steady)
+[consumer] seen=58142666 kept=55402860 (steady)
+[consumer] seen=58673260 kept=55933454 (steady)
+[consumer] seen=59230260 kept=56490454 (steady)
+[consumer] seen=59729260 kept=56989454 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-reactive-s1-update-steps-r1",
+  "topic": "st-output",
+  "kept_records": 57345454,
+  "seen_records": 60085260,
+  "window_seconds": 600,
+  "warmup_seconds": 60,
+  "throughput_eps": 95575.8,
+  "started_at": 1794397210.417,
+  "ended_at": 1794397870.46,
+  "pipeline_ms": {
+    "count": 57345454,
+    "p50": 17.436,
+    "p95": 6443.177,
+    "p99": 12423.977,
+    "max": 18105.271,
+    "mean": 800.037
+  },
+  "e2e_ms": {
+    "count": 57345454,
+    "p50": 284.496,
+    "p95": 9861.284,
+    "p99": 14308.535,
+    "max": 20290.17,
+    "mean": 1883.811
+  },
+  "window_ms": {
+    "count": 57345454,
+    "p50": -4300.0,
+    "p95": 2212.0,
+    "p99": 8154.0,
+    "max": 15325.0,
+    "mean": -4212.603
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-reactive-s1-update-steps-r1_summary.json

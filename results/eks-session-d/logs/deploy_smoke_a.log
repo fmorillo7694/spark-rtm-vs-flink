@@ -1,0 +1,22 @@
+2026-11-10 20:18:37 [ℹ]  3 existing iamserviceaccount(s) (flink/flink,kube-system/cluster-autoscaler,spark/spark-operator-spark) will be excluded
+2026-11-10 20:18:37 [ℹ]  1 iamserviceaccount (kafka/stateful-runner) was included (based on the include/exclude rules)
+2026-11-10 20:18:37 [!]  serviceaccounts in Kubernetes will not be created or modified, since the option --role-only is used
+2026-11-10 20:18:37 [ℹ]  1 task: { create IAM role for serviceaccount "kafka/stateful-runner" }
+2026-11-10 20:18:37 [ℹ]  building iamserviceaccount stack "eksctl-rtm-flink-bench4-addon-iamserviceaccount-kafka-stateful-runner"
+2026-11-10 20:18:37 [ℹ]  deploying stack "eksctl-rtm-flink-bench4-addon-iamserviceaccount-kafka-stateful-runner"
+2026-11-10 20:18:37 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench4-addon-iamserviceaccount-kafka-stateful-runner"
+2026-11-10 20:19:08 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench4-addon-iamserviceaccount-kafka-stateful-runner"
+configmap/stateful-runner created
+serviceaccount/stateful-runner created
+role.rbac.authorization.k8s.io/stateful-runner created
+role.rbac.authorization.k8s.io/stateful-runner created
+role.rbac.authorization.k8s.io/stateful-runner created
+clusterrole.rbac.authorization.k8s.io/stateful-runner-pv-read created
+role.rbac.authorization.k8s.io/stateful-runner created
+rolebinding.rbac.authorization.k8s.io/stateful-runner created
+clusterrolebinding.rbac.authorization.k8s.io/stateful-runner-pv-read created
+rolebinding.rbac.authorization.k8s.io/stateful-runner created
+rolebinding.rbac.authorization.k8s.io/stateful-runner created
+rolebinding.rbac.authorization.k8s.io/stateful-runner created
+job.batch/stateful-runner created
+runner started; artifacts -> s3://<BUCKET>/stateful/sessd-smoke-a-20261110T191830Z/

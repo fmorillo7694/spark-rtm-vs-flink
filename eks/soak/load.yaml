@@ -1,0 +1,69 @@
+# Soak load: ONE producer feeding the shared input topic for 4h+, plus TWO soak consumers
+# (one per engine's output topic) that emit a percentile snapshot every 30 min. Producer runs
+# slightly longer than the consumers so the stream never starves at the tail.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: soak-producer
+  namespace: kafka
+spec:
+  # 8 pods × 12,500/s = ~100k/s aggregate, matching the validated 5-min runs. Each runs the
+  # full soak duration + buffer (4h10m) so the input stream never starves.
+  completions: 8
+  parallelism: 8
+  backoffLimit: 4
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: producer
+          image: "__REGISTRY__/rtm-bench/load:__TAG__"
+          imagePullPolicy: Always
+          command: ["python", "producer.py"]
+          args: ["--rate", "12500", "--seconds", "7800", "--payload-bytes", "0",
+                 "--bootstrap", "bench-kafka-bootstrap.kafka.svc:9092",
+                 "--topic", "input-events"]
+          resources:
+            requests: { cpu: "1", memory: "512Mi" }
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: soak-consumer-spark
+  namespace: kafka
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: consumer
+          image: "__REGISTRY__/rtm-bench/load:__TAG__"
+          imagePullPolicy: Always
+          command: ["python", "-u", "soak_consumer.py"]
+          args: ["--engine", "spark", "--topic", "output-spark",
+                 "--window-seconds", "1800", "--total-seconds", "7200", "--warmup", "60",
+                 "--bootstrap", "bench-kafka-bootstrap.kafka.svc:9092", "--outdir", "/tmp"]
+          resources:
+            requests: { cpu: "1", memory: "1Gi" }
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: soak-consumer-flink
+  namespace: kafka
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: consumer
+          image: "__REGISTRY__/rtm-bench/load:__TAG__"
+          imagePullPolicy: Always
+          command: ["python", "-u", "soak_consumer.py"]
+          args: ["--engine", "flink", "--topic", "output-flink",
+                 "--window-seconds", "1800", "--total-seconds", "7200", "--warmup", "60",
+                 "--bootstrap", "bench-kafka-bootstrap.kafka.svc:9092", "--outdir", "/tmp"]
+          resources:
+            requests: { cpu: "1", memory: "1Gi" }

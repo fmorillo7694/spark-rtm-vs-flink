@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-s5-at54k-r1 warmup=60s window=300s
+[consumer] seen=29265 kept=0 (warmup)
+[consumer] seen=188265 kept=0 (warmup)
+[consumer] seen=338114 kept=0 (warmup)
+[consumer] seen=528114 kept=0 (warmup)
+[consumer] seen=780114 kept=0 (warmup)
+[consumer] seen=995114 kept=0 (warmup)
+[consumer] seen=1166114 kept=0 (warmup)
+[consumer] seen=1352114 kept=0 (warmup)
+[consumer] seen=1505114 kept=0 (warmup)
+[consumer] seen=1638114 kept=0 (warmup)
+[consumer] seen=1749114 kept=0 (warmup)
+[consumer] seen=1847114 kept=6000 (steady)
+[consumer] seen=1932114 kept=91000 (steady)
+[consumer] seen=2004114 kept=163000 (steady)
+[consumer] seen=2075114 kept=234000 (steady)
+[consumer] seen=2130114 kept=289000 (steady)
+[consumer] seen=2189114 kept=348000 (steady)
+[consumer] seen=2278114 kept=437000 (steady)
+[consumer] seen=2365114 kept=524000 (steady)
+[consumer] seen=2445114 kept=604000 (steady)
+[consumer] seen=2518114 kept=677000 (steady)
+[consumer] seen=2584114 kept=743000 (steady)
+[consumer] seen=2645114 kept=804000 (steady)
+[consumer] seen=2703114 kept=862000 (steady)
+[consumer] seen=2757114 kept=916000 (steady)
+[consumer] seen=2808114 kept=967000 (steady)
+[consumer] seen=2856114 kept=1015000 (steady)
+[consumer] seen=2894114 kept=1053000 (steady)
+[consumer] seen=2936114 kept=1095000 (steady)
+[consumer] seen=2966785 kept=1125671 (steady)
+[consumer] seen=3012785 kept=1171671 (steady)
+[consumer] seen=3057785 kept=1216671 (steady)
+[consumer] seen=3099785 kept=1258671 (steady)
+[consumer] seen=3141785 kept=1300671 (steady)
+[consumer] seen=3182785 kept=1341671 (steady)
+[consumer] seen=3222785 kept=1381671 (steady)
+[consumer] seen=3261785 kept=1420671 (steady)
+[consumer] seen=3299785 kept=1458671 (steady)
+[consumer] seen=3336785 kept=1495671 (steady)
+[consumer] seen=3374785 kept=1533671 (steady)
+[consumer] seen=3423133 kept=1582019 (steady)
+[consumer] seen=3487889 kept=1646775 (steady)
+[consumer] seen=3693889 kept=1852775 (steady)
+[consumer] seen=3848889 kept=2007775 (steady)
+[consumer] seen=3964889 kept=2123775 (steady)
+[consumer] seen=4062889 kept=2221775 (steady)
+[consumer] seen=4149889 kept=2308775 (steady)
+[consumer] seen=4227889 kept=2386775 (steady)
+[consumer] seen=4297889 kept=2456775 (steady)
+[consumer] seen=4361889 kept=2520775 (steady)
+[consumer] seen=4419889 kept=2578775 (steady)
+[consumer] seen=4463615 kept=2622501 (steady)
+[consumer] seen=4502559 kept=2661445 (steady)
+[consumer] seen=4573559 kept=2732445 (steady)
+[consumer] seen=4640559 kept=2799445 (steady)
+[consumer] seen=4703559 kept=2862445 (steady)
+[consumer] seen=4762559 kept=2921445 (steady)
+[consumer] seen=4818559 kept=2977445 (steady)
+[consumer] seen=4871559 kept=3030445 (steady)
+[consumer] seen=4922559 kept=3081445 (steady)
+[consumer] seen=4971559 kept=3130445 (steady)
+[consumer] seen=5018559 kept=3177445 (steady)
+[consumer] seen=5061559 kept=3220445 (steady)
+[consumer] seen=5103559 kept=3262445 (steady)
+[consumer] seen=5136390 kept=3295276 (steady)
+[consumer] seen=5182390 kept=3341276 (steady)
+[consumer] seen=5227390 kept=3386276 (steady)
+[consumer] seen=5271390 kept=3430276 (steady)
+[consumer] seen=5313390 kept=3472276 (steady)
+[consumer] seen=5353390 kept=3512276 (steady)
+[consumer] seen=5392390 kept=3551276 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-s5-at54k-r1",
+  "topic": "st-output",
+  "kept_records": 3565276,
+  "seen_records": 5406390,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 11884.3,
+  "started_at": 1794323415.692,
+  "ended_at": 1794323775.81,
+  "pipeline_ms": {
+    "count": 3565276,
+    "p50": 126187.133,
+    "p95": 212689.453,
+    "p99": 227000.543,
+    "max": 237103.062,
+    "mean": 114080.744
+  },
+  "e2e_ms": {
+    "count": 3565276,
+    "p50": 126217.73,
+    "p95": 212758.973,
+    "p99": 227077.133,
+    "max": 237225.859,
+    "mean": 114134.183
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-s5-at54k-r1_summary.json

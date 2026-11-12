@@ -1,0 +1,20 @@
+[11:58:00] matrix: 4 runs (plan D2), budget 14400s, s3://<BUCKET>/stateful/sessd2-20261111T115742Z dry_run=0
+[11:58:00] ######## flink-reactive-s1-update-steps-r1 attempt=1 elapsed=5s
+    {"workload":"s1-update","producer_pods_done":8,"originals":189295810,"sent":189295810,"input_records":189295810,"payments_records":0,"output_records":189871467}
+    kept=185928479 p50=12.282 p99=6070.068 max=17208.742
+[s3_sync] 22 files -> s3://<BUCKET>/stateful/sessd2-20261111T115742Z/runs/flink-reactive-s1-update-steps-r1/
+[12:46:12] ######## flink-reactive-s1-update-steps-r2 attempt=1 elapsed=2897s
+    {"workload":"s1-update","producer_pods_done":8,"originals":189295999,"sent":189295999,"input_records":189295999,"payments_records":0,"output_records":189839909}
+    kept=185872160 p50=12.176 p99=6510.369 max=20395.174
+[s3_sync] 22 files -> s3://<BUCKET>/stateful/sessd2-20261111T115742Z/runs/flink-reactive-s1-update-steps-r2/
+[13:41:34] ######## flink-auto-s1-update-scalein-r1 attempt=1 elapsed=6219s
+    {"workload":"s1-update","producer_pods_done":8,"originals":145648718,"sent":145648718,"input_records":145648718,"payments_records":0,"output_records":146179111}
+    kept=141193351 p50=11.191 p99=12519.703 max=20953.359
+[s3_sync] 20 files -> s3://<BUCKET>/stateful/sessd2-20261111T115742Z/runs/flink-auto-s1-update-scalein-r1/
+[14:37:20] ######## flink-reactive-s1-update-scalein-r1 attempt=1 elapsed=9565s
+    {"workload":"s1-update","producer_pods_done":8,"originals":145648812,"sent":145648812,"input_records":145648812,"payments_records":0,"output_records":147382555}
+    kept=141411656 p50=12.248 p99=18219.386 max=46286.32
+[s3_sync] 22 files -> s3://<BUCKET>/stateful/sessd2-20261111T115742Z/runs/flink-reactive-s1-update-scalein-r1/
+[15:25:34] MATRIX DONE elapsed=12459s
+[15:25:34] exit: cleaning up
+[15:25:37] self-teardown: uploading runner log, scaling nodegroups engine-ng bench-ng of rtm-flink-bench5 to 0

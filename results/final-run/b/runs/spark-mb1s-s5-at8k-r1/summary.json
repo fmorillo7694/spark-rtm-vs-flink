@@ -1,0 +1,27 @@
+{
+  "engine": "spark-mb1s-s5-at8k-r1",
+  "topic": "st-output",
+  "kept_records": 1912211,
+  "seen_records": 2243996,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 6374.0,
+  "started_at": 1794427368.498,
+  "ended_at": 1794427728.66,
+  "pipeline_ms": {
+    "count": 1912211,
+    "p50": 3512.264,
+    "p95": 5432.508,
+    "p99": 5999.289,
+    "max": 6813.646,
+    "mean": 3533.127
+  },
+  "e2e_ms": {
+    "count": 1912211,
+    "p50": 3547.363,
+    "p95": 5463.637,
+    "p99": 6028.762,
+    "max": 6859.06,
+    "mean": 3568.117
+  }
+}

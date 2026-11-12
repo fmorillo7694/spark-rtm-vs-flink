@@ -1,0 +1,4 @@
+[s3] flink-ds-s3-lt           PASS  {"truth_sessions": 20578, "output_sessions": 20578, "missing": 0, "extra": 0, "close_reasons": {"gap": 15578, "timeout": 5000}}
+[s3] flink-ds-s3              PASS  {"truth_sessions": 20578, "output_sessions": 20578, "missing": 0, "extra": 0, "close_reasons": {"gap": 15578, "timeout": 5000}}
+[s3] spark-rtm-s3-lt          PASS  {"truth_sessions": 20578, "output_sessions": 20578, "missing": 0, "extra": 0, "close_reasons": {"gap": 15578, "timeout": 5000}}
+[s3] spark-rtm-s3             PASS  {"truth_sessions": 20578, "output_sessions": 20578, "missing": 0, "extra": 0, "close_reasons": {"gap": 15578, "timeout": 5000}}

@@ -1,0 +1,55 @@
+# Session C (join workloads) topics. Recreated before every S4/S5 run like topics.yaml:
+#   st-input   events (S4) or orders (S5); st-output; st-payments (S5);
+#   st-ref     the S4 static reference table, compacted, reloaded by ref-load.yaml per S4 run.
+# 6 partitions, RF 3, keyed by user_id.
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: st-input
+  namespace: kafka
+  labels: { strimzi.io/cluster: bench, bench: stateful }
+spec:
+  partitions: 6
+  replicas: 3
+  config:
+    min.insync.replicas: "2"
+    retention.ms: "3600000"
+---
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: st-output
+  namespace: kafka
+  labels: { strimzi.io/cluster: bench, bench: stateful }
+spec:
+  partitions: 6
+  replicas: 3
+  config:
+    min.insync.replicas: "2"
+    retention.ms: "3600000"
+---
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: st-payments
+  namespace: kafka
+  labels: { strimzi.io/cluster: bench, bench: stateful }
+spec:
+  partitions: 6
+  replicas: 3
+  config:
+    min.insync.replicas: "2"
+    retention.ms: "3600000"
+---
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: st-ref
+  namespace: kafka
+  labels: { strimzi.io/cluster: bench, bench: stateful }
+spec:
+  partitions: 6
+  replicas: 3
+  config:
+    min.insync.replicas: "2"
+    cleanup.policy: "compact"

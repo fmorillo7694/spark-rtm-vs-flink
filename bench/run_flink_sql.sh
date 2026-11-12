@@ -9,16 +9,18 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 set -a; . ./.env; set +a
 
-ENGINE="flink-sql"
+ENGINE="flink-sql${RUN_ID:+-r$RUN_ID}"
+OUTDIR="${RESULTS_DIR:-results}"
+LOGDIR="${LOG_DIR:-/tmp}"
 PY=.venv/bin/python
-mkdir -p results
+mkdir -p "$OUTDIR" "$LOGDIR"
 
 echo "==> [1/7] Kafka up"
 docker compose -f docker-compose.kafka.yml up -d >/dev/null
 until [ "$(docker inspect -f '{{.State.Health.Status}}' kafka 2>/dev/null)" = "healthy" ]; do sleep 2; done
 
 echo "==> [2/7] Build Flink SQL jar"
-( cd flink/java-sql && mvn -q -B package >/tmp/mvn_sql_build.log 2>&1 ) && echo "    jar OK"
+( cd flink/java-sql && mvn -q -B package >$LOGDIR/mvn_sql_build.log 2>&1 ) && echo "    jar OK"
 
 echo "==> [3/7] Flink cluster up"
 docker compose -f docker-compose.flink.yml up -d >/dev/null
@@ -33,7 +35,7 @@ echo "==> [4/7] Submit job"
 docker exec -e KAFKA_BOOTSTRAP_INTERNAL="$KAFKA_BOOTSTRAP_INTERNAL" -e INPUT_TOPIC="$INPUT_TOPIC" \
   -e OUTPUT_TOPIC="$OUTPUT_TOPIC" -e TOPIC_PARTITIONS="$TOPIC_PARTITIONS" \
   -e CHECKPOINT_MS="${FLINK_CHECKPOINT_MS:-0}" \
-  flink-jobmanager bash /workspace/flink/submit-flink-sql.sh >/tmp/flink_sql_submit.log 2>&1 &
+  flink-jobmanager bash /workspace/flink/submit-flink-sql.sh >$LOGDIR/flink_sql_submit.log 2>&1 &
 SUBMIT_PID=$!
 # Poll the REST API until the job shows RUNNING (up to ~60s).
 STATE=UNKNOWN
@@ -44,24 +46,26 @@ for i in $(seq 1 30); do
   sleep 2
 done
 echo "    JobID=$JOBID state=$STATE"
-[ "$STATE" = "RUNNING" ] || { echo "!! job not RUNNING ($STATE)"; tail -15 /tmp/flink_sql_submit.log; exit 1; }
+[ "$STATE" = "RUNNING" ] || { echo "!! job not RUNNING ($STATE)"; tail -15 $LOGDIR/flink_sql_submit.log; exit 1; }
 
 echo "==> [5/7] Sample docker stats"
-bash bench/collect_stats.sh "results/${ENGINE}_stats.csv" kafka flink-jobmanager flink-taskmanager &
+bash bench/collect_stats.sh "$OUTDIR/${ENGINE}_stats.csv" kafka flink-jobmanager flink-taskmanager &
 STATS_PID=$!
 
 echo "==> [6/7] Produce ${RUN_SECONDS}s @ ${TARGET_RATE}/s + measure latency"
-$PY common/latency_consumer.py --engine "$ENGINE" --warmup "$WARMUP_SECONDS" --seconds "$RUN_SECONDS" >/tmp/${ENGINE}_cons.log 2>&1 &
+$PY common/latency_consumer.py --engine "$ENGINE" --warmup "$WARMUP_SECONDS" --seconds "$RUN_SECONDS" --outdir "$OUTDIR" >$LOGDIR/${ENGINE}_cons.log 2>&1 &
 CONS=$!
 sleep 2
-$PY common/producer.py --rate "$TARGET_RATE" --seconds "$RUN_SECONDS" >/tmp/${ENGINE}_prod.log 2>&1
-wait $CONS
+$PY common/producer.py --rate "$TARGET_RATE" --seconds "$RUN_SECONDS" >$LOGDIR/${ENGINE}_prod.log 2>&1
+CONS_RC=0; wait $CONS || CONS_RC=$?
 kill $STATS_PID 2>/dev/null || true
 
+curl -s "http://localhost:8081/jobs/$JOBID/checkpoints" > "$OUTDIR/${ENGINE}_checkpoints.json" || true
 echo "==> [7/7] Cancel job + tear down Flink (Kafka stays up)"
 [ -n "$JOBID" ] && docker exec flink-jobmanager /opt/flink/bin/flink cancel "$JOBID" >/dev/null 2>&1 || true
 kill "$SUBMIT_PID" 2>/dev/null || true   # the backgrounded blocking submit client
 docker compose -f docker-compose.flink.yml down >/dev/null 2>&1
 
 echo "==> DONE. Latency summary:"
-sed -n '/LATENCY SUMMARY/,$p' /tmp/${ENGINE}_cons.log | head -32
+sed -n '/LATENCY SUMMARY/,$p' $LOGDIR/${ENGINE}_cons.log | head -32
+exit $CONS_RC

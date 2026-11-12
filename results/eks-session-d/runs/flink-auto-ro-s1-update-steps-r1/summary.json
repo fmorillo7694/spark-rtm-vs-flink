@@ -1,0 +1,35 @@
+{
+  "engine": "flink-auto-ro-s1-update-steps-r1",
+  "topic": "st-output",
+  "kept_records": 131664455,
+  "seen_records": 134753916,
+  "window_seconds": 1740,
+  "warmup_seconds": 60,
+  "throughput_eps": 75669.2,
+  "started_at": 1794340469.734,
+  "ended_at": 1794342269.773,
+  "pipeline_ms": {
+    "count": 131664455,
+    "p50": 16.504,
+    "p95": 708.341,
+    "p99": 1938.802,
+    "max": 3694.09,
+    "mean": 116.807
+  },
+  "e2e_ms": {
+    "count": 131664455,
+    "p50": 79.724,
+    "p95": 1439.391,
+    "p99": 2455.209,
+    "max": 5644.226,
+    "mean": 322.249
+  },
+  "window_ms": {
+    "count": 131664455,
+    "p50": -4983.0,
+    "p95": -306.0,
+    "p99": 207.0,
+    "max": 2274.0,
+    "mean": -4882.789
+  }
+}

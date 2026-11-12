@@ -1,0 +1,33 @@
+# spark-rtm-s4 spark evidence at 2026-11-09T12:29:05Z
+async-log-write threads: 1
+AsyncProgressTrackingMicroBatchExecution frames: 1
+--- active stages (pipelined shuffle => source stage and stateful stage RUNNING together)
+stage 5 ACTIVE tasks 6 active 6 start at StatefulPipelineJava.java:244
+--- driver log: pipelined / state store / commit lines
+   1 [StatefulPipelineJava] workload=s4 mode=rtm id=4c9d56cd-d792-45fa-8606-bef25f20624b trigger=RealTime(60 seconds) outputMode=update secondTopic=st-ref startingOffsets=latest watermark=5s window=10s gapMs=5000 timeoutMs=50
+   1 [StatefulPipelineJava] s4 reference rows=980000 topic=st-ref
+   1 26/11/09 12:28:55 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+   1 26/11/09 12:28:55 INFO SparkContext: Created broadcast 6 from start at StatefulPipelineJava.java:244
+   1 26/11/09 12:28:55 INFO DAGScheduler: Submitting ResultStage 5 (MapPartitionsRDD[42] at start at StatefulPipelineJava.java:244), which has no missing parents
+   1 26/11/09 12:28:55 INFO DAGScheduler: Submitting 6 missing tasks from ResultStage 5 (MapPartitionsRDD[42] at start at StatefulPipelineJava.java:244) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+   1 26/11/09 12:28:55 INFO DAGScheduler: Got job 4 (start at StatefulPipelineJava.java:244) with 6 output partitions
+   1 26/11/09 12:28:55 INFO DAGScheduler: Final stage: ResultStage 5 (start at StatefulPipelineJava.java:244)
+   1 26/11/09 12:28:54 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+   1 26/11/09 12:28:54 INFO DAGScheduler: Submitting ResultStage 4 (MapPartitionsRDD[36] at start at StatefulPipelineJava.java:244), which has no missing parents
+   1 26/11/09 12:28:54 INFO DAGScheduler: Submitting 6 missing tasks from ResultStage 4 (MapPartitionsRDD[36] at start at StatefulPipelineJava.java:244) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+   1 26/11/09 12:28:54 INFO DAGScheduler: ResultStage 4 (start at StatefulPipelineJava.java:244) finished in 133 ms
+   1 26/11/09 12:28:54 INFO DAGScheduler: ResultStage 3 (start at StatefulPipelineJava.java:244) finished in 60014 ms
+   1 26/11/09 12:28:54 INFO DAGScheduler: Job 3 finished: start at StatefulPipelineJava.java:244, took 139.944333 ms
+   1 26/11/09 12:28:54 INFO DAGScheduler: Job 2 finished: start at StatefulPipelineJava.java:244, took 60015.837902 ms
+--- checkpoint /tmp/spark-checkpoints/stateful-s4-rtm-1794227263/
+/tmp/spark-checkpoints/stateful-s4-rtm-1794227263/:
+commits
+metadata
+offsets
+sources
+[commits]
+0
+[latest commit]
+v2
+{"nextBatchWatermarkMs":0}
+[state files, partition 0]

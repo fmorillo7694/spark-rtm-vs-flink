@@ -1,0 +1,25 @@
+{
+  "engine": "flink-sql-bt100-s2-r2",
+  "topic": "st-output",
+  "kept_records": 14880962,
+  "seen_records": 17770962,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 49603.2,
+  "pipeline_ms": {
+    "count": 14880962,
+    "p50": 50.957,
+    "p95": 102.924,
+    "p99": 534.603,
+    "max": 2028.758,
+    "mean": 63.792
+  },
+  "e2e_ms": {
+    "count": 14880962,
+    "p50": 73.851,
+    "p95": 129.248,
+    "p99": 553.873,
+    "max": 2084.701,
+    "mean": 86.029
+  }
+}

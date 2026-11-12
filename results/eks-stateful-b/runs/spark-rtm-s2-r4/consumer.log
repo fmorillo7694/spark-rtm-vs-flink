@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=spark-rtm-s2-r4 warmup=60s window=300s
+[consumer] seen=48937 kept=0 (warmup)
+[consumer] seen=218937 kept=0 (warmup)
+[consumer] seen=451937 kept=0 (warmup)
+[consumer] seen=931937 kept=0 (warmup)
+[consumer] seen=1200937 kept=0 (warmup)
+[consumer] seen=1448937 kept=0 (warmup)
+[consumer] seen=1696937 kept=0 (warmup)
+[consumer] seen=1945937 kept=0 (warmup)
+[consumer] seen=2182787 kept=0 (warmup)
+[consumer] seen=2218787 kept=0 (warmup)
+[consumer] seen=2592787 kept=0 (warmup)
+[consumer] seen=2939787 kept=6000 (steady)
+[consumer] seen=3188787 kept=255000 (steady)
+[consumer] seen=3437787 kept=504000 (steady)
+[consumer] seen=3686787 kept=753000 (steady)
+[consumer] seen=3934787 kept=1001000 (steady)
+[consumer] seen=4183787 kept=1250000 (steady)
+[consumer] seen=4431787 kept=1498000 (steady)
+[consumer] seen=4680787 kept=1747000 (steady)
+[consumer] seen=4928787 kept=1995000 (steady)
+[consumer] seen=5177787 kept=2244000 (steady)
+[consumer] seen=5353658 kept=2419871 (steady)
+[consumer] seen=5504658 kept=2570871 (steady)
+[consumer] seen=5929658 kept=2995871 (steady)
+[consumer] seen=6176658 kept=3242871 (steady)
+[consumer] seen=6425658 kept=3491871 (steady)
+[consumer] seen=6674658 kept=3740871 (steady)
+[consumer] seen=6922658 kept=3988871 (steady)
+[consumer] seen=7171658 kept=4237871 (steady)
+[consumer] seen=7419658 kept=4485871 (steady)
+[consumer] seen=7668658 kept=4734871 (steady)
+[consumer] seen=7917658 kept=4983871 (steady)
+[consumer] seen=8166658 kept=5232871 (steady)
+[consumer] seen=8414658 kept=5480871 (steady)
+[consumer] seen=8564762 kept=5630975 (steady)
+[consumer] seen=8564762 kept=5630975 (steady)
+[consumer] seen=8997762 kept=6063975 (steady)
+[consumer] seen=9408762 kept=6474975 (steady)
+[consumer] seen=9656762 kept=6722975 (steady)
+[consumer] seen=9905762 kept=6971975 (steady)
+[consumer] seen=10153762 kept=7219975 (steady)
+[consumer] seen=10402762 kept=7468975 (steady)
+[consumer] seen=10651762 kept=7717975 (steady)
+[consumer] seen=10899762 kept=7965975 (steady)
+[consumer] seen=11148762 kept=8214975 (steady)
+[consumer] seen=11396762 kept=8462975 (steady)
+[consumer] seen=11645762 kept=8711975 (steady)
+[consumer] seen=11894762 kept=8960975 (steady)
+[consumer] seen=11911514 kept=8977727 (steady)
+[consumer] seen=12142514 kept=9208727 (steady)
+[consumer] seen=12646678 kept=9712891 (steady)
+[consumer] seen=12895678 kept=9961891 (steady)
+[consumer] seen=13143678 kept=10209891 (steady)
+[consumer] seen=13392678 kept=10458891 (steady)
+[consumer] seen=13641678 kept=10707891 (steady)
+[consumer] seen=13888678 kept=10954891 (steady)
+[consumer] seen=14138678 kept=11204891 (steady)
+[consumer] seen=14386678 kept=11452891 (steady)
+[consumer] seen=14635678 kept=11701891 (steady)
+[consumer] seen=14883678 kept=11949891 (steady)
+[consumer] seen=15131678 kept=12197891 (steady)
+[consumer] seen=15250346 kept=12316559 (steady)
+[consumer] seen=15250346 kept=12316559 (steady)
+[consumer] seen=15587346 kept=12653559 (steady)
+[consumer] seen=16134574 kept=13200787 (steady)
+[consumer] seen=16382574 kept=13448787 (steady)
+[consumer] seen=16630574 kept=13696787 (steady)
+[consumer] seen=16878574 kept=13944787 (steady)
+[consumer] seen=17127574 kept=14193787 (steady)
+[consumer] seen=17372574 kept=14438787 (steady)
+[consumer] seen=17624574 kept=14690787 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "spark-rtm-s2-r4",
+  "topic": "st-output",
+  "kept_records": 14880787,
+  "seen_records": 17814574,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 49602.6,
+  "started_at": 1794236860.739,
+  "ended_at": 1794237220.75,
+  "pipeline_ms": {
+    "count": 14880787,
+    "p50": 38.481,
+    "p95": 5841.401,
+    "p99": 7921.756,
+    "max": 9506.307,
+    "mean": 710.565
+  },
+  "e2e_ms": {
+    "count": 14880787,
+    "p50": 64.608,
+    "p95": 5947.957,
+    "p99": 7956.432,
+    "max": 9526.302,
+    "mean": 789.658
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/spark-rtm-s2-r4_summary.json

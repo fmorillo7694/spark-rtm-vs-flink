@@ -1,0 +1,194 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=spark-rtm-s1-ckpt300s-720s-r1 warmup=60s window=720s
+[consumer] seen=30000 kept=0 (warmup)
+[consumer] seen=133000 kept=0 (warmup)
+[consumer] seen=279000 kept=0 (warmup)
+[consumer] seen=632000 kept=0 (warmup)
+[consumer] seen=1077000 kept=0 (warmup)
+[consumer] seen=1457000 kept=0 (warmup)
+[consumer] seen=1717000 kept=0 (warmup)
+[consumer] seen=1966000 kept=0 (warmup)
+[consumer] seen=2214000 kept=0 (warmup)
+[consumer] seen=2463000 kept=0 (warmup)
+[consumer] seen=2711000 kept=0 (warmup)
+[consumer] seen=2960000 kept=7170 (steady)
+[consumer] seen=3209000 kept=256170 (steady)
+[consumer] seen=3458000 kept=505170 (steady)
+[consumer] seen=3706000 kept=753170 (steady)
+[consumer] seen=3951000 kept=998170 (steady)
+[consumer] seen=4202000 kept=1249170 (steady)
+[consumer] seen=4451000 kept=1498170 (steady)
+[consumer] seen=4699000 kept=1746170 (steady)
+[consumer] seen=4948000 kept=1995170 (steady)
+[consumer] seen=5196000 kept=2243170 (steady)
+[consumer] seen=5445000 kept=2492170 (steady)
+[consumer] seen=5694000 kept=2741170 (steady)
+[consumer] seen=5943000 kept=2990170 (steady)
+[consumer] seen=6191000 kept=3238170 (steady)
+[consumer] seen=6439000 kept=3486170 (steady)
+[consumer] seen=6688000 kept=3735170 (steady)
+[consumer] seen=6936000 kept=3983170 (steady)
+[consumer] seen=7185000 kept=4232170 (steady)
+[consumer] seen=7434000 kept=4481170 (steady)
+[consumer] seen=7682000 kept=4729170 (steady)
+[consumer] seen=7931000 kept=4978170 (steady)
+[consumer] seen=8180000 kept=5227170 (steady)
+[consumer] seen=8427000 kept=5474170 (steady)
+[consumer] seen=8676000 kept=5723170 (steady)
+[consumer] seen=8924000 kept=5971170 (steady)
+[consumer] seen=9173000 kept=6220170 (steady)
+[consumer] seen=9421000 kept=6468170 (steady)
+[consumer] seen=9670000 kept=6717170 (steady)
+[consumer] seen=9919000 kept=6966170 (steady)
+[consumer] seen=10167000 kept=7214170 (steady)
+[consumer] seen=10416000 kept=7463170 (steady)
+[consumer] seen=10665000 kept=7712170 (steady)
+[consumer] seen=10913000 kept=7960170 (steady)
+[consumer] seen=11162000 kept=8209170 (steady)
+[consumer] seen=11410000 kept=8457170 (steady)
+[consumer] seen=11659000 kept=8706170 (steady)
+[consumer] seen=11907000 kept=8954170 (steady)
+[consumer] seen=12155000 kept=9202170 (steady)
+[consumer] seen=12404000 kept=9451170 (steady)
+[consumer] seen=12652000 kept=9699170 (steady)
+[consumer] seen=12900000 kept=9947170 (steady)
+[consumer] seen=13149000 kept=10196170 (steady)
+[consumer] seen=13397000 kept=10444170 (steady)
+[consumer] seen=13646000 kept=10693170 (steady)
+[consumer] seen=13895000 kept=10942170 (steady)
+[consumer] seen=14021334 kept=11068504 (steady)
+[consumer] seen=14038334 kept=11085504 (steady)
+[consumer] seen=14223334 kept=11270504 (steady)
+[consumer] seen=14466334 kept=11513504 (steady)
+[consumer] seen=14878334 kept=11925504 (steady)
+[consumer] seen=15276334 kept=12323504 (steady)
+[consumer] seen=15640334 kept=12687504 (steady)
+[consumer] seen=15889334 kept=12936504 (steady)
+[consumer] seen=16138334 kept=13185504 (steady)
+[consumer] seen=16386334 kept=13433504 (steady)
+[consumer] seen=16635334 kept=13682504 (steady)
+[consumer] seen=16883334 kept=13930504 (steady)
+[consumer] seen=17132334 kept=14179504 (steady)
+[consumer] seen=17381334 kept=14428504 (steady)
+[consumer] seen=17629334 kept=14676504 (steady)
+[consumer] seen=17878334 kept=14925504 (steady)
+[consumer] seen=18126334 kept=15173504 (steady)
+[consumer] seen=18375334 kept=15422504 (steady)
+[consumer] seen=18624334 kept=15671504 (steady)
+[consumer] seen=18872334 kept=15919504 (steady)
+[consumer] seen=19120334 kept=16167504 (steady)
+[consumer] seen=19368334 kept=16415504 (steady)
+[consumer] seen=19617334 kept=16664504 (steady)
+[consumer] seen=19865334 kept=16912504 (steady)
+[consumer] seen=20114334 kept=17161504 (steady)
+[consumer] seen=20363334 kept=17410504 (steady)
+[consumer] seen=20611334 kept=17658504 (steady)
+[consumer] seen=20860334 kept=17907504 (steady)
+[consumer] seen=21108334 kept=18155504 (steady)
+[consumer] seen=21357334 kept=18404504 (steady)
+[consumer] seen=21606334 kept=18653504 (steady)
+[consumer] seen=21854334 kept=18901504 (steady)
+[consumer] seen=22103334 kept=19150504 (steady)
+[consumer] seen=22351334 kept=19398504 (steady)
+[consumer] seen=22600334 kept=19647504 (steady)
+[consumer] seen=22849334 kept=19896504 (steady)
+[consumer] seen=23096334 kept=20143504 (steady)
+[consumer] seen=23345334 kept=20392504 (steady)
+[consumer] seen=23593334 kept=20640504 (steady)
+[consumer] seen=23842334 kept=20889504 (steady)
+[consumer] seen=24090334 kept=21137504 (steady)
+[consumer] seen=24339334 kept=21386504 (steady)
+[consumer] seen=24588334 kept=21635504 (steady)
+[consumer] seen=24836334 kept=21883504 (steady)
+[consumer] seen=25085334 kept=22132504 (steady)
+[consumer] seen=25333334 kept=22380504 (steady)
+[consumer] seen=25582334 kept=22629504 (steady)
+[consumer] seen=25831334 kept=22878504 (steady)
+[consumer] seen=26079334 kept=23126504 (steady)
+[consumer] seen=26328334 kept=23375504 (steady)
+[consumer] seen=26576334 kept=23623504 (steady)
+[consumer] seen=26825334 kept=23872504 (steady)
+[consumer] seen=27074334 kept=24121504 (steady)
+[consumer] seen=27322334 kept=24369504 (steady)
+[consumer] seen=27571334 kept=24618504 (steady)
+[consumer] seen=27818334 kept=24865504 (steady)
+[consumer] seen=28067334 kept=25114504 (steady)
+[consumer] seen=28315334 kept=25362504 (steady)
+[consumer] seen=28564334 kept=25611504 (steady)
+[consumer] seen=28813334 kept=25860504 (steady)
+[consumer] seen=29062334 kept=26109504 (steady)
+[consumer] seen=29229529 kept=26276699 (steady)
+[consumer] seen=29229529 kept=26276699 (steady)
+[consumer] seen=29229529 kept=26276699 (steady)
+[consumer] seen=29229529 kept=26276699 (steady)
+[consumer] seen=29349529 kept=26396699 (steady)
+[consumer] seen=29751529 kept=26798699 (steady)
+[consumer] seen=30296529 kept=27343699 (steady)
+[consumer] seen=30888529 kept=27935699 (steady)
+[consumer] seen=31305529 kept=28352699 (steady)
+[consumer] seen=31554529 kept=28601699 (steady)
+[consumer] seen=31803529 kept=28850699 (steady)
+[consumer] seen=32052529 kept=29099699 (steady)
+[consumer] seen=32300529 kept=29347699 (steady)
+[consumer] seen=32549529 kept=29596699 (steady)
+[consumer] seen=32798529 kept=29845699 (steady)
+[consumer] seen=33046529 kept=30093699 (steady)
+[consumer] seen=33295529 kept=30342699 (steady)
+[consumer] seen=33544529 kept=30591699 (steady)
+[consumer] seen=33792529 kept=30839699 (steady)
+[consumer] seen=34041529 kept=31088699 (steady)
+[consumer] seen=34289529 kept=31336699 (steady)
+[consumer] seen=34538529 kept=31585699 (steady)
+[consumer] seen=34787529 kept=31834699 (steady)
+[consumer] seen=35036529 kept=32083699 (steady)
+[consumer] seen=35285529 kept=32332699 (steady)
+[consumer] seen=35533529 kept=32580699 (steady)
+[consumer] seen=35782529 kept=32829699 (steady)
+[consumer] seen=36030529 kept=33077699 (steady)
+[consumer] seen=36278529 kept=33325699 (steady)
+[consumer] seen=36526529 kept=33573699 (steady)
+[consumer] seen=36775529 kept=33822699 (steady)
+[consumer] seen=37024529 kept=34071699 (steady)
+[consumer] seen=37272529 kept=34319699 (steady)
+[consumer] seen=37521529 kept=34568699 (steady)
+[consumer] seen=37769529 kept=34816699 (steady)
+[consumer] seen=38018529 kept=35065699 (steady)
+[consumer] seen=38267529 kept=35314699 (steady)
+[consumer] seen=38515529 kept=35562699 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "spark-rtm-s1-ckpt300s-720s-r1",
+  "topic": "st-output",
+  "kept_records": 35712699,
+  "seen_records": 38665529,
+  "window_seconds": 720,
+  "warmup_seconds": 60,
+  "throughput_eps": 49601.0,
+  "started_at": 1794268521.926,
+  "ended_at": 1794269301.941,
+  "pipeline_ms": {
+    "count": 35712699,
+    "p50": 36.589,
+    "p95": 7371.857,
+    "p99": 17742.343,
+    "max": 20462.033,
+    "mean": 818.796
+  },
+  "e2e_ms": {
+    "count": 35712699,
+    "p50": 61.905,
+    "p95": 7686.834,
+    "p99": 17774.358,
+    "max": 20492.941,
+    "mean": 897.911
+  },
+  "window_ms": {
+    "count": 35712699,
+    "p50": -4586.0,
+    "p95": 2563.0,
+    "p99": 12575.0,
+    "max": 18199.0,
+    "mean": -4182.799
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/spark-rtm-s1-ckpt300s-720s-r1_summary.json

@@ -1,0 +1,52 @@
+# PyFlink Table API job as a FlinkDeployment (application mode, python entrypoint).
+# Uses the pyflink image (Flink 2.3 + python + apache-flink + sql-kafka connector).
+# Bundle tuning is in the job itself (python.fn-execution.bundle.time=1).
+apiVersion: flink.apache.org/v1beta1
+kind: FlinkDeployment
+metadata:
+  name: flink-bench
+  namespace: flink
+spec:
+  image: "<ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/pyflink:v43"
+  imagePullPolicy: Always
+  flinkVersion: v2_3
+  flinkConfiguration:
+    taskmanager.numberOfTaskSlots: "3"
+    execution.buffer-timeout: "0 ms"
+    python.fn-execution.bundle.time: "1"
+    python.fn-execution.bundle.size: "1000"
+    execution.checkpointing.interval: "60 s"
+    execution.checkpointing.mode: "AT_LEAST_ONCE"
+    state.checkpoints.dir: "s3://<BUCKET>/pyflink-p6-43b-1794250689"
+    restart-strategy.type: "fixed-delay"
+    restart-strategy.fixed-delay.attempts: "10"
+    restart-strategy.fixed-delay.delay: "2 s"
+  serviceAccount: flink
+  podTemplate:
+    spec:
+      tolerations: [{ key: bench/role, operator: Equal, value: engine, effect: NoSchedule }]
+      containers:
+        - name: flink-main-container
+          env:
+            - name: ENABLE_BUILT_IN_PLUGINS
+              value: "flink-s3-fs-presto-2.3.0.jar"
+  jobManager:
+    resource: { memory: "2048m", cpu: 1 }
+  taskManager:
+    replicas: 2
+    resource: { memory: "6144m", cpu: 3 }
+  job:
+    jarURI: "local:///opt/flink/opt/flink-python-2.3.0.jar"   # python driver shim
+    entryClass: "org.apache.flink.client.python.PythonDriver"
+    args:
+      - "-pyclientexec"
+      - "/usr/bin/python3"
+      - "-py"
+      - "/opt/pyflink/stateless_pipeline.py"
+      - "bench-kafka-bootstrap.kafka.svc:9092"
+      - "input-events"
+      - "output-events"
+      - "6"      # job parallelism; was "12" in the 4.1/2.2 round, which made the operator
+                 # spin up 4 TMs (12 slots) instead of 2 -> PyFlink got ~2x the cores
+    parallelism: 6
+    upgradeMode: stateless

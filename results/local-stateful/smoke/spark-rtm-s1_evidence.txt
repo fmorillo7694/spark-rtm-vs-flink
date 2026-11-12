@@ -1,0 +1,53 @@
+# spark-rtm-s1 spark evidence at 2026-11-08T12:15:25Z
+async-log-write threads: 0
+AsyncProgressTrackingMicroBatchExecution frames: 0
+--- active stages (pipelined shuffle => source stage and stateful stage RUNNING together)
+stage 3 ACTIVE tasks 6 active 6 start at StatefulPipelineJava.java:153
+stage 2 ACTIVE tasks 6 active 6 start at StatefulPipelineJava.java:153
+--- driver log: pipelined / state store / commit lines
+grep: results/local-stateful/logs/spark-rtm-s1_submit.log: No such file or directory
+--- checkpoint /tmp/spark-checkpoints/stateful-s1-rtm-1794140017/
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017/:
+commits
+metadata
+offsets
+sources
+state
+
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017//state/0:
+0
+1
+2
+3
+4
+5
+_metadata
+[commits]
+0
+[latest commit]
+v2
+{"nextBatchWatermarkMs":1794140078277,"stateUniqueIds":{"0":[["08dd129d-bd53-43ec-ac62-cf70c18db3e2"],["221b6cb2-b750-436a-a5a2-196ff280e646"],["c8257cd9-a592-4f2a-bdd2-079111de9c7c"],["334afba6-c85a-49ec-9598-b5140cea8156"],["9eccf004-20a9-442d-92e8-d7076e9903ea"],["ab622ced-ca7b-4d16-833a-404d28454b74"]]}}
+[state files, partition 0]
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017//state/0/2/.1_c8257cd9-a592-4f2a-bdd2-079111de9c7c.changelog.crc.crc
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017//state/0/2/1_c8257cd9-a592-4f2a-bdd2-079111de9c7c.changelog
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017//state/0/2/.2_16ba29d8-3a56-4407-8654-d5d9e23f698e.changelog.bd08b547-e4ed-4234-a083-0b4e42745dc7.tmp
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017//state/0/2/.1_c8257cd9-a592-4f2a-bdd2-079111de9c7c.changelog.crc
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017//state/0/2/..2_16ba29d8-3a56-4407-8654-d5d9e23f698e.changelog.crc.a98e1bd6-635f-4d2d-815d-186458066b31.tmp.crc
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017//state/0/2/..2_16ba29d8-3a56-4407-8654-d5d9e23f698e.changelog.bd08b547-e4ed-4234-a083-0b4e42745dc7.tmp.crc
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017//state/0/2/.2_16ba29d8-3a56-4407-8654-d5d9e23f698e.changelog.crc.a98e1bd6-635f-4d2d-815d-186458066b31.tmp
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017//state/0/2/1_c8257cd9-a592-4f2a-bdd2-079111de9c7c.changelog.crc
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017//state/0/0/.2_98c22fb1-0a41-450f-a24b-90f78398aab6.changelog.584c6cee-c094-4263-a377-4e7a55278ef4.tmp
+/tmp/spark-checkpoints/stateful-s1-rtm-1794140017//state/0/0/1_08dd129d-bd53-43ec-ac62-cf70c18db3e2.changelog
+--- driver log (spark-rtm-s1-smoke_submit.log, appended after the run): pipelined / state store / commit lines
+   2 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:153
+   2 INFO DAGScheduler: Submitting ResultStage N concurrently with its running pipelined producer(s) List(ShuffleMapStage N)
+   2 INFO DAGScheduler: Final stage: ResultStage N (start at StatefulPipelineJava.java:153)
+   1 [StatefulPipelineJava] workload=s1 mode=rtm id=06cc3b58-5fbc-4af2-8756-880cef399707 trigger=RealTime(60 seconds) startingOffsets=latest watermark=5s window=10s gapMs=5000 timeoutMs=5000 stateStore=org
+   1 INFO SparkContext: Created broadcast 3 from start at StatefulPipelineJava.java:153
+   1 INFO SparkContext: Created broadcast 0 from start at StatefulPipelineJava.java:153
+   1 INFO MicroBatchExecution: Committed offsets for batch 0. Metadata OffsetSeqMetadata(0,1794140022643,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.sta
+   1 INFO DAGScheduler: Submitting ShuffleMapStage N (MapPartitionsRDD[8] at start at StatefulPipelineJava.java:153), which has no missing parents
+   1 INFO DAGScheduler: Submitting ShuffleMapStage N (MapPartitionsRDD[20] at start at StatefulPipelineJava.java:153), which has no missing parents
+   1 INFO DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage N (MapPartitionsRDD[8] at start at StatefulPipelineJava.java:153) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+   1 INFO DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage N (MapPartitionsRDD[20] at start at StatefulPipelineJava.java:153) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+   1 INFO DAGScheduler: Submitting 6 missing tasks from ResultStage N (MapPartitionsRDD[23] at start at StatefulPipelineJava.java:153) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))

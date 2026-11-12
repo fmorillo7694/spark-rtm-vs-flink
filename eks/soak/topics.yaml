@@ -1,0 +1,47 @@
+# Soak-test topics: shared input + per-engine output (so Spark and Flink run concurrently
+# without cross-contaminating each other's output stream). 6 partitions, replication 3.
+# Aggressive retention baked in (10 min / 5 GB per partition, 2-min segment roll) so a
+# multi-hour high-volume soak can NEVER fill the broker disks again (the original run crashed
+# a broker on "No space left on device"). 10 min is ample for a latency consumer that reads
+# the tail in real time; old segments age out continuously.
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: input-events
+  namespace: kafka
+  labels: { strimzi.io/cluster: bench }
+spec:
+  partitions: 6
+  replicas: 3
+  config:
+    retention.ms: "600000"
+    retention.bytes: "5368709120"
+    segment.ms: "120000"
+---
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: output-spark
+  namespace: kafka
+  labels: { strimzi.io/cluster: bench }
+spec:
+  partitions: 6
+  replicas: 3
+  config:
+    retention.ms: "600000"
+    retention.bytes: "5368709120"
+    segment.ms: "120000"
+---
+apiVersion: kafka.strimzi.io/v1
+kind: KafkaTopic
+metadata:
+  name: output-flink
+  namespace: kafka
+  labels: { strimzi.io/cluster: bench }
+spec:
+  partitions: 6
+  replicas: 3
+  config:
+    retention.ms: "600000"
+    retention.bytes: "5368709120"
+    segment.ms: "120000"

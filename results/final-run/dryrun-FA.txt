@@ -1,0 +1,55 @@
+PLAN   1 spark-rtm-java-p6-r1                         rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  0.0h
+PLAN   2 flink-p6-r1                                  rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  0.1h
+PLAN   3 spark-rtm-scala-p6-r1                        rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  0.3h
+PLAN   4 pyflink-p6-r1                                rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est=10.0min start=  0.5h
+PLAN   5 pyspark-rtm-p6-r1                            rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  0.6h
+PLAN   6 spark-rtm-syncckpt-p6-r1                     rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  0.8h
+PLAN   7 spark-rtm-s2-r1                              rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  0.9h
+PLAN   8 flink-ds-bt100-s2-et-r1                      rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  1.1h
+PLAN   9 spark-rtm-sw1-s2-r1                          rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  1.2h
+PLAN  10 flink-ds-s2-et-r1                            rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  1.3h
+PLAN  11 spark-rtm-vt-s2-r1                           rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  1.5h
+PLAN  12 flink-sql-s2-ttl60-r1                        rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  1.6h
+PLAN  13 flink-ds-s2-r1                               rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  1.8h
+PLAN  14 spark-rtm-s4-r1                              rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.4min start=  1.9h
+PLAN  15 flink-ds-bt100-s4-r1                         rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.4min start=  2.1h
+PLAN  16 flink-ds-s4-r1                               rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.4min start=  2.2h
+PLAN  17 spark-rtm-java-p6-r2                         rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  2.4h
+PLAN  18 flink-p6-r2                                  rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  2.5h
+PLAN  19 spark-rtm-scala-p6-r2                        rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  2.7h
+PLAN  20 pyflink-p6-r2                                rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est=10.0min start=  2.8h
+PLAN  21 pyspark-rtm-p6-r2                            rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  3.0h
+PLAN  22 spark-rtm-syncckpt-p6-r2                     rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  3.1h
+PLAN  23 spark-rtm-s2-r2                              rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  3.3h
+PLAN  24 flink-ds-bt100-s2-et-r2                      rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  3.4h
+PLAN  25 spark-rtm-sw1-s2-r2                          rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  3.6h
+PLAN  26 flink-ds-s2-et-r2                            rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  3.7h
+PLAN  27 spark-rtm-vt-s2-r2                           rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  3.8h
+PLAN  28 flink-sql-s2-ttl60-r2                        rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  4.0h
+PLAN  29 flink-ds-s2-r2                               rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  4.1h
+PLAN  30 spark-rtm-s4-r2                              rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.4min start=  4.3h
+PLAN  31 flink-ds-bt100-s4-r2                         rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.4min start=  4.4h
+PLAN  32 flink-ds-s4-r2                               rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.4min start=  4.6h
+PLAN  33 spark-rtm-java-p6-r3                         rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  4.7h
+PLAN  34 flink-p6-r3                                  rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  4.9h
+PLAN  35 spark-rtm-scala-p6-r3                        rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  5.0h
+PLAN  36 pyflink-p6-r3                                rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est=10.0min start=  5.2h
+PLAN  37 pyspark-rtm-p6-r3                            rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  5.3h
+PLAN  38 spark-rtm-syncckpt-p6-r3                     rate=12500 ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.0min start=  5.5h
+PLAN  39 spark-rtm-s2-r3                              rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  5.7h
+PLAN  40 flink-ds-bt100-s2-et-r3                      rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  5.8h
+PLAN  41 spark-rtm-sw1-s2-r3                          rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  5.9h
+PLAN  42 flink-ds-s2-et-r3                            rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  6.1h
+PLAN  43 spark-rtm-vt-s2-r3                           rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  6.2h
+PLAN  44 flink-sql-s2-ttl60-r3                        rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  6.3h
+PLAN  45 flink-ds-s2-r3                               rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  6.5h
+PLAN  46 spark-rtm-s4-r3                              rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.4min start=  6.6h
+PLAN  47 flink-ds-bt100-s4-r3                         rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.4min start=  6.8h
+PLAN  48 flink-ds-s4-r3                               rate=6250  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 9.4min start=  6.9h
+PLAN  49 spark-mb-s5-at16k-r1                         rate=2000  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  7.1h
+PLAN  50 flink-ds-bt100-s5-at16k-r1                   rate=2000  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  7.2h
+PLAN  51 spark-mb1s-s5-at16k-r1                       rate=2000  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  7.4h
+PLAN  52 flink-ds-s5-at16k-r1                         rate=2000  ckpt=60  keys=1000000   hot=0    kill=0   secs=300  est= 8.4min start=  7.5h
+PLAN total 52 runs, est 7.7 h of runner time (budget 8.5 h)
+[16:32:37] MATRIX DONE elapsed=13s
+    DRY upload runner log; DRY eks update-nodegroup-config rtm-flink-bench6a {engine-ng bench-ng} min=0 desired=0

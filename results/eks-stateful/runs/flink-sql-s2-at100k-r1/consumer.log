@@ -1,0 +1,100 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-sql-s2-at100k-r1 warmup=60s window=300s
+[consumer] seen=136000 kept=0 (warmup)
+[consumer] seen=767000 kept=0 (warmup)
+[consumer] seen=1301255 kept=0 (warmup)
+[consumer] seen=1908109 kept=0 (warmup)
+[consumer] seen=2425293 kept=0 (warmup)
+[consumer] seen=2926293 kept=0 (warmup)
+[consumer] seen=3427293 kept=0 (warmup)
+[consumer] seen=3928293 kept=0 (warmup)
+[consumer] seen=4428293 kept=0 (warmup)
+[consumer] seen=4929293 kept=0 (warmup)
+[consumer] seen=5430293 kept=0 (warmup)
+[consumer] seen=5930293 kept=7373 (steady)
+[consumer] seen=6431293 kept=508373 (steady)
+[consumer] seen=6931293 kept=1008373 (steady)
+[consumer] seen=7432293 kept=1509373 (steady)
+[consumer] seen=7928209 kept=2005289 (steady)
+[consumer] seen=8224147 kept=2301227 (steady)
+[consumer] seen=8825147 kept=2902227 (steady)
+[consumer] seen=9334533 kept=3411613 (steady)
+[consumer] seen=9835192 kept=3912272 (steady)
+[consumer] seen=10359952 kept=4437032 (steady)
+[consumer] seen=10955463 kept=5032543 (steady)
+[consumer] seen=11455463 kept=5532543 (steady)
+[consumer] seen=11956463 kept=6033543 (steady)
+[consumer] seen=12456463 kept=6533543 (steady)
+[consumer] seen=12957463 kept=7034543 (steady)
+[consumer] seen=13457463 kept=7534543 (steady)
+[consumer] seen=13931226 kept=8008306 (steady)
+[consumer] seen=14374111 kept=8451191 (steady)
+[consumer] seen=14880573 kept=8957653 (steady)
+[consumer] seen=15481495 kept=9558575 (steady)
+[consumer] seen=15981495 kept=10058575 (steady)
+[consumer] seen=16482495 kept=10559575 (steady)
+[consumer] seen=16982495 kept=11059575 (steady)
+[consumer] seen=17483495 kept=11560575 (steady)
+[consumer] seen=17984495 kept=12061575 (steady)
+[consumer] seen=18485495 kept=12562575 (steady)
+[consumer] seen=18986495 kept=13063575 (steady)
+[consumer] seen=19487495 kept=13564575 (steady)
+[consumer] seen=19932823 kept=14009903 (steady)
+[consumer] seen=20287732 kept=14364812 (steady)
+[consumer] seen=20857041 kept=14934121 (steady)
+[consumer] seen=21402971 kept=15480051 (steady)
+[consumer] seen=21928971 kept=16006051 (steady)
+[consumer] seen=22504610 kept=16581690 (steady)
+[consumer] seen=23005610 kept=17082690 (steady)
+[consumer] seen=23506610 kept=17583690 (steady)
+[consumer] seen=24006610 kept=18083690 (steady)
+[consumer] seen=24507610 kept=18584690 (steady)
+[consumer] seen=25008610 kept=19085690 (steady)
+[consumer] seen=25509610 kept=19586690 (steady)
+[consumer] seen=25937884 kept=20014964 (steady)
+[consumer] seen=26375985 kept=20453065 (steady)
+[consumer] seen=26934211 kept=21011291 (steady)
+[consumer] seen=27518211 kept=21595291 (steady)
+[consumer] seen=28018211 kept=22095291 (steady)
+[consumer] seen=28517211 kept=22594291 (steady)
+[consumer] seen=29020211 kept=23097291 (steady)
+[consumer] seen=29521211 kept=23598291 (steady)
+[consumer] seen=30021211 kept=24098291 (steady)
+[consumer] seen=30521211 kept=24598291 (steady)
+[consumer] seen=31021211 kept=25098291 (steady)
+[consumer] seen=31522211 kept=25599291 (steady)
+[consumer] seen=31940359 kept=26017439 (steady)
+[consumer] seen=32356619 kept=26433699 (steady)
+[consumer] seen=32943488 kept=27020568 (steady)
+[consumer] seen=33459542 kept=27536622 (steady)
+[consumer] seen=34049542 kept=28126622 (steady)
+[consumer] seen=34551542 kept=28628622 (steady)
+[consumer] seen=35052542 kept=29129622 (steady)
+[consumer] seen=35553542 kept=29630622 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-sql-s2-at100k-r1",
+  "topic": "st-output",
+  "kept_records": 30010622,
+  "seen_records": 35933542,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 100035.4,
+  "pipeline_ms": {
+    "count": 30010622,
+    "p50": 6.885,
+    "p95": 1293.813,
+    "p99": 2472.189,
+    "max": 6304.353,
+    "mean": 135.468
+  },
+  "e2e_ms": {
+    "count": 30010622,
+    "p50": 23.717,
+    "p95": 1996.613,
+    "p99": 2748.033,
+    "max": 6343.64,
+    "mean": 425.873
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-sql-s2-at100k-r1_summary.json

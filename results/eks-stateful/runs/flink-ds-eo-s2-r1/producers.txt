@@ -1,0 +1,8 @@
+st-producer-0-swhdk   0/1   Completed   0     6m43s
+st-producer-1-htdpr   0/1   Completed   0     6m43s
+st-producer-2-tkbgg   0/1   Completed   0     6m43s
+st-producer-3-7tm25   0/1   Completed   0     6m43s
+st-producer-4-ndtgm   0/1   Completed   0     6m43s
+st-producer-5-t82dn   0/1   Completed   0     6m43s
+st-producer-6-k7dkp   0/1   Completed   0     6m43s
+st-producer-7-prb2q   0/1   Completed   0     6m43s

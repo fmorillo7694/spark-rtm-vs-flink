@@ -1,0 +1,92 @@
+# Session D (scaling) Spark S1 job: the same job and executor pod size as spark-stateful.yaml
+# (3 CPU / 6144m per executor), on a 24-partition topic (scale-topics.yaml), with 12 state
+# partitions (spark.sql.shuffle.partitions), which the checkpoint then fixes for good. An RTM
+# stateful query runs its source stage (one task per Kafka partition = 24) and its state stage
+# (12) at the same time, so it needs 36 task slots at any load. Arms:
+#   spark-rtm-peak    RTM, 4 executors x 9 slots = 36 slots on 12 cores, never rescaled
+#   spark-rtm-manual  RTM, restarted by the runner at each load step from the same checkpoint:
+#                     low = 2 executors x 18 slots on 6 cores, peak = 4 x 9 slots on 12 cores
+#                     (slots cannot shrink below 36, only the cores under them)
+#   spark-mb-da       micro-batch (default trigger) + dynamic allocation with shuffle tracking,
+#                     1..4 executors x 3 slots (no pipelined shuffle, so DA is accepted;
+#                     SCALING_PLAN.md); labelled not-RTM
+# Engine pods carry safe-to-evict=false: Cluster Autoscaler then removes only empty engine
+# nodes and never evicts a running driver or executor to consolidate.
+# Placeholders: those of spark-stateful.yaml plus 2 3 true
+#   1 4
+apiVersion: sparkoperator.k8s.io/v1beta2
+kind: SparkApplication
+metadata:
+  name: stateful-bench
+  namespace: spark
+  labels: { bench: stateful }
+spec:
+  type: Java
+  mode: cluster
+  image: "<ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/spark:v43d"
+  imagePullPolicy: Always
+  mainClass: bench.StatefulPipelineJava
+  mainApplicationFile: "local:///opt/spark/jars/java-rtm.jar"
+  sparkVersion: "4.3.0"
+  arguments:
+    - "s1"
+    - "microbatch"
+    - "bench-kafka-bootstrap.kafka.svc:9092"
+    - "st-input"
+    - "st-output"
+    - "s3a://<BUCKET>/stateful/spark-mb-da-s1-steps-r2-1794366338"
+    - "60 seconds"
+    - "latest"
+    - "5"
+    - "10"
+    - "5000"
+    - "5000"
+    - ""
+    - ""
+    - "10"
+  sparkConf:
+    spark.sql.adaptive.enabled: "false"
+    spark.sql.shuffle.partitions: "12"
+    spark.sql.streaming.stateStore.providerClass: "org.apache.spark.sql.execution.streaming.state.RocksDBStateStoreProvider"
+    spark.sql.streaming.stateStore.checkpointFormatVersion: "2"
+    spark.sql.streaming.stateStore.rocksdb.changelogCheckpointing.enabled: "true"
+    spark.shuffle.streaming.networkBufferMaxWaitTimeMs: "50"
+    spark.dynamicAllocation.shuffleTracking.enabled: "true"
+    spark.dynamicAllocation.shuffleTracking.timeout: "120s"
+    spark.dynamicAllocation.executorIdleTimeout: "60s"
+    spark.dynamicAllocation.schedulerBacklogTimeout: "5s"
+    spark.hadoop.fs.s3a.aws.credentials.provider: "software.amazon.awssdk.auth.credentials.WebIdentityTokenFileCredentialsProvider"
+  dynamicAllocation:
+    enabled: true
+    initialExecutors: 2
+    minExecutors: 1
+    maxExecutors: 4
+  restartPolicy:
+    type: OnFailure
+    onFailureRetries: 5
+    onFailureRetryInterval: 5
+    onSubmissionFailureRetries: 3
+    onSubmissionFailureRetryInterval: 5
+  driver:
+    nodeSelector: { bench/role: engine }
+    tolerations: [{ key: bench/role, operator: Equal, value: engine, effect: NoSchedule }]
+    cores: 1
+    memory: "1536m"
+    memoryOverhead: "512m"
+    serviceAccount: spark-operator-spark
+    annotations: { cluster-autoscaler.kubernetes.io/safe-to-evict: "false" }
+  executor:
+    nodeSelector: { bench/role: engine }
+    tolerations: [{ key: bench/role, operator: Equal, value: engine, effect: NoSchedule }]
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector: { matchLabels: { spark-role: executor } }
+            topologyKey: kubernetes.io/hostname
+    instances: 2
+    cores: 3
+    coreRequest: "3"
+    coreLimit: "3"
+    memory: "5120m"
+    memoryOverhead: "1024m"
+    annotations: { cluster-autoscaler.kubernetes.io/safe-to-evict: "false" }

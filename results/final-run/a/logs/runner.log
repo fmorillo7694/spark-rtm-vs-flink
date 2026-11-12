@@ -1,0 +1,298 @@
+[17:27:17] matrix: 52 runs (plan FA), budget 30600s, s3://<BUCKET>/stateful/final-a-20261111T172702Z dry_run=0
+[17:27:18] ######## spark-rtm-java-p6-r1 attempt=1 elapsed=5s
+    s3 checkpoint: 18 objects, 0.0 MB under spark-rtm-java-p6-43b-1794418038/
+[17:34:30]     sampler: cadvisor 1158 jvm 39 rocksdb 0 lines, errors 0
+    kept=10000702 p50=6.291 p99=43.422 max=405.133
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-java-p6-r1/
+[17:34:33] ######## flink-p6-r1 attempt=1 elapsed=440s
+    s3 checkpoint: 1 objects, 0.0 MB under flink-java-p6-43b-1794418473/
+[17:42:17]     sampler: cadvisor 1158 jvm 39 rocksdb 39 lines, errors 0
+    kept=9995892 p50=6.09 p99=35.961 max=237.149
+[s3_sync] 12 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-p6-r1/
+[17:42:19] ######## spark-rtm-scala-p6-r1 attempt=1 elapsed=906s
+    s3 checkpoint: 18 objects, 0.0 MB under spark-rtm-scala-p6-43b-1794418939/
+[17:49:29]     sampler: cadvisor 1158 jvm 39 rocksdb 0 lines, errors 0
+    kept=9999471 p50=6.262 p99=42.397 max=363.819
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-scala-p6-r1/
+[17:49:32] ######## pyflink-p6-r1 attempt=1 elapsed=1339s
+    s3 checkpoint: 1 objects, 0.0 MB under pyflink-p6-43b-1794419372/
+[17:57:56]     sampler: cadvisor 1158 jvm 39 rocksdb 39 lines, errors 0
+    kept=10001514 p50=8.63 p99=41.564 max=245.606
+[s3_sync] 12 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/pyflink-p6-r1/
+[17:57:58] ######## pyspark-rtm-p6-r1 attempt=1 elapsed=1845s
+    s3 checkpoint: 18 objects, 0.0 MB under pyspark-rtm-p6-43b-1794419878/
+[18:05:10]     sampler: cadvisor 1158 jvm 39 rocksdb 0 lines, errors 0
+    kept=10001935 p50=6.434 p99=66.46 max=369.485
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/pyspark-rtm-p6-r1/
+[18:05:13] ######## spark-rtm-syncckpt-p6-r1 attempt=1 elapsed=2280s
+    s3 checkpoint: 18 objects, 0.0 MB under spark-rtm-syncckpt-p6-43b-1794420313/
+[18:12:23]     sampler: cadvisor 1152 jvm 39 rocksdb 0 lines, errors 0
+    kept=10000568 p50=6.308 p99=565.315 max=1227.02
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-syncckpt-p6-r1/
+[18:12:26] ######## spark-rtm-s2-r1 attempt=1 elapsed=2713s
+    s3 checkpoint: 191 objects, 635.4 MB under stateful/spark-rtm-s2-r1-1794420746/
+[18:24:22]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848434,"sent":20732676,"input_records":20732676,"payments_records":0,"output_records":18848434}
+    kept=14878680 p50=39.721 p99=9325.34 max=10444.048
+[s3_sync] 15 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-s2-r1/
+[18:25:14] ######## flink-ds-bt100-s2-et-r1 attempt=1 elapsed=3481s
+    s3 checkpoint: 43 objects, 153.6 MB under stateful/flink-ds-bt100-s2-et-r1-1794421514/
+[18:32:38]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2-et","producer_pods_done":8,"originals":18848372,"sent":20732606,"input_records":20732606,"payments_records":0,"output_records":18848372}
+    kept=14879700 p50=54.683 p99=1769.097 max=3088.1
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-bt100-s2-et-r1/
+[18:33:30] ######## spark-rtm-sw1-s2-r1 attempt=1 elapsed=3977s
+    s3 checkpoint: 188 objects, 582.3 MB under stateful/spark-rtm-sw1-s2-r1-1794422010/
+[18:45:26]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=15205087 p50=30.911 p99=9756.197 max=10864.332
+[s3_sync] 15 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-sw1-s2-r1/
+[18:46:19] ######## flink-ds-s2-et-r1 attempt=1 elapsed=4746s
+    s3 checkpoint: 43 objects, 153.7 MB under stateful/flink-ds-s2-et-r1-1794422779/
+[18:53:41]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2-et","producer_pods_done":8,"originals":18848434,"sent":20732673,"input_records":20732673,"payments_records":0,"output_records":18848434}
+    kept=14880924 p50=6.932 p99=1786.411 max=3014.625
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-s2-et-r1/
+[18:54:35] ######## spark-rtm-vt-s2-r1 attempt=1 elapsed=5242s
+    s3 checkpoint: 191 objects, 592.5 MB under stateful/spark-rtm-vt-s2-r1-1794423275/
+[19:06:33]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=14880422 p50=13.07 p99=4835.256 max=6696.058
+[s3_sync] 15 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-vt-s2-r1/
+[19:07:26] ######## flink-sql-s2-ttl60-r1 attempt=1 elapsed=6013s
+    s3 checkpoint: 25 objects, 121.7 MB under stateful/flink-sql-s2-ttl60-r1-1794424046/
+[19:14:50]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2-ttl60","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=14879265 p50=7.031 p99=758.21 max=2194.568
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-sql-s2-ttl60-r1/
+[19:15:44] ######## flink-ds-s2-r1 attempt=1 elapsed=6511s
+    s3 checkpoint: 25 objects, 79.8 MB under stateful/flink-ds-s2-r1-1794424544/
+[19:22:59]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=14880919 p50=6.898 p99=330.381 max=1723.606
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-s2-r1/
+[19:23:53] ######## spark-rtm-s4-r1 attempt=1 elapsed=7000s
+    s3 checkpoint: 28 objects, 0.0 MB under stateful/spark-rtm-s4-r1-1794425033/
+[19:35:59]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s4","producer_pods_done":8,"originals":18848434,"sent":18848434,"input_records":18848434,"payments_records":0,"output_records":18471163}
+    kept=14582243 p50=6.729 p99=404.713 max=947.513
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-s4-r1/
+[19:36:48] ######## flink-ds-bt100-s4-r1 attempt=1 elapsed=7775s
+    s3 checkpoint: 1 objects, 0.0 MB under stateful/flink-ds-bt100-s4-r1-1794425808/
+[19:44:21]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14582148 p50=6.506 p99=21.918 max=239.415
+[s3_sync] 17 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-bt100-s4-r1/
+[19:45:11] ######## flink-ds-s4-r1 attempt=1 elapsed=8278s
+    s3 checkpoint: 1 objects, 0.0 MB under stateful/flink-ds-s4-r1-1794426311/
+[19:52:44]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s4","producer_pods_done":8,"originals":18848434,"sent":18848434,"input_records":18848434,"payments_records":0,"output_records":18471166}
+    kept=14583000 p50=6.473 p99=36.953 max=410.73
+[s3_sync] 17 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-s4-r1/
+[19:53:34] ######## spark-rtm-java-p6-r2 attempt=1 elapsed=8781s
+    s3 checkpoint: 18 objects, 0.0 MB under spark-rtm-java-p6-43b-1794426814/
+[20:00:42]     sampler: cadvisor 1158 jvm 39 rocksdb 0 lines, errors 0
+    kept=10002647 p50=6.362 p99=39.898 max=260.852
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-java-p6-r2/
+[20:00:45] ######## flink-p6-r2 attempt=1 elapsed=9212s
+    s3 checkpoint: 1 objects, 0.0 MB under flink-java-p6-43b-1794427245/
+[20:08:29]     sampler: cadvisor 1158 jvm 39 rocksdb 39 lines, errors 0
+    kept=9999295 p50=6.258 p99=51.94 max=265.049
+[s3_sync] 12 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-p6-r2/
+[20:08:31] ######## spark-rtm-scala-p6-r2 attempt=1 elapsed=9678s
+    s3 checkpoint: 18 objects, 0.0 MB under spark-rtm-scala-p6-43b-1794427711/
+[20:15:42]     sampler: cadvisor 1152 jvm 39 rocksdb 0 lines, errors 0
+    kept=9996349 p50=6.375 p99=40.09 max=457.385
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-scala-p6-r2/
+[20:15:45] ######## pyflink-p6-r2 attempt=1 elapsed=10112s
+    s3 checkpoint: 1 objects, 0.0 MB under pyflink-p6-43b-1794428145/
+[20:23:38]     sampler: cadvisor 1164 jvm 39 rocksdb 39 lines, errors 0
+    kept=10000195 p50=8.618 p99=55.708 max=250.222
+[s3_sync] 12 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/pyflink-p6-r2/
+[20:23:40] ######## pyspark-rtm-p6-r2 attempt=1 elapsed=10587s
+    s3 checkpoint: 18 objects, 0.0 MB under pyspark-rtm-p6-43b-1794428620/
+[20:30:51]     sampler: cadvisor 1158 jvm 39 rocksdb 0 lines, errors 0
+    kept=9998149 p50=6.449 p99=38.972 max=232.444
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/pyspark-rtm-p6-r2/
+[20:30:54] ######## spark-rtm-syncckpt-p6-r2 attempt=1 elapsed=11021s
+    s3 checkpoint: 18 objects, 0.0 MB under spark-rtm-syncckpt-p6-43b-1794429054/
+[20:38:05]     sampler: cadvisor 1158 jvm 39 rocksdb 0 lines, errors 0
+    kept=9998823 p50=6.428 p99=563.197 max=1298.375
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-syncckpt-p6-r2/
+[20:38:08] ######## spark-rtm-s2-r2 attempt=1 elapsed=11455s
+    s3 checkpoint: 194 objects, 692.0 MB under stateful/spark-rtm-s2-r2-1794429488/
+[20:50:03]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=14880954 p50=38.611 p99=8193.023 max=9558.072
+[s3_sync] 15 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-s2-r2/
+[20:50:55] ######## flink-ds-bt100-s2-et-r2 attempt=1 elapsed=12222s
+    s3 checkpoint: 43 objects, 153.9 MB under stateful/flink-ds-bt100-s2-et-r2-1794430255/
+[20:58:09]     sampler: cadvisor 1092 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2-et","producer_pods_done":8,"originals":18848434,"sent":20732671,"input_records":20732671,"payments_records":0,"output_records":18848434}
+    kept=14880893 p50=54.588 p99=1717.928 max=2914.04
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-bt100-s2-et-r2/
+[20:59:02] ######## spark-rtm-sw1-s2-r2 attempt=1 elapsed=12709s
+    s3 checkpoint: 191 objects, 638.0 MB under stateful/spark-rtm-sw1-s2-r2-1794430742/
+[21:10:57]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=15147584 p50=31.108 p99=8667.85 max=10100.628
+[s3_sync] 15 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-sw1-s2-r2/
+[21:11:49] ######## flink-ds-s2-et-r2 attempt=1 elapsed=13476s
+    s3 checkpoint: 43 objects, 154.0 MB under stateful/flink-ds-s2-et-r2-1794431509/
+[21:19:05]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2-et","producer_pods_done":8,"originals":18848434,"sent":20732674,"input_records":20732674,"payments_records":0,"output_records":18848434}
+    kept=14880599 p50=6.969 p99=1805.921 max=3046.933
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-s2-et-r2/
+[21:19:57] ######## spark-rtm-vt-s2-r2 attempt=1 elapsed=13964s
+    s3 checkpoint: 191 objects, 605.5 MB under stateful/spark-rtm-vt-s2-r2-1794431997/
+[21:31:53]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=14881202 p50=13.04 p99=4930.971 max=6582.521
+[s3_sync] 15 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-vt-s2-r2/
+[21:32:44] ######## flink-sql-s2-ttl60-r2 attempt=1 elapsed=14731s
+    s3 checkpoint: 25 objects, 121.5 MB under stateful/flink-sql-s2-ttl60-r2-1794432764/
+[21:40:08]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2-ttl60","producer_pods_done":8,"originals":18848434,"sent":20732673,"input_records":20732673,"payments_records":0,"output_records":18848434}
+    kept=14881040 p50=6.884 p99=739.725 max=2359.587
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-sql-s2-ttl60-r2/
+[21:40:59] ######## flink-ds-s2-r2 attempt=1 elapsed=15226s
+    s3 checkpoint: 25 objects, 79.8 MB under stateful/flink-ds-s2-r2-1794433259/
+[21:48:23]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=14881242 p50=6.712 p99=300.369 max=1604.556
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-s2-r2/
+[21:49:15] ######## spark-rtm-s4-r2 attempt=1 elapsed=15722s
+    s3 checkpoint: 28 objects, 0.0 MB under stateful/spark-rtm-s4-r2-1794433755/
+[22:01:22]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s4","producer_pods_done":8,"originals":18848434,"sent":18848434,"input_records":18848434,"payments_records":0,"output_records":18471166}
+    kept=14575122 p50=6.724 p99=448.59 max=1041.595
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-s4-r2/
+[22:02:10] ######## flink-ds-bt100-s4-r2 attempt=1 elapsed=16497s
+    s3 checkpoint: 1 objects, 0.0 MB under stateful/flink-ds-bt100-s4-r2-1794434530/
+[22:09:35]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s4","producer_pods_done":8,"originals":18848434,"sent":18848434,"input_records":18848434,"payments_records":0,"output_records":18471163}
+    kept=14582630 p50=6.467 p99=27.281 max=226.923
+[s3_sync] 17 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-bt100-s4-r2/
+[22:10:25] ######## flink-ds-s4-r2 attempt=1 elapsed=16992s
+    s3 checkpoint: 1 objects, 0.0 MB under stateful/flink-ds-s4-r2-1794435025/
+[22:17:58]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14582596 p50=6.442 p99=44.006 max=456.113
+[s3_sync] 17 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-s4-r2/
+[22:18:46] ######## spark-rtm-java-p6-r3 attempt=1 elapsed=17493s
+    s3 checkpoint: 18 objects, 0.0 MB under spark-rtm-java-p6-43b-1794435526/
+[22:25:58]     sampler: cadvisor 1158 jvm 39 rocksdb 0 lines, errors 0
+    kept=10002292 p50=6.321 p99=40.256 max=224.149
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-java-p6-r3/
+[22:26:01] ######## flink-p6-r3 attempt=1 elapsed=17928s
+    s3 checkpoint: 1 objects, 0.0 MB under flink-java-p6-43b-1794435961/
+[22:33:44]     sampler: cadvisor 1158 jvm 39 rocksdb 39 lines, errors 0
+    kept=9993943 p50=6.157 p99=31.132 max=233.858
+[s3_sync] 12 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-p6-r3/
+[22:33:47] ######## spark-rtm-scala-p6-r3 attempt=1 elapsed=18394s
+    s3 checkpoint: 18 objects, 0.0 MB under spark-rtm-scala-p6-43b-1794436427/
+[22:40:59]     sampler: cadvisor 1158 jvm 39 rocksdb 0 lines, errors 0
+    kept=10003394 p50=6.32 p99=72.887 max=460.242
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-scala-p6-r3/
+[22:41:02] ######## pyflink-p6-r3 attempt=1 elapsed=18829s
+    s3 checkpoint: 1 objects, 0.0 MB under pyflink-p6-43b-1794436862/
+[22:48:54]     sampler: cadvisor 1158 jvm 39 rocksdb 39 lines, errors 0
+    kept=10001269 p50=8.936 p99=36.879 max=234.043
+[s3_sync] 12 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/pyflink-p6-r3/
+[22:48:57] ######## pyspark-rtm-p6-r3 attempt=1 elapsed=19304s
+    s3 checkpoint: 18 objects, 0.0 MB under pyspark-rtm-p6-43b-1794437337/
+[22:56:08]     sampler: cadvisor 1158 jvm 39 rocksdb 0 lines, errors 0
+    kept=10001368 p50=6.322 p99=33.148 max=223.22
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/pyspark-rtm-p6-r3/
+[22:56:11] ######## spark-rtm-syncckpt-p6-r3 attempt=1 elapsed=19738s
+    s3 checkpoint: 18 objects, 0.0 MB under spark-rtm-syncckpt-p6-43b-1794437771/
+[23:03:24]     sampler: cadvisor 1158 jvm 39 rocksdb 0 lines, errors 0
+    kept=10000708 p50=6.291 p99=591.255 max=1266.382
+[s3_sync] 10 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-syncckpt-p6-r3/
+[23:03:27] ######## spark-rtm-s2-r3 attempt=1 elapsed=20174s
+    s3 checkpoint: 197 objects, 756.5 MB under stateful/spark-rtm-s2-r3-1794438207/
+[23:15:22]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=14880128 p50=38.023 p99=8002.071 max=9137.325
+[s3_sync] 15 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-s2-r3/
+[23:16:14] ######## flink-ds-bt100-s2-et-r3 attempt=1 elapsed=20941s
+    s3 checkpoint: 43 objects, 153.6 MB under stateful/flink-ds-bt100-s2-et-r3-1794438974/
+[23:23:29]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2-et","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=14880796 p50=54.258 p99=1685.41 max=3076.211
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-bt100-s2-et-r3/
+[23:24:20] ######## spark-rtm-sw1-s2-r3 attempt=1 elapsed=21427s
+    s3 checkpoint: 185 objects, 530.8 MB under stateful/spark-rtm-sw1-s2-r3-1794439460/
+[23:36:16]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=15227530 p50=38.22 p99=13659.313 max=14604.532
+[s3_sync] 15 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-sw1-s2-r3/
+[23:37:08] ######## flink-ds-s2-et-r3 attempt=1 elapsed=22195s
+    s3 checkpoint: 43 objects, 153.7 MB under stateful/flink-ds-s2-et-r3-1794440228/
+[23:44:22]     sampler: cadvisor 1092 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2-et","producer_pods_done":8,"originals":18848434,"sent":20732672,"input_records":20732672,"payments_records":0,"output_records":18848434}
+    kept=14880491 p50=7.013 p99=1802.031 max=3057.663
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-s2-et-r3/
+[23:45:14] ######## spark-rtm-vt-s2-r3 attempt=1 elapsed=22681s
+    s3 checkpoint: 191 objects, 604.5 MB under stateful/spark-rtm-vt-s2-r3-1794440714/
+[23:57:09]     sampler: cadvisor 1092 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=14880578 p50=13.099 p99=5133.754 max=6829.703
+[s3_sync] 15 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-vt-s2-r3/
+[23:58:01] ######## flink-sql-s2-ttl60-r3 attempt=1 elapsed=23448s
+    s3 checkpoint: 25 objects, 121.5 MB under stateful/flink-sql-s2-ttl60-r3-1794441481/
+[00:05:24]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2-ttl60","producer_pods_done":8,"originals":18848496,"sent":20732743,"input_records":20732743,"payments_records":0,"output_records":18848496}
+    kept=14880647 p50=6.748 p99=734.963 max=2374.492
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-sql-s2-ttl60-r3/
+[00:06:16] ######## flink-ds-s2-r3 attempt=1 elapsed=23943s
+    s3 checkpoint: 25 objects, 79.7 MB under stateful/flink-ds-s2-r3-1794441976/
+[00:13:40]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s2","producer_pods_done":8,"originals":18848372,"sent":20732602,"input_records":20732602,"payments_records":0,"output_records":18848372}
+    kept=14880983 p50=6.69 p99=318.346 max=1660.177
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-s2-r3/
+[00:14:32] ######## spark-rtm-s4-r3 attempt=1 elapsed=24439s
+    s3 checkpoint: 28 objects, 0.0 MB under stateful/spark-rtm-s4-r3-1794442472/
+[00:26:38]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14546871 p50=6.782 p99=326.808 max=946.945
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-rtm-s4-r3/
+[00:27:26] ######## flink-ds-bt100-s4-r3 attempt=1 elapsed=25213s
+    s3 checkpoint: 1 objects, 0.0 MB under stateful/flink-ds-bt100-s4-r3-1794443246/
+[00:34:52]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14583000 p50=6.523 p99=16.695 max=238.294
+[s3_sync] 17 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-bt100-s4-r3/
+[00:35:41] ######## flink-ds-s4-r3 attempt=1 elapsed=25708s
+    s3 checkpoint: 1 objects, 0.0 MB under stateful/flink-ds-s4-r3-1794443741/
+[00:43:06]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14583000 p50=6.501 p99=17.51 max=232.702
+[s3_sync] 17 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-s4-r3/
+[00:43:55] ######## spark-mb-s5-at16k-r1 attempt=1 elapsed=26202s
+    s3 checkpoint: 3895 objects, 944.7 MB under stateful/spark-mb-s5-at16k-r1-1794444235/
+[00:55:49]     sampler: cadvisor 1098 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s5","producer_pods_done":8,"originals":6080140,"sent":11248212,"input_records":6080140,"payments_records":5168072,"output_records":4864057}
+    kept=3824072 p50=4828.685 p99=8367.417 max=10099.229
+[s3_sync] 15 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-mb-s5-at16k-r1/
+[00:56:53] ######## flink-ds-bt100-s5-at16k-r1 attempt=1 elapsed=26980s
+    s3 checkpoint: 61 objects, 157.5 MB under stateful/flink-ds-bt100-s5-at16k-r1-1794445013/
+[01:04:08]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s5","producer_pods_done":8,"originals":6080160,"sent":11248249,"input_records":6080160,"payments_records":5168089,"output_records":4864073}
+    kept=3837874 p50=88.305 p99=3872.38 max=6551.193
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-bt100-s5-at16k-r1/
+[01:05:14] ######## spark-mb1s-s5-at16k-r1 attempt=1 elapsed=27481s
+    s3 checkpoint: 3577 objects, 972.6 MB under stateful/spark-mb1s-s5-at16k-r1-1794445514/
+[01:17:11]     sampler: cadvisor 1092 jvm 37 rocksdb 0 lines, errors 0
+    {"workload":"s5","producer_pods_done":8,"originals":6080160,"sent":11248249,"input_records":6080160,"payments_records":5168089,"output_records":4864073}
+    kept=3808566 p50=5345.63 p99=10068.726 max=12336.479
+[s3_sync] 15 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/spark-mb1s-s5-at16k-r1/
+[01:18:15] ######## flink-ds-s5-at16k-r1 attempt=1 elapsed=28262s
+    s3 checkpoint: 61 objects, 157.6 MB under stateful/flink-ds-s5-at16k-r1-1794446295/
+[01:25:38]     sampler: cadvisor 1098 jvm 37 rocksdb 37 lines, errors 0
+    {"workload":"s5","producer_pods_done":8,"originals":6080160,"sent":11248249,"input_records":6080160,"payments_records":5168089,"output_records":4864073}
+    kept=3838939 p50=32.943 p99=3527.745 max=5426.445
+[s3_sync] 16 files -> s3://<BUCKET>/stateful/final-a-20261111T172702Z/runs/flink-ds-s5-at16k-r1/
+[01:26:44] MATRIX DONE elapsed=28771s
+[01:26:44] exit: cleaning up
+[01:26:49] self-teardown: uploading runner log, scaling nodegroups engine-ng bench-ng of rtm-flink-bench6a to 0

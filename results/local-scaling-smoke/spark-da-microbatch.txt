@@ -1,0 +1,4 @@
+# Spark 4.3.0 local standalone, stateful s1, mode=microbatch, spark.dynamicAllocation.enabled=true (+shuffleTracking, min 1 / max 2 executors)
+26/11/10 17:18:38 INFO ExecutorAllocationManager: Dynamic allocation is enabled without a shuffle service.
+[StatefulPipelineJava] workload=s1 mode=microbatch id=b0d1e844-0e8a-4abd-ba83-b5772dc57e64 trigger=micro-batch(default) outputMode=update startingOffsets=latest watermark=5s window=10s gapMs=5000 timeoutMs=5000 stateStore=org.apache.spark.sql.execution.streaming.state.RocksDBStateStoreProvider ckpt=/tmp/spark-checkpoints/stateful-s1-microbatch-1794331116
+Committed offsets for batch lines: 347

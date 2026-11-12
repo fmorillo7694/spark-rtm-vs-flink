@@ -1,0 +1,8 @@
+[producer] DONE sent=2390305 originals=1292034 dups=0 heartbeats=0 payments=1098271 late_payments=64910 in 393.9s avg=6068.3/s
+[producer] DONE sent=2390114 originals=1292034 dups=0 heartbeats=0 payments=1098080 late_payments=64652 in 393.8s avg=6069.2/s
+[producer] DONE sent=2390733 originals=1292034 dups=0 heartbeats=0 payments=1098699 late_payments=64463 in 393.8s avg=6070.5/s
+[producer] DONE sent=2390175 originals=1292034 dups=0 heartbeats=0 payments=1098141 late_payments=64503 in 393.8s avg=6070.1/s
+[producer] DONE sent=2390450 originals=1292034 dups=0 heartbeats=0 payments=1098416 late_payments=64920 in 393.9s avg=6068.0/s
+[producer] DONE sent=2390220 originals=1292034 dups=0 heartbeats=0 payments=1098186 late_payments=64918 in 394.0s avg=6067.3/s
+[producer] DONE sent=2390033 originals=1292034 dups=0 heartbeats=0 payments=1097999 late_payments=65122 in 393.7s avg=6070.4/s
+[producer] DONE sent=2390697 originals=1292034 dups=0 heartbeats=0 payments=1098663 late_payments=64516 in 393.9s avg=6068.6/s

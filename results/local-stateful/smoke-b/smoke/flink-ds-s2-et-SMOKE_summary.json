@@ -1,0 +1,27 @@
+{
+  "engine": "flink-ds-s2-et-SMOKE",
+  "topic": "st-output",
+  "kept_records": 120750,
+  "seen_records": 174600,
+  "window_seconds": 40,
+  "warmup_seconds": 20,
+  "throughput_eps": 3018.8,
+  "started_at": 1794222463.347,
+  "ended_at": 1794222523.519,
+  "pipeline_ms": {
+    "count": 120750,
+    "p50": 5.855,
+    "p95": 6.868,
+    "p99": 8.43,
+    "max": 114.117,
+    "mean": 5.997
+  },
+  "e2e_ms": {
+    "count": 120750,
+    "p50": 115.907,
+    "p95": 206.685,
+    "p99": 214.885,
+    "max": 320.751,
+    "mean": 115.991
+  }
+}

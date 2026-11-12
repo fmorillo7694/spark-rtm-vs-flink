@@ -1,0 +1,7 @@
+# Spark 4.3.0 local standalone, stateful s1, mode=rtm, spark.dynamicAllocation.enabled=true (+shuffleTracking, min 1 / max 2 executors)
+26/11/10 17:16:52 INFO ExecutorAllocationManager: Dynamic allocation is enabled without a shuffle service.
+Caused by: org.apache.spark.SparkException: Dynamic allocation is not supported for a job that uses a pipelined shuffle dependency: a pipelined stage group must be co-scheduled against a known cluster size. Disable spark.dynamicAllocation.enabled for such jobs.
+Exception in thread "main" org.apache.spark.sql.streaming.StreamingQueryException: Dynamic allocation is not supported for a job that uses a pipelined shuffle dependency: a pipelined stage group must be co-scheduled against a known cluster size. Disable spark.dynamicAllocation.enabled for such jobs.
+[StatefulPipelineJava] workload=s1 mode=rtm id=17d35fab-d8b4-4dd1-a55f-c0aea9ec9d6c trigger=RealTime(10 seconds) outputMode=update startingOffsets=latest watermark=5s window=10s gapMs=5000 timeoutMs=5000 stateStore=org.apache.spark.sql.execution.streaming.state.RocksDBStateStoreProvider ckpt=/tmp/spark-checkpoints/stateful-s1-rtm-1794331010
+org.apache.spark.SparkException: Dynamic allocation is not supported for a job that uses a pipelined shuffle dependency: a pipelined stage group must be co-scheduled against a known cluster size. Disable spark.dynamicAllocation.enabled for such jobs.
+Committed offsets for batch lines: 0

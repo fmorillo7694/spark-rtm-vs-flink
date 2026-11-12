@@ -1,0 +1,27 @@
+{
+  "engine": "spark-rtm-vt-s3-lt-r1",
+  "topic": "st-output",
+  "kept_records": 9238475,
+  "seen_records": 10367554,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 30794.9,
+  "started_at": 1794240211.099,
+  "ended_at": 1794240571.111,
+  "pipeline_ms": {
+    "count": 9238475,
+    "p50": 79382.406,
+    "p95": 101616.781,
+    "p99": 102872.875,
+    "max": 105206.445,
+    "mean": 77934.452
+  },
+  "e2e_ms": {
+    "count": 9238475,
+    "p50": 79425.195,
+    "p95": 101650.242,
+    "p99": 102906.551,
+    "max": 105226.273,
+    "mean": 77968.703
+  }
+}

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2026-11-11T11:58:04Z"
+  labels:
+    app: flink-stateful
+    component: autoscaler
+  name: autoscaler-flink-stateful
+  namespace: flink
+  ownerReferences:
+  - apiVersion: flink.apache.org/v1beta1
+    blockOwnerDeletion: false
+    controller: false
+    kind: FlinkDeployment
+    name: flink-stateful
+    uid: b91da62e-9a2e-4e15-8ee9-d13dce810b75
+  resourceVersion: "14675"
+  uid: 91f389dd-2b40-4213-ac32-49c118a16978

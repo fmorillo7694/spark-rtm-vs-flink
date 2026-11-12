@@ -1,0 +1,35 @@
+{
+  "engine": "spark-rtm-s1-120s-r1",
+  "topic": "st-output",
+  "kept_records": 5953252,
+  "seen_records": 8889363,
+  "window_seconds": 120,
+  "warmup_seconds": 60,
+  "throughput_eps": 49610.4,
+  "started_at": 1794417423.717,
+  "ended_at": 1794417603.741,
+  "pipeline_ms": {
+    "count": 5953252,
+    "p50": 39.99,
+    "p95": 4462.983,
+    "p99": 6373.575,
+    "max": 6929.695,
+    "mean": 563.641
+  },
+  "e2e_ms": {
+    "count": 5953252,
+    "p50": 65.358,
+    "p95": 4494.609,
+    "p99": 6401.081,
+    "max": 6985.199,
+    "mean": 591.024
+  },
+  "window_ms": {
+    "count": 5953252,
+    "p50": -4542.0,
+    "p95": 762.0,
+    "p99": 2725.0,
+    "max": 3975.0,
+    "mean": -4438.218
+  }
+}

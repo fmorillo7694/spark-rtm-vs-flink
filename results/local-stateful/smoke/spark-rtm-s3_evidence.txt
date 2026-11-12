@@ -1,0 +1,54 @@
+# spark-rtm-s3 spark evidence at 2026-11-08T12:19:32Z
+async-log-write threads: 0
+AsyncProgressTrackingMicroBatchExecution frames: 0
+--- active stages (pipelined shuffle => source stage and stateful stage RUNNING together)
+stage 3 ACTIVE tasks 6 active 6 start at StatefulPipelineJava.java:153
+stage 2 ACTIVE tasks 6 active 6 start at StatefulPipelineJava.java:153
+--- driver log: pipelined / state store / commit lines
+grep: results/local-stateful/logs/spark-rtm-s3_submit.log: No such file or directory
+--- checkpoint /tmp/spark-checkpoints/stateful-s3-rtm-1794140262/
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262/:
+commits
+metadata
+offsets
+sources
+state
+
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262//state/0:
+0
+1
+2
+3
+4
+5
+_metadata
+_stateSchema
+[commits]
+0
+[latest commit]
+v2
+{"nextBatchWatermarkMs":0,"stateUniqueIds":{"0":[["8b900edf-11fe-4ccf-b7c7-59fa7a4953d4"],["02ed693b-6333-4569-83d6-d0b0959b49c9"],["e9a39208-2fb2-4b0e-9030-7b512a08bc68"],["22f90727-4ec7-44f2-b72a-85a9b75bc59b"],["1b18b9d6-712c-4973-aac6-3510bfe32601"],["2b7deb5a-0475-41a9-9b2f-035d51013ded"]]}}
+[state files, partition 0]
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262//state/0/2/.1_e9a39208-2fb2-4b0e-9030-7b512a08bc68.changelog.crc
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262//state/0/2/.1_e9a39208-2fb2-4b0e-9030-7b512a08bc68.zip.crc
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262//state/0/2/SSTs/.000008-c23657bf-7bb1-46a7-b15e-d3913d0ffe10.sst.crc
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262//state/0/2/SSTs/000008-c23657bf-7bb1-46a7-b15e-d3913d0ffe10.sst
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262//state/0/2/.1_e9a39208-2fb2-4b0e-9030-7b512a08bc68.zip.crc.crc
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262//state/0/2/1_e9a39208-2fb2-4b0e-9030-7b512a08bc68.zip.crc
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262//state/0/2/.1_e9a39208-2fb2-4b0e-9030-7b512a08bc68.changelog.crc.crc
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262//state/0/2/1_e9a39208-2fb2-4b0e-9030-7b512a08bc68.zip
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262//state/0/2/..2_6b6fc5ca-6e89-4c2a-9563-167f90cbbfc1.changelog.crc.f9a3faa1-ad51-48a5-bae9-7eebf06edeff.tmp.crc
+/tmp/spark-checkpoints/stateful-s3-rtm-1794140262//state/0/2/.2_6b6fc5ca-6e89-4c2a-9563-167f90cbbfc1.changelog.crc.f9a3faa1-ad51-48a5-bae9-7eebf06edeff.tmp
+--- driver log (spark-rtm-s3-smoke_submit.log, appended after the run): pipelined / state store / commit lines
+   2 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:153
+   2 INFO DAGScheduler: Submitting ResultStage N concurrently with its running pipelined producer(s) List(ShuffleMapStage N)
+   2 INFO DAGScheduler: Final stage: ResultStage N (start at StatefulPipelineJava.java:153)
+   2       +- ~TransformWithState static_invoke(java.lang.Long.valueOf(cast(value#25L as bigint))), createexternalrow(static_invoke(java.lang.Long.valueOf(user_id#17L)), static_invoke(java.lang.Double.valu
+   1 [StatefulPipelineJava] workload=s3 mode=rtm id=f86ba1db-806a-48c0-b24d-d4201859339f trigger=RealTime(60 seconds) startingOffsets=latest watermark=5s window=10s gapMs=5000 timeoutMs=5000 stateStore=org
+   1 INFO SparkContext: Created broadcast 4 from start at StatefulPipelineJava.java:153
+   1 INFO SparkContext: Created broadcast 1 from start at StatefulPipelineJava.java:153
+   1 INFO SparkContext: Created broadcast 0 from start at StatefulPipelineJava.java:153
+   1 INFO MicroBatchExecution: Committed offsets for batch 0. Metadata OffsetSeqMetadata(0,1794140270066,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.sta
+   1 INFO DAGScheduler: Submitting ShuffleMapStage N (MapPartitionsRDD[6] at start at StatefulPipelineJava.java:153), which has no missing parents
+   1 INFO DAGScheduler: Submitting ShuffleMapStage N (MapPartitionsRDD[16] at start at StatefulPipelineJava.java:153), which has no missing parents
+   1 INFO DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage N (MapPartitionsRDD[6] at start at StatefulPipelineJava.java:153) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))

@@ -1,0 +1,3 @@
+# flink-sql-p6-r1 evidence at 2026-11-09T18:50:49Z ckpt=flink-sql-p6-43b-1794249786
+jobId=ee84bed924a39b61cbb101b26b04aac9 checkpoints: {'restored': 0, 'total': 9, 'in_progress': 0, 'completed': 8, 'failed': 1}
+taskmanager pods: 2

@@ -1,0 +1,25 @@
+{
+  "engine": "spark-rtm-s3-sw1-SMOKE",
+  "topic": "st-output",
+  "kept_records": 96386,
+  "seen_records": 114198,
+  "window_seconds": 70,
+  "warmup_seconds": 20,
+  "throughput_eps": 1376.9,
+  "pipeline_ms": {
+    "count": 96386,
+    "p50": 7.334,
+    "p95": 18.924,
+    "p99": 776.589,
+    "max": 1195.463,
+    "mean": 19.335
+  },
+  "e2e_ms": {
+    "count": 96386,
+    "p50": 16.519,
+    "p95": 29.183,
+    "p99": 802.3,
+    "max": 1219.049,
+    "mean": 32.108
+  }
+}

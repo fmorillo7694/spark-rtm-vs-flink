@@ -1,0 +1,66 @@
+[
+ {
+  "label": "flink-auto-s1-update-scalein-r1",
+  "cpu_mean": 4.5829104204753195,
+  "cpu_peak": 9.553,
+  "mem_mean_gib": 7.858600177102376,
+  "mem_peak_gib": 13.6669921875,
+  "flink_ckpt": {
+   "completed": 51,
+   "total": 52,
+   "failed": 1,
+   "dur_avg_ms": 2828,
+   "dur_max_ms": 8551,
+   "upload_avg_mb": 57.587241,
+   "state_max_mb": 340.338608
+  }
+ },
+ {
+  "label": "flink-reactive-s1-update-scalein-r1",
+  "cpu_mean": 5.746925045703839,
+  "cpu_peak": 9.953,
+  "mem_mean_gib": 10.010931429958866,
+  "mem_peak_gib": 13.09765625,
+  "flink_ckpt": {
+   "completed": 50,
+   "total": 50,
+   "failed": 0,
+   "dur_avg_ms": 2390,
+   "dur_max_ms": 12760,
+   "upload_avg_mb": 62.263295,
+   "state_max_mb": 289.09243
+  }
+ },
+ {
+  "label": "flink-reactive-s1-update-steps-r1",
+  "cpu_mean": 7.46104197080292,
+  "cpu_peak": 10.23,
+  "mem_mean_gib": 12.092358220232665,
+  "mem_peak_gib": 14.7919921875,
+  "flink_ckpt": {
+   "completed": 50,
+   "total": 50,
+   "failed": 0,
+   "dur_avg_ms": 2899,
+   "dur_max_ms": 9967,
+   "upload_avg_mb": 73.662365,
+   "state_max_mb": 315.434274
+  }
+ },
+ {
+  "label": "flink-reactive-s1-update-steps-r2",
+  "cpu_mean": 7.209350364963504,
+  "cpu_peak": 9.983,
+  "mem_mean_gib": 12.050136148494525,
+  "mem_peak_gib": 14.923828125,
+  "flink_ckpt": {
+   "completed": 50,
+   "total": 52,
+   "failed": 2,
+   "dur_avg_ms": 2929,
+   "dur_max_ms": 13778,
+   "upload_avg_mb": 76.863223,
+   "state_max_mb": 338.739678
+  }
+ }
+]

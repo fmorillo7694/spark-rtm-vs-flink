@@ -1,0 +1,16 @@
+2026-11-11T14:48:24Z JobStatusChanged Job status changed from CREATED to RUNNING
+2026-11-11T14:48:09Z JobStatusChanged Job status changed from RUNNING to CREATED
+2026-11-11T14:38:06Z JobStatusChanged Job status changed from RECONCILING to RUNNING
+2026-11-11T15:01:10Z JobException org.apache.flink.util.FlinkExpectedException: The TaskExecutor is shutting down.
+	at org.apache.flink.runtime.taskexecutor.TaskExecutor.onStop(TaskExecutor.java:524)
+	at org.apache.flink.runtime.rpc.RpcEndpoint.internalCallOnStop(RpcEndpoint.java:255)
+	at org.apache.flink.runtime.rpc.pekko.PekkoRpcActor$StartedState.lambda$terminate$0(PekkoRpcActor.java:583)
+	at org.apache.flink.runtime.concurrent.ClassLoadingUtils.runWithContextClassLoader(ClassLoadingUtils.java:83)
+... (22 more lines)
+2026-11-11T14:37:26Z Submit Starting deployment
+2026-11-11T14:41:22Z SpecChanged SCALE change(s) detected (Diff: FlinkDeploymentSpec[taskManager.replicas : 2 -> 3, job.upgradeMode : stateless -> last-state]), starting reconciliation.
+2026-11-11T14:45:23Z SpecChanged SCALE change(s) detected (Diff: FlinkDeploymentSpec[taskManager.replicas : 3 -> 4]), starting reconciliation.
+2026-11-11T15:00:55Z SpecChanged SCALE change(s) detected (Diff: FlinkDeploymentSpec[taskManager.replicas : 4 -> 3]), starting reconciliation.
+2026-11-11T14:37:20Z Cleanup Cleaning up FlinkDeployment
+2026-11-11T14:37:20Z ScalingReplicaSet Scaled down replica set flink-stateful-56bbd8497c from 1 to 0
+2026-11-11T14:37:26Z ScalingReplicaSet Scaled up replica set flink-stateful-7cfb64c7 from 0 to 1

@@ -1,0 +1,23 @@
+Tue Nov 10 19:25:25 UTC 2026
+--- nodegroups
+engine-ng {"minSize":0,"maxSize":5,"desiredSize":0}
+bench-ng {"minSize":0,"maxSize":6,"desiredSize":0}
+--- CA replicas: 0
+--- kafka CRs/PVCs/PVs
+No resources found in kafka namespace.
+No resources found
+--- EBS volumes tagged for the cluster (non-root)
+--- runner pod
+{"completionTime":"2026-11-10T19:24:56Z","conditions":[{"lastProbeTime":"2026-11-10T19:24:56Z","lastTransitionTime":"2026-11-10T19:24:56Z","message":"Reached expected number of succeeded pods","reason":"CompletionsReached","status":"True","type":"SuccessCriteriaMet"},{"lastProbeTime":"2026-11-10T19:24:56Z","lastTransitionTime":"2026-11-10T19:24:56Z","message":"Reached expected number of succeeded pods","reason":"CompletionsReached","status":"True","type":"Complete"}],"ready":0,"startTime":"2026-11-10T19:19:20Z","succeeded":1,"terminating":0,"uncountedTerminatedPods":{}}
+[19:19:25] ######## flink-ds-s1-update-60s-r1 attempt=1 elapsed=12s
+    {"workload":"s1-update","producer_pods_done":8,"originals":6944496,"sent":6944496,"input_records":6944496,"payments_records":0,"output_records":6944496}
+    kept=2975939 p50=6.78 p99=1585.359 max=2799.119
+[s3_sync] 12 files -> s3://<BUCKET>/stateful/sessd-smoke-a-20261110T191830Z/runs/flink-ds-s1-update-60s-r1/
+[19:24:03] MATRIX DONE elapsed=290s
+[19:24:03] exit: cleaning up
+[19:24:08] self-teardown: uploading runner log, scaling nodegroups engine-ng bench-ng of rtm-flink-bench4 to 0
+[19:24:09] self-teardown: deleting Kafka cluster bench and its PVCs
+[19:24:52] self-teardown: kafka PVs left: []
+[19:24:53] self-teardown: cluster autoscaler cluster-autoscaler scaled to 0
+    scaled rtm-flink-bench4/engine-ng from desired 2 to 0
+    scaled rtm-flink-bench4/bench-ng from desired 4 to 0

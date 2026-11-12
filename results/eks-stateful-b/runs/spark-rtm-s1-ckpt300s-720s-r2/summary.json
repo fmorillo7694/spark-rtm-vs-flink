@@ -1,0 +1,35 @@
+{
+  "engine": "spark-rtm-s1-ckpt300s-720s-r2",
+  "topic": "st-output",
+  "kept_records": 35712833,
+  "seen_records": 38658040,
+  "window_seconds": 720,
+  "warmup_seconds": 60,
+  "throughput_eps": 49601.2,
+  "started_at": 1794270305.116,
+  "ended_at": 1794271085.149,
+  "pipeline_ms": {
+    "count": 35712833,
+    "p50": 36.537,
+    "p95": 7095.003,
+    "p99": 16870.753,
+    "max": 20217.418,
+    "mean": 794.522
+  },
+  "e2e_ms": {
+    "count": 35712833,
+    "p50": 62.394,
+    "p95": 7412.808,
+    "p99": 16902.932,
+    "max": 20253.119,
+    "mean": 862.48
+  },
+  "window_ms": {
+    "count": 35712833,
+    "p50": -4539.0,
+    "p95": 2500.0,
+    "p99": 11785.0,
+    "max": 18476.0,
+    "mean": -4204.943
+  }
+}

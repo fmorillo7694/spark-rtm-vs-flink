@@ -1,0 +1,21 @@
+# flink-ds-bt100-s1-update flink evidence at 2026-11-08T13:01:36Z job=9506201da2fe98e60131ec1707ea8f01
+--- checkpoint config
+{"mode":"exactly_once","interval":60000,"timeout":600000,"min_pause":0,"max_concurrent":1,"externalization":{"enabled":false,"delete_on_cancellation":true},"state_backend":"EmbeddedRocksDBStateBackend","checkpoint_storage":"FileSystemCheckpointStorage","unaligned_checkpoints":false,"tolerable_failed_checkpoints":0,"aligned_checkpoint_timeout":0,"checkpoints_after_tasks_finish":true,"state_changelog_enabled":false,"changelog_periodic_materialization_interval":600000,"changelog_storage":"memory"}
+--- checkpoint counts
+{'restored': 0, 'total': 3, 'in_progress': 0, 'completed': 2, 'failed': 1}
+latest completed: id 2 state_size 1614925 checkpointed_size 1614925 duration_ms 102
+  ckpt 2 COMPLETED trigger 1794142850165 dur_ms 102 size 1614925 
+  ckpt 1 COMPLETED trigger 1794142790164 dur_ms 75 size 144612 
+--- JM log: checkpoint failures
+2026-11-08 12:59:49,371 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using failover strategy org.apache.flink.runtime.executiongraph.failover.RestartPipelinedRegionFailoverStrategy@727166aa for flink-stateful-s1-update-at-least-once (9506201da2fe98e60131ec1707ea8f01).
+2026-11-08 12:59:49,829 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job 9506201da2fe98e60131ec1707ea8f01 since Checkpoint triggering task s1-update-mode-window -> kafka-sink: Writer -> kafka-sink: Committer (1/6) of job 9506201da2fe98e6013
+--- job vertices
+6 RUNNING Source: kafka-source
+6 RUNNING s1-update-mode-window -> kafka-sink: Writer -> kafka-sink: Committer
+--- TM log: state backend
+   6 2026-11-08 12:59:50,091 INFO  org.apache.flink.state.rocksdb.RocksDBKeyedStateBackendBuilder [] - Finished building RocksDB keyed state-backend at /tmp/tm_172.19.0.4:35273-5c4938/tmp/job_9506201da2fe98e60131ec1707ea8f01_
+   6 2026-11-08 12:59:49,773 INFO  org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackend   [] - Using predefined options: DEFAULT.
+   6 2026-11-08 12:59:49,771 INFO  org.apache.flink.runtime.state.StateBackendLoader            [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory
+   6 2026-11-08 12:59:49,665 INFO  org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackend   [] - Using predefined options: DEFAULT.
+   6 2026-11-08 12:59:49,654 INFO  org.apache.flink.streaming.runtime.tasks.StreamTask          [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory
+   5 2026-11-08 12:59:49,794 INFO  org.apache.flink.runtime.state.StateBackendLoader            [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory

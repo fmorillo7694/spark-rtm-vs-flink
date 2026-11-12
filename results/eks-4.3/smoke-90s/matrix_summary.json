@@ -1,0 +1,379 @@
+{
+  "spark-rtm-java-p6": {
+    "name": "Spark RTM Java",
+    "runs": [
+      {
+        "run": "spark-rtm-java-p6-r0",
+        "kept_records": 2999798,
+        "throughput_eps": 33331.1,
+        "pipeline_ms_p50": 6.118,
+        "pipeline_ms_p99": 57.665,
+        "pipeline_ms_max": 312.245,
+        "e2e_ms_p50": 16.829,
+        "e2e_ms_p99": 116.77,
+        "e2e_ms_max": 324.962,
+        "res": {
+          "cpu_mean": 2.05,
+          "cpu_peak": 4.14,
+          "mem_mean_gb": 7.03,
+          "mem_peak_gb": 7.88,
+          "pods": 3,
+          "samples": 30
+        },
+        "evidence": {
+          "async_log_write_threads": 1,
+          "async_exec_frames": 1,
+          "tm_pods": null,
+          "last_commit": "v2 {\"nextBatchWatermarkMs\":0}",
+          "n_offsets": 2,
+          "n_commits": 2
+        },
+        "flink_ckpt_counts": null,
+        "boundary": {
+          "boundaries": 2,
+          "near_share_pct": 11.11,
+          "near_p99": 280.0,
+          "near_max": 310.0,
+          "far_p99": 31.0,
+          "far_max": 300.0
+        }
+      }
+    ],
+    "geomean": {
+      "pipeline_ms_p50": 6.118,
+      "pipeline_ms_p99": 57.66500000000001,
+      "pipeline_ms_max": 312.245,
+      "e2e_ms_p50": 16.828999999999997,
+      "e2e_ms_p99": 116.77000000000004,
+      "e2e_ms_max": 324.9620000000001,
+      "cpu_mean": 2.05,
+      "mem_mean_gb": 7.03,
+      "near_p99": 279.9999999999999,
+      "far_p99": 31.0
+    },
+    "previous": {
+      "pipeline_ms_p50": 6.221,
+      "pipeline_ms_p99": 642.343,
+      "pipeline_ms_max": 1270.889,
+      "e2e_ms_p50": 17.024,
+      "e2e_ms_p99": 839.972,
+      "e2e_ms_max": 1281.763
+    }
+  },
+  "pyspark-rtm-p6": {
+    "name": "PySpark RTM (native trigger)",
+    "runs": [
+      {
+        "run": "pyspark-rtm-p6-r0",
+        "kept_records": 2999518,
+        "throughput_eps": 33328.0,
+        "pipeline_ms_p50": 6.262,
+        "pipeline_ms_p99": 60.76,
+        "pipeline_ms_max": 350.096,
+        "e2e_ms_p50": 16.713,
+        "e2e_ms_p99": 128.879,
+        "e2e_ms_max": 391.32,
+        "res": {
+          "cpu_mean": 2.01,
+          "cpu_peak": 3.44,
+          "mem_mean_gb": 7.2,
+          "mem_peak_gb": 8.06,
+          "pods": 3,
+          "samples": 31
+        },
+        "evidence": {
+          "async_log_write_threads": 1,
+          "async_exec_frames": 1,
+          "tm_pods": null,
+          "last_commit": "v2 {\"nextBatchWatermarkMs\":0}",
+          "n_offsets": 2,
+          "n_commits": 2
+        },
+        "flink_ckpt_counts": null,
+        "boundary": {
+          "boundaries": 2,
+          "near_share_pct": 11.09,
+          "near_p99": 180.0,
+          "near_max": 250.0,
+          "far_p99": 40.0,
+          "far_max": 350.0
+        }
+      }
+    ],
+    "geomean": {
+      "pipeline_ms_p50": 6.262,
+      "pipeline_ms_p99": 60.760000000000005,
+      "pipeline_ms_max": 350.0959999999999,
+      "e2e_ms_p50": 16.712999999999997,
+      "e2e_ms_p99": 128.87899999999993,
+      "e2e_ms_max": 391.3199999999999,
+      "cpu_mean": 2.01,
+      "mem_mean_gb": 7.2,
+      "near_p99": 180.0,
+      "far_p99": 40.0
+    },
+    "previous": {
+      "pipeline_ms_p50": 6.222,
+      "pipeline_ms_p99": 591.17,
+      "pipeline_ms_max": 1308.648,
+      "e2e_ms_p50": 17.465,
+      "e2e_ms_p99": 763.12,
+      "e2e_ms_max": 1339.663
+    }
+  },
+  "spark-rtm-syncckpt-p6": {
+    "name": "Spark RTM Java, async tracking OFF",
+    "runs": [
+      {
+        "run": "spark-rtm-syncckpt-p6-r0",
+        "kept_records": 3000681,
+        "throughput_eps": 33340.9,
+        "pipeline_ms_p50": 6.187,
+        "pipeline_ms_p99": 1031.473,
+        "pipeline_ms_max": 1516.542,
+        "e2e_ms_p50": 17.07,
+        "e2e_ms_p99": 1100.166,
+        "e2e_ms_max": 1527.512,
+        "res": {
+          "cpu_mean": 1.92,
+          "cpu_peak": 3.53,
+          "mem_mean_gb": 6.99,
+          "mem_peak_gb": 7.9,
+          "pods": 3,
+          "samples": 31
+        },
+        "evidence": {
+          "async_log_write_threads": 0,
+          "async_exec_frames": 0,
+          "tm_pods": null,
+          "last_commit": "v2 {\"nextBatchWatermarkMs\":0,\"stateUniqueIds\":{}}",
+          "n_offsets": 2,
+          "n_commits": 2
+        },
+        "flink_ckpt_counts": null,
+        "boundary": {
+          "boundaries": 2,
+          "near_share_pct": 11.1,
+          "near_p99": 1480.0,
+          "near_max": 1510.0,
+          "far_p99": 44.0,
+          "far_max": 1120.0
+        }
+      }
+    ],
+    "geomean": {
+      "pipeline_ms_p50": 6.186999999999999,
+      "pipeline_ms_p99": 1031.4729999999997,
+      "pipeline_ms_max": 1516.5419999999997,
+      "e2e_ms_p50": 17.069999999999997,
+      "e2e_ms_p99": 1100.1659999999997,
+      "e2e_ms_max": 1527.5119999999995,
+      "cpu_mean": 1.92,
+      "mem_mean_gb": 6.99,
+      "near_p99": 1479.9999999999998,
+      "far_p99": 43.99999999999999
+    },
+    "previous": null
+  },
+  "flink-p6": {
+    "name": "Flink DataStream (Java)",
+    "runs": [
+      {
+        "run": "flink-p6-r0",
+        "kept_records": 3001984,
+        "throughput_eps": 33355.4,
+        "pipeline_ms_p50": 6.046,
+        "pipeline_ms_p99": 32.602,
+        "pipeline_ms_max": 138.261,
+        "e2e_ms_p50": 12.175,
+        "e2e_ms_p99": 60.603,
+        "e2e_ms_max": 178.938,
+        "res": {
+          "cpu_mean": 1.29,
+          "cpu_peak": 3.98,
+          "mem_mean_gb": 4.73,
+          "mem_peak_gb": 5.3,
+          "pods": 3,
+          "samples": 30
+        },
+        "evidence": {
+          "async_log_write_threads": null,
+          "async_exec_frames": null,
+          "tm_pods": 2,
+          "last_commit": null,
+          "n_offsets": 0,
+          "n_commits": null
+        },
+        "flink_ckpt_counts": {
+          "restored": 0,
+          "total": 4,
+          "in_progress": 0,
+          "completed": 3,
+          "failed": 1
+        },
+        "boundary": {
+          "boundaries": 3,
+          "near_share_pct": 4.43,
+          "near_p99": 63.0,
+          "near_max": 100.0,
+          "far_p99": 27.0,
+          "far_max": 130.0
+        }
+      }
+    ],
+    "geomean": {
+      "pipeline_ms_p50": 6.046,
+      "pipeline_ms_p99": 32.602,
+      "pipeline_ms_max": 138.261,
+      "e2e_ms_p50": 12.174999999999999,
+      "e2e_ms_p99": 60.603000000000016,
+      "e2e_ms_max": 178.93799999999996,
+      "cpu_mean": 1.29,
+      "mem_mean_gb": 4.73,
+      "near_p99": 62.99999999999999,
+      "far_p99": 27.0
+    },
+    "previous": {
+      "pipeline_ms_p50": 5.877,
+      "pipeline_ms_p99": 29.838,
+      "pipeline_ms_max": 118.131,
+      "e2e_ms_p50": 12.42,
+      "e2e_ms_p99": 52.64,
+      "e2e_ms_max": 173.872
+    }
+  },
+  "flink-sql-p6": {
+    "name": "Flink SQL (Java)",
+    "runs": [
+      {
+        "run": "flink-sql-p6-r0",
+        "kept_records": 3001183,
+        "throughput_eps": 33346.5,
+        "pipeline_ms_p50": 6.03,
+        "pipeline_ms_p99": 32.981,
+        "pipeline_ms_max": 134.906,
+        "e2e_ms_p50": 12.215,
+        "e2e_ms_p99": 59.582,
+        "e2e_ms_max": 251.627,
+        "res": {
+          "cpu_mean": 1.52,
+          "cpu_peak": 3.21,
+          "mem_mean_gb": 5.15,
+          "mem_peak_gb": 5.54,
+          "pods": 3,
+          "samples": 30
+        },
+        "evidence": {
+          "async_log_write_threads": null,
+          "async_exec_frames": null,
+          "tm_pods": 2,
+          "last_commit": null,
+          "n_offsets": 0,
+          "n_commits": null
+        },
+        "flink_ckpt_counts": {
+          "restored": 0,
+          "total": 4,
+          "in_progress": 0,
+          "completed": 3,
+          "failed": 1
+        },
+        "boundary": {
+          "boundaries": 3,
+          "near_share_pct": 4.45,
+          "near_p99": 37.0,
+          "near_max": 57.0,
+          "far_p99": 32.0,
+          "far_max": 130.0
+        }
+      }
+    ],
+    "geomean": {
+      "pipeline_ms_p50": 6.03,
+      "pipeline_ms_p99": 32.981,
+      "pipeline_ms_max": 134.90600000000003,
+      "e2e_ms_p50": 12.214999999999998,
+      "e2e_ms_p99": 59.58200000000002,
+      "e2e_ms_max": 251.62699999999998,
+      "cpu_mean": 1.52,
+      "mem_mean_gb": 5.15,
+      "near_p99": 37.0,
+      "far_p99": 32.0
+    },
+    "previous": {
+      "pipeline_ms_p50": 6.047,
+      "pipeline_ms_p99": 31.409,
+      "pipeline_ms_max": 124.765,
+      "e2e_ms_p50": 12.065,
+      "e2e_ms_p99": 55.75,
+      "e2e_ms_max": 187.323
+    }
+  },
+  "pyflink-p6": {
+    "name": "PyFlink",
+    "runs": [
+      {
+        "run": "pyflink-p6-r0",
+        "kept_records": 2999281,
+        "throughput_eps": 33325.3,
+        "pipeline_ms_p50": 8.433,
+        "pipeline_ms_p99": 38.732,
+        "pipeline_ms_max": 118.567,
+        "e2e_ms_p50": 17.017,
+        "e2e_ms_p99": 62.302,
+        "e2e_ms_max": 172.658,
+        "res": {
+          "cpu_mean": 4.38,
+          "cpu_peak": 6.06,
+          "mem_mean_gb": 5.87,
+          "mem_peak_gb": 6.44,
+          "pods": 3,
+          "samples": 31
+        },
+        "evidence": {
+          "async_log_write_threads": null,
+          "async_exec_frames": null,
+          "tm_pods": 2,
+          "last_commit": null,
+          "n_offsets": 0,
+          "n_commits": null
+        },
+        "flink_ckpt_counts": {
+          "restored": 0,
+          "total": 4,
+          "in_progress": 0,
+          "completed": 3,
+          "failed": 1
+        },
+        "boundary": {
+          "boundaries": 3,
+          "near_share_pct": 4.43,
+          "near_p99": 61.0,
+          "near_max": 79.0,
+          "far_p99": 34.0,
+          "far_max": 110.0
+        }
+      }
+    ],
+    "geomean": {
+      "pipeline_ms_p50": 8.432999999999998,
+      "pipeline_ms_p99": 38.732000000000006,
+      "pipeline_ms_max": 118.56700000000002,
+      "e2e_ms_p50": 17.017000000000003,
+      "e2e_ms_p99": 62.30200000000003,
+      "e2e_ms_max": 172.658,
+      "cpu_mean": 4.38,
+      "mem_mean_gb": 5.87,
+      "near_p99": 61.00000000000001,
+      "far_p99": 34.00000000000001
+    },
+    "previous": {
+      "pipeline_ms_p50": 8.767,
+      "pipeline_ms_p99": 33.095,
+      "pipeline_ms_max": 135.908,
+      "e2e_ms_p50": 16.874,
+      "e2e_ms_p99": 58.648,
+      "e2e_ms_max": 226.767
+    }
+  }
+}

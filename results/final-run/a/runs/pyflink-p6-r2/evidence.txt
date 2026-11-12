@@ -1,0 +1,3 @@
+# pyflink-p6-r2 evidence at 2026-11-11T20:23:38Z ckpt=pyflink-p6-43b-1794428145
+jobId=ddf84a3215542f05c8b24c525c327696 checkpoints: {'restored': 0, 'total': 9, 'in_progress': 0, 'completed': 8, 'failed': 1}
+taskmanager pods: 2

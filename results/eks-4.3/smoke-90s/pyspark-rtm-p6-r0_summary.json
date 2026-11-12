@@ -1,0 +1,25 @@
+{
+  "engine": "pyspark-rtm-p6-r0",
+  "topic": "output-events",
+  "kept_records": 2999518,
+  "seen_records": 3977228,
+  "window_seconds": 90,
+  "warmup_seconds": 30,
+  "throughput_eps": 33328.0,
+  "pipeline_ms": {
+    "count": 2999518,
+    "p50": 6.262,
+    "p95": 7.73,
+    "p99": 60.76,
+    "max": 350.096,
+    "mean": 8.611
+  },
+  "e2e_ms": {
+    "count": 2999518,
+    "p50": 16.713,
+    "p95": 29.526,
+    "p99": 128.879,
+    "max": 391.32,
+    "mean": 20.355
+  }
+}

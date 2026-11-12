@@ -1,0 +1,32 @@
+# evidence at 2026-11-12T00:57:21Z
+async-log-write threads: 0
+AsyncProgressTrackingMicroBatchExecution frames: 0
+--- active stages (pipelined: source + stateful stage RUNNING together)
+15 ACTIVE 6 6 start at StatefulPipelineJava.java:244
+14 ACTIVE 6 6 start at StatefulPipelineJava.java:244
+--- driver log: pipelined / commits / batch starts (boundary split input)
+[StatefulPipelineJava] workload=s3 mode=rtm id=d56842fd-a2b0-4873-b4ee-7a1aa6626f6c trigger=RealTime(60 seconds) outputMode=update startingOffsets=latest watermark=5s window=10s gapMs=5000 timeoutMs=5000 stateStore=org.apache.spark.sql.exec
+26/11/12 00:45:58 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 00:45:58 INFO DAGScheduler: Submitting ResultStage 1 concurrently with its running pipelined producer(s) List(ShuffleMapStage 0)
+26/11/12 00:47:01 INFO MicroBatchExecution: Committed offsets for batch 0. Metadata OffsetSeqMetadata(0,1794444355395,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDBStateStorePr
+26/11/12 00:47:02 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 00:47:02 INFO DAGScheduler: Submitting ResultStage 3 concurrently with its running pipelined producer(s) List(ShuffleMapStage 2)
+26/11/12 00:48:03 INFO MicroBatchExecution: Committed offsets for batch 1. Metadata OffsetSeqMetadata(0,1794444422661,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDBStateStorePr
+26/11/12 00:48:04 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 00:48:04 INFO DAGScheduler: Submitting ResultStage 5 concurrently with its running pipelined producer(s) List(ShuffleMapStage 4)
+26/11/12 00:49:05 INFO MicroBatchExecution: Committed offsets for batch 2. Metadata OffsetSeqMetadata(0,1794444484092,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDBStateStorePr
+26/11/12 00:49:05 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 00:49:05 INFO DAGScheduler: Submitting ResultStage 7 concurrently with its running pipelined producer(s) List(ShuffleMapStage 6)
+26/11/12 00:50:06 INFO MicroBatchExecution: Committed offsets for batch 3. Metadata OffsetSeqMetadata(0,1794444545750,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDBStateStorePr
+26/11/12 00:50:07 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 00:50:07 INFO DAGScheduler: Submitting ResultStage 9 concurrently with its running pipelined producer(s) List(ShuffleMapStage 8)
+26/11/12 00:51:08 INFO MicroBatchExecution: Committed offsets for batch 4. Metadata OffsetSeqMetadata(0,1794444607286,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDBStateStorePr
+26/11/12 00:51:08 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 00:51:08 INFO DAGScheduler: Submitting ResultStage 11 concurrently with its running pipelined producer(s) List(ShuffleMapStage 10)
+26/11/12 00:53:11 INFO MicroBatchExecution: Committed offsets for batch 5. Metadata OffsetSeqMetadata(0,1794444668827,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDBStateStorePr
+26/11/12 00:53:12 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 00:53:12 INFO DAGScheduler: Submitting ResultStage 13 concurrently with its running pipelined producer(s) List(ShuffleMapStage 12)
+26/11/12 00:57:07 INFO MicroBatchExecution: Committed offsets for batch 6. Metadata OffsetSeqMetadata(0,1794444792261,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDBStateStorePr
+26/11/12 00:57:07 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 00:57:07 INFO DAGScheduler: Submitting ResultStage 15 concurrently with its running pipelined producer(s) List(ShuffleMapStage 14)
+--- progress blocks: 7

@@ -1,6 +1,6 @@
-# PyFlink driver image: Flink 2.2 runtime + Python 3 + apache-flink wheel.
+# PyFlink driver image: Flink 2.3 runtime + Python 3 + apache-flink wheel.
 # Used to run the PyFlink Table API job against the same session cluster.
-FROM flink:2.2.0-scala_2.12-java17
+FROM flink:2.3.0-scala_2.12-java17
 
 USER root
 # python3-dev for Python headers; a full JDK provides the JNI headers that apache-beam
@@ -14,9 +14,10 @@ RUN apt-get update -qq \
  && rm -rf /var/lib/apt/lists/*
 
 # Match the cluster runtime exactly.
-RUN pip3 install --no-cache-dir --break-system-packages apache-flink==2.2.0
+RUN pip3 install --no-cache-dir --break-system-packages apache-flink==2.3.0
 
-# SQL Kafka connector jar (fat) for Flink 2.2, made available to the TableEnvironment.
+# SQL Kafka connector jar (fat), made available to the TableEnvironment. No 2.3-targeted
+# release exists yet (checked 2026-11-06); 5.0.0-2.2 is the newest 2.x build.
 ARG KAFKA_SQL_CONNECTOR=flink-sql-connector-kafka-5.0.0-2.2.jar
 RUN curl -fsSL -o /opt/flink/lib/${KAFKA_SQL_CONNECTOR} \
     https://repo1.maven.org/maven2/org/apache/flink/flink-sql-connector-kafka/5.0.0-2.2/${KAFKA_SQL_CONNECTOR}

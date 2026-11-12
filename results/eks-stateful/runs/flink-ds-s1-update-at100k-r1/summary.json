@@ -1,0 +1,33 @@
+{
+  "engine": "flink-ds-s1-update-at100k-r1",
+  "topic": "st-output",
+  "kept_records": 29986339,
+  "seen_records": 35823896,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 99954.5,
+  "pipeline_ms": {
+    "count": 29986339,
+    "p50": 6.871,
+    "p95": 1023.68,
+    "p99": 2205.322,
+    "max": 3611.84,
+    "mean": 127.985
+  },
+  "e2e_ms": {
+    "count": 29986339,
+    "p50": 102.327,
+    "p95": 1615.284,
+    "p99": 2710.592,
+    "max": 3961.248,
+    "mean": 418.074
+  },
+  "window_ms": {
+    "count": 29986339,
+    "p50": -4992.0,
+    "p95": -356.0,
+    "p99": 1311.0,
+    "max": 3156.0,
+    "mean": -4873.03
+  }
+}

@@ -1,0 +1,15 @@
+{
+ "prefix": "stateful/flink-ds-s1-update-kill-r2-1794440544/",
+ "objects": 43,
+ "bytes": 106311526,
+ "by_dir": {
+  "chk-*": {
+   "objects": 1,
+   "bytes": 47635
+  },
+  "shared": {
+   "objects": 42,
+   "bytes": 106263891
+  }
+ }
+}

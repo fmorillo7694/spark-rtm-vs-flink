@@ -1,0 +1,110 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-s1-update-kill-r1 warmup=60s window=300s
+[consumer] seen=116000 kept=0 (warmup)
+[consumer] seen=365000 kept=0 (warmup)
+[consumer] seen=606753 kept=0 (warmup)
+[consumer] seen=862753 kept=0 (warmup)
+[consumer] seen=1111543 kept=0 (warmup)
+[consumer] seen=1360543 kept=0 (warmup)
+[consumer] seen=1608784 kept=0 (warmup)
+[consumer] seen=1856784 kept=0 (warmup)
+[consumer] seen=2105007 kept=0 (warmup)
+[consumer] seen=2353007 kept=0 (warmup)
+[consumer] seen=2601179 kept=0 (warmup)
+[consumer] seen=2849179 kept=6000 (steady)
+[consumer] seen=3097449 kept=254270 (steady)
+[consumer] seen=3345449 kept=502270 (steady)
+[consumer] seen=3572328 kept=729149 (steady)
+[consumer] seen=3842328 kept=999149 (steady)
+[consumer] seen=4091026 kept=1247847 (steady)
+[consumer] seen=4340026 kept=1496847 (steady)
+[consumer] seen=4588174 kept=1744995 (steady)
+[consumer] seen=4837174 kept=1993995 (steady)
+[consumer] seen=5085388 kept=2242209 (steady)
+[consumer] seen=5334388 kept=2491209 (steady)
+[consumer] seen=5585641 kept=2742462 (steady)
+[consumer] seen=5833641 kept=2990462 (steady)
+[consumer] seen=6081832 kept=3238653 (steady)
+[consumer] seen=6329832 kept=3486653 (steady)
+[consumer] seen=6560593 kept=3717414 (steady)
+[consumer] seen=6826593 kept=3983414 (steady)
+[consumer] seen=7075187 kept=4232008 (steady)
+[consumer] seen=7324187 kept=4481008 (steady)
+[consumer] seen=7572497 kept=4729318 (steady)
+[consumer] seen=7821497 kept=4978318 (steady)
+[consumer] seen=8070488 kept=5227309 (steady)
+[consumer] seen=8318488 kept=5475309 (steady)
+[consumer] seen=8566910 kept=5723731 (steady)
+[consumer] seen=8754109 kept=5910930 (steady)
+[consumer] seen=8754109 kept=5910930 (steady)
+[consumer] seen=8794567 kept=5951388 (steady)
+[consumer] seen=8879398 kept=6036219 (steady)
+[consumer] seen=9232062 kept=6388883 (steady)
+[consumer] seen=9786062 kept=6942883 (steady)
+[consumer] seen=10361062 kept=7517883 (steady)
+[consumer] seen=10937062 kept=8093883 (steady)
+[consumer] seen=11526062 kept=8682883 (steady)
+[consumer] seen=12113062 kept=9269883 (steady)
+[consumer] seen=12707062 kept=9863883 (steady)
+[consumer] seen=13295062 kept=10451883 (steady)
+[consumer] seen=13873062 kept=11029883 (steady)
+[consumer] seen=14396062 kept=11552883 (steady)
+[consumer] seen=14642077 kept=11798898 (steady)
+[consumer] seen=14892077 kept=12048898 (steady)
+[consumer] seen=15141077 kept=12297898 (steady)
+[consumer] seen=15389604 kept=12546425 (steady)
+[consumer] seen=15637604 kept=12794425 (steady)
+[consumer] seen=15885844 kept=13042665 (steady)
+[consumer] seen=16133844 kept=13290665 (steady)
+[consumer] seen=16382092 kept=13538913 (steady)
+[consumer] seen=16631092 kept=13787913 (steady)
+[consumer] seen=16879290 kept=14036111 (steady)
+[consumer] seen=17128290 kept=14285111 (steady)
+[consumer] seen=17376560 kept=14533381 (steady)
+[consumer] seen=17625157 kept=14781978 (steady)
+[consumer] seen=17873887 kept=15030708 (steady)
+[consumer] seen=18121887 kept=15278708 (steady)
+[consumer] seen=18370084 kept=15526905 (steady)
+[consumer] seen=18618084 kept=15774905 (steady)
+[consumer] seen=18866311 kept=16023132 (steady)
+[consumer] seen=19114311 kept=16271132 (steady)
+[consumer] seen=19362588 kept=16519409 (steady)
+[consumer] seen=19610588 kept=16767409 (steady)
+[consumer] seen=19858836 kept=17015657 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-s1-update-kill-r1",
+  "topic": "st-output",
+  "kept_records": 17231657,
+  "seen_records": 20074836,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 57438.9,
+  "started_at": 1794325282.741,
+  "ended_at": 1794325642.766,
+  "pipeline_ms": {
+    "count": 17231657,
+    "p50": 7.127,
+    "p95": 54277.129,
+    "p99": 61018.099,
+    "max": 63636.098,
+    "mean": 9162.635
+  },
+  "e2e_ms": {
+    "count": 17231657,
+    "p50": 31.318,
+    "p95": 54765.932,
+    "p99": 61046.13,
+    "max": 63652.371,
+    "mean": 10531.398
+  },
+  "window_ms": {
+    "count": 17231657,
+    "p50": -3107.0,
+    "p95": 48722.0,
+    "p99": 57684.0,
+    "max": 62206.0,
+    "mean": 4176.298
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-s1-update-kill-r1_summary.json

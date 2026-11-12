@@ -1,0 +1,23 @@
+{
+ "prefix": "spark-rtm-syncckpt-p6-43b-1794429054/",
+ "objects": 18,
+ "bytes": 7849,
+ "by_dir": {
+  "(root)": {
+   "objects": 2,
+   "bytes": 45
+  },
+  "commits": {
+   "objects": 7,
+   "bytes": 294
+  },
+  "offsets": {
+   "objects": 7,
+   "bytes": 7452
+  },
+  "sources": {
+   "objects": 2,
+   "bytes": 58
+  }
+ }
+}

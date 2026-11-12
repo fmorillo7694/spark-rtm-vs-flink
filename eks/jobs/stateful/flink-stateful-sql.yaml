@@ -1,0 +1,61 @@
+# Stateful Flink SQL job (bench.StatefulSql: s1 TUMBLE TVF | s2 ROW_NUMBER dedup) as a
+# FlinkDeployment, same p6 sizing as flink-stateful-datastream.yaml.
+#
+# Placeholders: __REGISTRY__ __TAG__ __ACCOUNT__ __WORKLOAD__ (s1|s2)
+#   __DELIVERY__ (at-least-once|exactly-once) __CKPTNAME__ __CKPT_MS__ __WATERMARK_S__ __WINDOW_S__
+apiVersion: flink.apache.org/v1beta1
+kind: FlinkDeployment
+metadata:
+  name: flink-stateful
+  namespace: flink
+  labels: { bench: stateful }
+spec:
+  image: "__REGISTRY__/rtm-bench/flink:__TAG__"
+  imagePullPolicy: Always
+  flinkVersion: v2_3
+  flinkConfiguration:
+    taskmanager.numberOfTaskSlots: "3"
+    execution.buffer-timeout: "__BUFFER_TIMEOUT_MS__ ms"   # job arg 11 sets the same value (0 tuned, 100 Flink default)
+    restart-strategy.type: "fixed-delay"
+    restart-strategy.fixed-delay.attempts: "10"
+    restart-strategy.fixed-delay.delay: "2 s"
+    # RocksDB native memory metrics (final run sampler; equal on every Flink stateful arm)
+    state.backend.rocksdb.metrics.block-cache-usage: "true"
+    state.backend.rocksdb.metrics.size-all-mem-tables: "true"
+    state.backend.rocksdb.metrics.estimate-table-readers-mem: "true"
+    state.backend.rocksdb.metrics.estimate-live-data-size: "true"
+  serviceAccount: flink
+  podTemplate:
+    spec:
+      containers:
+        - name: flink-main-container
+          env:
+            - name: ENABLE_BUILT_IN_PLUGINS
+              value: "flink-s3-fs-presto-2.3.0.jar"
+  jobManager:
+    resource:
+      memory: "2048m"
+      cpu: 1
+  taskManager:
+    replicas: 2
+    resource:
+      memory: "6144m"
+      cpu: 3
+  job:
+    jarURI: "local:///opt/flink/usrlib/flink-sql.jar"
+    entryClass: "bench.StatefulSql"
+    args:
+      - "__WORKLOAD__"
+      - "bench-kafka-bootstrap.kafka.svc:9092"
+      - "st-input"
+      - "st-output"
+      - "6"
+      - "__CKPT_MS__"
+      - "s3://rtm-flink-bench-ckpt-__ACCOUNT__/stateful/__CKPTNAME__"
+      - "__DELIVERY__"
+      - "latest"
+      - "__WATERMARK_S__"
+      - "__WINDOW_S__"
+      - "__BUFFER_TIMEOUT_MS__"
+    parallelism: 6
+    upgradeMode: stateless

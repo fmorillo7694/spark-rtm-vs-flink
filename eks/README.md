@@ -51,3 +51,22 @@ Results land in `results/eks/<engine>_consumer.log` (latency summary) and
   from failed first attempts (VPC/EIP limit, then a KMS region mismatch). They hold no
   resources; delete from the CFN console (they have eksctl termination protection).
 - m5 nodes are amd64 — images are built `--platform linux/amd64`.
+
+## Stateful matrix (in-cluster runner, not run yet)
+
+The stateful matrix (`STATEFUL_CONFIG.md`) runs entirely inside the cluster so a laptop that
+loses network cannot stall or kill it (what ended the 4.3 stateless EKS round):
+
+- `eks/jobs/stateful/`: SparkApplication / FlinkDeployment templates (same p6 sizing as
+  `eks/jobs/p6/`), `topics.yaml` (`st-input`/`st-output`), `load.yaml` (indexed producers with
+  disjoint event_id ranges + latency consumer).
+- `eks/stateful/run_matrix_incluster.sh`: one engine at a time, fresh topics + checkpoint path
+  per run, retries, a hard budget, per-run artifacts + `matrix_status.jsonl` to
+  `s3://rtm-flink-bench-ckpt-<acct>/stateful/<stamp>/`, resumable (runs already in S3 are skipped).
+- `eks/stateful/runner-job.yaml`: IRSA service account, namespaced least-privilege RBAC
+  (kafka/spark/flink), the Job (`activeDeadlineSeconds` as the hard kill).
+- `eks/stateful/deploy_runner.sh`: builds the ConfigMap and starts the Job.
+  `eks/stateful/check.sh`: offline bash -n/shellcheck + YAML render check + full DRY_RUN.
+
+Rebuild the images first (`eks/03_build_push_images.sh`): the load image now carries kubectl
+and boto3 for the runner; the stateful job classes ride in the existing Spark/Flink jars.

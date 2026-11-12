@@ -1,0 +1,33 @@
+{
+  "engine": "flink-sql-bt100-s1-SMOKE",
+  "topic": "st-output",
+  "kept_records": 103911,
+  "seen_records": 124685,
+  "window_seconds": 70,
+  "warmup_seconds": 20,
+  "throughput_eps": 1484.4,
+  "pipeline_ms": {
+    "count": 103911,
+    "p50": 8645.006,
+    "p95": 14229.932,
+    "p99": 15014.48,
+    "max": 15310.358,
+    "mean": 9129.025
+  },
+  "e2e_ms": {
+    "count": 103911,
+    "p50": 8669.547,
+    "p95": 14252.596,
+    "p99": 15038.48,
+    "max": 15360.657,
+    "mean": 9152.482
+  },
+  "window_ms": {
+    "count": 103911,
+    "p50": 5207.0,
+    "p95": 5311.0,
+    "p99": 5314.0,
+    "max": 5316.0,
+    "mean": 5223.472
+  }
+}

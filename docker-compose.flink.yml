@@ -1,4 +1,4 @@
-# Flink 2.2 session cluster: 1 JobManager + 1 TaskManager (6 slots, 3072m total).
+# Flink 2.3 session cluster: 1 JobManager + 1 TaskManager (6 slots, 3072m total).
 # Matched 1:1 to the Spark worker (6 cores, 3072m) for a fair local comparison.
 # Latency-leaning config. Brought up alongside docker-compose.kafka.yml.
 name: spark-flink
@@ -10,7 +10,7 @@ networks:
 
 services:
   jobmanager:
-    image: ${FLINK_IMAGE:-flink:2.2.0-scala_2.12-java17}
+    image: ${FLINK_IMAGE:-flink:2.3.0-scala_2.12-java17}
     container_name: flink-jobmanager
     hostname: jobmanager
     networks: [bench]
@@ -27,6 +27,7 @@ services:
     volumes:
       - ./flink:/workspace/flink:ro
       - ./results:/workspace/results
+      - flink-ckpt:/tmp/flink-checkpoints   # shared JM+TM checkpoint dir (stateful runs)
     healthcheck:
       test: ["CMD-SHELL", "curl -sf http://localhost:8081/overview >/dev/null || exit 1"]
       interval: 5s
@@ -35,7 +36,7 @@ services:
       start_period: 10s
 
   taskmanager:
-    image: ${FLINK_IMAGE:-flink:2.2.0-scala_2.12-java17}
+    image: ${FLINK_IMAGE:-flink:2.3.0-scala_2.12-java17}
     container_name: flink-taskmanager
     hostname: taskmanager
     networks: [bench]
@@ -53,3 +54,7 @@ services:
     volumes:
       - ./flink:/workspace/flink:ro
       - ./results:/workspace/results
+      - flink-ckpt:/tmp/flink-checkpoints   # shared JM+TM checkpoint dir (stateful runs)
+
+volumes:
+  flink-ckpt:

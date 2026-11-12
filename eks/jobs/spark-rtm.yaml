@@ -12,7 +12,7 @@ spec:
   imagePullPolicy: Always
   mainClass: __MAINCLASS__
   mainApplicationFile: "__JAR__"
-  sparkVersion: "4.1.2"
+  sparkVersion: "4.3.0"
   arguments:
     - "rtm"
     - "bench-kafka-bootstrap.kafka.svc:9092"

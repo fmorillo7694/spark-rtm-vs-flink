@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-bt100-s3-lt-r3 warmup=60s window=300s
+[consumer] seen=13 kept=0 (warmup)
+[consumer] seen=171532 kept=0 (warmup)
+[consumer] seen=365339 kept=0 (warmup)
+[consumer] seen=521014 kept=0 (warmup)
+[consumer] seen=749547 kept=0 (warmup)
+[consumer] seen=952008 kept=0 (warmup)
+[consumer] seen=1146220 kept=0 (warmup)
+[consumer] seen=1339850 kept=0 (warmup)
+[consumer] seen=1534669 kept=0 (warmup)
+[consumer] seen=1727775 kept=0 (warmup)
+[consumer] seen=1922561 kept=0 (warmup)
+[consumer] seen=2116032 kept=4528 (steady)
+[consumer] seen=2309338 kept=197834 (steady)
+[consumer] seen=2503473 kept=391969 (steady)
+[consumer] seen=2696727 kept=585223 (steady)
+[consumer] seen=2846312 kept=734808 (steady)
+[consumer] seen=3091155 kept=979651 (steady)
+[consumer] seen=3261534 kept=1150030 (steady)
+[consumer] seen=3523455 kept=1411951 (steady)
+[consumer] seen=3717359 kept=1605855 (steady)
+[consumer] seen=3911110 kept=1799606 (steady)
+[consumer] seen=4104136 kept=1992632 (steady)
+[consumer] seen=4298740 kept=2187236 (steady)
+[consumer] seen=4492531 kept=2381027 (steady)
+[consumer] seen=4685630 kept=2574126 (steady)
+[consumer] seen=4878742 kept=2767238 (steady)
+[consumer] seen=5072890 kept=2961386 (steady)
+[consumer] seen=5189169 kept=3077665 (steady)
+[consumer] seen=5432775 kept=3321271 (steady)
+[consumer] seen=5686088 kept=3574584 (steady)
+[consumer] seen=5880223 kept=3768719 (steady)
+[consumer] seen=6073994 kept=3962490 (steady)
+[consumer] seen=6268688 kept=4157184 (steady)
+[consumer] seen=6462251 kept=4350747 (steady)
+[consumer] seen=6657417 kept=4545913 (steady)
+[consumer] seen=6850426 kept=4738922 (steady)
+[consumer] seen=7045506 kept=4934002 (steady)
+[consumer] seen=7239524 kept=5128020 (steady)
+[consumer] seen=7432820 kept=5321316 (steady)
+[consumer] seen=7533522 kept=5422018 (steady)
+[consumer] seen=7772783 kept=5661279 (steady)
+[consumer] seen=8045990 kept=5934486 (steady)
+[consumer] seen=8240216 kept=6128712 (steady)
+[consumer] seen=8433054 kept=6321550 (steady)
+[consumer] seen=8627058 kept=6515554 (steady)
+[consumer] seen=8820941 kept=6709437 (steady)
+[consumer] seen=9014261 kept=6902757 (steady)
+[consumer] seen=9207896 kept=7096392 (steady)
+[consumer] seen=9401435 kept=7289931 (steady)
+[consumer] seen=9596100 kept=7484596 (steady)
+[consumer] seen=9790541 kept=7679037 (steady)
+[consumer] seen=9924936 kept=7813432 (steady)
+[consumer] seen=10114353 kept=8002849 (steady)
+[consumer] seen=10385153 kept=8273649 (steady)
+[consumer] seen=10583772 kept=8472268 (steady)
+[consumer] seen=10777844 kept=8666340 (steady)
+[consumer] seen=10971377 kept=8859873 (steady)
+[consumer] seen=11164772 kept=9053268 (steady)
+[consumer] seen=11359868 kept=9248364 (steady)
+[consumer] seen=11552707 kept=9441203 (steady)
+[consumer] seen=11747645 kept=9636141 (steady)
+[consumer] seen=11941400 kept=9829896 (steady)
+[consumer] seen=12136354 kept=10024850 (steady)
+[consumer] seen=12276258 kept=10164754 (steady)
+[consumer] seen=12456653 kept=10345149 (steady)
+[consumer] seen=12731771 kept=10620267 (steady)
+[consumer] seen=12925563 kept=10814059 (steady)
+[consumer] seen=13120238 kept=11008734 (steady)
+[consumer] seen=13313842 kept=11202338 (steady)
+[consumer] seen=13507454 kept=11395950 (steady)
+[consumer] seen=13700213 kept=11588709 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-bt100-s3-lt-r3",
+  "topic": "st-output",
+  "kept_records": 11690618,
+  "seen_records": 13802122,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 38968.7,
+  "started_at": 1794248429.566,
+  "ended_at": 1794248789.77,
+  "pipeline_ms": {
+    "count": 11690618,
+    "p50": 679.21,
+    "p95": 2912.714,
+    "p99": 4226.079,
+    "max": 6658.695,
+    "mean": 869.833
+  },
+  "e2e_ms": {
+    "count": 11690618,
+    "p50": 797.576,
+    "p95": 3032.044,
+    "p99": 4390.594,
+    "max": 7095.683,
+    "mean": 989.949
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-bt100-s3-lt-r3_summary.json

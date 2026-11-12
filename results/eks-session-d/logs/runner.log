@@ -1,0 +1,62 @@
+[19:29:12] matrix: 12 runs (plan D), budget 37800s, s3://<BUCKET>/stateful/sessd-20261110T192841Z dry_run=0
+[19:29:13] ######## spark-rtm-s4-r1 attempt=1 elapsed=10s
+    {"workload":"s4","producer_pods_done":8,"originals":18848434,"sent":18848434,"input_records":18848434,"payments_records":0,"output_records":18471166}
+    kept=14583430 p50=6.66 p99=409.45 max=934.126
+[s3_sync] 13 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/spark-rtm-s4-r1/
+[19:42:35] ######## flink-auto-ro-s1-update-steps-r1 attempt=1 elapsed=812s
+[19:52:48]     engine state=
+[s3_sync] 2 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/flink-auto-ro-s1-update-steps-r1/
+[19:52:49]     attempt 1 failed
+[19:52:49] ######## flink-auto-ro-s1-update-steps-r1 attempt=2 elapsed=1426s
+    {"workload":"s1-update","producer_pods_done":8,"originals":135631934,"sent":135631934,"input_records":135631934,"payments_records":0,"output_records":135828858}
+    kept=131664455 p50=16.504 p99=1938.802 max=3694.09
+[s3_sync] 20 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/flink-auto-ro-s1-update-steps-r1/
+[20:25:25] ######## flink-auto-s1-update-steps-r1 attempt=1 elapsed=3382s
+    {"workload":"s1-update","producer_pods_done":8,"originals":189295623,"sent":189295623,"input_records":189295623,"payments_records":0,"output_records":189770764}
+    kept=185803940 p50=14.529 p99=2410.621 max=8591.914
+[s3_sync] 20 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/flink-auto-s1-update-steps-r1/
+[21:13:39] ######## spark-rtm-manual-s1-steps-r1 attempt=1 elapsed=6276s
+[21:28:29]     manual restart 2: -> peak (rate 12500)
+[21:45:29]     manual restart 3: -> low (rate 6250)
+    {"workload":"s1","producer_pods_done":8,"originals":189295934,"sent":189295934,"input_records":189295934,"payments_records":0,"output_records":192982014}
+    kept=189112636 p50=2043.455 p99=207582.344 max=223683.594
+[s3_sync] 22 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/spark-rtm-manual-s1-steps-r1/
+[22:06:26] ######## flink-reactive-s1-update-steps-r1 attempt=1 elapsed=9443s
+[22:23:40]     engine state=RECONCILING
+[s3_sync] 2 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/flink-reactive-s1-update-steps-r1/
+[22:23:41]     attempt 1 failed
+[22:23:41] ######## flink-reactive-s1-update-steps-r1 attempt=2 elapsed=10478s
+[22:33:52]     engine state=RECONCILING
+[s3_sync] 2 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/flink-reactive-s1-update-steps-r1/
+[22:33:53]     attempt 2 failed
+[22:33:54] ######## spark-mb-da-s1-steps-r1 attempt=1 elapsed=11091s
+    {"workload":"s1","producer_pods_done":8,"originals":189295872,"sent":189295872,"input_records":189295872,"payments_records":0,"output_records":160948974}
+    kept=158016511 p50=5236.326 p99=26047.543 max=45680.152
+[s3_sync] 17 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/spark-mb-da-s1-steps-r1/
+[23:27:15] ######## flink-peak-s1-update-steps-r1 attempt=1 elapsed=14292s
+    {"workload":"s1-update","producer_pods_done":8,"originals":189295999,"sent":189295999,"input_records":189295999,"payments_records":0,"output_records":189295999}
+    kept=185328677 p50=14.354 p99=864.717 max=2547.595
+[s3_sync] 20 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/flink-peak-s1-update-steps-r1/
+[00:21:30] ######## spark-rtm-peak-s1-steps-r1 attempt=1 elapsed=17547s
+    {"workload":"s1","producer_pods_done":8,"originals":189296124,"sent":189296124,"input_records":189296124,"payments_records":0,"output_records":189296124}
+    kept=188281485 p50=44.93 p99=55266.877 max=77473.703
+[s3_sync] 17 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/spark-rtm-peak-s1-steps-r1/
+[01:15:45] ######## flink-auto-s1-update-steps-r2 attempt=1 elapsed=20802s
+[01:23:55]     !! still 3 engine nodes after 480 s, starting anyway
+    {"workload":"s1-update","producer_pods_done":8,"originals":189295875,"sent":189295875,"input_records":189295875,"payments_records":0,"output_records":189998916}
+    kept=185849288 p50=13.067 p99=2440.483 max=8096.8
+[s3_sync] 20 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/flink-auto-s1-update-steps-r2/
+[02:12:27] ######## spark-rtm-manual-s1-steps-r2 attempt=1 elapsed=24204s
+[02:27:40]     manual restart 2: -> peak (rate 12500)
+[02:44:40]     manual restart 3: -> low (rate 6250)
+    {"workload":"s1","producer_pods_done":8,"originals":189295622,"sent":189295622,"input_records":189295622,"payments_records":0,"output_records":193344024}
+    kept=190218327 p50=4095.682 p99=214501.156 max=226297.031
+[s3_sync] 22 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/spark-rtm-manual-s1-steps-r2/
+[03:05:38] -- flink-reactive-s1-update-steps-r2 already in S3, skipping
+[03:05:38] ######## spark-mb-da-s1-steps-r2 attempt=1 elapsed=27395s
+    {"workload":"s1","producer_pods_done":8,"originals":189295187,"sent":189295187,"input_records":189295187,"payments_records":0,"output_records":161614447}
+    kept=158555291 p50=5150.2 p99=16994.035 max=31686.887
+[s3_sync] 17 files -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/runs/spark-mb-da-s1-steps-r2/
+[04:05:57] MATRIX DONE elapsed=31014s
+[04:05:57] exit: cleaning up
+[04:06:02] self-teardown: uploading runner log, scaling nodegroups engine-ng bench-ng of rtm-flink-bench4 to 0

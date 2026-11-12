@@ -1,0 +1,35 @@
+{
+  "engine": "flink-ds-s1-update-ckpt5s-r1",
+  "topic": "st-output",
+  "kept_records": 14887200,
+  "seen_records": 17689343,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 49624.0,
+  "started_at": 1794261405.506,
+  "ended_at": 1794261765.547,
+  "pipeline_ms": {
+    "count": 14887200,
+    "p50": 6.843,
+    "p95": 171.88,
+    "p99": 379.673,
+    "max": 740.347,
+    "mean": 26.839
+  },
+  "e2e_ms": {
+    "count": 14887200,
+    "p50": 27.477,
+    "p95": 197.192,
+    "p99": 400.875,
+    "max": 757.11,
+    "mean": 47.577
+  },
+  "window_ms": {
+    "count": 14887200,
+    "p50": -4971.0,
+    "p95": -494.0,
+    "p99": 158.0,
+    "max": 413.0,
+    "mean": -4976.379
+  }
+}

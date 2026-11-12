@@ -1,0 +1,151 @@
+[
+ {
+  "label": "flink-auto-ro-s1-update-steps-r1",
+  "cpu_mean": 5.113854748603352,
+  "cpu_peak": 5.911,
+  "mem_mean_gib": 7.748581529329609,
+  "mem_peak_gib": 9.1318359375,
+  "flink_ckpt": {
+   "completed": 32,
+   "total": 32,
+   "failed": 0,
+   "dur_avg_ms": 3253,
+   "dur_max_ms": 4392,
+   "upload_avg_mb": 67.614614,
+   "state_max_mb": 272.966829
+  }
+ },
+ {
+  "label": "flink-auto-s1-update-steps-r1",
+  "cpu_mean": 4.384996350364964,
+  "cpu_peak": 6.077,
+  "mem_mean_gib": 7.630882541628649,
+  "mem_peak_gib": 9.0361328125,
+  "flink_ckpt": {
+   "completed": 49,
+   "total": 49,
+   "failed": 0,
+   "dur_avg_ms": 3053,
+   "dur_max_ms": 4255,
+   "upload_avg_mb": 63.716765,
+   "state_max_mb": 253.946698
+  }
+ },
+ {
+  "label": "flink-auto-s1-update-steps-r2",
+  "cpu_mean": 4.324191605839416,
+  "cpu_peak": 5.753,
+  "mem_mean_gib": 8.223607863822993,
+  "mem_peak_gib": 10.001953125,
+  "flink_ckpt": {
+   "completed": 50,
+   "total": 50,
+   "failed": 0,
+   "dur_avg_ms": 3177,
+   "dur_max_ms": 6438,
+   "upload_avg_mb": 68.370629,
+   "state_max_mb": 241.85005
+  }
+ },
+ {
+  "label": "flink-peak-s1-update-steps-r1",
+  "cpu_mean": 7.557565693430657,
+  "cpu_peak": 11.544,
+  "mem_mean_gib": 12.812204179972628,
+  "mem_peak_gib": 14.490234375,
+  "flink_ckpt": {
+   "completed": 47,
+   "total": 48,
+   "failed": 1,
+   "dur_avg_ms": 1964,
+   "dur_max_ms": 2906,
+   "upload_avg_mb": 61.938277,
+   "state_max_mb": 285.560218
+  }
+ },
+ {
+  "label": "flink-reactive-s1-update-steps-r1"
+ },
+ {
+  "label": "spark-mb-da-s1-steps-r1",
+  "cpu_mean": 3.389877737226277,
+  "cpu_peak": 5.305999999999999,
+  "mem_mean_gib": 13.824687428718066,
+  "mem_peak_gib": 14.43359375,
+  "spark_batches": {
+   "batches": 94,
+   "state_commit_avg_ms": 4134.5,
+   "state_commit_max_ms": 6361,
+   "log_commit_avg_ms": 823.3404255319149,
+   "state_mem_max_mb": 373.064608,
+   "rocksdb_written_avg_mb": 22.156372276595746
+  }
+ },
+ {
+  "label": "spark-mb-da-s1-steps-r2",
+  "cpu_mean": 3.4312554744525547,
+  "cpu_peak": 6.128,
+  "mem_mean_gib": 13.799847456660585,
+  "mem_peak_gib": 14.423828125,
+  "spark_batches": {
+   "batches": 92,
+   "state_commit_avg_ms": 4217.021739130435,
+   "state_commit_max_ms": 6999,
+   "log_commit_avg_ms": 816.1847826086956,
+   "state_mem_max_mb": 374.045952,
+   "rocksdb_written_avg_mb": 22.020643902173916
+  }
+ },
+ {
+  "label": "spark-rtm-manual-s1-steps-r1",
+  "cpu_mean": 6.710355805243446,
+  "cpu_peak": 12.442,
+  "mem_mean_gib": 13.184338058871722,
+  "mem_peak_gib": 19.92578125,
+  "spark_batches": {
+   "batches": 13,
+   "state_commit_avg_ms": 7556.461538461538,
+   "state_commit_max_ms": 13281,
+   "log_commit_avg_ms": 961.3076923076923,
+   "state_mem_max_mb": 852.591968,
+   "rocksdb_written_avg_mb": 674.5772324615384
+  }
+ },
+ {
+  "label": "spark-rtm-manual-s1-steps-r2",
+  "cpu_mean": 6.731270522388059,
+  "cpu_peak": 12.056999999999999,
+  "mem_mean_gib": 13.18437354244403,
+  "mem_peak_gib": 19.9189453125,
+  "spark_batches": {
+   "batches": 12,
+   "state_commit_avg_ms": 8370.083333333334,
+   "state_commit_max_ms": 19077,
+   "log_commit_avg_ms": 941.0833333333334,
+   "state_mem_max_mb": 901.823305,
+   "rocksdb_written_avg_mb": 706.7784315
+  }
+ },
+ {
+  "label": "spark-rtm-peak-s1-steps-r1",
+  "cpu_mean": 6.7306403669724775,
+  "cpu_peak": 12.1,
+  "mem_mean_gib": 18.003979716169724,
+  "mem_peak_gib": 19.2177734375,
+  "spark_batches": {
+   "batches": 41,
+   "state_commit_avg_ms": 7573.585365853659,
+   "state_commit_max_ms": 22023,
+   "log_commit_avg_ms": 963.6829268292682,
+   "state_mem_max_mb": 921.562204,
+   "rocksdb_written_avg_mb": 629.1502490487804
+  }
+ },
+ {
+  "label": "spark-rtm-s4-r1",
+  "cpu_mean": 1.4993333333333334,
+  "cpu_peak": 2.606,
+  "mem_mean_gib": 9.66677517361111,
+  "mem_peak_gib": 10.0625
+ }
+]

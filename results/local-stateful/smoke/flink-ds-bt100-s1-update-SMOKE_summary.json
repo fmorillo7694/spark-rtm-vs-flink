@@ -1,0 +1,33 @@
+{
+  "engine": "flink-ds-bt100-s1-update-SMOKE",
+  "topic": "st-output",
+  "kept_records": 209995,
+  "seen_records": 264106,
+  "window_seconds": 70,
+  "warmup_seconds": 20,
+  "throughput_eps": 2999.9,
+  "pipeline_ms": {
+    "count": 209995,
+    "p50": 53.801,
+    "p95": 98.979,
+    "p99": 104.699,
+    "max": 120.354,
+    "mean": 53.794
+  },
+  "e2e_ms": {
+    "count": 209995,
+    "p50": 63.02,
+    "p95": 107.904,
+    "p99": 112.847,
+    "max": 126.084,
+    "mean": 62.858
+  },
+  "window_ms": {
+    "count": 209995,
+    "p50": -4945.0,
+    "p95": -448.0,
+    "p99": -47.0,
+    "max": 102.0,
+    "mean": -4943.123
+  }
+}

@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 # Build and push the engine + load-generator images to ECR for the EKS run.
 # Images:
-#   rtm-bench/spark   apache/spark:4.1.2 + the Scala RTM jar + kafka connector jars
-#   rtm-bench/flink   flink:2.2.0 + the Java DataStream shaded jar
-#   rtm-bench/pyflink flink:2.2.0 + python + apache-flink + sql-kafka connector + job
-#   rtm-bench/load    python + confluent-kafka + producer/consumer (distributed load)
+#   rtm-bench/spark   apache/spark:4.3.0 + Scala/Java RTM jars + PySpark jobs + kafka connector jars
+#   rtm-bench/flink   flink:2.3.0 + the Java DataStream and SQL shaded jars
+#   rtm-bench/pyflink flink:2.3.0 + python + apache-flink + sql-kafka connector + job
+#   rtm-bench/load    python + confluent-kafka + producer/consumer (distributed load) + kubectl,
+#                     boto3 and topic_capture/s3_sync for the in-cluster stateful runner
+# The stateful jobs ride in the existing jars: bench.StatefulPipelineJava in java-rtm.jar,
+# bench.StatefulDataStream in flink-stateless.jar, bench.StatefulSql in flink-sql.jar.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-export AWS_PROFILE="${AWS_PROFILE:-default}"
+export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
 export AWS_REGION=us-east-1
 ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 REGISTRY="${ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com"
@@ -39,6 +42,8 @@ test -f flink/java-sql/target/flink-sql.jar || { echo "flink sql jar missing"; e
 docker buildx build --platform $PLATFORM -t "$REGISTRY/rtm-bench/flink:$TAG" -f eks/images/flink.Dockerfile . --push
 
 echo "==> [3/4] pyflink image"
+# SKIP_PYFLINK=1: the stateful matrix has no PyFlink arm, so skip the slow ~4 GB build.
+[ "${SKIP_PYFLINK:-0}" = 1 ] && echo "    skipped (SKIP_PYFLINK=1)" || \
 docker buildx build --platform $PLATFORM -t "$REGISTRY/rtm-bench/pyflink:$TAG" -f flink/pyflink/Dockerfile flink/pyflink --push
 
 echo "==> [4/4] load image (producer/consumer)"

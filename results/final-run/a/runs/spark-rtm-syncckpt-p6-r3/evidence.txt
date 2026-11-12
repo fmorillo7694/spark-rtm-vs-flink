@@ -1,0 +1,23 @@
+# spark-rtm-syncckpt-p6-r3 evidence at 2026-11-11T23:03:24Z ckpt=spark-rtm-syncckpt-p6-43b-1794437771
+--- driver log lines
+[RtmPipelineJava] mode=rtm id=e25f812c-70f5-4c4c-8fa6-2573fd44de9c trigger=RealTime(60 seconds) asyncProgressTrackingEnabled=false ckpt=s3a://rtm-flink-bench-ckpt-__ACCOUNT__/spark-rtm-syncckpt-p6-43b-1794437771
+async-log-write threads: 0
+AsyncProgressTrackingMicroBatchExecution frames: 0
+--- checkpoint s3://rtm-flink-bench-ckpt-__ACCOUNT__/spark-rtm-syncckpt-p6-43b-1794437771 (LastModified UTC, key)
+[offsets]
+2026-11-11T22:56:38+00:00	spark-rtm-syncckpt-p6-43b-1794437771/offsets/
+2026-11-11T22:57:44+00:00	spark-rtm-syncckpt-p6-43b-1794437771/offsets/0
+2026-11-11T22:58:45+00:00	spark-rtm-syncckpt-p6-43b-1794437771/offsets/1
+2026-11-11T22:59:46+00:00	spark-rtm-syncckpt-p6-43b-1794437771/offsets/2
+2026-11-11T23:00:47+00:00	spark-rtm-syncckpt-p6-43b-1794437771/offsets/3
+2026-11-11T23:01:48+00:00	spark-rtm-syncckpt-p6-43b-1794437771/offsets/4
+2026-11-11T23:02:49+00:00	spark-rtm-syncckpt-p6-43b-1794437771/offsets/5
+[commits]
+2026-11-11T22:56:39+00:00	spark-rtm-syncckpt-p6-43b-1794437771/commits/
+2026-11-11T22:57:44+00:00	spark-rtm-syncckpt-p6-43b-1794437771/commits/0
+2026-11-11T22:58:45+00:00	spark-rtm-syncckpt-p6-43b-1794437771/commits/1
+2026-11-11T22:59:46+00:00	spark-rtm-syncckpt-p6-43b-1794437771/commits/2
+2026-11-11T23:00:47+00:00	spark-rtm-syncckpt-p6-43b-1794437771/commits/3
+2026-11-11T23:01:48+00:00	spark-rtm-syncckpt-p6-43b-1794437771/commits/4
+2026-11-11T23:02:49+00:00	spark-rtm-syncckpt-p6-43b-1794437771/commits/5
+--- latest commit log entry

@@ -1,0 +1,25 @@
+{
+  "engine": "flink-sql-bt100-s2-SMOKE",
+  "topic": "st-output",
+  "kept_records": 210120,
+  "seen_records": 263911,
+  "window_seconds": 70,
+  "warmup_seconds": 20,
+  "throughput_eps": 3001.7,
+  "pipeline_ms": {
+    "count": 210120,
+    "p50": 56.218,
+    "p95": 101.796,
+    "p99": 106.065,
+    "max": 112.249,
+    "mean": 56.374
+  },
+  "e2e_ms": {
+    "count": 210120,
+    "p50": 62.895,
+    "p95": 108.569,
+    "p99": 113.068,
+    "max": 124.714,
+    "mean": 63.099
+  }
+}

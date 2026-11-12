@@ -1,0 +1,68 @@
+# Stateful Spark job (bench.StatefulPipelineJava) as a SparkApplication, p6 sizing identical to
+# eks/jobs/p6/spark-rtm.yaml: driver 1c / 2048m pod, 2 executors x 3c / 6144m pod (7c / 14 GB).
+#
+# Slots vs cores: a stateful RTM query runs its 6 Kafka source tasks AND its 6 state tasks at
+# the same time (pipelined shuffle; the scheduler refuses to start the group with fewer
+# concurrent slots). So each executor advertises 6 task slots (spark.executor.cores) while the
+# pod requests/limits 3 CPUs (coreRequest/coreLimit) — 12 slots on 6 physical cores, the same
+# way Flink runs source + keyed operator per slot (slot sharing) in 6 slots on 6 cores.
+#
+# Placeholders (rendered by eks/stateful/run_matrix_incluster.sh):
+#   __ACCOUNT__.dkr.ecr.us-east-1.amazonaws.com v43s __ACCOUNT__ s1 (s1|s2|s3) rtm (rtm|microbatch)
+#   spark-rtm-sw1-s1-at100k-r1-1794203917 60 seconds (e.g. "60 seconds") 5 10 5000
+#   1 (spark.shuffle.streaming.networkBufferMaxWaitTimeMs: 50 = Spark default,
+#   1 = the latency-tuned arm, the analogue of Flink's execution.buffer-timeout 0 ms)
+apiVersion: sparkoperator.k8s.io/v1beta2
+kind: SparkApplication
+metadata:
+  name: stateful-bench
+  namespace: spark
+  labels: { bench: stateful }
+spec:
+  type: Java
+  mode: cluster
+  image: "__ACCOUNT__.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/spark:v43s"
+  imagePullPolicy: Always
+  mainClass: bench.StatefulPipelineJava
+  mainApplicationFile: "local:///opt/spark/jars/java-rtm.jar"
+  sparkVersion: "4.3.0"
+  arguments:
+    - "s1"
+    - "rtm"
+    - "bench-kafka-bootstrap.kafka.svc:9092"
+    - "st-input"
+    - "st-output"
+    - "s3a://rtm-flink-bench-ckpt-__ACCOUNT__/stateful/spark-rtm-sw1-s1-at100k-r1-1794203917"
+    - "60 seconds"
+    - "latest"
+    - "5"
+    - "10"
+    - "5000"
+    - "5000"          # inactivity timeout = gap for latency runs
+  sparkConf:
+    spark.sql.adaptive.enabled: "false"
+    spark.sql.shuffle.partitions: "6"
+    # State store: explicit (RTM would apply the same as soft defaults). STATEFUL_CONFIG.md.
+    spark.sql.streaming.stateStore.providerClass: "org.apache.spark.sql.execution.streaming.state.RocksDBStateStoreProvider"
+    spark.sql.streaming.stateStore.checkpointFormatVersion: "2"
+    spark.sql.streaming.stateStore.rocksdb.changelogCheckpointing.enabled: "true"
+    spark.shuffle.streaming.networkBufferMaxWaitTimeMs: "1"
+    spark.hadoop.fs.s3a.aws.credentials.provider: "software.amazon.awssdk.auth.credentials.WebIdentityTokenFileCredentialsProvider"
+  restartPolicy:
+    type: OnFailure
+    onFailureRetries: 5
+    onFailureRetryInterval: 5
+    onSubmissionFailureRetries: 3
+    onSubmissionFailureRetryInterval: 5
+  driver:
+    cores: 1
+    memory: "1536m"
+    memoryOverhead: "512m"     # 2048m pod, = Flink JobManager
+    serviceAccount: spark-operator-spark
+  executor:
+    instances: 2
+    cores: 6                   # task slots per executor (see header)
+    coreRequest: "3"           # physical CPU per pod, = Flink TaskManager
+    coreLimit: "3"
+    memory: "5120m"
+    memoryOverhead: "1024m"    # 6144m pod, = Flink TaskManager

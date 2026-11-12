@@ -1,0 +1,35 @@
+{
+  "engine": "flink-reactive-s1-update-steps-r1",
+  "topic": "st-output",
+  "kept_records": 57345454,
+  "seen_records": 60085260,
+  "window_seconds": 600,
+  "warmup_seconds": 60,
+  "throughput_eps": 95575.8,
+  "started_at": 1794397210.417,
+  "ended_at": 1794397870.46,
+  "pipeline_ms": {
+    "count": 57345454,
+    "p50": 17.436,
+    "p95": 6443.177,
+    "p99": 12423.977,
+    "max": 18105.271,
+    "mean": 800.037
+  },
+  "e2e_ms": {
+    "count": 57345454,
+    "p50": 284.496,
+    "p95": 9861.284,
+    "p99": 14308.535,
+    "max": 20290.17,
+    "mean": 1883.811
+  },
+  "window_ms": {
+    "count": 57345454,
+    "p50": -4300.0,
+    "p95": 2212.0,
+    "p99": 8154.0,
+    "max": 15325.0,
+    "mean": -4212.603
+  }
+}

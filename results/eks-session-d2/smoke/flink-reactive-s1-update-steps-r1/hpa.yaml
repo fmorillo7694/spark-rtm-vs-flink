@@ -1,0 +1,74 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"autoscaling/v2","kind":"HorizontalPodAutoscaler","metadata":{"annotations":{},"labels":{"bench":"stateful"},"name":"flink-stateful-tm","namespace":"flink"},"spec":{"behavior":{"scaleDown":{"stabilizationWindowSeconds":300},"scaleUp":{"stabilizationWindowSeconds":60}},"maxReplicas":4,"metrics":[{"resource":{"name":"cpu","target":{"averageUtilization":70,"type":"Utilization"}},"type":"Resource"}],"minReplicas":2,"scaleTargetRef":{"apiVersion":"flink.apache.org/v1beta1","kind":"FlinkDeployment","name":"flink-stateful"}}}
+  creationTimestamp: "2026-11-11T11:40:09Z"
+  labels:
+    bench: stateful
+  name: flink-stateful-tm
+  namespace: flink
+  resourceVersion: "11595"
+  uid: e053e60e-8e28-4c45-8856-8f4db06cee82
+spec:
+  behavior:
+    scaleDown:
+      policies:
+      - periodSeconds: 15
+        type: Percent
+        value: 100
+      selectPolicy: Max
+      stabilizationWindowSeconds: 300
+    scaleUp:
+      policies:
+      - periodSeconds: 15
+        type: Pods
+        value: 4
+      - periodSeconds: 15
+        type: Percent
+        value: 100
+      selectPolicy: Max
+      stabilizationWindowSeconds: 60
+  maxReplicas: 4
+  metrics:
+  - resource:
+      name: cpu
+      target:
+        averageUtilization: 70
+        type: Utilization
+    type: Resource
+  minReplicas: 2
+  scaleTargetRef:
+    apiVersion: flink.apache.org/v1beta1
+    kind: FlinkDeployment
+    name: flink-stateful
+status:
+  conditions:
+  - lastTransitionTime: "2026-11-11T11:40:24Z"
+    message: recent recommendations were lower than current one, applying the lowest
+      recent recommendation
+    reason: ScaleUpStabilized
+    status: "True"
+    type: AbleToScale
+  - lastTransitionTime: "2026-11-11T11:40:24Z"
+    message: the HPA was able to successfully calculate a replica count from cpu resource
+      utilization (percentage of request)
+    reason: ValidMetricFound
+    status: "True"
+    type: ScalingActive
+  - lastTransitionTime: "2026-11-11T11:40:24Z"
+    message: the desired count is within the acceptable range
+    reason: DesiredWithinRange
+    status: "False"
+    type: ScalingLimited
+  currentMetrics:
+  - resource:
+      current:
+        averageUtilization: 78
+        averageValue: 2359m
+      name: cpu
+    type: Resource
+  currentReplicas: 4
+  desiredReplicas: 4
+  lastScaleTime: "2026-11-11T11:47:10Z"

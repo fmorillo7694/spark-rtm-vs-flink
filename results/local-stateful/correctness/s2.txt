@@ -1,0 +1,7 @@
+[s2] flink-ds-eo-s2           PASS  {"unique_input_events": 120000, "output_records": 120000, "distinct_output_event_ids": 120000, "missing": 0, "extra": 0, "emitted_more_than_once": 0}
+[s2] flink-ds-s2-et           PASS  {"unique_input_events": 120000, "output_records": 120000, "distinct_output_event_ids": 120000, "missing": 0, "extra": 0, "emitted_more_than_once": 0}
+[s2] flink-ds-s2              PASS  {"unique_input_events": 120000, "output_records": 120000, "distinct_output_event_ids": 120000, "missing": 0, "extra": 0, "emitted_more_than_once": 0}
+[s2] flink-sql-s2-rt          PASS  {"unique_input_events": 120000, "output_records": 120000, "distinct_output_event_ids": 120000, "missing": 0, "extra": 0, "emitted_more_than_once": 0}
+[s2] flink-sql-s2-ttl60       PASS  {"unique_input_events": 120000, "output_records": 120000, "distinct_output_event_ids": 120000, "missing": 0, "extra": 0, "emitted_more_than_once": 0}
+[s2] flink-sql-s2             PASS  {"unique_input_events": 120000, "output_records": 120000, "distinct_output_event_ids": 120000, "missing": 0, "extra": 0, "emitted_more_than_once": 0}
+[s2] spark-rtm-s2             PASS  {"unique_input_events": 120000, "output_records": 120000, "distinct_output_event_ids": 120000, "missing": 0, "extra": 0, "emitted_more_than_once": 0}

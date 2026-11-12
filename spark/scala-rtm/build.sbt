@@ -1,10 +1,10 @@
-// Scala job for Spark 4.1.2 Real-time Mode (RTM).
+// Scala job for Spark 4.3.0 Real-time Mode (RTM).
 // Spark + Kafka connector are "provided": they ship with the cluster image and the
 // spark-submit --packages flag, so the assembly jar stays tiny (just our pipeline).
 
-ThisBuild / scalaVersion := "2.13.16"
+ThisBuild / scalaVersion := "2.13.18"
 
-lazy val sparkVersion = "4.1.2"
+lazy val sparkVersion = "4.3.0"
 
 lazy val root = (project in file("."))
   .settings(

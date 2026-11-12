@@ -1,0 +1,47 @@
+{
+  "workload": "s4",
+  "input": "results/local-stateful/captures/input.jsonl",
+  "input_events": 131886,
+  "input_distinct_event_ids": 120000,
+  "engines": {
+    "flink-ds-bt100-s4": {
+      "truth_enriched_records": 129535,
+      "output_records": 129535,
+      "missing": 0,
+      "extra": 0,
+      "wrong_enrichment": 0,
+      "samples": {
+        "missing": [],
+        "extra": [],
+        "wrong": []
+      },
+      "pass": true
+    },
+    "flink-ds-s4": {
+      "truth_enriched_records": 129535,
+      "output_records": 129535,
+      "missing": 0,
+      "extra": 0,
+      "wrong_enrichment": 0,
+      "samples": {
+        "missing": [],
+        "extra": [],
+        "wrong": []
+      },
+      "pass": true
+    },
+    "spark-rtm-s4": {
+      "truth_enriched_records": 129535,
+      "output_records": 129535,
+      "missing": 0,
+      "extra": 0,
+      "wrong_enrichment": 0,
+      "samples": {
+        "missing": [],
+        "extra": [],
+        "wrong": []
+      },
+      "pass": true
+    }
+  }
+}

@@ -1,0 +1,100 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=output-events engine=pyflink-p6-r3 warmup=60s window=300s
+[consumer] seen=52843 kept=0 (warmup)
+[consumer] seen=275579 kept=0 (warmup)
+[consumer] seen=442588 kept=0 (warmup)
+[consumer] seen=610003 kept=0 (warmup)
+[consumer] seen=776833 kept=0 (warmup)
+[consumer] seen=943845 kept=0 (warmup)
+[consumer] seen=1110510 kept=0 (warmup)
+[consumer] seen=1277382 kept=0 (warmup)
+[consumer] seen=1444401 kept=0 (warmup)
+[consumer] seen=1611273 kept=0 (warmup)
+[consumer] seen=1778493 kept=0 (warmup)
+[consumer] seen=1944999 kept=112 (steady)
+[consumer] seen=2111816 kept=166929 (steady)
+[consumer] seen=2279066 kept=334179 (steady)
+[consumer] seen=2446212 kept=501325 (steady)
+[consumer] seen=2613079 kept=668192 (steady)
+[consumer] seen=2780527 kept=835640 (steady)
+[consumer] seen=2947024 kept=1002137 (steady)
+[consumer] seen=3113148 kept=1168261 (steady)
+[consumer] seen=3280402 kept=1335515 (steady)
+[consumer] seen=3447497 kept=1502610 (steady)
+[consumer] seen=3613751 kept=1668864 (steady)
+[consumer] seen=3780969 kept=1836082 (steady)
+[consumer] seen=3947980 kept=2003093 (steady)
+[consumer] seen=4113874 kept=2168987 (steady)
+[consumer] seen=4280541 kept=2335654 (steady)
+[consumer] seen=4447181 kept=2502294 (steady)
+[consumer] seen=4612992 kept=2668105 (steady)
+[consumer] seen=4780715 kept=2835828 (steady)
+[consumer] seen=4947097 kept=3002210 (steady)
+[consumer] seen=5114259 kept=3169372 (steady)
+[consumer] seen=5281144 kept=3336257 (steady)
+[consumer] seen=5448168 kept=3503281 (steady)
+[consumer] seen=5614632 kept=3669745 (steady)
+[consumer] seen=5780689 kept=3835802 (steady)
+[consumer] seen=5947834 kept=4002947 (steady)
+[consumer] seen=6114882 kept=4169995 (steady)
+[consumer] seen=6281554 kept=4336667 (steady)
+[consumer] seen=6448001 kept=4503114 (steady)
+[consumer] seen=6614779 kept=4669892 (steady)
+[consumer] seen=6781036 kept=4836149 (steady)
+[consumer] seen=6947918 kept=5003031 (steady)
+[consumer] seen=7114747 kept=5169860 (steady)
+[consumer] seen=7281466 kept=5336579 (steady)
+[consumer] seen=7448722 kept=5503835 (steady)
+[consumer] seen=7615066 kept=5670179 (steady)
+[consumer] seen=7781793 kept=5836906 (steady)
+[consumer] seen=7948039 kept=6003152 (steady)
+[consumer] seen=8114351 kept=6169464 (steady)
+[consumer] seen=8280623 kept=6335736 (steady)
+[consumer] seen=8446846 kept=6501959 (steady)
+[consumer] seen=8613669 kept=6668782 (steady)
+[consumer] seen=8780227 kept=6835340 (steady)
+[consumer] seen=8946467 kept=7001580 (steady)
+[consumer] seen=9112269 kept=7167382 (steady)
+[consumer] seen=9278786 kept=7333899 (steady)
+[consumer] seen=9445629 kept=7500742 (steady)
+[consumer] seen=9612385 kept=7667498 (steady)
+[consumer] seen=9779123 kept=7834236 (steady)
+[consumer] seen=9945036 kept=8000149 (steady)
+[consumer] seen=10113114 kept=8168227 (steady)
+[consumer] seen=10279973 kept=8335086 (steady)
+[consumer] seen=10446397 kept=8501510 (steady)
+[consumer] seen=10613522 kept=8668635 (steady)
+[consumer] seen=10780302 kept=8835415 (steady)
+[consumer] seen=10946783 kept=9001896 (steady)
+[consumer] seen=11113294 kept=9168407 (steady)
+[consumer] seen=11280860 kept=9335973 (steady)
+[consumer] seen=11447673 kept=9502786 (steady)
+[consumer] seen=11614308 kept=9669421 (steady)
+[consumer] seen=11780574 kept=9835687 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "pyflink-p6-r3",
+  "topic": "output-events",
+  "kept_records": 10001269,
+  "seen_records": 11946156,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 33337.6,
+  "pipeline_ms": {
+    "count": 10001269,
+    "p50": 8.936,
+    "p95": 11.611,
+    "p99": 36.879,
+    "max": 234.043,
+    "mean": 9.63
+  },
+  "e2e_ms": {
+    "count": 10001269,
+    "p50": 17.013,
+    "p95": 22.863,
+    "p99": 61.79,
+    "max": 254.011,
+    "mean": 18.226
+  }
+}
+[consumer] wrote /tmp/pyflink-p6-r3_latency.csv and /tmp/pyflink-p6-r3_summary.json

@@ -1,0 +1,78 @@
+# Stateful Flink DataStream job (bench.StatefulDataStream) as a FlinkDeployment, p6 sizing
+# identical to eks/jobs/p6/flink-datastream.yaml: JM 1c / 2048m, 2 TMs x 3c / 6144m, 3 slots each.
+# State backend (RocksDB, incremental, EXACTLY_ONCE checkpoint mode) is set by the job itself so
+# local and EKS runs share one source of truth; the checkpoint dir is passed as an argument.
+#
+# Placeholders: <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com v43d <ACCOUNT_ID> s3 (s1-window|s1-update|s2|s3)
+#   AT_LEAST_ONCE (AT_LEAST_ONCE|EXACTLY_ONCE) flink-ds-bt100-s3-r3-1794445448 60000 5
+#   10 5000 100 (0 = per-record flush, latency-tuned;
+#   100 = Flink's default, arm flink-ds-bt100)
+apiVersion: flink.apache.org/v1beta1
+kind: FlinkDeployment
+metadata:
+  name: flink-stateful
+  namespace: flink
+  labels: { bench: stateful }
+spec:
+  image: "<ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/flink:v43d"
+  imagePullPolicy: Always
+  flinkVersion: v2_3
+  flinkConfiguration:
+    taskmanager.numberOfTaskSlots: "3"
+    execution.buffer-timeout: "100 ms"   # job arg 13 sets the same value
+    restart-strategy.type: "fixed-delay"
+    restart-strategy.fixed-delay.attempts: "10"
+    restart-strategy.fixed-delay.delay: "2 s"
+    # RocksDB native memory metrics (final run sampler; equal on every Flink stateful arm)
+    state.backend.rocksdb.metrics.block-cache-usage: "true"
+    state.backend.rocksdb.metrics.size-all-mem-tables: "true"
+    state.backend.rocksdb.metrics.estimate-table-readers-mem: "true"
+    state.backend.rocksdb.metrics.estimate-live-data-size: "true"
+  serviceAccount: flink
+  podTemplate:
+    spec:
+      nodeSelector: { bench/role: engine }
+      tolerations: [{ key: bench/role, operator: Equal, value: engine, effect: NoSchedule }]
+      containers:
+        - name: flink-main-container
+          env:
+            - name: ENABLE_BUILT_IN_PLUGINS
+              value: "flink-s3-fs-presto-2.3.0.jar"
+  jobManager:
+    resource:
+      memory: "2048m"
+      cpu: 1
+  taskManager:
+    podTemplate:
+      spec:
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector: { matchLabels: { component: taskmanager } }
+                topologyKey: kubernetes.io/hostname
+    replicas: 2
+    resource:
+      memory: "6144m"
+      cpu: 3
+  job:
+    jarURI: "local:///opt/flink/usrlib/flink-stateless.jar"
+    entryClass: "bench.StatefulDataStream"
+    args:
+      - "s3"
+      - "bench-kafka-bootstrap.kafka.svc:9092"
+      - "st-input"
+      - "st-output"
+      - "6"
+      - "60000"
+      - "s3://<BUCKET>/stateful/flink-ds-bt100-s3-r3-1794445448"
+      - "AT_LEAST_ONCE"
+      - "latest"
+      - "5"
+      - "10"
+      - "5000"
+      - "5000"
+      - "100"
+      - ""   # s4: st-ref (reference table), s5: st-payments; "" otherwise
+      - "10"                 # s5 join time bound (s)
+    parallelism: 6
+    upgradeMode: stateless

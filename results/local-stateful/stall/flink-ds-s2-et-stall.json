@@ -1,0 +1,21 @@
+{
+  "workload": "s2",
+  "input": "results/local-stateful/captures/stall/flink-ds-s2-et-stall-input.jsonl",
+  "input_events": 154060,
+  "input_distinct_event_ids": 140000,
+  "engines": {
+    "flink-ds-s2-et-stall": {
+      "unique_input_events": 140000,
+      "output_records": 140000,
+      "distinct_output_event_ids": 140000,
+      "missing": 0,
+      "extra": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "dup": []
+      },
+      "pass": true
+    }
+  }
+}

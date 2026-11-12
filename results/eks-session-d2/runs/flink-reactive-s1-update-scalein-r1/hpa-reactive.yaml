@@ -1,0 +1,22 @@
+# Session D, arm flink-reactive: HPA on the FlinkDeployment scale subresource
+# (specReplicasPath .spec.taskManager.replicas, operator 1.16 CRD). Reactive Mode then rescales
+# the job to all available slots. Target: 70 % of the TaskManagers' CPU request (3 cores each),
+# the same target utilization as the operator autoscaler's default. 2..4 TMs = parallelism 6..12.
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: flink-stateful-tm
+  namespace: flink
+  labels: { bench: stateful }
+spec:
+  scaleTargetRef: { apiVersion: flink.apache.org/v1beta1, kind: FlinkDeployment, name: flink-stateful }
+  minReplicas: 2
+  maxReplicas: 4
+  metrics:
+    - type: Resource
+      resource: { name: cpu, target: { type: Utilization, averageUtilization: 70 } }
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 60
+    scaleDown:
+      stabilizationWindowSeconds: 300

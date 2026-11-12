@@ -1,0 +1,35 @@
+{
+  "engine": "flink-reactive-s1-update-scalein-r1",
+  "topic": "st-output",
+  "kept_records": 141411656,
+  "seen_records": 146819361,
+  "window_seconds": 2700,
+  "warmup_seconds": 60,
+  "throughput_eps": 52374.7,
+  "started_at": 1794407918.437,
+  "ended_at": 1794410678.463,
+  "pipeline_ms": {
+    "count": 141411656,
+    "p50": 12.248,
+    "p95": 8146.309,
+    "p99": 18219.386,
+    "max": 46286.32,
+    "mean": 1028.245
+  },
+  "e2e_ms": {
+    "count": 141411656,
+    "p50": 148.484,
+    "p95": 14454.226,
+    "p99": 20012.248,
+    "max": 48337.695,
+    "mean": 2573.486
+  },
+  "window_ms": {
+    "count": 141411656,
+    "p50": -4382.0,
+    "p95": 3512.0,
+    "p99": 14046.0,
+    "max": 40334.0,
+    "mean": -3973.511
+  }
+}

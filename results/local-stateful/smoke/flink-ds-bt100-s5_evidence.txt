@@ -1,0 +1,25 @@
+# flink-ds-bt100-s5 flink evidence at 2026-11-09T12:24:39Z job=210ea53d5f4b779063db3e32d50edba5
+--- checkpoint config
+{"mode":"exactly_once","interval":60000,"timeout":600000,"min_pause":0,"max_concurrent":1,"externalization":{"enabled":false,"delete_on_cancellation":true},"state_backend":"EmbeddedRocksDBStateBackend","checkpoint_storage":"FileSystemCheckpointStorage","unaligned_checkpoints":false,"tolerable_failed_checkpoints":0,"aligned_checkpoint_timeout":0,"checkpoints_after_tasks_finish":true,"state_changelog_enabled":false,"changelog_periodic_materialization_interval":600000,"changelog_storage":"memory"}
+--- checkpoint counts
+{'restored': 0, 'total': 3, 'in_progress': 0, 'completed': 2, 'failed': 1}
+latest completed: id 2 state_size 9087964 checkpointed_size 9087964 duration_ms 229
+  ckpt 2 COMPLETED trigger 1794227053134 dur_ms 229 size 9087964 
+  ckpt 1 COMPLETED trigger 1794226993132 dur_ms 13 size 183600 
+--- JM log: checkpoint failures
+2026-11-09 12:20:12,435 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job b60f5582f425db33c6f7830b4fafce36 since Checkpoint triggering task Source: kafka-orders (1/6) of job b60f5582f425db33c6f7830b4fafce36 is not being executed at the momen
+2026-11-09 12:20:54,890 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job 93ca6c39cb3be6a678a3c87a7fff53c0 since Checkpoint triggering task Source: kafka-orders (1/6) of job 93ca6c39cb3be6a678a3c87a7fff53c0 is not being executed at the momen
+2026-11-09 12:22:30,865 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job cd6d77f2f29ad3c1e813a6d41974ea14 since Checkpoint triggering task Source: kafka-orders (1/6) of job cd6d77f2f29ad3c1e813a6d41974ea14 is not being executed at the momen
+2026-11-09 12:23:12,876 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using failover strategy org.apache.flink.runtime.executiongraph.failover.RestartPipelinedRegionFailoverStrategy@422e94e3 for flink-stateful-s5-at-least-once (210ea53d5f4b779063db3e32d50edba5).
+2026-11-09 12:23:13,035 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job 210ea53d5f4b779063db3e32d50edba5 since Checkpoint triggering task Source: kafka-orders (1/6) of job 210ea53d5f4b779063db3e32d50edba5 is not being executed at the momen
+--- job vertices
+6 RUNNING Source: kafka-orders
+6 RUNNING Source: kafka-payments
+6 RUNNING s5-interval-join -> kafka-sink: Writer -> kafka-sink: Committer
+--- TM log: state backend
+  16 2026-11-09 12:23:13,024 INFO  org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackend   [] - Using predefined options: DEFAULT.
+  13 2026-11-09 12:22:30,853 INFO  org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackend   [] - Using predefined options: DEFAULT.
+  12 2026-11-09 12:20:12,431 INFO  org.apache.flink.runtime.state.StateBackendLoader            [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory
+  12 2026-11-09 12:20:12,409 INFO  org.apache.flink.streaming.runtime.tasks.StreamTask          [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory
+  11 2026-11-09 12:23:13,033 INFO  org.apache.flink.runtime.state.StateBackendLoader            [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory
+  10 2026-11-09 12:23:13,024 INFO  org.apache.flink.runtime.state.StateBackendLoader            [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory

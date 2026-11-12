@@ -1,0 +1,24 @@
+# async progress tracking evidence  container=spark-master  at=2026-11-06T13:11:31Z
+driver SparkSubmit pid=118
+async-log-write threads: 1
+AsyncProgressTrackingMicroBatchExecution frames: 1
+plain MicroBatchExecution frames: 8
+--- thread names matching async|stream execution
+"stream execution thread for [id = 09dded8e-c30a-45a7-8d82-1e9a67193914, runId = add90111-a798-4ab5-912b-b82463662098]" #97 daemon prio=5 os_prio=0 cpu=1520.28m
+"async-log-write" #120 daemon prio=5 os_prio=0 cpu=306.86ms elapsed=276.80s tid=0x0000fffddc2682b0 nid=0x19d waiting on condition  [0x0000fffe1c6fc000]
+--- checkpoint dir: /tmp/spark-checkpoints/rtm-scala-auto-1793970348/
+[offsets]
+-rw-r--r-- 1 spark spark 1242 13:06:54 0
+-rw-r--r-- 1 spark spark 1242 13:07:54 1
+-rw-r--r-- 1 spark spark 1242 13:08:55 2
+-rw-r--r-- 1 spark spark 1242 13:09:55 3
+-rw-r--r-- 1 spark spark 1242 13:10:55 4
+[commits]
+-rw-r--r-- 1 spark spark 29 13:06:54 0
+-rw-r--r-- 1 spark spark 29 13:07:55 1
+-rw-r--r-- 1 spark spark 29 13:08:55 2
+-rw-r--r-- 1 spark spark 29 13:09:55 3
+-rw-r--r-- 1 spark spark 29 13:10:55 4
+--- latest commit log entry
+v2
+{"nextBatchWatermarkMs":0}

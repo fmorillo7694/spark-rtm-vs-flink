@@ -1,0 +1,4 @@
+{"engine": "spark", "window_index": 0, "window_min": 30.0, "kept": 59999037, "throughput_eps": 33332.7, "pipeline_ms": {"p50": 6.716, "p99": 612.725, "max": 1772.616}, "e2e_ms": {"p99": 766.421}}
+{"engine": "spark", "window_index": 1, "window_min": 30.0, "kept": 72260953, "throughput_eps": 40145.0, "pipeline_ms": {"p50": 7.131, "p99": 540.882, "max": 1451.661}, "e2e_ms": {"p99": 44676.535}}
+{"engine": "spark", "window_index": 2, "window_min": 30.0, "kept": 72862452, "throughput_eps": 40479.1, "pipeline_ms": {"p50": 7.109, "p99": 664.287, "max": 2013.863}, "e2e_ms": {"p99": 68438.075}}
+{"engine": "spark", "window_index": 3, "window_min": 29.0, "kept": 72883849, "throughput_eps": 41887.4, "pipeline_ms": {"p50": 7.093, "p99": 655.413, "max": 2434.643}, "e2e_ms": {"p99": 67871.662}}

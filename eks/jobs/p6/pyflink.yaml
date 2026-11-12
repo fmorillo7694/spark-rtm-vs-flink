@@ -1,5 +1,5 @@
 # PyFlink Table API job as a FlinkDeployment (application mode, python entrypoint).
-# Uses the pyflink image (Flink 2.2 + python + apache-flink + sql-kafka connector).
+# Uses the pyflink image (Flink 2.3 + python + apache-flink + sql-kafka connector).
 # Bundle tuning is in the job itself (python.fn-execution.bundle.time=1).
 apiVersion: flink.apache.org/v1beta1
 kind: FlinkDeployment
@@ -9,7 +9,7 @@ metadata:
 spec:
   image: "__REGISTRY__/rtm-bench/pyflink:__TAG__"
   imagePullPolicy: Always
-  flinkVersion: v2_0
+  flinkVersion: v2_3
   flinkConfiguration:
     taskmanager.numberOfTaskSlots: "3"
     execution.buffer-timeout: "0 ms"
@@ -28,14 +28,14 @@ spec:
         - name: flink-main-container
           env:
             - name: ENABLE_BUILT_IN_PLUGINS
-              value: "flink-s3-fs-presto-2.2.0.jar"
+              value: "flink-s3-fs-presto-2.3.0.jar"
   jobManager:
     resource: { memory: "2048m", cpu: 1 }
   taskManager:
     replicas: 2
     resource: { memory: "6144m", cpu: 3 }
   job:
-    jarURI: "local:///opt/flink/opt/flink-python-2.2.0.jar"   # python driver shim
+    jarURI: "local:///opt/flink/opt/flink-python-2.3.0.jar"   # python driver shim
     entryClass: "org.apache.flink.client.python.PythonDriver"
     args:
       - "-pyclientexec"
@@ -45,6 +45,7 @@ spec:
       - "bench-kafka-bootstrap.kafka.svc:9092"
       - "input-events"
       - "output-events"
-      - "12"
+      - "6"      # job parallelism; was "12" in the 4.1/2.2 round, which made the operator
+                 # spin up 4 TMs (12 slots) instead of 2 -> PyFlink got ~2x the cores
     parallelism: 6
     upgradeMode: stateless

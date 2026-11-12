@@ -1,0 +1,87 @@
+2026-11-11 16:35:16 [ℹ]  deleting EKS cluster "rtm-flink-bench5"
+2026-11-11 16:35:18 [ℹ]  will drain 0 unmanaged nodegroup(s) in cluster "rtm-flink-bench5"
+2026-11-11 16:35:18 [ℹ]  starting parallel draining, max in-flight of 1
+2026-11-11 16:35:19 [ℹ]  deleted 0 Fargate profile(s)
+2026-11-11 16:35:21 [ℹ]  cleaning up AWS load balancers created by Kubernetes objects of Kind Service, Ingress, or Gateway
+2026-11-11 16:35:31 [ℹ]  
+4 sequential tasks: { 
+    2 parallel sub-tasks: { 
+        delete nodegroup "engine-ng",
+        delete nodegroup "bench-ng",
+    }, 
+    2 sequential sub-tasks: { 
+        4 parallel sub-tasks: { 
+            2 sequential sub-tasks: { 
+                delete IAM role for serviceaccount "kafka/stateful-runner",
+                delete serviceaccount "kafka/stateful-runner",
+            },
+            2 sequential sub-tasks: { 
+                delete IAM role for serviceaccount "kube-system/cluster-autoscaler",
+                delete serviceaccount "kube-system/cluster-autoscaler",
+            },
+            2 sequential sub-tasks: { 
+                delete IAM role for serviceaccount "flink/flink",
+                delete serviceaccount "flink/flink",
+            },
+            2 sequential sub-tasks: { 
+                delete IAM role for serviceaccount "spark/spark-operator-spark",
+                delete serviceaccount "spark/spark-operator-spark",
+            },
+        },
+        delete IAM OIDC provider,
+    }, 
+    2 parallel sub-tasks: { 
+        delete addon IAM "eksctl-rtm-flink-bench5-addon-aws-ebs-csi-driver",
+        delete addon IAM "eksctl-rtm-flink-bench5-addon-vpc-cni",
+    }, delete cluster control plane "rtm-flink-bench5" 
+}
+2026-11-11 16:35:31 [ℹ]  will delete stack "eksctl-rtm-flink-bench5-nodegroup-bench-ng"
+2026-11-11 16:35:31 [ℹ]  waiting for stack "eksctl-rtm-flink-bench5-nodegroup-bench-ng" to get deleted
+2026-11-11 16:35:31 [ℹ]  will delete stack "eksctl-rtm-flink-bench5-nodegroup-engine-ng"
+2026-11-11 16:35:31 [ℹ]  waiting for stack "eksctl-rtm-flink-bench5-nodegroup-engine-ng" to get deleted
+2026-11-11 16:35:31 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-nodegroup-bench-ng"
+2026-11-11 16:35:31 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-nodegroup-engine-ng"
+2026-11-11 16:36:02 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-nodegroup-bench-ng"
+2026-11-11 16:36:02 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-nodegroup-engine-ng"
+2026-11-11 16:36:48 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-nodegroup-bench-ng"
+2026-11-11 16:37:00 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-nodegroup-engine-ng"
+2026-11-11 16:37:53 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-nodegroup-bench-ng"
+2026-11-11 16:38:42 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-nodegroup-bench-ng"
+2026-11-11 16:38:42 [ℹ]  will delete stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-spark-spark-operator-spark"
+2026-11-11 16:38:42 [ℹ]  waiting for stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-spark-spark-operator-spark" to get deleted
+2026-11-11 16:38:42 [ℹ]  will delete stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-flink-flink"
+2026-11-11 16:38:42 [ℹ]  waiting for stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-flink-flink" to get deleted
+2026-11-11 16:38:42 [ℹ]  will delete stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kafka-stateful-runner"
+2026-11-11 16:38:42 [ℹ]  waiting for stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kafka-stateful-runner" to get deleted
+2026-11-11 16:38:42 [ℹ]  will delete stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kube-system-cluster-autoscaler"
+2026-11-11 16:38:42 [ℹ]  waiting for stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kube-system-cluster-autoscaler" to get deleted
+2026-11-11 16:38:42 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-spark-spark-operator-spark"
+2026-11-11 16:38:42 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-flink-flink"
+2026-11-11 16:38:42 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kafka-stateful-runner"
+2026-11-11 16:38:43 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kube-system-cluster-autoscaler"
+2026-11-11 16:39:13 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-spark-spark-operator-spark"
+2026-11-11 16:39:13 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-flink-flink"
+2026-11-11 16:39:13 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kafka-stateful-runner"
+2026-11-11 16:39:13 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kube-system-cluster-autoscaler"
+2026-11-11 16:39:13 [ℹ]  serviceaccount "kafka/stateful-runner" was not created by eksctl; will not be deleted
+2026-11-11 16:39:13 [ℹ]  serviceaccount "kube-system/cluster-autoscaler" was not created by eksctl; will not be deleted
+2026-11-11 16:39:13 [ℹ]  deleted serviceaccount "flink/flink"
+2026-11-11 16:39:13 [ℹ]  deleted serviceaccount "spark/spark-operator-spark"
+2026-11-11 16:39:14 [ℹ]  will delete stack "eksctl-rtm-flink-bench5-addon-aws-ebs-csi-driver"
+2026-11-11 16:39:14 [ℹ]  waiting for stack "eksctl-rtm-flink-bench5-addon-aws-ebs-csi-driver" to get deleted
+2026-11-11 16:39:14 [ℹ]  will delete stack "eksctl-rtm-flink-bench5-addon-vpc-cni"
+2026-11-11 16:39:14 [ℹ]  waiting for stack "eksctl-rtm-flink-bench5-addon-vpc-cni" to get deleted
+2026-11-11 16:39:14 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-aws-ebs-csi-driver"
+2026-11-11 16:39:14 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-vpc-cni"
+2026-11-11 16:39:44 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-aws-ebs-csi-driver"
+2026-11-11 16:39:44 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-vpc-cni"
+2026-11-11 16:39:45 [ℹ]  will delete stack "eksctl-rtm-flink-bench5-cluster"
+2026-11-11 16:39:45 [ℹ]  waiting for stack "eksctl-rtm-flink-bench5-cluster" to get deleted
+2026-11-11 16:39:45 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-cluster"
+2026-11-11 16:40:15 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-cluster"
+2026-11-11 16:40:53 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-cluster"
+2026-11-11 16:41:26 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-cluster"
+2026-11-11 16:42:07 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-cluster"
+2026-11-11 16:43:38 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-cluster"
+2026-11-11 16:44:57 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-cluster"
+2026-11-11 16:44:57 [✔]  all cluster resources were deleted

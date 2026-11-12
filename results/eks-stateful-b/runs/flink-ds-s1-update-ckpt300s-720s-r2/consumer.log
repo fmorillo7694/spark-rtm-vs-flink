@@ -1,0 +1,194 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-s1-update-ckpt300s-720s-r2 warmup=60s window=720s
+[consumer] seen=109000 kept=0 (warmup)
+[consumer] seen=358000 kept=0 (warmup)
+[consumer] seen=607000 kept=0 (warmup)
+[consumer] seen=855420 kept=0 (warmup)
+[consumer] seen=1103420 kept=0 (warmup)
+[consumer] seen=1351606 kept=0 (warmup)
+[consumer] seen=1600606 kept=0 (warmup)
+[consumer] seen=1848914 kept=0 (warmup)
+[consumer] seen=2096914 kept=0 (warmup)
+[consumer] seen=2345102 kept=0 (warmup)
+[consumer] seen=2594102 kept=0 (warmup)
+[consumer] seen=2842354 kept=7000 (steady)
+[consumer] seen=3091354 kept=256000 (steady)
+[consumer] seen=3339554 kept=504200 (steady)
+[consumer] seen=3587554 kept=752200 (steady)
+[consumer] seen=3835554 kept=1000200 (steady)
+[consumer] seen=4084554 kept=1249200 (steady)
+[consumer] seen=4332932 kept=1497578 (steady)
+[consumer] seen=4579932 kept=1744578 (steady)
+[consumer] seen=4829117 kept=1993763 (steady)
+[consumer] seen=5078117 kept=2242763 (steady)
+[consumer] seen=5326334 kept=2490980 (steady)
+[consumer] seen=5575334 kept=2739980 (steady)
+[consumer] seen=5823466 kept=2988112 (steady)
+[consumer] seen=6072466 kept=3237112 (steady)
+[consumer] seen=6320924 kept=3485570 (steady)
+[consumer] seen=6569924 kept=3734570 (steady)
+[consumer] seen=6818520 kept=3983166 (steady)
+[consumer] seen=7067520 kept=4232166 (steady)
+[consumer] seen=7315915 kept=4480561 (steady)
+[consumer] seen=7564915 kept=4729561 (steady)
+[consumer] seen=7813096 kept=4977742 (steady)
+[consumer] seen=8062096 kept=5226742 (steady)
+[consumer] seen=8310254 kept=5474900 (steady)
+[consumer] seen=8556254 kept=5720900 (steady)
+[consumer] seen=8808398 kept=5973044 (steady)
+[consumer] seen=9057398 kept=6222044 (steady)
+[consumer] seen=9305598 kept=6470244 (steady)
+[consumer] seen=9553598 kept=6718244 (steady)
+[consumer] seen=9801924 kept=6966570 (steady)
+[consumer] seen=10049924 kept=7214570 (steady)
+[consumer] seen=10298404 kept=7463050 (steady)
+[consumer] seen=10547404 kept=7712050 (steady)
+[consumer] seen=10795387 kept=7960033 (steady)
+[consumer] seen=11044387 kept=8209033 (steady)
+[consumer] seen=11292891 kept=8457537 (steady)
+[consumer] seen=11540891 kept=8705537 (steady)
+[consumer] seen=11789027 kept=8953673 (steady)
+[consumer] seen=12038027 kept=9202673 (steady)
+[consumer] seen=12286144 kept=9450790 (steady)
+[consumer] seen=12535144 kept=9699790 (steady)
+[consumer] seen=12725012 kept=9889658 (steady)
+[consumer] seen=13032012 kept=10196658 (steady)
+[consumer] seen=13281012 kept=10445658 (steady)
+[consumer] seen=13528306 kept=10692952 (steady)
+[consumer] seen=13777306 kept=10941952 (steady)
+[consumer] seen=14025418 kept=11190064 (steady)
+[consumer] seen=14283418 kept=11448064 (steady)
+[consumer] seen=14522598 kept=11687244 (steady)
+[consumer] seen=14783598 kept=11948244 (steady)
+[consumer] seen=15023449 kept=12188095 (steady)
+[consumer] seen=15280449 kept=12445095 (steady)
+[consumer] seen=15522622 kept=12687268 (steady)
+[consumer] seen=15772622 kept=12937268 (steady)
+[consumer] seen=16013415 kept=13178061 (steady)
+[consumer] seen=16273415 kept=13438061 (steady)
+[consumer] seen=16518561 kept=13683207 (steady)
+[consumer] seen=16770561 kept=13935207 (steady)
+[consumer] seen=17012797 kept=14177443 (steady)
+[consumer] seen=17266797 kept=14431443 (steady)
+[consumer] seen=17508934 kept=14673580 (steady)
+[consumer] seen=17762934 kept=14927580 (steady)
+[consumer] seen=18003129 kept=15167775 (steady)
+[consumer] seen=18260129 kept=15424775 (steady)
+[consumer] seen=18505420 kept=15670066 (steady)
+[consumer] seen=18757420 kept=15922066 (steady)
+[consumer] seen=19002606 kept=16167252 (steady)
+[consumer] seen=19253606 kept=16418252 (steady)
+[consumer] seen=19501916 kept=16666562 (steady)
+[consumer] seen=19750916 kept=16915562 (steady)
+[consumer] seen=19999101 kept=17163747 (steady)
+[consumer] seen=20247101 kept=17411747 (steady)
+[consumer] seen=20493382 kept=17658028 (steady)
+[consumer] seen=20743382 kept=17908028 (steady)
+[consumer] seen=20989583 kept=18154229 (steady)
+[consumer] seen=21239583 kept=18404229 (steady)
+[consumer] seen=21486874 kept=18651520 (steady)
+[consumer] seen=21736874 kept=18901520 (steady)
+[consumer] seen=21984986 kept=19149632 (steady)
+[consumer] seen=22233986 kept=19398632 (steady)
+[consumer] seen=22482916 kept=19647562 (steady)
+[consumer] seen=22730916 kept=19895562 (steady)
+[consumer] seen=22979102 kept=20143748 (steady)
+[consumer] seen=23228102 kept=20392748 (steady)
+[consumer] seen=23477102 kept=20641748 (steady)
+[consumer] seen=23725102 kept=20889748 (steady)
+[consumer] seen=23973478 kept=21138124 (steady)
+[consumer] seen=24222478 kept=21387124 (steady)
+[consumer] seen=24471470 kept=21636116 (steady)
+[consumer] seen=24719470 kept=21884116 (steady)
+[consumer] seen=24967643 kept=22132289 (steady)
+[consumer] seen=25216643 kept=22381289 (steady)
+[consumer] seen=25465402 kept=22630048 (steady)
+[consumer] seen=25714402 kept=22879048 (steady)
+[consumer] seen=25962524 kept=23127170 (steady)
+[consumer] seen=26210524 kept=23375170 (steady)
+[consumer] seen=26458718 kept=23623364 (steady)
+[consumer] seen=26707718 kept=23872364 (steady)
+[consumer] seen=26955940 kept=24120586 (steady)
+[consumer] seen=27204940 kept=24369586 (steady)
+[consumer] seen=27453126 kept=24617772 (steady)
+[consumer] seen=27641626 kept=24806272 (steady)
+[consumer] seen=27949448 kept=25114094 (steady)
+[consumer] seen=28197448 kept=25362094 (steady)
+[consumer] seen=28446106 kept=25610752 (steady)
+[consumer] seen=28694106 kept=25858752 (steady)
+[consumer] seen=28942923 kept=26107569 (steady)
+[consumer] seen=29191923 kept=26356569 (steady)
+[consumer] seen=29440003 kept=26604649 (steady)
+[consumer] seen=29689003 kept=26853649 (steady)
+[consumer] seen=29937162 kept=27101808 (steady)
+[consumer] seen=30185162 kept=27349808 (steady)
+[consumer] seen=30433436 kept=27598082 (steady)
+[consumer] seen=30682436 kept=27847082 (steady)
+[consumer] seen=30930622 kept=28095268 (steady)
+[consumer] seen=31178622 kept=28343268 (steady)
+[consumer] seen=31426932 kept=28591578 (steady)
+[consumer] seen=31675932 kept=28840578 (steady)
+[consumer] seen=31924099 kept=29088745 (steady)
+[consumer] seen=32172099 kept=29336745 (steady)
+[consumer] seen=32420319 kept=29584965 (steady)
+[consumer] seen=32669319 kept=29833965 (steady)
+[consumer] seen=32917471 kept=30082117 (steady)
+[consumer] seen=33165471 kept=30330117 (steady)
+[consumer] seen=33415916 kept=30580562 (steady)
+[consumer] seen=33663916 kept=30828562 (steady)
+[consumer] seen=33912093 kept=31076739 (steady)
+[consumer] seen=34161093 kept=31325739 (steady)
+[consumer] seen=34409337 kept=31573983 (steady)
+[consumer] seen=34658337 kept=31822983 (steady)
+[consumer] seen=34907447 kept=32072093 (steady)
+[consumer] seen=35156447 kept=32321093 (steady)
+[consumer] seen=35404434 kept=32569080 (steady)
+[consumer] seen=35653434 kept=32818080 (steady)
+[consumer] seen=35901588 kept=33066234 (steady)
+[consumer] seen=36150588 kept=33315234 (steady)
+[consumer] seen=36399395 kept=33564041 (steady)
+[consumer] seen=36648395 kept=33813041 (steady)
+[consumer] seen=36896498 kept=34061144 (steady)
+[consumer] seen=37144498 kept=34309144 (steady)
+[consumer] seen=37392725 kept=34557371 (steady)
+[consumer] seen=37641725 kept=34806371 (steady)
+[consumer] seen=37889924 kept=35054570 (steady)
+[consumer] seen=38138924 kept=35303570 (steady)
+[consumer] seen=38387362 kept=35552008 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-s1-update-ckpt300s-720s-r2",
+  "topic": "st-output",
+  "kept_records": 35713008,
+  "seen_records": 38548362,
+  "window_seconds": 720,
+  "warmup_seconds": 60,
+  "throughput_eps": 49601.4,
+  "started_at": 1794271209.639,
+  "ended_at": 1794271989.669,
+  "pipeline_ms": {
+    "count": 35713008,
+    "p50": 6.796,
+    "p95": 19.958,
+    "p99": 275.627,
+    "max": 3241.441,
+    "mean": 21.18
+  },
+  "e2e_ms": {
+    "count": 35713008,
+    "p50": 27.784,
+    "p95": 66.622,
+    "p99": 320.087,
+    "max": 3284.553,
+    "mean": 43.403
+  },
+  "window_ms": {
+    "count": 35713008,
+    "p50": -4990.0,
+    "p95": -469.0,
+    "p99": -61.0,
+    "max": 2338.0,
+    "mean": -4977.911
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-s1-update-ckpt300s-720s-r2_summary.json

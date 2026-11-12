@@ -1,0 +1,7 @@
+2026-11-11T11:45:55Z JobStatusChanged Job status changed from CREATED to RUNNING
+2026-11-11T11:45:40Z JobStatusChanged Job status changed from RUNNING to CREATED
+2026-11-11T11:39:36Z JobStatusChanged Job status changed from RECONCILING to RUNNING
+2026-11-11T11:43:24Z SpecChanged SCALE change(s) detected (Diff: FlinkDeploymentSpec[taskManager.replicas : 2 -> 3, job.upgradeMode : stateless -> last-state]), starting reconciliation.
+2026-11-11T11:47:10Z SpecChanged SCALE change(s) detected (Diff: FlinkDeploymentSpec[taskManager.replicas : 3 -> 4]), starting reconciliation.
+2026-11-11T11:38:51Z Submit Starting deployment
+2026-11-11T11:38:52Z ScalingReplicaSet Scaled up replica set flink-stateful-6f96f965bc from 0 to 1

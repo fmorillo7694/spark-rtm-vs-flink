@@ -1,0 +1,27 @@
+{
+  "engine": "flink-ds-s3-lt-r2",
+  "topic": "st-output",
+  "kept_records": 11688907,
+  "seen_records": 13812992,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 38963.0,
+  "started_at": 1794246238.367,
+  "ended_at": 1794246598.554,
+  "pipeline_ms": {
+    "count": 11688907,
+    "p50": 632.865,
+    "p95": 2551.644,
+    "p99": 4004.101,
+    "max": 6306.791,
+    "mean": 789.678
+  },
+  "e2e_ms": {
+    "count": 11688907,
+    "p50": 737.609,
+    "p95": 2659.634,
+    "p99": 4197.329,
+    "max": 6619.219,
+    "mean": 896.4
+  }
+}

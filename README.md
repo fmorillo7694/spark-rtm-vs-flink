@@ -22,6 +22,16 @@ cluster at ~100k events/sec.
 
 ![RTM vs micro-batch](docs/charts/01_rtm_vs_microbatch.png)
 
+> **Identifiers in results and logs.** AWS account and resource IDs in `results/`, logs and
+> docs are replaced by placeholders (`<ACCOUNT_ID>`, `<BUCKET>`, `<VPC_ID>`, `<SUBNET_ID>`,
+> `<NAT_ID>`, `<VPCE_ID>`, `<EIP>`, `<VOLUME_ID>`, `<ENI_ID>`, `<WORKDIR>`). The scripts derive
+> the account from `aws sts get-caller-identity` and default the checkpoint bucket to
+> `rtm-flink-bench-ckpt-<account>` (the job manifests assume that name; `eks/02b_irsa_s3.sh`
+> accepts `BENCH_BUCKET`). Network IDs come from your
+> copy of `eks/cluster.yaml` saved as the gitignored `eks/cluster.local.yaml`. The earlier
+> commits of `main` were rewritten the same way (`<ACCOUNT_ID>`, `<VPC_ID>`,
+> `<SUBNET_ID_A>`..`<SUBNET_ID_D>`), so no commit in this history carries the original IDs.
+
 ## What's compared (6 engine variants)
 
 | variant | engine | language | role |
@@ -217,6 +227,23 @@ eks/                            cluster + operators + jobs + chaos + teardown (I
 results/                        summaries, stats, consumer logs, findings
 docs/charts/                    generated PNG charts
 REPORT.md                       the full written-up comparison (local §1–8, EKS §9–10)
+```
+
+## Stateful extension (Spark 4.3 RTM vs Flink 2.3)
+
+Three stateful workloads on the same datagen: S1 10 s tumbling count/sum per user, S2 dedup on
+`event_id`, S3 per-user session state machine with timers. Spark RTM Java (+ micro-batch S1
+floor), Flink DataStream and Flink SQL, RocksDB on both. Every setting and the semantic
+differences between engines are in [`STATEFUL_CONFIG.md`](STATEFUL_CONFIG.md); local
+correctness checks (all arms match the ground truth) and smoke-only observations are in
+[`results/local-stateful/RESULTS.md`](results/local-stateful/RESULTS.md).
+
+```bash
+bench/stateful_input.sh && PHASE=replay bench/run_stateful.sh flink && PHASE=replay bench/run_stateful.sh spark
+bench/stateful_correctness.sh                       # diff every engine against the ground truth
+PHASE=smoke bench/run_stateful.sh spark             # short latency smokes (not results)
+eks/stateful/check.sh                               # offline check of the in-cluster EKS runner
+eks/stateful/deploy_runner.sh                       # EKS: whole matrix as a Kubernetes Job
 ```
 
 ## Results

@@ -1,0 +1,100 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=spark-rtm-sw1-s2-at100k-r1 warmup=60s window=300s
+[consumer] seen=24278 kept=0 (warmup)
+[consumer] seen=107278 kept=0 (warmup)
+[consumer] seen=202278 kept=0 (warmup)
+[consumer] seen=312278 kept=0 (warmup)
+[consumer] seen=425278 kept=0 (warmup)
+[consumer] seen=556278 kept=0 (warmup)
+[consumer] seen=748278 kept=0 (warmup)
+[consumer] seen=991278 kept=0 (warmup)
+[consumer] seen=1409278 kept=0 (warmup)
+[consumer] seen=2043313 kept=0 (warmup)
+[consumer] seen=2570067 kept=0 (warmup)
+[consumer] seen=2734067 kept=11000 (steady)
+[consumer] seen=2938067 kept=215000 (steady)
+[consumer] seen=3152067 kept=429000 (steady)
+[consumer] seen=3398067 kept=675000 (steady)
+[consumer] seen=3670067 kept=947000 (steady)
+[consumer] seen=3938067 kept=1215000 (steady)
+[consumer] seen=4207067 kept=1484000 (steady)
+[consumer] seen=4494067 kept=1771000 (steady)
+[consumer] seen=4769067 kept=2046000 (steady)
+[consumer] seen=5118067 kept=2395000 (steady)
+[consumer] seen=5594067 kept=2871000 (steady)
+[consumer] seen=6043067 kept=3320000 (steady)
+[consumer] seen=6643067 kept=3920000 (steady)
+[consumer] seen=7239067 kept=4516000 (steady)
+[consumer] seen=7846067 kept=5123000 (steady)
+[consumer] seen=8194067 kept=5471000 (steady)
+[consumer] seen=8475067 kept=5752000 (steady)
+[consumer] seen=8764067 kept=6041000 (steady)
+[consumer] seen=9049067 kept=6326000 (steady)
+[consumer] seen=9352067 kept=6629000 (steady)
+[consumer] seen=9641067 kept=6918000 (steady)
+[consumer] seen=9937067 kept=7214000 (steady)
+[consumer] seen=10359067 kept=7636000 (steady)
+[consumer] seen=10898067 kept=8175000 (steady)
+[consumer] seen=11422067 kept=8699000 (steady)
+[consumer] seen=11949067 kept=9226000 (steady)
+[consumer] seen=12492348 kept=9769281 (steady)
+[consumer] seen=13114348 kept=10391281 (steady)
+[consumer] seen=13725348 kept=11002281 (steady)
+[consumer] seen=14312348 kept=11589281 (steady)
+[consumer] seen=14426145 kept=11703078 (steady)
+[consumer] seen=14699145 kept=11976078 (steady)
+[consumer] seen=14970145 kept=12247078 (steady)
+[consumer] seen=15238145 kept=12515078 (steady)
+[consumer] seen=15512145 kept=12789078 (steady)
+[consumer] seen=15781145 kept=13058078 (steady)
+[consumer] seen=16107145 kept=13384078 (steady)
+[consumer] seen=16594145 kept=13871078 (steady)
+[consumer] seen=17059145 kept=14336078 (steady)
+[consumer] seen=17522145 kept=14799078 (steady)
+[consumer] seen=17899145 kept=15176078 (steady)
+[consumer] seen=18351145 kept=15628078 (steady)
+[consumer] seen=18841240 kept=16118173 (steady)
+[consumer] seen=19458240 kept=16735173 (steady)
+[consumer] seen=20106240 kept=17383173 (steady)
+[consumer] seen=20464151 kept=17741084 (steady)
+[consumer] seen=20477151 kept=17754084 (steady)
+[consumer] seen=20736151 kept=18013084 (steady)
+[consumer] seen=21021151 kept=18298084 (steady)
+[consumer] seen=21304151 kept=18581084 (steady)
+[consumer] seen=21591151 kept=18868084 (steady)
+[consumer] seen=21873151 kept=19150084 (steady)
+[consumer] seen=22151151 kept=19428084 (steady)
+[consumer] seen=22544151 kept=19821084 (steady)
+[consumer] seen=23036151 kept=20313084 (steady)
+[consumer] seen=23532151 kept=20809084 (steady)
+[consumer] seen=24019151 kept=21296084 (steady)
+[consumer] seen=24486151 kept=21763084 (steady)
+[consumer] seen=24969151 kept=22246084 (steady)
+[consumer] seen=25580352 kept=22857285 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "spark-rtm-sw1-s2-at100k-r1",
+  "topic": "st-output",
+  "kept_records": 23361285,
+  "seen_records": 26084352,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 77870.9,
+  "pipeline_ms": {
+    "count": 23361285,
+    "p50": 68465.414,
+    "p95": 102428.78,
+    "p99": 106174.861,
+    "max": 108494.734,
+    "mean": 71266.584
+  },
+  "e2e_ms": {
+    "count": 23361285,
+    "p50": 68962.0,
+    "p95": 102790.242,
+    "p99": 106964.234,
+    "max": 110311.297,
+    "mean": 72469.166
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/spark-rtm-sw1-s2-at100k-r1_summary.json

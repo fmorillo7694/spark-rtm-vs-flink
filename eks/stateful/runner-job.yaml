@@ -1,0 +1,198 @@
+# In-cluster stateful matrix runner: ServiceAccount (IRSA, bucket-scoped S3 policy) + least-
+# privilege namespaced RBAC + the runner Job. The script and the job manifests come from the
+# `stateful-runner` ConfigMap (eks/stateful/deploy_runner.sh builds it with
+# eks/stateful/assemble_manifests.sh: runner script, eks/jobs/stateful/*.yaml, the unchanged
+# eks/jobs/p6 manifests as p6-*.yaml and the p6 topics); the image is the load image
+# (python + confluent-kafka + boto3 + kubectl, eks/images/load.Dockerfile).
+#
+# Placeholders (rendered by deploy_runner.sh): __REGISTRY__ __TAG__ __ACCOUNT__
+#   __RUNNER_ROLE_ARN__ __BUDGET_S__ __DEADLINE_S__ __PLAN__ __PLAN_SET__ __RUNS__ __S3_PREFIX__
+#   __STATELESS_TAG__ __START_EPOCH__ __SELF_TEARDOWN__ (1 = default)
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: stateful-runner
+  namespace: kafka
+  annotations:
+    eks.amazonaws.com/role-arn: "__RUNNER_ROLE_ARN__"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata: { name: stateful-runner, namespace: kafka }
+rules:
+  - apiGroups: ["batch"]
+    resources: ["jobs"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["pods/log"]
+    verbs: ["get"]
+  - apiGroups: [""]
+    resources: ["pods/exec"]          # kafka-topics.sh --list on bench-brokers-0 (topic deletion wait)
+    verbs: ["create"]
+  - apiGroups: ["kafka.strimzi.io"]
+    resources: ["kafkatopics"]
+    verbs: ["get", "list", "watch", "create", "patch", "delete"]
+  - apiGroups: ["kafka.strimzi.io"]   # self-teardown: remove the broker cluster before its volumes
+    resources: ["kafkas", "kafkanodepools"]
+    verbs: ["get", "delete"]
+  - apiGroups: [""]                   # self-teardown: broker PVCs (gp3 reclaim Delete -> EBS deleted)
+    resources: ["persistentvolumeclaims"]
+    verbs: ["get", "list", "watch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata: { name: stateful-runner, namespace: spark }
+rules:
+  - apiGroups: ["sparkoperator.k8s.io"]
+    resources: ["sparkapplications"]
+    verbs: ["get", "list", "watch", "create", "patch", "delete"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch", "delete"]   # delete: recovery test kills one executor
+  - apiGroups: [""]
+    resources: ["pods/exec"]          # jstack on the driver (async-log-write evidence)
+    verbs: ["create"]
+  - apiGroups: [""]
+    resources: ["pods/log"]           # driver log: pipelined-shuffle + batch-start lines
+    verbs: ["get"]
+  - apiGroups: ["metrics.k8s.io"]     # kubectl top (CPU/mem samples)
+    resources: ["pods"]
+    verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata: { name: stateful-runner, namespace: flink }
+rules:
+  - apiGroups: ["flink.apache.org"]
+    resources: ["flinkdeployments"]
+    verbs: ["get", "list", "watch", "create", "patch", "delete"]
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch", "delete"]   # delete: recovery test kills one TaskManager
+  - apiGroups: ["metrics.k8s.io"]     # kubectl top (CPU/mem samples)
+    resources: ["pods"]
+    verbs: ["get", "list"]
+  - apiGroups: ["autoscaling"]        # session D flink-reactive: the TaskManager HPA
+    resources: ["horizontalpodautoscalers"]
+    verbs: ["get", "list", "create", "patch", "delete"]
+  - apiGroups: [""]                   # session D: autoscaler decisions (events + its ConfigMap)
+    resources: ["events"]
+    verbs: ["list"]
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    resourceNames: ["autoscaler-flink-stateful"]
+    verbs: ["get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole                       # read-only: wait until the kafka PVs are gone; engine node count
+metadata: { name: stateful-runner-pv-read }
+rules:
+  - apiGroups: [""]
+    resources: ["persistentvolumes", "nodes"]
+    verbs: ["get", "list"]
+  - apiGroups: [""]                   # final-run sampler: kubelet cAdvisor via the node proxy
+    resources: ["nodes/proxy"]
+    verbs: ["get"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role                              # self-teardown: stop Cluster Autoscaler before nodes go to 0
+metadata: { name: stateful-runner, namespace: kube-system }
+rules:
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    resourceNames: ["cluster-autoscaler"]
+    verbs: ["get"]
+  - apiGroups: ["apps"]
+    resources: ["deployments/scale"]
+    resourceNames: ["cluster-autoscaler"]
+    verbs: ["get", "patch", "update"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: stateful-runner, namespace: kube-system }
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: stateful-runner }
+subjects: [{ kind: ServiceAccount, name: stateful-runner, namespace: kafka }]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata: { name: stateful-runner-pv-read }
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: ClusterRole, name: stateful-runner-pv-read }
+subjects: [{ kind: ServiceAccount, name: stateful-runner, namespace: kafka }]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: stateful-runner, namespace: kafka }
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: stateful-runner }
+subjects: [{ kind: ServiceAccount, name: stateful-runner, namespace: kafka }]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: stateful-runner, namespace: spark }
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: stateful-runner }
+subjects: [{ kind: ServiceAccount, name: stateful-runner, namespace: kafka }]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: { name: stateful-runner, namespace: flink }
+roleRef: { apiGroup: rbac.authorization.k8s.io, kind: Role, name: stateful-runner }
+subjects: [{ kind: ServiceAccount, name: stateful-runner, namespace: kafka }]
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: stateful-runner
+  namespace: kafka
+  labels: { bench: stateful-runner }
+spec:
+  # Hard wall-clock backstop: the script stops starting runs at BUDGET_S; Kubernetes kills the
+  # pod at DEADLINE_S (= BUDGET_S + one run of slack), and the EXIT trap cleans the engines up.
+  activeDeadlineSeconds: __DEADLINE_S__
+  # Pod loss (node drain/spot) restarts the runner; finished runs are skipped via S3.
+  backoffLimit: 2
+  template:
+    metadata:
+      labels: { app: stateful-runner }
+    spec:
+      serviceAccountName: stateful-runner
+      restartPolicy: OnFailure
+      terminationGracePeriodSeconds: 120
+      containers:
+        - name: runner
+          image: "__REGISTRY__/rtm-bench/load:__TAG__"
+          imagePullPolicy: Always   # same tag is re-pushed; never run a stale cached consumer
+          command: ["bash", "/etc/stateful/run_matrix_incluster.sh"]
+          env:
+            - { name: REGISTRY, value: "__REGISTRY__" }
+            - { name: TAG, value: "__TAG__" }
+            - { name: ACCOUNT, value: "__ACCOUNT__" }
+            - { name: AWS_REGION, value: "us-east-1" }
+            # boto3 reads AWS_DEFAULT_REGION, not AWS_REGION: without it the self-teardown EKS
+            # call failed with NoRegionError (session C); S3 worked only as a global endpoint
+            - { name: AWS_DEFAULT_REGION, value: "us-east-1" }
+            - { name: BUDGET_S, value: "__BUDGET_S__" }
+            - { name: START_EPOCH, value: "__START_EPOCH__" }   # budget clock survives pod restarts
+            - { name: S3_PREFIX, value: "__S3_PREFIX__" }
+            - { name: PLAN, value: "__PLAN__" }      # explicit items; empty = PLAN_SET
+            - { name: PLAN_SET, value: "__PLAN_SET__" }   # A = session A matrix, B = session B
+            - { name: RUNS, value: "__RUNS__" }      # runs per 2-run arm in PLAN_SET A
+            - { name: STATELESS_TAG, value: "__STATELESS_TAG__" }   # published stateless images (v43)
+            - { name: MANIFESTS, value: "/etc/stateful" }
+            # after the last run: upload this log, scale engine-ng + bench-ng to 0 (see runner header)
+            - { name: SELF_TEARDOWN, value: "__SELF_TEARDOWN__" }
+            - { name: CLUSTER, value: "__CLUSTER__" }
+            - { name: NODEGROUPS, value: "engine-ng bench-ng" }
+            - { name: WORK, value: "/work" }
+          resources:
+            requests: { cpu: 500m, memory: 512Mi }   # + the 2 s cAdvisor sampler (sampler.py)
+            limits:   { cpu: "2", memory: 1Gi }
+          volumeMounts:
+            - { name: scripts, mountPath: /etc/stateful, readOnly: true }
+            - { name: work, mountPath: /work }
+      volumes:
+        - name: scripts
+          configMap: { name: stateful-runner }
+        - name: work
+          emptyDir: { sizeLimit: 1Gi }

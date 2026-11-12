@@ -1,0 +1,27 @@
+{
+  "engine": "flink-ds-s5-at8k-r2",
+  "topic": "st-output",
+  "kept_records": 1920997,
+  "seen_records": 2270524,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 6403.3,
+  "started_at": 1794439326.381,
+  "ended_at": 1794439686.456,
+  "pipeline_ms": {
+    "count": 1920997,
+    "p50": 7.532,
+    "p95": 9.364,
+    "p99": 694.711,
+    "max": 2099.742,
+    "mean": 23.9
+  },
+  "e2e_ms": {
+    "count": 1920997,
+    "p50": 98.747,
+    "p95": 167.795,
+    "p99": 764.67,
+    "max": 2133.396,
+    "mean": 112.605
+  }
+}

@@ -1,0 +1,64 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=output-events engine=spark-rtm-java-p6-r1 warmup=60s window=120s
+[consumer] seen=1 kept=0 (warmup)
+[consumer] seen=337658 kept=0 (warmup)
+[consumer] seen=518520 kept=0 (warmup)
+[consumer] seen=685595 kept=0 (warmup)
+[consumer] seen=851839 kept=0 (warmup)
+[consumer] seen=1019417 kept=0 (warmup)
+[consumer] seen=1186156 kept=0 (warmup)
+[consumer] seen=1352518 kept=0 (warmup)
+[consumer] seen=1519153 kept=0 (warmup)
+[consumer] seen=1685723 kept=0 (warmup)
+[consumer] seen=1852375 kept=0 (warmup)
+[consumer] seen=2018927 kept=20485 (steady)
+[consumer] seen=2185951 kept=187509 (steady)
+[consumer] seen=2352993 kept=354551 (steady)
+[consumer] seen=2519620 kept=521178 (steady)
+[consumer] seen=2686082 kept=687640 (steady)
+[consumer] seen=2852798 kept=854356 (steady)
+[consumer] seen=3019742 kept=1021300 (steady)
+[consumer] seen=3186170 kept=1187728 (steady)
+[consumer] seen=3352475 kept=1354033 (steady)
+[consumer] seen=3519566 kept=1521124 (steady)
+[consumer] seen=3685958 kept=1687516 (steady)
+[consumer] seen=3852820 kept=1854378 (steady)
+[consumer] seen=4019676 kept=2021234 (steady)
+[consumer] seen=4186614 kept=2188172 (steady)
+[consumer] seen=4352792 kept=2354350 (steady)
+[consumer] seen=4519196 kept=2520754 (steady)
+[consumer] seen=4685984 kept=2687542 (steady)
+[consumer] seen=4852636 kept=2854194 (steady)
+[consumer] seen=5018914 kept=3020472 (steady)
+[consumer] seen=5185268 kept=3186826 (steady)
+[consumer] seen=5351859 kept=3353417 (steady)
+[consumer] seen=5518825 kept=3520383 (steady)
+[consumer] seen=5685782 kept=3687340 (steady)
+[consumer] seen=5852758 kept=3854316 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "spark-rtm-java-p6-r1",
+  "topic": "output-events",
+  "kept_records": 4000341,
+  "seen_records": 5998783,
+  "window_seconds": 120,
+  "warmup_seconds": 60,
+  "throughput_eps": 33336.2,
+  "pipeline_ms": {
+    "count": 4000341,
+    "p50": 6.34,
+    "p95": 8.179,
+    "p99": 80.039,
+    "max": 319.001,
+    "mean": 8.906
+  },
+  "e2e_ms": {
+    "count": 4000341,
+    "p50": 17.524,
+    "p95": 40.87,
+    "p99": 173.016,
+    "max": 338.059,
+    "mean": 22.413
+  }
+}
+[consumer] wrote /tmp/spark-rtm-java-p6-r1_latency.csv and /tmp/spark-rtm-java-p6-r1_summary.json

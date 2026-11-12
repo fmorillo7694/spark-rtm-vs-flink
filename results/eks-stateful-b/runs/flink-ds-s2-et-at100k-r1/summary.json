@@ -1,0 +1,27 @@
+{
+  "engine": "flink-ds-s2-et-at100k-r1",
+  "topic": "st-output",
+  "kept_records": 30001194,
+  "seen_records": 35891194,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 100004.0,
+  "started_at": 1794237356.203,
+  "ended_at": 1794237716.23,
+  "pipeline_ms": {
+    "count": 30001194,
+    "p50": 6.794,
+    "p95": 332.501,
+    "p99": 1463.684,
+    "max": 2673.648,
+    "mean": 64.151
+  },
+  "e2e_ms": {
+    "count": 30001194,
+    "p50": 25.66,
+    "p95": 1028.614,
+    "p99": 1760.515,
+    "max": 3336.405,
+    "mean": 176.621
+  }
+}

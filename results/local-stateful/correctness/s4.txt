@@ -1,0 +1,3 @@
+[s4] flink-ds-bt100-s4        PASS  {"truth_enriched_records": 129535, "output_records": 129535, "missing": 0, "extra": 0, "wrong_enrichment": 0}
+[s4] flink-ds-s4              PASS  {"truth_enriched_records": 129535, "output_records": 129535, "missing": 0, "extra": 0, "wrong_enrichment": 0}
+[s4] spark-rtm-s4             PASS  {"truth_enriched_records": 129535, "output_records": 129535, "missing": 0, "extra": 0, "wrong_enrichment": 0}

@@ -1,0 +1,35 @@
+{
+  "engine": "flink-ds-s1-update-kill-r1",
+  "topic": "st-output",
+  "kept_records": 16865816,
+  "seen_records": 19716008,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 56219.4,
+  "started_at": 1794256676.157,
+  "ended_at": 1794257036.199,
+  "pipeline_ms": {
+    "count": 16865816,
+    "p50": 7.103,
+    "p95": 44624.396,
+    "p99": 51170.384,
+    "max": 53722.184,
+    "mean": 6669.811
+  },
+  "e2e_ms": {
+    "count": 16865816,
+    "p50": 30.763,
+    "p95": 45220.531,
+    "p99": 51202.456,
+    "max": 53769.961,
+    "mean": 7760.815
+  },
+  "window_ms": {
+    "count": 16865816,
+    "p50": -3552.0,
+    "p95": 38752.0,
+    "p99": 47528.0,
+    "max": 52820.0,
+    "mean": 1668.492
+  }
+}

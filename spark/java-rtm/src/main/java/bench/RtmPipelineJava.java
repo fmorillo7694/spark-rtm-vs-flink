@@ -37,6 +37,9 @@ public class RtmPipelineJava {
         String outputTopic = args[3];
         String checkpointDir = args[4];
         String triggerDuration = args.length > 5 ? args[5] : "5 seconds";
+        // "auto" = Spark default (4.3: async progress tracking ON for stateless RTM);
+        // "false" = control arm with synchronous offset/commit log writes.
+        String asyncProgress = args.length > 6 ? args[6] : "auto";
 
         SparkSession spark = SparkSession.builder()
                 .appName("rtm-bench-java-" + mode)
@@ -81,6 +84,9 @@ public class RtmPipelineJava {
                 .option("kafka.bootstrap.servers", bootstrap)
                 .option("topic", outputTopic)
                 .option("checkpointLocation", checkpointDir);
+        if (!asyncProgress.equals("auto")) {
+            baseWriter = baseWriter.option("asyncProgressTrackingEnabled", asyncProgress);
+        }
 
         StreamingQuery query;
         if (mode.equals("rtm")) {
@@ -92,7 +98,8 @@ public class RtmPipelineJava {
         }
 
         System.out.println("[RtmPipelineJava] mode=" + mode + " id=" + query.id()
-                + " trigger=" + (mode.equals("rtm") ? "RealTime(" + triggerDuration + ")" : "micro-batch"));
+                + " trigger=" + (mode.equals("rtm") ? "RealTime(" + triggerDuration + ")" : "micro-batch")
+                + " asyncProgressTrackingEnabled=" + asyncProgress + " ckpt=" + checkpointDir);
         query.awaitTermination();
     }
 }

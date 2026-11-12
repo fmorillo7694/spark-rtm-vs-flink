@@ -1,0 +1,74 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-s1-update-120s-r1 warmup=60s window=120s
+[consumer] seen=30000 kept=0 (warmup)
+[consumer] seen=280000 kept=0 (warmup)
+[consumer] seen=529000 kept=0 (warmup)
+[consumer] seen=777744 kept=0 (warmup)
+[consumer] seen=1026080 kept=0 (warmup)
+[consumer] seen=1274685 kept=0 (warmup)
+[consumer] seen=1523685 kept=0 (warmup)
+[consumer] seen=1772056 kept=0 (warmup)
+[consumer] seen=2021056 kept=0 (warmup)
+[consumer] seen=2270056 kept=0 (warmup)
+[consumer] seen=2518056 kept=0 (warmup)
+[consumer] seen=2766551 kept=9000 (steady)
+[consumer] seen=3015551 kept=258000 (steady)
+[consumer] seen=3263648 kept=506097 (steady)
+[consumer] seen=3511648 kept=754097 (steady)
+[consumer] seen=3760014 kept=1002463 (steady)
+[consumer] seen=4008103 kept=1250552 (steady)
+[consumer] seen=4256103 kept=1498552 (steady)
+[consumer] seen=4505103 kept=1747552 (steady)
+[consumer] seen=4753512 kept=1995961 (steady)
+[consumer] seen=5002512 kept=2244961 (steady)
+[consumer] seen=5250642 kept=2493091 (steady)
+[consumer] seen=5498642 kept=2741091 (steady)
+[consumer] seen=5747000 kept=2989449 (steady)
+[consumer] seen=5996000 kept=3238449 (steady)
+[consumer] seen=6244122 kept=3486571 (steady)
+[consumer] seen=6493122 kept=3735571 (steady)
+[consumer] seen=6741769 kept=3984218 (steady)
+[consumer] seen=6990041 kept=4232490 (steady)
+[consumer] seen=7238041 kept=4480490 (steady)
+[consumer] seen=7487041 kept=4729490 (steady)
+[consumer] seen=7735266 kept=4977715 (steady)
+[consumer] seen=7984266 kept=5226715 (steady)
+[consumer] seen=8232266 kept=5474715 (steady)
+[consumer] seen=8480266 kept=5722715 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-s1-update-120s-r1",
+  "topic": "st-output",
+  "kept_records": 5953143,
+  "seen_records": 8710694,
+  "window_seconds": 120,
+  "warmup_seconds": 60,
+  "throughput_eps": 49609.5,
+  "started_at": 1794416808.87,
+  "ended_at": 1794416988.895,
+  "pipeline_ms": {
+    "count": 5953143,
+    "p50": 6.9,
+    "p95": 179.588,
+    "p99": 1566.633,
+    "max": 2677.445,
+    "mean": 55.443
+  },
+  "e2e_ms": {
+    "count": 5953143,
+    "p50": 27.416,
+    "p95": 220.353,
+    "p99": 1597.658,
+    "max": 2701.54,
+    "mean": 77.452
+  },
+  "window_ms": {
+    "count": 5953143,
+    "p50": -4991.0,
+    "p95": -493.0,
+    "p99": -91.0,
+    "max": 32.0,
+    "mean": -4943.311
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-s1-update-120s-r1_summary.json

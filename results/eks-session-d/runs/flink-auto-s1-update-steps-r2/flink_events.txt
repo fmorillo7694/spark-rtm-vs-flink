@@ -1,0 +1,17 @@
+2026-11-11T01:39:17Z JobStatusChanged Job status changed from CREATED to RUNNING
+2026-11-11T01:39:02Z JobStatusChanged Job status changed from RUNNING to CREATED
+2026-11-11T01:24:42Z JobStatusChanged Job status changed from RECONCILING to CREATED
+2026-11-11T02:00:08Z Scaling In-place scaling triggered
+2026-11-11T01:23:55Z Submit Starting deployment
+2026-11-11T01:38:02Z SpecChanged SCALE change(s) detected (Diff: FlinkDeploymentSpec[job.upgradeMode : stateless -> last-state, flinkConfiguration.pipeline.jobvertex-parallelism-overrides : null -> 20ba6b65f97481d5570070de90e4e791:6,bc764cd8ddf7a0cff126f51c16239658:3]), starting reconciliation.
+2026-11-11T02:00:08Z ScalingReport Scaling execution enabled, begin scaling vertices:{ Vertex ID 20ba6b65f97481d5570070de90e4e791 | Parallelism 6 -> 4 | Processing capacity 134898.43 -> 89932.29 | Target data rate 49696.17}
+2026-11-11T01:38:02Z Configuration recommendation Memory tuning recommends the following configuration (automatic tuning is disabled):
+taskmanager.memory.process.size: 4361219230 bytes
+taskmanager.memory.network.max: 3264 kb
+taskmanager.memory.jvm-overhead.fraction: 0.148
+taskmanager.memory.network.min: 3264 kb
+taskmanager.memory.framework.heap.size: 0 bytes
+taskmanager.memory.jvm-metaspace.size: 139033520 bytes
+taskmanager.memory.managed.fraction: 0.619
+Remove the following config entries if present: [taskmanager.memory.flink.size, taskmanager.memory.managed.size, taskmanager.memory.task.heap.size, taskmanager.memory.size]
+2026-11-11T01:23:55Z ScalingReplicaSet Scaled up replica set flink-stateful-56bbd8497c from 0 to 1

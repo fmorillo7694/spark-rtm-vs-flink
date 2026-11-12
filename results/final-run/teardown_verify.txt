@@ -1,0 +1,9 @@
+# teardown verification 2026-11-12T01:50:59Z
+clusters: []
+bench6 stacks not DELETE_COMPLETE: []
+bench6a instances: [] tagged volumes: []
+bench6b instances: [] tagged volumes: []
+schedules: []
+VPC ENIs: [<ENI_ID> nat_gateway ]
+NAT <NAT_ID>: available
+bench4 leftovers untouched: volumes [<VOLUME_ID> <VOLUME_ID> <VOLUME_ID>] stacks 9
