@@ -1,4 +1,114 @@
-# Spark 4.1 Real-time Mode (RTM) vs Apache Flink — reproducible benchmark
+# Spark Real-time Mode (RTM) vs Apache Flink: reproducible benchmark
+
+Kafka → transform → Kafka pipelines run on **Apache Spark Real-time Mode** and **Apache Flink**
+with identical data, resources and placement, comparing **latency, CPU, memory, cost, fault
+tolerance and scaling**, locally in Docker and on EKS.
+
+This repo has two rounds:
+
+1. **[Spark 4.3 vs Flink 2.3](#latest-spark-430-rtm-vs-flink-230-stateless-stateful-joins-scaling)**
+   (latest): stateless, three stateful workloads, two joins, recovery and scaling, all on EKS.
+   Write-up: [`post/piece1-4.3.md`](post/piece1-4.3.md).
+2. **[Spark 4.1 vs Flink 2.2](#original-benchmark-spark-412-rtm-vs-flink-220-stateless)**
+   (original): the stateless pipeline, locally and on EKS. Write-up: [`REPORT.md`](REPORT.md).
+
+---
+
+# Latest: Spark 4.3.0 RTM vs Flink 2.3.0 (stateless, stateful, joins, scaling)
+
+Open-source Apache Spark 4.3.0 (`apache/spark:4.3.0`, not Databricks Runtime) against Apache
+Flink 2.3.0 on EKS: 6 × m5.2xlarge, Strimzi Kafka (3 brokers, RF 3, 6 partitions), durable S3
+checkpoints every 60 s, two dedicated engine nodes with identical pods for both engines
+(1 coordinator of 1 core / 2 GB, 2 workers of 3 cores / 6 GB). Each run measures 30 minutes
+after a 60 s warm-up; stateless at 100k evt/s, stateful at 50k evt/s. Latency is pipeline
+latency, `out_ts − ts` per record.
+
+![Spark 4.3 fixed the stateless RTM tail. Stateful RTM still commits synchronously.](post/charts/00_hero.png)
+
+**Headline results** (full write-up in [`post/piece1-4.3.md`](post/piece1-4.3.md), per-run
+numbers in [`results/final30/RESULTS.md`](results/final30/RESULTS.md)):
+
+- **Stateless: the tail gap is gone.** RTM's p99 dropped from 642 ms (4.1.2) to ~30 ms, because
+  4.3 moves offset and commit-log writes to an async thread
+  ([SPARK-58131](https://issues.apache.org/jira/browse/SPARK-58131)). p99 is now roughly a tie
+  (Flink 27.4 ms vs Spark RTM 30.3 ms), at a ~6 ms median for both. Flink still uses less memory.
+- **Stateful: tuned Flink wins every workload both engines can run.** OSS stateful RTM commits
+  state synchronously at each batch boundary (async state checkpointing is DBR-only).
+
+  | workload (50k evt/s, both tuned) | Flink p50 / p99 | Spark RTM p50 / p99 |
+  |---|---|---|
+  | S1 10 s tumbling count/sum per user | 6.9 ms / 1.6 s | 13.4 ms / 4.5 s |
+  | S2 dedup on `event_id` | 7.0 ms / 1.7 s | 13.1 ms / 4.3 s |
+  | S3 per-user session state machine with timers | 8.3 ms / 4.3 s, keeps up | falls behind: 29.7k evt/s out (0.76x Flink), lag grows +17 s/min |
+
+- **Recovery** (worker killed mid-stream): Flink is back in about a minute; Spark had not
+  recovered within the measurement window.
+- **Joins:** S4 stream-static enrichment ties at the median (~6.5 ms), but RTM's p99 is ~13.5x
+  Flink's (275 vs 20 ms). S5 stream-stream interval join is not supported in RTM; against Spark
+  micro-batch, Flink's interval join wins (p99 0.65-0.69 s vs 5.5-5.7 s).
+- **Scaling** (S1, 50k → 100k → 50k): both kept state exact through every rescale. Only static
+  Flink sized for the peak kept p99 under 2 s; the Flink operator autoscaler halved node-hours at
+  ~2.75 s p99. OSS stateful RTM has no autoscaling path (it rejects dynamic allocation).
+- **Cost:** same hardware for both, so the same $/hour; the difference is how much load each
+  sustains on it.
+
+## Workloads
+
+| id | workload | Spark | Flink |
+|---|---|---|---|
+| stateless | parse, filter, enrich (the original pipeline) | RTM: Java, Scala, PySpark | DataStream, SQL, PyFlink |
+| S1 | 10 s tumbling count/sum per user | RTM | DataStream, SQL |
+| S2 | dedup on `event_id` | RTM | DataStream, SQL |
+| S3 | per-user session state machine with timers | RTM (`transformWithState`) | DataStream (`KeyedProcessFunction`) |
+| S4 | stream-static enrichment join | RTM (broadcast join) | DataStream |
+| S5 | stream-stream interval join | micro-batch (unsupported in RTM) | DataStream interval join |
+
+Each stateful workload runs as a 2×2 (both engines at defaults and tuned: Spark shuffle flush
+50 → 1 ms, Flink buffer timeout 100 → 0 ms) plus a Spark **vendor-tuned** arm using the OSS-
+applicable settings from
+[databricks-solutions/latency-benchmarks](https://github.com/databricks-solutions/latency-benchmarks).
+Every setting, and the semantic differences between engines, is in
+[`STATEFUL_CONFIG.md`](STATEFUL_CONFIG.md).
+
+## Reproduce
+
+> ⚠ **This creates billable AWS resources.** The 30-minute matrix ran on 4 clusters in
+> parallel, ~29 cluster-hours in total. With `SELF_TEARDOWN=1` each runner Job uploads its
+> results to S3 and scales its nodegroups to 0 when it finishes; `eks/stateful/wrapup_cluster.sh`
+> then checks the S3 results (`verify_s3_results.sh`), deletes the cluster and verifies nothing
+> billable is left.
+
+```bash
+export AWS_PROFILE=your-profile
+# cluster + platform (same as the original round, see Part 2 below)
+eks/01_create_cluster.sh && eks/02_install.sh && eks/02b_irsa_s3.sh && eks/03_build_push_images.sh
+
+# stateless p6 matrix (Spark 4.3.0 / Flink 2.3.0)
+eks/04b_run_p6.sh <engine>
+
+# stateful + joins matrix as an in-cluster Kubernetes Job, one cluster per plan set F30A..F30D
+eks/stateful/check.sh                       # offline check of the runner
+eks/stateful/preflight_runner.sh
+PLAN_SET=F30A BUDGET_S=34200 RUN_EST_S=1260 SELF_TEARDOWN=1 eks/stateful/deploy_runner.sh
+
+# tables and charts
+python3 bench/analyze_final_run.py results/final30 --runs 2   # -> results/final30/cells.md, cells.json
+python3 bench/make_post_charts.py                             # -> post/charts/*.png + numbers.json
+```
+
+Local correctness checks for the stateful workloads (every arm matches the ground truth):
+
+```bash
+bench/stateful_input.sh && PHASE=replay bench/run_stateful.sh flink && PHASE=replay bench/run_stateful.sh spark
+bench/stateful_correctness.sh                       # diff every engine against the ground truth
+```
+
+Results in [`results/local-stateful/RESULTS.md`](results/local-stateful/RESULTS.md). Full
+reproduction steps are in Appendix B of the [post](post/piece1-4.3.md).
+
+---
+
+# Original benchmark: Spark 4.1.2 RTM vs Flink 2.2.0 (stateless)
 
 Validates the claims in the Medium post *"Spark RTM Mode: low-latency streaming
 pipelines"* (neuw84) and runs the **identical** stateless Kafka → transform → Kafka
@@ -216,28 +326,16 @@ bench/                          run_*.sh, chaos_*.sh, analyze*.py, make_charts.p
 eks/                            cluster + operators + jobs + chaos + teardown (IaC)
 results/                        summaries, stats, consumer logs, findings
 docs/charts/                    generated PNG charts
-REPORT.md                       the full written-up comparison (local §1–8, EKS §9–10)
-```
-
-## Stateful extension (Spark 4.3 RTM vs Flink 2.3)
-
-Three stateful workloads on the same datagen: S1 10 s tumbling count/sum per user, S2 dedup on
-`event_id`, S3 per-user session state machine with timers. Spark RTM Java (+ micro-batch S1
-floor), Flink DataStream and Flink SQL, RocksDB on both. Every setting and the semantic
-differences between engines are in [`STATEFUL_CONFIG.md`](STATEFUL_CONFIG.md); local
-correctness checks (all arms match the ground truth) and smoke-only observations are in
-[`results/local-stateful/RESULTS.md`](results/local-stateful/RESULTS.md).
-
-```bash
-bench/stateful_input.sh && PHASE=replay bench/run_stateful.sh flink && PHASE=replay bench/run_stateful.sh spark
-bench/stateful_correctness.sh                       # diff every engine against the ground truth
-PHASE=smoke bench/run_stateful.sh spark             # short latency smokes (not results)
-eks/stateful/check.sh                               # offline check of the in-cluster EKS runner
-eks/stateful/deploy_runner.sh                       # EKS: whole matrix as a Kubernetes Job
+REPORT.md                       original 4.1/2.2 write-up (local §1–8, EKS §9–10)
+post/                           4.3/2.3 write-up (piece1-4.3.md) + its charts
+STATEFUL_CONFIG.md              stateful/join settings for both engines
+eks/stateful/                   in-cluster matrix runner for the 4.3/2.3 round
 ```
 
 ## Results
 
-See **[`REPORT.md`](REPORT.md)** for the complete write-up and **`results/`** for raw data
+Latest round: **[`post/piece1-4.3.md`](post/piece1-4.3.md)** and
+**[`results/final30/RESULTS.md`](results/final30/RESULTS.md)**. Original round: see
+**[`REPORT.md`](REPORT.md)** for the complete write-up and **`results/`** for raw data
 (`results/eks/` for the cluster run, including `EQUAL_RESOURCES_findings.md` — the fair,
 equal-resource 6- and 12-partition matrices).
