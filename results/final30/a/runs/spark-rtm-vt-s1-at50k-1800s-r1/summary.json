@@ -1,0 +1,35 @@
+{
+  "engine": "spark-rtm-vt-s1-at50k-1800s-r1",
+  "topic": "st-output",
+  "kept_records": 89280903,
+  "seen_records": 92224418,
+  "window_seconds": 1800,
+  "warmup_seconds": 60,
+  "throughput_eps": 49600.5,
+  "started_at": 1794488278.854,
+  "ended_at": 1794490138.871,
+  "pipeline_ms": {
+    "count": 89280903,
+    "p50": 13.259,
+    "p95": 2770.574,
+    "p99": 4300.991,
+    "max": 6133.303,
+    "mean": 285.134
+  },
+  "e2e_ms": {
+    "count": 89280903,
+    "p50": 39.05,
+    "p95": 2895.477,
+    "p99": 4334.901,
+    "max": 6154.536,
+    "mean": 330.475
+  },
+  "window_ms": {
+    "count": 89280903,
+    "p50": -4713.0,
+    "p95": -226.0,
+    "p99": 2174.0,
+    "max": 4602.0,
+    "mean": -4713.612
+  }
+}

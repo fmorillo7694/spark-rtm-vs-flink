@@ -1,0 +1,6 @@
+ip-192-168-105-231.ec2.internal bench-ng containerLogMaxSize=200Mi 5
+ip-192-168-108-13.ec2.internal engine-ng containerLogMaxSize=200Mi 5
+ip-192-168-70-232.ec2.internal bench-ng containerLogMaxSize=200Mi 5
+ip-192-168-76-2.ec2.internal engine-ng containerLogMaxSize=200Mi 5
+ip-192-168-94-72.ec2.internal bench-ng containerLogMaxSize=200Mi 5
+ip-192-168-96-219.ec2.internal bench-ng containerLogMaxSize=200Mi 5

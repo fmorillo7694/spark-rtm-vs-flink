@@ -1,0 +1,27 @@
+{
+  "engine": "flink-ds-s2-et-at50k-1800s-r2",
+  "topic": "st-output",
+  "kept_records": 89280600,
+  "seen_records": 92160705,
+  "window_seconds": 1800,
+  "warmup_seconds": 60,
+  "throughput_eps": 49600.3,
+  "started_at": 1794504458.508,
+  "ended_at": 1794506318.519,
+  "pipeline_ms": {
+    "count": 89280600,
+    "p50": 6.959,
+    "p95": 48.897,
+    "p99": 1715.391,
+    "max": 3141.255,
+    "mean": 59.214
+  },
+  "e2e_ms": {
+    "count": 89280600,
+    "p50": 27.911,
+    "p95": 98.217,
+    "p99": 1745.07,
+    "max": 3216.698,
+    "mean": 80.803
+  }
+}

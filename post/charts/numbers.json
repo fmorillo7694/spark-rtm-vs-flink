@@ -117,32 +117,32 @@
   ]
  },
  "ckpt_s1_flink_0": {
-  "dur_s_max": 3.46,
-  "dur_s_median": 2.98,
-  "full_mib_median": 71.5,
-  "incr_mib_median": 51.2,
-  "n_ckpts": 21
+  "dur_s_max": 3.13,
+  "dur_s_median": 2.99,
+  "full_mib_median": 133.9,
+  "incr_mib_median": 61.3,
+  "n_ckpts": 20
  },
  "ckpt_s2_flink_0": {
-  "dur_s_max": 3.76,
-  "dur_s_median": 3.41,
-  "full_mib_median": 93.7,
-  "incr_mib_median": 71.4,
-  "n_ckpts": 21
+  "dur_s_max": 3.6,
+  "dur_s_median": 3.25,
+  "full_mib_median": 155.3,
+  "incr_mib_median": 71.5,
+  "n_ckpts": 20
  },
  "ckpt_s3_flink_0": {
-  "dur_s_max": 5.99,
-  "dur_s_median": 5.44,
-  "full_mib_median": 118.8,
-  "incr_mib_median": 86.0,
-  "n_ckpts": 14
+  "dur_s_max": 5.61,
+  "dur_s_median": 5.09,
+  "full_mib_median": 184.0,
+  "incr_mib_median": 86.5,
+  "n_ckpts": 20
  },
  "ckpt_sl_flink_ds": {
-  "dur_s_max": 0.21,
-  "dur_s_median": 0.02,
+  "dur_s_max": 0.01,
+  "dur_s_median": 0.01,
   "full_mib_median": 0.0,
   "incr_mib_median": 0.0,
-  "n_ckpts": 24
+  "n_ckpts": 20
  },
  "cost_assumptions": {
   "engine_nodes": 2,
@@ -153,63 +153,66 @@
   "price_source": "instances.vantage.sh / instances.usage.ai m5.2xlarge, us-east-1 on-demand Linux, read 2026-11-10"
  },
  "cost_s1_flink_0": {
-  "ckpt_mb": 124.04112,
-  "cpu_mean": 3.55339,
-  "cpu_mean_10k": 0.71068,
-  "cpu_peak": 4.02531,
-  "cpu_peak_10k": 0.80506,
-  "evt_s_per_node_extrap": 99371.16174,
+  "ckpt_mb": 207.91973,
+  "ckpt_mb_per_h": 402.20905,
+  "cpu_mean": 3.53875,
+  "cpu_mean_10k": 0.70775,
+  "cpu_peak": 4.31431,
+  "cpu_peak_10k": 0.86286,
+  "evt_s_per_node_extrap": 92714.78859,
   "group": "S1",
-  "heap_peak": 3.0061,
+  "heap_peak": 3.17819,
   "held": true,
   "key": "s1_flink_0",
-  "label": "flink-ds-s1-update",
-  "mem_mean": 6.09629,
-  "mem_mean_10k": 1.21926,
-  "mem_peak": 6.47873,
-  "mem_peak_10k": 1.29575,
+  "label": "flink-ds-s1-update-at50k-1800s",
+  "mem_mean": 7.12135,
+  "mem_mean_10k": 1.42427,
+  "mem_peak": 8.3901,
+  "mem_peak_10k": 1.67802,
   "min_nodes": 1,
-  "n": 3,
+  "n": 2,
   "name": "Flink tuned (0 ms)",
-  "node_eq": 0.50316,
-  "p99_ms": 1522.41124,
+  "node_eq": 0.53929,
+  "p99_ms": 1575.45031,
   "rate": 50000,
-  "s3_puts": 43,
-  "state_mb": 2789.16896,
-  "throttle_pct": 3.69074,
-  "usd_per_mev_extrap": 0.00107,
-  "usd_per_mev_used": 0.00095
+  "s3_puts": 55,
+  "s3_puts_per_h": 106.39441,
+  "throttle_pct": 3.51207,
+  "usd_per_mev_extrap": 0.00115,
+  "usd_per_mev_used": 0.00094
  },
  "cost_s1_flink_def": {
-  "ckpt_mb": 136.43135,
-  "cpu_mean": 1.98051,
-  "cpu_mean_10k": 0.3961,
-  "cpu_peak": 2.59587,
-  "cpu_peak_10k": 0.51917,
-  "evt_s_per_node_extrap": 154091.09236,
+  "ckpt_mb": 177.71121,
+  "ckpt_mb_per_h": 343.68002,
+  "cpu_mean": 1.93808,
+  "cpu_mean_10k": 0.38762,
+  "cpu_peak": 2.79036,
+  "cpu_peak_10k": 0.55807,
+  "evt_s_per_node_extrap": 143350.62482,
   "group": "S1",
-  "heap_peak": 3.17961,
+  "heap_peak": 3.24307,
   "held": true,
   "key": "s1_flink_def",
-  "label": "flink-ds-bt100-s1-update",
-  "mem_mean": 6.13869,
-  "mem_mean_10k": 1.22774,
-  "mem_peak": 6.47508,
-  "mem_peak_10k": 1.29502,
+  "label": "flink-ds-bt100-s1-update-at50k-1800s",
+  "mem_mean": 6.85253,
+  "mem_mean_10k": 1.37051,
+  "mem_peak": 7.90846,
+  "mem_peak_10k": 1.58169,
   "min_nodes": 1,
-  "n": 3,
+  "n": 2,
   "name": "Flink default (100 ms)",
-  "node_eq": 0.32448,
-  "p99_ms": 1572.90944,
+  "node_eq": 0.3488,
+  "p99_ms": 1321.16795,
   "rate": 50000,
-  "s3_puts": 43,
-  "state_mb": 2965.65408,
-  "throttle_pct": 3.37148,
-  "usd_per_mev_extrap": 0.00069,
-  "usd_per_mev_used": 0.00053
+  "s3_puts": 55,
+  "s3_puts_per_h": 106.36583,
+  "throttle_pct": 2.89802,
+  "usd_per_mev_extrap": 0.00074,
+  "usd_per_mev_used": 0.00052
  },
  "cost_s1_spark_1ms": {
   "ckpt_mb": 730.63655,
+  "ckpt_mb_per_h": 7134.60645,
   "cpu_mean": 5.8985,
   "cpu_mean_10k": 1.1797,
   "cpu_peak": 6.59788,
@@ -231,125 +234,130 @@
   "p99_ms": 16746.00496,
   "rate": 50000,
   "s3_puts": 191,
-  "state_mb": 443.37861,
+  "s3_puts_per_h": 1865.09946,
   "throttle_pct": 94.04961,
   "usd_per_mev_extrap": null,
   "usd_per_mev_used": 0.00157
  },
  "cost_s1_spark_def": {
-  "ckpt_mb": 679.83756,
-  "cpu_mean": 3.92483,
-  "cpu_mean_10k": 0.78497,
-  "cpu_peak": 5.21782,
-  "cpu_peak_10k": 1.04356,
-  "evt_s_per_node_extrap": 76660.36994,
+  "ckpt_mb": 3160.32957,
+  "ckpt_mb_per_h": 6106.91703,
+  "cpu_mean": 3.85681,
+  "cpu_mean_10k": 0.77136,
+  "cpu_peak": 6.16729,
+  "cpu_peak_10k": 1.23346,
+  "evt_s_per_node_extrap": 64858.34835,
   "group": "S1",
-  "heap_peak": 6.50758,
+  "heap_peak": 6.2209,
   "held": true,
   "key": "s1_spark_def",
-  "label": "spark-rtm-s1",
-  "mem_mean": 9.01107,
-  "mem_mean_10k": 1.80221,
-  "mem_peak": 9.35007,
-  "mem_peak_10k": 1.87001,
+  "label": "spark-rtm-s1-at50k-1800s",
+  "mem_mean": 9.50105,
+  "mem_mean_10k": 1.90021,
+  "mem_peak": 10.09881,
+  "mem_peak_10k": 2.01976,
   "min_nodes": 1,
-  "n": 3,
+  "n": 2,
   "name": "Spark RTM default (50 ms)",
-  "node_eq": 0.65223,
-  "p99_ms": 7022.06746,
+  "node_eq": 0.77091,
+  "p99_ms": 7480.50411,
   "rate": 50000,
-  "s3_puts": 186.33333,
-  "state_mb": 413.77202,
-  "throttle_pct": 17.89172,
-  "usd_per_mev_extrap": 0.00139,
-  "usd_per_mev_used": 0.00105
+  "s3_puts": 567,
+  "s3_puts_per_h": 1095.65217,
+  "throttle_pct": 16.70875,
+  "usd_per_mev_extrap": 0.00164,
+  "usd_per_mev_used": 0.00103
  },
  "cost_s1_spark_vt": {
-  "ckpt_mb": 686.95273,
-  "cpu_mean": 4.28732,
-  "cpu_mean_10k": 0.85746,
-  "cpu_peak": 5.49324,
-  "cpu_peak_10k": 1.09865,
-  "evt_s_per_node_extrap": 72816.79021,
+  "ckpt_mb": 3330.84394,
+  "ckpt_mb_per_h": 6439.87014,
+  "cpu_mean": 3.96652,
+  "cpu_mean_10k": 0.7933,
+  "cpu_peak": 5.56295,
+  "cpu_peak_10k": 1.11259,
+  "evt_s_per_node_extrap": 71904.26135,
   "group": "S1",
-  "heap_peak": 6.19486,
+  "heap_peak": 6.47293,
   "held": true,
   "key": "s1_spark_vt",
-  "label": "spark-rtm-vt-s1",
-  "mem_mean": 9.0227,
-  "mem_mean_10k": 1.80454,
-  "mem_peak": 9.53027,
-  "mem_peak_10k": 1.90605,
+  "label": "spark-rtm-vt-s1-at50k-1800s",
+  "mem_mean": 9.49473,
+  "mem_mean_10k": 1.89895,
+  "mem_peak": 10.07873,
+  "mem_peak_10k": 2.01575,
   "min_nodes": 1,
-  "n": 3,
+  "n": 2,
   "name": "Spark RTM vendor-tuned",
-  "node_eq": 0.68665,
-  "p99_ms": 4563.04254,
+  "node_eq": 0.69537,
+  "p99_ms": 4454.01818,
   "rate": 50000,
-  "s3_puts": 191,
-  "state_mb": 418.29564,
-  "throttle_pct": 17.92226,
-  "usd_per_mev_extrap": 0.00146,
-  "usd_per_mev_used": 0.00114
+  "s3_puts": 600,
+  "s3_puts_per_h": 1160.04296,
+  "throttle_pct": 12.09437,
+  "usd_per_mev_extrap": 0.00148,
+  "usd_per_mev_used": 0.00106
  },
  "cost_s2_flink_0": {
-  "ckpt_mb": 153.82126,
-  "cpu_mean": 3.60284,
-  "cpu_mean_10k": 0.72057,
-  "cpu_peak": 4.09754,
-  "cpu_peak_10k": 0.81951,
-  "evt_s_per_node_extrap": 97619.52335,
+  "ckpt_mb": 228.78989,
+  "ckpt_mb_per_h": 442.5812,
+  "cpu_mean": 3.70563,
+  "cpu_mean_10k": 0.74113,
+  "cpu_peak": 4.56315,
+  "cpu_peak_10k": 0.91263,
+  "evt_s_per_node_extrap": 87658.74094,
   "group": "S2",
-  "heap_peak": 3.22488,
+  "heap_peak": 3.37564,
   "held": true,
   "key": "s2_flink_0",
-  "label": "flink-ds-s2-et",
-  "mem_mean": 5.94876,
-  "mem_mean_10k": 1.18975,
-  "mem_peak": 6.2127,
-  "mem_peak_10k": 1.24254,
+  "label": "flink-ds-s2-et-at50k-1800s",
+  "mem_mean": 6.23204,
+  "mem_mean_10k": 1.24641,
+  "mem_peak": 6.67786,
+  "mem_peak_10k": 1.33557,
   "min_nodes": 1,
-  "n": 3,
+  "n": 2,
   "name": "Flink tuned (0 ms)",
-  "node_eq": 0.51219,
-  "p99_ms": 1798.1012,
+  "node_eq": 0.57039,
+  "p99_ms": 1706.24864,
   "rate": 50000,
-  "s3_puts": 43,
-  "state_mb": 2091.24801,
-  "throttle_pct": 2.03909,
-  "usd_per_mev_extrap": 0.00109,
-  "usd_per_mev_used": 0.00096
+  "s3_puts": 55,
+  "s3_puts_per_h": 106.39441,
+  "throttle_pct": 1.73442,
+  "usd_per_mev_extrap": 0.00122,
+  "usd_per_mev_used": 0.00099
  },
  "cost_s2_flink_def": {
-  "ckpt_mb": 153.69362,
-  "cpu_mean": 2.13391,
-  "cpu_mean_10k": 0.42678,
-  "cpu_peak": 3.03153,
-  "cpu_peak_10k": 0.60631,
-  "evt_s_per_node_extrap": 131946.39352,
+  "ckpt_mb": 227.85548,
+  "ckpt_mb_per_h": 440.77363,
+  "cpu_mean": 2.03101,
+  "cpu_mean_10k": 0.4062,
+  "cpu_peak": 2.83345,
+  "cpu_peak_10k": 0.56669,
+  "evt_s_per_node_extrap": 141170.79884,
   "group": "S2",
-  "heap_peak": 3.20648,
+  "heap_peak": 3.189,
   "held": true,
   "key": "s2_flink_def",
-  "label": "flink-ds-bt100-s2-et",
-  "mem_mean": 5.94064,
-  "mem_mean_10k": 1.18813,
-  "mem_peak": 6.17242,
-  "mem_peak_10k": 1.23448,
+  "label": "flink-ds-bt100-s2-et-at50k-1800s",
+  "mem_mean": 6.23731,
+  "mem_mean_10k": 1.24746,
+  "mem_peak": 6.67512,
+  "mem_peak_10k": 1.33502,
   "min_nodes": 1,
-  "n": 3,
+  "n": 2,
   "name": "Flink default (100 ms)",
-  "node_eq": 0.37894,
-  "p99_ms": 1723.80204,
+  "node_eq": 0.35418,
+  "p99_ms": 1669.82526,
   "rate": 50000,
-  "s3_puts": 43,
-  "state_mb": 2076.26323,
-  "throttle_pct": 1.62335,
-  "usd_per_mev_extrap": 0.00081,
-  "usd_per_mev_used": 0.00057
+  "s3_puts": 55,
+  "s3_puts_per_h": 106.39441,
+  "throttle_pct": 1.35488,
+  "usd_per_mev_extrap": 0.00076,
+  "usd_per_mev_used": 0.00054
  },
  "cost_s2_spark_1ms": {
   "ckpt_mb": 583.7333,
+  "ckpt_mb_per_h": 5705.26663,
   "cpu_mean": 5.8933,
   "cpu_mean_10k": 1.17866,
   "cpu_peak": 6.5813,
@@ -371,125 +379,130 @@
   "p99_ms": 10492.37011,
   "rate": 50000,
   "s3_puts": 188,
-  "state_mb": 174.44327,
+  "s3_puts_per_h": 1837.46606,
   "throttle_pct": 93.40031,
   "usd_per_mev_extrap": 0.00176,
   "usd_per_mev_used": 0.00157
  },
  "cost_s2_spark_def": {
-  "ckpt_mb": 694.65106,
-  "cpu_mean": 3.50768,
-  "cpu_mean_10k": 0.70154,
-  "cpu_peak": 5.74262,
-  "cpu_peak_10k": 1.14852,
-  "evt_s_per_node_extrap": 69654.66205,
+  "ckpt_mb": 2655.92711,
+  "ckpt_mb_per_h": 5137.74186,
+  "cpu_mean": 3.36522,
+  "cpu_mean_10k": 0.67304,
+  "cpu_peak": 5.71845,
+  "cpu_peak_10k": 1.14369,
+  "evt_s_per_node_extrap": 69949.08196,
   "group": "S2",
-  "heap_peak": 6.10804,
+  "heap_peak": 6.54561,
   "held": true,
   "key": "s2_spark_def",
-  "label": "spark-rtm-s2",
-  "mem_mean": 8.9228,
-  "mem_mean_10k": 1.78456,
-  "mem_peak": 9.32377,
-  "mem_peak_10k": 1.86475,
-  "min_nodes": 1,
-  "n": 3,
-  "name": "Spark RTM default (50 ms)",
-  "node_eq": 0.71783,
-  "p99_ms": 8487.31687,
-  "rate": 50000,
-  "s3_puts": 194,
-  "state_mb": 169.88342,
-  "throttle_pct": 15.95736,
-  "usd_per_mev_extrap": 0.00153,
-  "usd_per_mev_used": 0.00094
- },
- "cost_s2_spark_vt": {
-  "ckpt_mb": 600.81646,
-  "cpu_mean": 3.65465,
-  "cpu_mean_10k": 0.73093,
-  "cpu_peak": 4.69578,
-  "cpu_peak_10k": 0.93916,
-  "evt_s_per_node_extrap": 85182.83094,
-  "group": "S2",
-  "heap_peak": 5.74682,
-  "held": true,
-  "key": "s2_spark_vt",
-  "label": "spark-rtm-vt-s2",
-  "mem_mean": 8.88174,
-  "mem_mean_10k": 1.77635,
-  "mem_peak": 9.39416,
-  "mem_peak_10k": 1.87883,
-  "min_nodes": 1,
-  "n": 3,
-  "name": "Spark RTM vendor-tuned",
-  "node_eq": 0.58697,
-  "p99_ms": 4965.11134,
-  "rate": 50000,
-  "s3_puts": 191,
-  "state_mb": 326.53169,
-  "throttle_pct": 11.22579,
-  "usd_per_mev_extrap": 0.00125,
-  "usd_per_mev_used": 0.00097
- },
- "cost_s3_flink_0": {
-  "ckpt_mb": 192.52662,
-  "cpu_mean": 4.9013,
-  "cpu_mean_10k": 0.98026,
-  "cpu_peak": 5.54792,
-  "cpu_peak_10k": 1.10958,
-  "evt_s_per_node_extrap": 72099.06173,
-  "group": "S3",
-  "heap_peak": 3.1717,
-  "held": true,
-  "key": "s3_flink_0",
-  "label": "flink-ds-s3",
-  "mem_mean": 6.52531,
-  "mem_mean_10k": 1.30506,
-  "mem_peak": 7.06118,
-  "mem_peak_10k": 1.41224,
+  "label": "spark-rtm-s2-at50k-1800s",
+  "mem_mean": 9.33772,
+  "mem_mean_10k": 1.86754,
+  "mem_peak": 9.81502,
+  "mem_peak_10k": 1.963,
   "min_nodes": 1,
   "n": 2,
-  "name": "Flink tuned (0 ms) (n=2)",
-  "node_eq": 0.69349,
-  "p99_ms": 4639.32563,
+  "name": "Spark RTM default (50 ms)",
+  "node_eq": 0.71481,
+  "p99_ms": 7693.22957,
   "rate": 50000,
-  "s3_puts": 97,
-  "state_mb": 8999.81282,
-  "throttle_pct": 7.42633,
-  "usd_per_mev_extrap": 0.00148,
+  "s3_puts": 567,
+  "s3_puts_per_h": 1096.82966,
+  "throttle_pct": 12.16869,
+  "usd_per_mev_extrap": 0.00152,
+  "usd_per_mev_used": 0.0009
+ },
+ "cost_s2_spark_vt": {
+  "ckpt_mb": 2747.79518,
+  "ckpt_mb_per_h": 5315.45548,
+  "cpu_mean": 3.5843,
+  "cpu_mean_10k": 0.71686,
+  "cpu_peak": 4.68609,
+  "cpu_peak_10k": 0.93722,
+  "evt_s_per_node_extrap": 85358.92302,
+  "group": "S2",
+  "heap_peak": 6.45938,
+  "held": true,
+  "key": "s2_spark_vt",
+  "label": "spark-rtm-vt-s2-at50k-1800s",
+  "mem_mean": 9.17892,
+  "mem_mean_10k": 1.83578,
+  "mem_peak": 9.58174,
+  "mem_peak_10k": 1.91635,
+  "min_nodes": 1,
+  "n": 2,
+  "name": "Spark RTM vendor-tuned",
+  "node_eq": 0.58576,
+  "p99_ms": 4333.93004,
+  "rate": 50000,
+  "s3_puts": 591,
+  "s3_puts_per_h": 1143.25631,
+  "throttle_pct": 9.03011,
+  "usd_per_mev_extrap": 0.00125,
+  "usd_per_mev_used": 0.00096
+ },
+ "cost_s3_flink_0": {
+  "ckpt_mb": 283.26735,
+  "ckpt_mb_per_h": 547.96478,
+  "cpu_mean": 4.93125,
+  "cpu_mean_10k": 0.98625,
+  "cpu_peak": 5.59248,
+  "cpu_peak_10k": 1.1185,
+  "evt_s_per_node_extrap": 71524.57763,
+  "group": "S3",
+  "heap_peak": 3.26591,
+  "held": true,
+  "key": "s3_flink_0",
+  "label": "flink-ds-s3-at50k-1800s",
+  "mem_mean": 7.35323,
+  "mem_mean_10k": 1.47065,
+  "mem_peak": 8.63305,
+  "mem_peak_10k": 1.72661,
+  "min_nodes": 1,
+  "n": 2,
+  "name": "Flink tuned (0 ms)",
+  "node_eq": 0.69906,
+  "p99_ms": 4280.6295,
+  "rate": 50000,
+  "s3_puts": 133,
+  "s3_puts_per_h": 257.28103,
+  "throttle_pct": 5.63249,
+  "usd_per_mev_extrap": 0.00149,
   "usd_per_mev_used": 0.00131
  },
  "cost_s3_flink_def": {
-  "ckpt_mb": 189.16218,
-  "cpu_mean": 3.75062,
-  "cpu_mean_10k": 0.75012,
-  "cpu_peak": 5.50135,
-  "cpu_peak_10k": 1.10027,
-  "evt_s_per_node_extrap": 72709.44839,
+  "ckpt_mb": 276.82487,
+  "ckpt_mb_per_h": 535.50216,
+  "cpu_mean": 3.44039,
+  "cpu_mean_10k": 0.68808,
+  "cpu_peak": 4.49155,
+  "cpu_peak_10k": 0.89831,
+  "evt_s_per_node_extrap": 89056.1197,
   "group": "S3",
-  "heap_peak": 2.88657,
+  "heap_peak": 3.2723,
   "held": true,
   "key": "s3_flink_def",
-  "label": "flink-ds-bt100-s3",
-  "mem_mean": 6.52341,
-  "mem_mean_10k": 1.30468,
-  "mem_peak": 7.03815,
-  "mem_peak_10k": 1.40763,
+  "label": "flink-ds-bt100-s3-at50k-1800s",
+  "mem_mean": 7.38506,
+  "mem_mean_10k": 1.47701,
+  "mem_peak": 8.67533,
+  "mem_peak_10k": 1.73507,
   "min_nodes": 1,
-  "n": 3,
+  "n": 2,
   "name": "Flink default (100 ms)",
-  "node_eq": 0.68767,
-  "p99_ms": 4611.47418,
+  "node_eq": 0.56144,
+  "p99_ms": 4186.79842,
   "rate": 50000,
-  "s3_puts": 97,
-  "state_mb": 9021.20794,
-  "throttle_pct": 5.06283,
-  "usd_per_mev_extrap": 0.00147,
-  "usd_per_mev_used": 0.001
+  "s3_puts": 133,
+  "s3_puts_per_h": 257.28103,
+  "throttle_pct": 3.85427,
+  "usd_per_mev_extrap": 0.0012,
+  "usd_per_mev_used": 0.00092
  },
  "cost_s3_spark_1ms": {
   "ckpt_mb": 654.23028,
+  "ckpt_mb_per_h": 10593.23392,
   "cpu_mean": 5.97646,
   "cpu_mean_10k": 1.19529,
   "cpu_peak": 6.77877,
@@ -511,119 +524,123 @@
   "p99_ms": 197612.42904,
   "rate": 50000,
   "s3_puts": 118.33333,
-  "state_mb": 151.32171,
+  "s3_puts_per_h": 1916.04198,
   "throttle_pct": 95.22253,
   "usd_per_mev_extrap": null,
   "usd_per_mev_used": 0.00159
  },
  "cost_s3_spark_def": {
-  "ckpt_mb": 1097.30806,
-  "cpu_mean": 5.83595,
-  "cpu_mean_10k": 1.16719,
-  "cpu_peak": 6.93313,
-  "cpu_peak_10k": 1.38663,
+  "ckpt_mb": 6291.34972,
+  "ckpt_mb_per_h": 20816.96598,
+  "cpu_mean": 5.90581,
+  "cpu_mean_10k": 1.18116,
+  "cpu_peak": 6.88439,
+  "cpu_peak_10k": 1.37688,
   "evt_s_per_node_extrap": null,
   "group": "S3",
-  "heap_peak": 6.1408,
+  "heap_peak": 6.76053,
   "held": false,
   "key": "s3_spark_def",
-  "label": "spark-rtm-s3",
-  "mem_mean": 9.11606,
-  "mem_mean_10k": 1.82321,
-  "mem_peak": 9.3765,
-  "mem_peak_10k": 1.8753,
-  "min_nodes": null,
-  "n": 3,
-  "name": "Spark RTM default (50 ms)",
-  "node_eq": 0.86664,
-  "p99_ms": 177729.18837,
-  "rate": 50000,
-  "s3_puts": 126.33333,
-  "state_mb": 313.52292,
-  "throttle_pct": 93.20125,
-  "usd_per_mev_extrap": null,
-  "usd_per_mev_used": 0.00156
- },
- "cost_s3_spark_vt": {
-  "ckpt_mb": 949.41828,
-  "cpu_mean": 5.82023,
-  "cpu_mean_10k": 1.16405,
-  "cpu_peak": 6.62272,
-  "cpu_peak_10k": 1.32454,
-  "evt_s_per_node_extrap": null,
-  "group": "S3",
-  "heap_peak": 5.86948,
-  "held": false,
-  "key": "s3_spark_vt",
-  "label": "spark-rtm-vt-s3",
-  "mem_mean": 9.25253,
-  "mem_mean_10k": 1.85051,
-  "mem_peak": 9.79955,
-  "mem_peak_10k": 1.95991,
+  "label": "spark-rtm-s3-at50k-1800s",
+  "mem_mean": 10.15462,
+  "mem_mean_10k": 2.03092,
+  "mem_peak": 11.10277,
+  "mem_peak_10k": 2.22055,
   "min_nodes": null,
   "n": 2,
-  "name": "Spark RTM vendor-tuned (n=2)",
-  "node_eq": 0.82784,
-  "p99_ms": 148667.57753,
+  "name": "Spark RTM default (50 ms)",
+  "node_eq": 0.86055,
+  "p99_ms": 813627.54271,
   "rate": 50000,
-  "s3_puts": 127,
-  "state_mb": 362.06141,
-  "throttle_pct": 94.0317,
+  "s3_puts": 183,
+  "s3_puts_per_h": 605.51471,
+  "throttle_pct": 96.39231,
   "usd_per_mev_extrap": null,
-  "usd_per_mev_used": 0.00155
+  "usd_per_mev_used": 0.00157
+ },
+ "cost_s3_spark_vt": {
+  "ckpt_mb": 7521.38273,
+  "ckpt_mb_per_h": 19873.01124,
+  "cpu_mean": 5.92395,
+  "cpu_mean_10k": 1.18479,
+  "cpu_peak": 6.82675,
+  "cpu_peak_10k": 1.36535,
+  "evt_s_per_node_extrap": null,
+  "group": "S3",
+  "heap_peak": 6.94922,
+  "held": false,
+  "key": "s3_spark_vt",
+  "label": "spark-rtm-vt-s3-at50k-1800s",
+  "mem_mean": 10.48782,
+  "mem_mean_10k": 2.09756,
+  "mem_peak": 11.55001,
+  "mem_peak_10k": 2.31,
+  "min_nodes": null,
+  "n": 2,
+  "name": "Spark RTM vendor-tuned",
+  "node_eq": 0.85334,
+  "p99_ms": 538535.29384,
+  "rate": 50000,
+  "s3_puts": 264.5,
+  "s3_puts_per_h": 698.86239,
+  "throttle_pct": 94.43629,
+  "usd_per_mev_extrap": null,
+  "usd_per_mev_used": 0.00158
  },
  "cost_sl_flink_ds": {
-  "ckpt_mb": 0.01007,
-  "cpu_mean": 1.14159,
-  "cpu_mean_10k": 0.11416,
-  "cpu_peak": 1.46937,
-  "cpu_peak_10k": 0.14694,
-  "evt_s_per_node_extrap": 544451.45808,
+  "ckpt_mb": 0.01009,
+  "ckpt_mb_per_h": 0.01952,
+  "cpu_mean": 1.05736,
+  "cpu_mean_10k": 0.10574,
+  "cpu_peak": 1.21073,
+  "cpu_peak_10k": 0.12107,
+  "evt_s_per_node_extrap": 660757.52295,
   "group": "stateless",
-  "heap_peak": 3.14275,
+  "heap_peak": 3.28038,
   "held": true,
   "key": "sl_flink_ds",
   "label": "flink-p6",
-  "mem_mean": 5.39678,
-  "mem_mean_10k": 0.53968,
-  "mem_peak": 5.51225,
-  "mem_peak_10k": 0.55122,
+  "mem_mean": 5.49647,
+  "mem_mean_10k": 0.54965,
+  "mem_peak": 5.58677,
+  "mem_peak_10k": 0.55868,
   "min_nodes": 1,
-  "n": 3,
+  "n": 2,
   "name": "Flink DataStream",
-  "node_eq": 0.18367,
-  "p99_ms": 38.74184,
+  "node_eq": 0.17459,
+  "p99_ms": 27.43893,
   "rate": 100000,
   "s3_puts": 1,
-  "state_mb": null,
-  "throttle_pct": 0.14857,
-  "usd_per_mev_extrap": 0.0002,
-  "usd_per_mev_used": 0.00015
+  "s3_puts_per_h": 1.93444,
+  "throttle_pct": 0.04253,
+  "usd_per_mev_extrap": 0.00016,
+  "usd_per_mev_used": 0.00014
  },
  "cost_sl_rtm_java": {
-  "ckpt_mb": 0.00773,
-  "cpu_mean": 1.74587,
-  "cpu_mean_10k": 0.17459,
-  "cpu_peak": 2.92616,
-  "cpu_peak_10k": 0.29262,
-  "evt_s_per_node_extrap": 273396.16685,
+  "ckpt_mb": 0.03903,
+  "ckpt_mb_per_h": 0.07549,
+  "cpu_mean": 1.74388,
+  "cpu_mean_10k": 0.17439,
+  "cpu_peak": 2.90365,
+  "cpu_peak_10k": 0.29037,
+  "evt_s_per_node_extrap": 275514.99065,
   "group": "stateless",
-  "heap_peak": 6.27029,
+  "heap_peak": 6.29113,
   "held": true,
   "key": "sl_rtm_java",
   "label": "spark-rtm-java-p6",
-  "mem_mean": 7.97174,
-  "mem_mean_10k": 0.79717,
-  "mem_peak": 8.03778,
-  "mem_peak_10k": 0.80378,
+  "mem_mean": 8.05348,
+  "mem_mean_10k": 0.80535,
+  "mem_peak": 8.15745,
+  "mem_peak_10k": 0.81574,
   "min_nodes": 1,
-  "n": 3,
+  "n": 2,
   "name": "Spark RTM Java",
-  "node_eq": 0.36577,
-  "p99_ms": 41.16207,
+  "node_eq": 0.36296,
+  "p99_ms": 30.25587,
   "rate": 100000,
-  "s3_puts": 18,
-  "state_mb": null,
+  "s3_puts": 67,
+  "s3_puts_per_h": 129.57293,
   "throttle_pct": null,
   "usd_per_mev_extrap": 0.00039,
   "usd_per_mev_used": 0.00023
@@ -657,87 +674,83 @@
   "settled_windows": 85863
  },
  "overrun_s1_spark_def": {
-  "max_s": 7.0,
-  "median_s": 6.0,
-  "n_batches": 13
+  "max_s": 9.0,
+  "median_s": 7.0,
+  "n_batches": 54
  },
  "overrun_s1_spark_vt": {
-  "max_s": 5.0,
+  "max_s": 6.0,
   "median_s": 4.0,
-  "n_batches": 12
+  "n_batches": 56
  },
  "overrun_s2_spark_def": {
   "max_s": 10.0,
-  "median_s": 7.5,
-  "n_batches": 12
+  "median_s": 7.0,
+  "n_batches": 53
  },
  "overrun_s2_spark_vt": {
-  "max_s": 7.0,
+  "max_s": 6.0,
   "median_s": 4.0,
-  "n_batches": 12
+  "n_batches": 56
  },
  "overrun_s3_spark_def": {
-  "max_s": 65.0,
-  "median_s": 63.0,
-  "n_batches": 3
+  "max_s": 242.0,
+  "median_s": 235.0,
+  "n_batches": 7
  },
  "res_s4_flink_0_GiB": [
-  5.6,
-  5.74
+  5.69,
+  5.78
  ],
  "res_s4_flink_0_cores": [
-  1.03,
-  1.22
+  1.05,
+  1.32
  ],
  "res_s4_flink_def_GiB": [
-  5.57,
-  5.7
+  5.7,
+  5.79
  ],
  "res_s4_flink_def_cores": [
-  1.07,
-  1.28
+  1.0,
+  1.25
  ],
  "res_s4_spark_GiB": [
-  9.85,
-  10.16
+  11.27,
+  12.12
  ],
  "res_s4_spark_cores": [
-  1.76,
-  2.29
+  1.71,
+  2.05
  ],
  "s1_flink_0": {
-  "n": 3,
+  "n": 2,
   "name": "Flink\ntuned (0 ms)",
-  "p50": 7.0,
-  "p99": 1522.4,
+  "p50": 6.9,
+  "p99": 1575.5,
   "per_run_p99": [
-   1504.0,
-   1479.1,
-   1586.2
+   1590.0,
+   1561.1
   ],
   "runs": [
-   "flink-ds-s1-update-r1",
-   "flink-ds-s1-update-r2",
-   "flink-ds-s1-update-r3"
+   "flink-ds-s1-update-at50k-1800s-r1",
+   "flink-ds-s1-update-at50k-1800s-r2"
   ],
-  "throughput_eps": 49603
+  "throughput_eps": 49600
  },
  "s1_flink_def": {
-  "n": 3,
+  "n": 2,
   "name": "Flink\ndefault (100 ms)",
-  "p50": 56.1,
-  "p99": 1572.9,
+  "p50": 55.3,
+  "p99": 1321.2,
   "per_run_p99": [
-   1588.8,
-   1449.7,
-   1689.5
+   1245.0,
+   1402.0
   ],
   "runs": [
-   "flink-ds-bt100-s1-update-r1",
-   "flink-ds-bt100-s1-update-r2",
-   "flink-ds-bt100-s1-update-r3"
+   "flink-ds-bt100-s1-update-at50k-1800s-r1",
+   "flink-ds-bt100-s1-update-at50k-1800s-r2"
   ],
-  "throughput_eps": 49598
+  "throughput_eps": 49600
  },
  "s1_spark_1ms": {
   "n": 3,
@@ -757,72 +770,64 @@
   "throughput_eps": 50531
  },
  "s1_spark_def": {
-  "n": 3,
+  "n": 2,
   "name": "Spark RTM\ndefault (50 ms)",
-  "p50": 40.9,
-  "p99": 7022.1,
+  "p50": 40.4,
+  "p99": 7480.5,
   "per_run_p99": [
-   7289.0,
-   6886.1,
-   6898.5
+   7263.7,
+   7703.8
   ],
   "runs": [
-   "spark-rtm-s1-r1",
-   "spark-rtm-s1-r2",
-   "spark-rtm-s1-r3"
+   "spark-rtm-s1-at50k-1800s-r1",
+   "spark-rtm-s1-at50k-1800s-r2"
   ],
-  "throughput_eps": 49825
+  "throughput_eps": 49581
  },
  "s1_spark_vt": {
-  "n": 3,
+  "n": 2,
   "name": "Spark RTM\nvendor-tuned",
-  "p50": 13.7,
-  "p99": 4563.0,
+  "p50": 13.4,
+  "p99": 4454.0,
   "per_run_p99": [
-   4791.8,
-   4416.8,
-   4489.2
+   4301.0,
+   4612.5
   ],
   "runs": [
-   "spark-rtm-vt-s1-r1",
-   "spark-rtm-vt-s1-r2",
-   "spark-rtm-vt-s1-r3"
+   "spark-rtm-vt-s1-at50k-1800s-r1",
+   "spark-rtm-vt-s1-at50k-1800s-r2"
   ],
-  "throughput_eps": 50017
+  "throughput_eps": 49614
  },
  "s2_flink_0": {
-  "n": 3,
+  "n": 2,
   "name": "Flink\ntuned (0 ms)",
   "p50": 7.0,
-  "p99": 1798.1,
+  "p99": 1706.2,
   "per_run_p99": [
-   1786.4,
-   1805.9,
-   1802.0
+   1697.2,
+   1715.4
   ],
   "runs": [
-   "flink-ds-s2-et-r1",
-   "flink-ds-s2-et-r2",
-   "flink-ds-s2-et-r3"
+   "flink-ds-s2-et-at50k-1800s-r1",
+   "flink-ds-s2-et-at50k-1800s-r2"
   ],
-  "throughput_eps": 49602
+  "throughput_eps": 49600
  },
  "s2_flink_def": {
-  "n": 3,
+  "n": 2,
   "name": "Flink\ndefault (100 ms)",
-  "p50": 54.5,
-  "p99": 1723.8,
+  "p50": 54.6,
+  "p99": 1669.8,
   "per_run_p99": [
-   1769.1,
-   1717.9,
-   1685.4
+   1702.6,
+   1637.6
   ],
   "runs": [
-   "flink-ds-bt100-s2-et-r1",
-   "flink-ds-bt100-s2-et-r2",
-   "flink-ds-bt100-s2-et-r3"
+   "flink-ds-bt100-s2-et-at50k-1800s-r1",
+   "flink-ds-bt100-s2-et-at50k-1800s-r2"
   ],
-  "throughput_eps": 49602
+  "throughput_eps": 49600
  },
  "s2_flink_ttl5_0": {
   "n": 3,
@@ -876,70 +881,64 @@
   "throughput_eps": 50645
  },
  "s2_spark_def": {
-  "n": 3,
+  "n": 2,
   "name": "Spark RTM\ndefault (50 ms)",
-  "p50": 38.8,
-  "p99": 8487.3,
+  "p50": 39.1,
+  "p99": 7693.2,
   "per_run_p99": [
-   9325.3,
-   8193.0,
-   8002.1
+   7711.8,
+   7674.7
   ],
   "runs": [
-   "spark-rtm-s2-r1",
-   "spark-rtm-s2-r2",
-   "spark-rtm-s2-r3"
+   "spark-rtm-s2-at50k-1800s-r1",
+   "spark-rtm-s2-at50k-1800s-r2"
   ],
   "throughput_eps": 49600
  },
  "s2_spark_vt": {
-  "n": 3,
+  "n": 2,
   "name": "Spark RTM\nvendor-tuned",
   "p50": 13.1,
-  "p99": 4965.1,
+  "p99": 4333.9,
   "per_run_p99": [
-   4835.3,
-   4931.0,
-   5133.8
+   4311.7,
+   4356.3
   ],
   "runs": [
-   "spark-rtm-vt-s2-r1",
-   "spark-rtm-vt-s2-r2",
-   "spark-rtm-vt-s2-r3"
+   "spark-rtm-vt-s2-at50k-1800s-r1",
+   "spark-rtm-vt-s2-at50k-1800s-r2"
   ],
-  "throughput_eps": 49602
+  "throughput_eps": 49600
  },
  "s3_flink_0": {
   "n": 2,
-  "name": "Flink\ntuned (0 ms)\n(n=2)",
-  "p50": 9.0,
-  "p99": 4639.3,
+  "name": "Flink\ntuned (0 ms)",
+  "p50": 8.3,
+  "p99": 4280.6,
   "per_run_p99": [
-   4685.5,
-   4593.6
+   4269.5,
+   4291.8
   ],
   "runs": [
-   "flink-ds-s3-r1",
-   "flink-ds-s3-r2"
+   "flink-ds-s3-at50k-1800s-r1",
+   "flink-ds-s3-at50k-1800s-r2"
   ],
-  "throughput_eps": 39069
+  "throughput_eps": 39049
  },
  "s3_flink_def": {
-  "n": 3,
+  "n": 2,
   "name": "Flink\ndefault (100 ms)",
-  "p50": 71.5,
-  "p99": 4611.5,
+  "p50": 68.7,
+  "p99": 4186.8,
   "per_run_p99": [
-   4643.6,
-   4551.9,
-   4639.5
+   4169.9,
+   4203.7
   ],
   "runs": [
-   "flink-ds-bt100-s3-r1",
-   "flink-ds-bt100-s3-r2",
-   "flink-ds-bt100-s3-r3"
+   "flink-ds-bt100-s3-at50k-1800s-r1",
+   "flink-ds-bt100-s3-at50k-1800s-r2"
   ],
-  "throughput_eps": 39134
+  "throughput_eps": 39121
  },
  "s3_spark_1ms": {
   "n": 3,
@@ -959,88 +958,121 @@
   "throughput_eps": 21695
  },
  "s3_spark_def": {
-  "n": 3,
+  "n": 2,
   "name": "Spark RTM\ndefault (50 ms)",
-  "p50": 119709.1,
-  "p99": 177729.2,
+  "p50": 443102.2,
+  "p99": 813627.5,
   "per_run_p99": [
-   180176.4,
-   176607.5,
-   176428.6
+   813448.1,
+   813807.0
   ],
   "runs": [
-   "spark-rtm-s3-r1",
-   "spark-rtm-s3-r2",
-   "spark-rtm-s3-r3"
+   "spark-rtm-s3-at50k-1800s-r1",
+   "spark-rtm-s3-at50k-1800s-r2"
   ],
-  "throughput_eps": 21996
+  "throughput_eps": 23721
  },
  "s3_spark_vt": {
   "n": 2,
-  "name": "Spark RTM\nvendor-tuned\n(n=2)",
-  "p50": 90701.7,
-  "p99": 148667.6,
+  "name": "Spark RTM\nvendor-tuned",
+  "p50": 299792.8,
+  "p99": 538535.3,
   "per_run_p99": [
-   150171.2,
-   147179.0
+   554101.3,
+   523406.6
   ],
   "runs": [
-   "spark-rtm-vt-s3-r1",
-   "spark-rtm-vt-s3-r2"
+   "spark-rtm-vt-s3-at50k-1800s-r1",
+   "spark-rtm-vt-s3-at50k-1800s-r2"
   ],
-  "throughput_eps": 26165
+  "throughput_eps": 29657
+ },
+ "s3rate_s3_flink_0": {
+  "backlog_s_per_min": -0.0,
+  "eps": 39049
+ },
+ "s3rate_s3_flink_def": {
+  "backlog_s_per_min": -0.0,
+  "eps": 39121
+ },
+ "s3rate_s3_spark_1ms": {
+  "backlog_s_per_min": 31.5,
+  "eps": 21695
+ },
+ "s3rate_s3_spark_def": {
+  "backlog_s_per_min": 26.2,
+  "eps": 23721
+ },
+ "s3rate_s3_spark_vt": {
+  "backlog_s_per_min": 16.7,
+  "eps": 29657
  },
  "s4_flink_0": {
-  "n": 3,
+  "n": 2,
   "name": "Flink map\n0 ms",
-  "p50": 6.5,
-  "p99": 30.5,
+  "p50": 6.4,
+  "p99": 20.3,
   "per_run_p99": [
-   37.0,
-   44.0,
-   17.5
+   20.5,
+   20.0
   ],
   "runs": [
-   "flink-ds-s4-r1",
-   "flink-ds-s4-r2",
-   "flink-ds-s4-r3"
+   "flink-ds-s4-at50k-1800s-r1",
+   "flink-ds-s4-at50k-1800s-r2"
   ],
-  "throughput_eps": 48610
+  "throughput_eps": 48608
  },
  "s4_flink_def": {
-  "n": 3,
+  "n": 2,
   "name": "Flink map\n100 ms",
-  "p50": 6.5,
-  "p99": 21.5,
+  "p50": 6.4,
+  "p99": 18.1,
   "per_run_p99": [
-   21.9,
-   27.3,
-   16.7
+   17.0,
+   19.2
   ],
   "runs": [
-   "flink-ds-bt100-s4-r1",
-   "flink-ds-bt100-s4-r2",
-   "flink-ds-bt100-s4-r3"
+   "flink-ds-bt100-s4-at50k-1800s-r1",
+   "flink-ds-bt100-s4-at50k-1800s-r2"
   ],
-  "throughput_eps": 48609
+  "throughput_eps": 48608
  },
  "s4_spark": {
-  "n": 3,
+  "n": 2,
   "name": "Spark RTM\nbroadcast join",
-  "p50": 6.7,
-  "p99": 390.0,
+  "p50": 6.6,
+  "p99": 274.7,
   "per_run_p99": [
-   404.7,
-   448.6,
-   326.8
+   299.2,
+   252.1
   ],
   "runs": [
-   "spark-rtm-s4-r1",
-   "spark-rtm-s4-r2",
-   "spark-rtm-s4-r3"
+   "spark-rtm-s4-at50k-1800s-r1",
+   "spark-rtm-s4-at50k-1800s-r2"
   ],
-  "throughput_eps": 48560
+  "throughput_eps": 48608
  },
+ "s4_spark_vt": {
+  "n": 2,
+  "name": "Spark RTM\nvendor-tuned",
+  "p50": 6.7,
+  "p99": 286.9,
+  "per_run_p99": [
+   295.6,
+   278.5
+  ],
+  "runs": [
+   "spark-rtm-vt-s4-at50k-1800s-r1",
+   "spark-rtm-vt-s4-at50k-1800s-r2"
+  ],
+  "throughput_eps": 48607
+ },
+ "s4_spark_vt_res": [
+  1.6890352635135621,
+  2.041058787698413,
+  11.338175892300075,
+  12.26687240600586
+ ],
  "s5_flink_0": {
   "n": 2,
   "name": "Flink intervalJoin\n0 ms",
@@ -1218,104 +1250,92 @@
   ]
  },
  "sl_flink_ds": {
-  "n": 3,
+  "n": 2,
   "name": "Flink DataStream",
-  "p50": 6.2,
-  "p99": 38.7,
+  "p50": 6.1,
+  "p99": 27.4,
   "per_run_p99": [
-   36.0,
-   51.9,
-   31.1
+   32.9,
+   22.9
   ],
   "runs": [
    "flink-p6-r1",
-   "flink-p6-r2",
-   "flink-p6-r3"
-  ],
-  "throughput_eps": 33321
- },
- "sl_flink_sql": {
-  "n": 3,
-  "name": "Flink SQL\n(session B)",
-  "p50": 6.1,
-  "p99": 27.3,
-  "per_run_p99": [
-   27.0,
-   26.1,
-   28.8
-  ],
-  "runs": [
-   "flink-sql-p6-r1",
-   "flink-sql-p6-r2",
-   "flink-sql-p6-r3"
+   "flink-p6-r2"
   ],
   "throughput_eps": 33334
  },
- "sl_pyflink": {
-  "n": 3,
-  "name": "PyFlink (p=6)",
-  "p50": 8.7,
-  "p99": 44.0,
+ "sl_flink_sql": {
+  "n": 2,
+  "name": "Flink SQL",
+  "p50": 6.2,
+  "p99": 26.1,
   "per_run_p99": [
-   41.6,
-   55.7,
-   36.9
+   26.7,
+   25.5
+  ],
+  "runs": [
+   "flink-sql-p6-r1",
+   "flink-sql-p6-r2"
+  ],
+  "throughput_eps": 33332
+ },
+ "sl_pyflink": {
+  "n": 2,
+  "name": "PyFlink (p=6)",
+  "p50": 8.6,
+  "p99": 30.7,
+  "per_run_p99": [
+   31.4,
+   29.9
   ],
   "runs": [
    "pyflink-p6-r1",
-   "pyflink-p6-r2",
-   "pyflink-p6-r3"
+   "pyflink-p6-r2"
   ],
   "throughput_eps": 33337
  },
  "sl_pyspark": {
-  "n": 3,
+  "n": 2,
   "name": "PySpark RTM",
-  "p50": 6.4,
-  "p99": 44.1,
+  "p50": 6.3,
+  "p99": 30.1,
   "per_run_p99": [
-   66.5,
-   39.0,
-   33.1
+   34.0,
+   26.6
   ],
   "runs": [
    "pyspark-rtm-p6-r1",
-   "pyspark-rtm-p6-r2",
-   "pyspark-rtm-p6-r3"
+   "pyspark-rtm-p6-r2"
   ],
-  "throughput_eps": 33335
+  "throughput_eps": 33329
  },
  "sl_rtm_java": {
-  "n": 3,
+  "n": 2,
   "name": "Spark RTM Java",
   "p50": 6.3,
-  "p99": 41.2,
+  "p99": 30.3,
   "per_run_p99": [
-   43.4,
-   39.9,
-   40.3
+   30.3,
+   30.2
   ],
   "runs": [
    "spark-rtm-java-p6-r1",
-   "spark-rtm-java-p6-r2",
-   "spark-rtm-java-p6-r3"
+   "spark-rtm-java-p6-r2"
   ],
-  "throughput_eps": 33340
+  "throughput_eps": 33333
  },
  "sl_rtm_scala": {
-  "n": 3,
+  "n": 2,
   "name": "Spark RTM Scala",
   "p50": 6.3,
-  "p99": 49.9,
+  "p99": 27.7,
   "per_run_p99": [
-   42.4,
-   40.1,
-   72.9
+   27.1,
+   28.3
   ],
   "runs": [
    "spark-rtm-scala-p6-r1",
-   "spark-rtm-scala-p6-r2",
-   "spark-rtm-scala-p6-r3"
+   "spark-rtm-scala-p6-r2"
   ],
   "throughput_eps": 33332
  },

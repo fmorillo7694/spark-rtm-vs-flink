@@ -71,7 +71,7 @@ SL_RATE="${SL_RATE:-12500}"; SL_MIN_KEPT="${SL_MIN_KEPT:-9900000}"; TRUTH_SAMPLE
 # Session C joins: S4 reference rows; S5 orders per pod (3400 x 8 = 27.2k orders/s + ~23k
 # payments/s = ~50k input records/s across both topics, the S1-S3 base rate)
 REF_ROWS="${REF_ROWS:-1000000}"; S5_RATE="${S5_RATE:-3400}"
-BUDGET_S="${BUDGET_S:-45000}"; RUN_EST_S="${RUN_EST_S:-$((RUN_SECONDS + WARMUP + 420))}"
+BUDGET_S="${BUDGET_S:-45000}"; RUN_EST_S="${RUN_EST_S:-$((RUN_SECONDS + WARMUP + 420))}"   # final run A: 1260 (a 45-min Spark S3 run fits)
 MAX_ATTEMPTS="${MAX_ATTEMPTS:-2}"; MAX_CONSEC_FAILS="${MAX_CONSEC_FAILS:-3}"; MIN_KEPT="${MIN_KEPT:-1000}"
 # Session B pins engine pods to the tainted engine nodes; session A ran with shared nodes.
 if [ "${PLAN_SET:-B}" = A ]; then ENGINE_NODES="${ENGINE_NODES:-shared}"; else ENGINE_NODES="${ENGINE_NODES:-dedicated}"; fi
@@ -223,10 +223,25 @@ plan_fb() {  # cluster B: S1 and S3 2x2 + vendor (10), S5 at 1000/pod (4), S1 re
     for a in spark-rtm:s1 flink-ds:s1-update; do echo "$a:$i:kill=180"; done
   done
 }
+plan_f30() {  # final run option A (FINAL30_PLAN.md): one workload's 2x2 + 3 stateless runs per cluster
+  # $1 stateful workload (Spark name) $2 Flink workload name $3 run index of the stateless runs
+  # $4 $5 $6 the three stateless engines. Stateful at the base 50k (rate=6250 per pod), stateless at
+  # SL_RATE 100k, all 30 min measured. Round 1 then round 2, Spark and Flink alternating, one
+  # stateless run after every two stateful runs.
+  local s=$1 f=$2 r=$3 k="secs=1800"
+  echo "spark-rtm:$s:1:$k"; echo "flink-ds-bt100:$f:1:$k"; echo "sl-$4:p6:$r:$k"
+  echo "spark-rtm-vt:$s:1:$k"; echo "flink-ds:$f:1:$k"; echo "sl-$5:p6:$r:$k"
+  echo "spark-rtm:$s:2:$k"; echo "flink-ds-bt100:$f:2:$k"; echo "sl-$6:p6:$r:$k"
+  echo "spark-rtm-vt:$s:2:$k"; echo "flink-ds:$f:2:$k"
+}
+plan_f30a() { plan_f30 s1 s1-update 1 spark-rtm-java flink pyspark-rtm; }
+plan_f30b() { plan_f30 s2 s2-et 1 spark-rtm-scala flink-sql pyflink; }
+plan_f30c() { plan_f30 s3 s3 2 spark-rtm-java flink pyspark-rtm; }
+plan_f30d() { plan_f30 s4 s4 2 spark-rtm-scala flink-sql pyflink; }
 if [ -n "${PLAN:-}" ]; then read -r -a ITEMS <<<"$PLAN"
 else
   ITEMS=()
-  while IFS= read -r it; do ITEMS+=("$it"); done < <(case "${PLAN_SET:-B}" in (A) plan_a ;; (C) plan_c ;; (D) plan_d ;; (D2) plan_d2 ;; (FA) plan_fa ;; (FB) plan_fb ;; (*) plan_b ;; esac)
+  while IFS= read -r it; do ITEMS+=("$it"); done < <(case "${PLAN_SET:-B}" in (A) plan_a ;; (C) plan_c ;; (D) plan_d ;; (D2) plan_d2 ;; (FA) plan_fa ;; (FB) plan_fb ;; (F30A) plan_f30a ;; (F30B) plan_f30b ;; (F30C) plan_f30c ;; (F30D) plan_f30d ;; (*) plan_b ;; esac)
 fi
 
 parse_item() {  # item -> sets E WL RUN_I RUN_RATE RUN_CKPT_S RUN_KEYS RUN_HOT RUN_KILL RUN_TRUTH LABEL
@@ -252,7 +267,9 @@ parse_item() {  # item -> sets E WL RUN_I RUN_RATE RUN_CKPT_S RUN_KEYS RUN_HOT R
   done
   # per-run load length (the consumer measures RUN_SECS after WARMUP; producers run 20 s longer)
   CONSUMER_SECONDS=$((WARMUP + RUN_SECS)); PRODUCER_SECONDS=$((CONSUMER_SECONDS + 20))
-  [ "$RUN_RATE" != "$base_rate" ] && [ "${E#sl-}" = "$E" ] && sfx="$sfx-at$((RUN_RATE * PRODPODS / 1000))k"
+  # final run option A labels every stateful cell with its rate, base rate included (-at50k-1800s)
+  { [ "$RUN_RATE" != "$base_rate" ] || [ "${PLAN_SET#F30}" != "${PLAN_SET:-}" ]; } && [ "${E#sl-}" = "$E" ] \
+    && sfx="$sfx-at$((RUN_RATE * PRODPODS / 1000))k"
   [ "$RUN_CKPT_S" != "$CKPT_S" ] && sfx="$sfx-ckpt${RUN_CKPT_S}s"
   [ "$RUN_KEYS" != "$KEYS" ] && sfx="$sfx-keys$((RUN_KEYS / 1000000))m"
   [ "$RUN_HOT" != "$HOT" ] && sfx="$sfx-hot$(awk "BEGIN{printf \"%d\", $RUN_HOT * 100}")"
@@ -402,9 +419,24 @@ for ng in sys.argv[2:]:
     print(f"    scaled {cluster}/{ng} from desired {sc['desiredSize']} to 0", flush=True)
 PY
 }
-FINAL=0   # set at MATRIX DONE / STOPPED and on SIGTERM (activeDeadline); a crash restarts instead
+FINAL=0   # set at MATRIX DONE / STOPPED, and by on_term at the budget end or on a stop marker
+STOP_MARKER="${STOP_MARKER:-stateful-runner-stop}"
+stop_requested() {  # explicit stop: the operator creates ConfigMap kafka/$STOP_MARKER, then deletes the Job
+  [ "$DRY_RUN" = 1 ] && return 1
+  kubectl --request-timeout=20s -n kafka get configmap "$STOP_MARKER" >/dev/null 2>&1
+}
+on_term() {  # SIGTERM/INT: tear down ONLY at the budget end (activeDeadlineSeconds) or on an
+  # explicit stop. Any other TERM (Job deleted to change the budget, node drain, eviction) exits
+  # without teardown: the Job restarts the pod, and runs already in S3 are skipped.
+  if [ "$(elapsed)" -ge "$BUDGET_S" ] || stop_requested; then
+    FINAL=1; log "TERM at the budget end or with the stop marker: self-teardown follows"
+  else
+    log "TERM before the budget end and no stop marker: exiting WITHOUT teardown"
+  fi
+  exit 143
+}
 trap 'log "exit: cleaning up"; cleanup; [ "$FINAL" = 1 ] && self_teardown' EXIT
-trap 'FINAL=1; exit 143' TERM INT
+trap on_term TERM INT
 
 fresh_topics() {  # topics-file topic... : delete, wait until gone from the broker, re-apply
   local f=$1; shift
@@ -858,10 +890,12 @@ one_run() {  # stateful run (E WL LABEL + RUN_* set by parse_item) -> 0 ok
     cp "$MANIFESTS/hpa-reactive.yaml" "$d/hpa-reactive.yaml"
   fi
   # A stepped run keeps ~190M latencies (~4.5 GB peak with the float64 percentile copies), over
-  # the 4Gi consumer limit of the 5-min runs.
+  # the 4Gi consumer limit of the 5-min runs; a 30-min run at 50k keeps ~90M (~2.6 GB peak), so
+  # long windows (>= 1200 s) get the same headroom.
   local -a mem=()
-  [ -n "$RUN_STEPS" ] && mem=(-e "s#requests: { cpu: \"2\", memory: 2Gi }#requests: { cpu: \"2\", memory: 6Gi }#" \
-                              -e "s#limits:   { cpu: \"2\", memory: 4Gi }#limits:   { cpu: \"2\", memory: 10Gi }#")
+  { [ -n "$RUN_STEPS" ] || [ "$RUN_SECS" -ge 1200 ]; } \
+    && mem=(-e "s#requests: { cpu: \"2\", memory: 2Gi }#requests: { cpu: \"2\", memory: 6Gi }#" \
+            -e "s#limits:   { cpu: \"2\", memory: 4Gi }#limits:   { cpu: \"2\", memory: 10Gi }#")
   render load.yaml "$label" "$wl" "$ck" -e "s#__ISOLATION__#$iso#g" ${mem[@]+"${mem[@]}"} >"$WORK/rendered/$label-load.yaml"
   [ "$DRY_RUN" = 1 ] && validate_yaml "$WORK/rendered/$label-load.yaml"
   kc create -f "$WORK/rendered/$label-load.yaml" >/dev/null || return 1
@@ -914,7 +948,16 @@ one_run_sl() {  # stateless p6 run, eks/04b_run_p6.sh steps, in-cluster -> 0 ok
   # dedicated: the engine is pinned, the load pods stay unpinned on bench-ng (place() would pin
   # the Job's pod template to the engine nodes)
   local lmode=$SL_NODES; [ "$lmode" = dedicated ] && lmode=shared
-  render_sl p6-load.yaml "$label" "$STATELESS_TAG" "$sfx" | place "$lmode" >"$WORK/rendered/$label-load.yaml"
+  # Long windows (>= 1200 s, final run option A): the published v43 consumer keeps every latency
+  # in Python lists and writes a raw CSV of every record, which a 30-min run at ~33k out/s turns
+  # into ~60M records (OOM at 2Gi, ~5 GB of CSV). Only the CONSUMER switches to this run's load
+  # image (float32 arrays, --no-raw) with 6/10Gi; producers and engines stay on STATELESS_TAG.
+  local -a lcons=()
+  [ "$RUN_SECS" -ge 1200 ] && lcons=(-e "/name: latency-consumer/,/^---/ s#rtm-bench/load:$STATELESS_TAG\"#rtm-bench/load:$TAG\"#" \
+    -e 's#"--outdir", "/tmp", "--hist"\]#"--outdir", "/tmp", "--hist", "--no-raw"]#' \
+    -e 's#requests: { cpu: "1", memory: 1Gi }#requests: { cpu: "1", memory: 6Gi }#' \
+    -e 's#limits:   { cpu: "2", memory: 2Gi }#limits:   { cpu: "2", memory: 10Gi }#')
+  render_sl p6-load.yaml "$label" "$STATELESS_TAG" "$sfx" ${lcons[@]+"${lcons[@]}"} | place "$lmode" >"$WORK/rendered/$label-load.yaml"
   [ "$DRY_RUN" = 1 ] && validate_yaml "$WORK/rendered/$label-load.yaml"
   kc create -f "$WORK/rendered/$label-load.yaml" >/dev/null || return 1
   local top="" meas=""

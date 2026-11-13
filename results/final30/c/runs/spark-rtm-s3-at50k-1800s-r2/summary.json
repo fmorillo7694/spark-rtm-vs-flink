@@ -1,0 +1,27 @@
+{
+  "engine": "spark-rtm-s3-at50k-1800s-r2",
+  "topic": "st-output",
+  "kept_records": 42128437,
+  "seen_records": 42976975,
+  "window_seconds": 1800,
+  "warmup_seconds": 60,
+  "throughput_eps": 23404.7,
+  "started_at": 1794496628.459,
+  "ended_at": 1794498488.522,
+  "pipeline_ms": {
+    "count": 42128437,
+    "p50": 456383.469,
+    "p95": 784482.188,
+    "p99": 813807.0,
+    "max": 850616.0,
+    "mean": 442306.017
+  },
+  "e2e_ms": {
+    "count": 42128437,
+    "p50": 456427.625,
+    "p95": 784518.012,
+    "p99": 813843.728,
+    "max": 850704.812,
+    "mean": 442342.441
+  }
+}

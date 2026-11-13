@@ -1,0 +1,16 @@
+--- self-teardown preflight rtm-flink-bench7a 2026-11-12T11:08:11Z (before matrix Job; SELF_TEARDOWN=1 in launch cmd)
+IAM: rtm-flink-ckpt-s3	rtm-flink-bench7a-runner-scale-down
+simulate engine-ng: allowed	allowed
+simulate bench-ng: allowed	allowed
+stop marker present: no
+can-i delete kafkas.kafka.strimzi.io -n kafka: yes
+can-i delete kafkanodepools.kafka.strimzi.io -n kafka: yes
+can-i delete persistentvolumeclaims -n kafka: yes
+can-i list persistentvolumes: Warning: resource 'persistentvolumes' is not namespace scoped
+
+yes
+can-i get nodes/proxy: Warning: resource 'nodes' is not namespace scoped
+
+yes
+can-i get configmap/stateful-runner-stop -n kafka: yes
+runner_start 2026-11-12T11:09:24Z

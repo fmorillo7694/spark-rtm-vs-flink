@@ -10,7 +10,7 @@ cd "$(dirname "$0")/../.."
 export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
 PY="$PWD/.venv/bin/python"
 S=eks/stateful
-SCRIPTS="$S/run_matrix_incluster.sh $S/deploy_runner.sh $S/check.sh $S/assemble_manifests.sh $S/arm_deadline.sh $S/install_cluster_autoscaler.sh"
+SCRIPTS="$S/run_matrix_incluster.sh $S/deploy_runner.sh $S/check.sh $S/assemble_manifests.sh $S/arm_deadline.sh $S/install_cluster_autoscaler.sh $S/preflight_runner.sh $S/verify_s3_results.sh $S/wrapup_cluster.sh"
 for f in $SCRIPTS; do bash -n "$f"; done
 echo "bash -n ok"
 if command -v shellcheck >/dev/null; then
@@ -23,7 +23,7 @@ fi
 T="$(mktemp -d)"; trap 'rm -rf "$T"' EXIT
 sed -e "s#__REGISTRY__#123.dkr.ecr.us-east-1.amazonaws.com#g" -e "s#__TAG__#v1#g" -e "s#__ACCOUNT__#123#g" \
     -e "s#__RUNNER_ROLE_ARN__#arn:aws:iam::123:role/x#g" -e "s#__BUDGET_S__#21600#g" \
-    -e "s#__DEADLINE_S__#23400#g" -e "s#__PLAN__##g" -e "s#__RUNS__#2#g" -e "s#__START_EPOCH__#1#g" -e "s#__S3_PREFIX__#stateful/test#g" -e "s#__SELF_TEARDOWN__#1#g" \
+    -e "s#__DEADLINE_S__#23400#g" -e "s#__PLAN__##g" -e "s#__RUNS__#2#g" -e "s#__START_EPOCH__#1#g" -e "s#__S3_PREFIX__#stateful/test#g" -e "s#__SELF_TEARDOWN__#1#g" -e "s#__RUN_EST_S__#780#g" \
     -e "s#__PLAN_SET__#B#g" -e "s#__STATELESS_TAG__#v43#g" -e "s#__CLUSTER__#rtm-flink-bench4#g" \
     $S/runner-job.yaml >"$T/runner-job.yaml"
 "$PY" - "$T/runner-job.yaml" <<'PY'
@@ -43,7 +43,7 @@ echo "configmap payload: $(cat "$T"/m/* | wc -c | tr -d ' ') bytes"
 # DRY runs of every plan set (B = session B default, A = session A reproduction, C = session C
 # joins, D/D2 = scaling, FA/FB = the final lean run's two clusters). Each renders and validates every manifest; the PLAN lines show per-run estimates and
 # what BUDGET_S would cut.
-for ps in B A C D D2 FA FB; do
+for ps in B A C D D2 FA FB F30A F30B F30C F30D; do
   echo "===== DRY_RUN PLAN_SET=$ps"
   DRY_RUN=1 PY="$PY" MANIFESTS="$T/m" WORK="$T/work-$ps" PLAN_SET=$ps RUNS=2 STATELESS_TAG=v43 SELF_TEARDOWN=1 \
     bash $S/run_matrix_incluster.sh 2>"$T/dry-$ps.err" >"$T/dry-$ps.out" || true
@@ -106,6 +106,20 @@ print("placement ok: " + ", ".join(f"{k[0]} {k[1]}={v}" for k, v in sorted(n.ite
 PY
 done
 [ -n "${PLAN_OUT:-}" ] && cp "$T/plan-B.txt" "$PLAN_OUT"
+# The SIGTERM rule (on_term): teardown only at the budget end or with the stop marker, never on a
+# plain TERM before the budget (Job deleted to relaunch, node drain, eviction). Runs the runner's
+# own on_term with stubbed clock and marker in a subshell per case.
+fn=$(sed -n '/^on_term() {/,/^}/p' $S/run_matrix_incluster.sh)
+[ -n "$fn" ] || { echo "on_term not found"; exit 1; }
+term_case() {  # elapsed budget marker(0/1) -> prints FINAL after on_term
+  # shellcheck disable=SC2034  # BUDGET_S and FINAL are read by the eval'd on_term
+  ( T_ELAPSED=$1; BUDGET_S=$2; log() { :; }; elapsed() { echo "$T_ELAPSED"; }
+    if [ "$3" = 1 ]; then stop_requested() { return 0; }; else stop_requested() { return 1; }; fi
+    FINAL=0; trap 'echo "$FINAL"' EXIT; eval "$fn"; on_term ) 2>/dev/null || true   # on_term exits 143
+}
+r1=$(term_case 100 1000 0); r2=$(term_case 1000 1000 0); r3=$(term_case 100 1000 1)
+[ "$r1$r2$r3" = 011 ] && echo "on_term ok: before budget -> no teardown, budget end -> teardown, stop marker -> teardown" \
+  || { echo "on_term FAILED: got $r1$r2$r3, want 011"; exit 1; }
 [ -n "${PLAN_OUT_C:-}" ] && cp "$T/plan-C.txt" "$PLAN_OUT_C"
 # Deadline schedules (EventBridge Scheduler): render the arm calls without credentials.
 DRY_RUN=1 DEADLINE_IN_S=21600 bash $S/arm_deadline.sh arm 2>/dev/null | sed 's/^/deadline: /'

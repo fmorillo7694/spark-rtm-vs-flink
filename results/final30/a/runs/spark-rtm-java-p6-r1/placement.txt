@@ -1,0 +1,19 @@
+spark ip-192-168-108-13.ec2.internal rtm-bench-driver
+spark ip-192-168-76-2.ec2.internal rtm-bench-java-rtm-9e5b17a1cfb3c6a5-exec-1
+spark ip-192-168-108-13.ec2.internal rtm-bench-java-rtm-9e5b17a1cfb3c6a5-exec-2
+kafka ip-192-168-105-231.ec2.internal bench-brokers-0
+kafka ip-192-168-70-232.ec2.internal bench-brokers-1
+kafka ip-192-168-96-219.ec2.internal bench-brokers-2
+kafka ip-192-168-94-72.ec2.internal bench-entity-operator-786975569f-r2mdq
+kafka ip-192-168-94-72.ec2.internal latency-consumer-rqkzb
+kafka ip-192-168-70-232.ec2.internal producer-0-fw25g
+kafka ip-192-168-96-219.ec2.internal producer-1-zrgdw
+kafka ip-192-168-105-231.ec2.internal producer-2-9bt2f
+kafka ip-192-168-70-232.ec2.internal producer-3-6tjc2
+kafka ip-192-168-94-72.ec2.internal producer-4-2qsnf
+kafka ip-192-168-96-219.ec2.internal producer-5-wv2kg
+kafka ip-192-168-105-231.ec2.internal producer-6-6n74s
+kafka ip-192-168-94-72.ec2.internal producer-7-hq5tq
+kafka ip-192-168-94-72.ec2.internal stateful-runner-cnxfb
+kafka ip-192-168-94-72.ec2.internal strimzi-cluster-operator-8455547d9f-lnbdj
+engine_nodes=dedicated shared_with_kafka_ns=[]

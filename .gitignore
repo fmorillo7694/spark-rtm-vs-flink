@@ -62,3 +62,7 @@ results/eks-session-d2/**/maxcnt.json
 results/final-run/**/cadvisor.jsonl
 results/final-run/**/truth.jsonl
 results/final-run/**/maxcnt.json
+# final run option A (30 min): raw sampler / truth files stay in S3 (s3://rtm-flink-bench-ckpt-<acct>/final30/{a,b,c,d}/)
+results/final30/**/cadvisor.jsonl
+results/final30/**/truth.jsonl
+results/final30/**/maxcnt.json

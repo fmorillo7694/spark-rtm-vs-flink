@@ -22,16 +22,6 @@ cluster at ~100k events/sec.
 
 ![RTM vs micro-batch](docs/charts/01_rtm_vs_microbatch.png)
 
-> **Identifiers in results and logs.** AWS account and resource IDs in `results/`, logs and
-> docs are replaced by placeholders (`<ACCOUNT_ID>`, `<BUCKET>`, `<VPC_ID>`, `<SUBNET_ID>`,
-> `<NAT_ID>`, `<VPCE_ID>`, `<EIP>`, `<VOLUME_ID>`, `<ENI_ID>`, `<WORKDIR>`). The scripts derive
-> the account from `aws sts get-caller-identity` and default the checkpoint bucket to
-> `rtm-flink-bench-ckpt-<account>` (the job manifests assume that name; `eks/02b_irsa_s3.sh`
-> accepts `BENCH_BUCKET`). Network IDs come from your
-> copy of `eks/cluster.yaml` saved as the gitignored `eks/cluster.local.yaml`. The earlier
-> commits of `main` were rewritten the same way (`<ACCOUNT_ID>`, `<VPC_ID>`,
-> `<SUBNET_ID_A>`..`<SUBNET_ID_D>`), so no commit in this history carries the original IDs.
-
 ## What's compared (6 engine variants)
 
 | variant | engine | language | role |

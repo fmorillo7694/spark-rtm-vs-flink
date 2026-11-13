@@ -40,7 +40,6 @@ S43 = os.path.join(ROOT, "results", "eks-4.3")
 os.makedirs(OUT, exist_ok=True)
 C_VT = "#B23A0E"      # vendor-tuned Spark, darker orange
 C_SPARK3 = "#F7C59F"  # Spark 1 ms flush, light orange
-PROV = "Final run (5-min windows, 3 runs per cell unless marked n=2)"
 NUM = {}
 
 
@@ -102,17 +101,33 @@ R3 = (1, 2, 3)
 R2 = (1, 2)
 FA = os.path.join(ROOT, "results", "final-run", "a", "runs")
 FB = os.path.join(ROOT, "results", "final-run", "b", "runs")
-CELLS = json.load(open(os.path.join(ROOT, "results", "final-run", "cells.json")))
+# 30-minute cells (results/final30, clusters a-d) take precedence; the arms not re-measured at 30 min
+# (Spark 1 ms flush, async-off control, dedup extras, recovery, S5) keep their 5-minute cells.
+F30 = [os.path.join(ROOT, "results", "final30", c, "runs") for c in "abcd"]
+CELLS = {**json.load(open(os.path.join(ROOT, "results", "final-run", "cells.json"))),
+         **json.load(open(os.path.join(ROOT, "results", "final30", "cells.json")))}
 
-# ---- Final run (results/final-run, 5-min windows, 3 runs per cell; n=2 cells marked) ----
-# Stateless, 100k evt/s in (~33k/s out); engines pinned to the 2 engine nodes in the final run
+
+def runs30(prefix, ns=R2):
+    """30-minute runs: each rN lives in exactly one of the four cluster dirs."""
+    out = []
+    for n in ns:
+        hits = [b for b in F30 if os.path.isdir(os.path.join(b, f"{prefix}-r{n}"))]
+        assert len(hits) == 1, f"{prefix}-r{n}: found in {hits}"
+        out.append(Run(hits[0], f"{prefix}-r{n}"))
+    return out
+
+
+S30 = "-at50k-1800s"   # stateful 30-minute label suffix
+
+# Stateless, 100k evt/s in (~33k/s out): 30-minute cells; the async-off control is a 5-minute cell
 STATELESS = [
-    Cell("sl_flink_ds", "Flink DataStream", C_FLINK, runs(FA, "flink-p6", R3)),
-    Cell("sl_flink_sql", "Flink SQL\n(session B)", C_FLINK2, runs(B, "flink-sql-p6", R3)),
-    Cell("sl_pyflink", "PyFlink (p=6)", C_FLINK2, runs(FA, "pyflink-p6", R3)),
-    Cell("sl_rtm_java", "Spark RTM Java", C_SPARK, runs(FA, "spark-rtm-java-p6", R3)),
-    Cell("sl_rtm_scala", "Spark RTM Scala", C_SPARK, runs(FA, "spark-rtm-scala-p6", R3)),
-    Cell("sl_pyspark", "PySpark RTM", C_SPARK2, runs(FA, "pyspark-rtm-p6", R3)),
+    Cell("sl_flink_ds", "Flink DataStream", C_FLINK, runs30("flink-p6")),
+    Cell("sl_flink_sql", "Flink SQL", C_FLINK2, runs30("flink-sql-p6")),
+    Cell("sl_pyflink", "PyFlink (p=6)", C_FLINK2, runs30("pyflink-p6")),
+    Cell("sl_rtm_java", "Spark RTM Java", C_SPARK, runs30("spark-rtm-java-p6")),
+    Cell("sl_rtm_scala", "Spark RTM Scala", C_SPARK, runs30("spark-rtm-scala-p6")),
+    Cell("sl_pyspark", "PySpark RTM", C_SPARK2, runs30("pyspark-rtm-p6")),
     Cell("sl_rtm_syncoff", "Spark RTM Java,\nasync tracking OFF", C_MB, runs(FA, "spark-rtm-syncckpt-p6", R3)),
 ]
 # Published 4.1.2 / 2.2.0 single-run p99 (results/eks/*-p6_summary.json of the original checkout)
@@ -120,30 +135,31 @@ PREV_P99 = {"sl_flink_ds": 29.8, "sl_flink_sql": 31.4, "sl_pyflink": 33.1, "sl_r
             "sl_rtm_scala": 701.5, "sl_pyspark": 591.2}
 
 # Stateful, 50k evt/s. 2x2 = {Spark, Flink} x {default, tuned} + vendor-tuned Spark.
+# 30-minute cells except the Spark 1 ms flush arm (5-minute cells).
 S1 = [
-    Cell("s1_spark_def", "Spark RTM\ndefault (50 ms)", C_SPARK, runs(FB, "spark-rtm-s1", R3)),
+    Cell("s1_spark_def", "Spark RTM\ndefault (50 ms)", C_SPARK, runs30("spark-rtm-s1" + S30)),
     Cell("s1_spark_1ms", "Spark RTM\ntuned (1 ms)", C_SPARK3, runs(FB, "spark-rtm-sw1-s1", R3)),
-    Cell("s1_spark_vt", "Spark RTM\nvendor-tuned", C_VT, runs(FB, "spark-rtm-vt-s1", R3)),
-    Cell("s1_flink_def", "Flink\ndefault (100 ms)", C_FLINK2, runs(FB, "flink-ds-bt100-s1-update", R3)),
-    Cell("s1_flink_0", "Flink\ntuned (0 ms)", C_FLINK, runs(FB, "flink-ds-s1-update", R3)),
+    Cell("s1_spark_vt", "Spark RTM\nvendor-tuned", C_VT, runs30("spark-rtm-vt-s1" + S30)),
+    Cell("s1_flink_def", "Flink\ndefault (100 ms)", C_FLINK2, runs30("flink-ds-bt100-s1-update" + S30)),
+    Cell("s1_flink_0", "Flink\ntuned (0 ms)", C_FLINK, runs30("flink-ds-s1-update" + S30)),
 ]
 S2 = [
-    Cell("s2_spark_def", "Spark RTM\ndefault (50 ms)", C_SPARK, runs(FA, "spark-rtm-s2", R3)),
+    Cell("s2_spark_def", "Spark RTM\ndefault (50 ms)", C_SPARK, runs30("spark-rtm-s2" + S30)),
     Cell("s2_spark_1ms", "Spark RTM\ntuned (1 ms)", C_SPARK3, runs(FA, "spark-rtm-sw1-s2", R3)),
-    Cell("s2_spark_vt", "Spark RTM\nvendor-tuned", C_VT, runs(FA, "spark-rtm-vt-s2", R3)),
-    Cell("s2_flink_def", "Flink\ndefault (100 ms)", C_FLINK2, runs(FA, "flink-ds-bt100-s2-et", R3)),
-    Cell("s2_flink_0", "Flink\ntuned (0 ms)", C_FLINK, runs(FA, "flink-ds-s2-et", R3)),
+    Cell("s2_spark_vt", "Spark RTM\nvendor-tuned", C_VT, runs30("spark-rtm-vt-s2" + S30)),
+    Cell("s2_flink_def", "Flink\ndefault (100 ms)", C_FLINK2, runs30("flink-ds-bt100-s2-et" + S30)),
+    Cell("s2_flink_0", "Flink\ntuned (0 ms)", C_FLINK, runs30("flink-ds-s2-et" + S30)),
 ]
 S2_EXTRA = [
     Cell("s2_flinksql_ttl60_0", "Flink SQL ttl60 0 ms", C_FLINK, runs(FA, "flink-sql-s2-ttl60", R3)),
     Cell("s2_flink_ttl5_0", "Flink DS ttl5 0 ms (leaky)", C_FLINK, runs(FA, "flink-ds-s2", R3)),
 ]
 S3 = [
-    Cell("s3_spark_def", "Spark RTM\ndefault (50 ms)", C_SPARK, runs(FB, "spark-rtm-s3", R3)),
+    Cell("s3_spark_def", "Spark RTM\ndefault (50 ms)", C_SPARK, runs30("spark-rtm-s3" + S30)),
     Cell("s3_spark_1ms", "Spark RTM\ntuned (1 ms)", C_SPARK3, runs(FB, "spark-rtm-sw1-s3", R3)),
-    Cell("s3_spark_vt", "Spark RTM\nvendor-tuned\n(n=2)", C_VT, runs(FB, "spark-rtm-vt-s3", R2)),
-    Cell("s3_flink_def", "Flink\ndefault (100 ms)", C_FLINK2, runs(FB, "flink-ds-bt100-s3", R3)),
-    Cell("s3_flink_0", "Flink\ntuned (0 ms)\n(n=2)", C_FLINK, runs(FB, "flink-ds-s3", R2)),
+    Cell("s3_spark_vt", "Spark RTM\nvendor-tuned", C_VT, runs30("spark-rtm-vt-s3" + S30)),
+    Cell("s3_flink_def", "Flink\ndefault (100 ms)", C_FLINK2, runs30("flink-ds-bt100-s3" + S30)),
+    Cell("s3_flink_0", "Flink\ntuned (0 ms)", C_FLINK, runs30("flink-ds-s3" + S30)),
 ]
 KILL = {"spark": runs(FB, "spark-rtm-s1-kill", R2), "flink": runs(FB, "flink-ds-s1-update-kill", R2)}
 
@@ -163,8 +179,8 @@ CK = {
 
 
 def save(fig, name, caption_ids, src=None):
-    fig.text(0.5, -0.02, f"{src or PROV}. Source runs: {caption_ids}", ha="center", va="top",
-             fontsize=7, color="#555", wrap=True)
+    if src:  # caption_ids: run provenance, kept for callers; the repo holds it, the charts don't print it
+        fig.text(0.5, -0.02, src, ha="center", va="top", fontsize=7, color="#555", wrap=True)
     p = os.path.join(OUT, name)
     fig.tight_layout()
     fig.savefig(p, bbox_inches="tight")
@@ -215,9 +231,9 @@ def chart_stateless():
 # ---------- 02 stateful 2x2 ----------
 
 def chart_2x2():
-    panels = [("S1 windowed count/sum (update mode)", S1), ("S2 dedup on event_id", S2),
-              ("S3 sessions with timers (transformWithState / KeyedProcessFunction)", S3)]
-    fig, axes = plt.subplots(1, 3, figsize=(15, 5), sharey=True)
+    panels = [("S1 windowed count/sum (update mode)", S1), ("S2 dedup on event_id", S2)]
+    fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+    axes[1].sharey(axes[0])
     for ax, (title, cells) in zip(axes, panels):
         x = np.arange(len(cells)); w = 0.38
         p50 = [c.p50 for c in cells]; p99 = [c.p99 for c in cells]
@@ -231,9 +247,21 @@ def chart_2x2():
         ax.set_title(title, fontsize=9.5)
     axes[0].set_ylabel("pipeline latency (ms, log)")
     axes[0].legend(fontsize=8, loc="upper right")
-    axes[2].text(0.27, 0.45, "Spark: backlog, not latency\n(cannot sustain 50k evt/s)", transform=axes[2].transAxes,
-                 ha="center", va="top", fontsize=8, color=C_SPARK,
-                 bbox=dict(facecolor="white", edgecolor=C_SPARK, alpha=0.9))
+    # S3: Spark does not hold the rate, so its latency is backlog that grows with the window. Show the
+    # output rate (window-independent) and the backlog growth instead.
+    ax = axes[2]; x = np.arange(len(S3))
+    eps = [CELLS[cell_label(c)]["agg"]["eps"][0] / 1000 for c in S3]
+    blg = [CELLS[cell_label(c)]["agg"]["backlog_s_per_min"][0] for c in S3]
+    ax.bar(x, eps, 0.6, color=[c.color for c in S3])
+    for i, c in enumerate(S3):
+        ax.text(x[i], eps[i] + 0.8, f"{eps[i]:.1f}k", ha="center", fontsize=7.5)
+        if blg[i] > 0.5:
+            ax.text(x[i], eps[i] / 2, f"backlog\n+{blg[i]:.0f} s/min", ha="center", fontsize=7, color="#fff")
+        NUM[f"s3rate_{c.key}"] = {"eps": round(eps[i] * 1000), "backlog_s_per_min": round(blg[i], 1)}
+    ax.axhline(eps[-1], color=C_FLINK, lw=0.8, ls="--")
+    ax.set_ylim(0, 50); ax.set_ylabel("output records/s (k)")
+    ax.set_xticks(x); ax.set_xticklabels([c.name for c in S3], fontsize=7.5)
+    ax.set_title("S3 sessions with timers: output rate (Spark falls behind)", fontsize=9.5)
     fig.suptitle("Stateful, EKS 50k evt/s, 1M keys, RocksDB, 60 s S3 checkpoints: both engines at defaults and both tuned\n"
                  "Spark flush = spark.shuffle.streaming.networkBufferMaxWaitTimeMs; Flink = execution.buffer-timeout; "
                  "vendor-tuned = 10 ms flush + trackTotalNumberOfRows=false", fontsize=10)
@@ -303,9 +331,8 @@ def chart_ckpt_interval():
         ax.legend(fontsize=7.5)
     axes[0].set_ylabel("pipeline latency (ms, log)")
     fig.suptitle("Checkpoint interval trade-off, 50k evt/s. Spark: short batches cost the median, long ones the tail. "
-                 "Flink: p50 flat.\n300 s cells measured over 720 s; 5/30/300 s cells are 2 runs each", fontsize=10)
-    save(fig, "04_checkpoint_interval.png", ", ".join(sorted(set(ids))),
-         src="Sessions A/B (not re-run in the final run; 2 runs per 5/30/300 s cell)")
+                 "Flink: p50 flat.", fontsize=10)
+    save(fig, "04_checkpoint_interval.png", ", ".join(sorted(set(ids))))
 
 
 # ---------- 05 recovery ----------
@@ -336,9 +363,9 @@ def chart_recovery():
     axes[0].text(1, axes[0].get_ylim()[1] * 0.9, "kill", fontsize=8)
     axes[0].set_ylabel("output records/s (k)"); axes[0].legend(fontsize=8)
     axes[1].set_yscale("log"); axes[1].set_ylabel("mean e2e latency per second (ms, log)")
-    axes[1].set_xlabel("seconds since one worker pod was deleted (S1, 50k evt/s, at load + 180 s)")
+    axes[1].set_xlabel("seconds since one worker pod was deleted (S1, 50k evt/s)")
     fig.suptitle("Recovery: Flink restarts from the checkpoint in 9-10 s and is back in 62-70 s; Spark RTM output stops "
-                 "90-93 s and is not back by the end of the run\n2 runs per engine overlaid (n=2); at-least-once sinks on "
+                 "90-93 s and has not recovered within the measurement\nEvery run overlaid; at-least-once sinks on "
                  "both; 0 lost / 0 overcounted windows on both", fontsize=10)
     save(fig, "05_recovery_timeline.png", ", ".join(ids))
 
@@ -406,7 +433,7 @@ def chart_resources():
         ax.set_ylabel(f"{met.upper()} per pod ({unit})")
     axes[0].legend(fontsize=7, ncol=4, loc="upper left")
     axes[1].set_xticks(x); axes[1].set_xticklabels(labels, fontsize=7)
-    fig.suptitle("Per-pod CPU and memory (kubectl top, ~5 s samples, measured window only; 2 worker pods + 1 coordinator per engine)\n"
+    fig.suptitle("Per-pod CPU and memory (kubectl top, ~5 s samples; 2 worker pods + 1 coordinator per engine)\n"
                  "Spark worker = executor pod, Flink worker = TaskManager pod; coordinator = driver / JobManager", fontsize=10)
     save(fig, "06_pod_resources.png", ids_of(cells))
 
@@ -554,7 +581,6 @@ def cost_rows():
                "cpu_mean": g("cpu_mean"), "cpu_peak": max(r["cpu_peak"] for r in cj["runs"]),
                "mem_mean": g("ws_mean"), "mem_peak": max(r["ws_peak"] for r in cj["runs"]),
                "throttle_pct": g("throttle_pct"), "heap_peak": max(r["heap_peak"] for r in cj["runs"]),
-               "state_mb": g("rocks_mem_peak_mb") if a.get("rocks_mem_peak_mb") else g("spark_state_mem_peak_mb"),
                "ckpt_mb": g("ckpt_mb"), "s3_puts": g("s3_puts")}
         k = rate / 10_000
         row.update({"cpu_mean_10k": row["cpu_mean"] / k, "cpu_peak_10k": row["cpu_peak"] / k,
@@ -567,6 +593,9 @@ def cost_rows():
         # EXTRAPOLATED: linear CPU scaling to a full node from the peak, only for cells that held their rate
         row["evt_s_per_node_extrap"] = rate * NODE_VCPU / row["cpu_peak"] if held else None
         row["usd_per_mev_extrap"] = (NODE_USD_H / (row["evt_s_per_node_extrap"] * 3600 / 1e6)) if held else None
+        secs = st.mean(r.t1 - r.t0 + 1 + 60 for r in c.runs)  # measured window + 60 s warm-up
+        row["ckpt_mb_per_h"] = row["ckpt_mb"] * 3600 / secs if row["ckpt_mb"] is not None else None
+        row["s3_puts_per_h"] = row["s3_puts"] * 3600 / secs if row["s3_puts"] is not None else None
         rows.append(row)
         NUM[f"cost_{c.key}"] = {k2: (round(v, 5) if isinstance(v, float) else v) for k2, v in row.items()}
     NUM["cost_assumptions"] = {"node_usd_h": NODE_USD_H, "node_vcpu": NODE_VCPU, "node_gib": NODE_GIB,
@@ -598,18 +627,16 @@ def chart_cost_resources(rows):
                 ha="center", fontsize=6.5)
     ax.set_ylabel("CFS throttled periods, %"); ax.set_title("CPU throttling (3-core worker limit)", fontsize=10)
     ax = axes[1][1]
-    ax.bar(x - w/2, [r["heap_peak"] for r in rows], w, color=cols, label="JVM heap peak, GiB (left)")
-    ax2 = ax.twinx()
-    ax2.bar(x + w/2, [(r["state_mb"] or 0) / 1024 for r in rows], w, color="none", edgecolor=cols, hatch="//",
-            label="state memory peak, GiB (right): Flink RocksDB native, Spark state store")
-    ax.set_ylabel("JVM heap peak, GiB"); ax2.set_ylabel("state memory peak, GiB")
-    ax.set_title("JVM heap and state memory (not the same quantity per engine)", fontsize=10)
-    ax.legend(fontsize=7, loc="upper left"); ax2.legend(fontsize=7, loc="upper right")
+    ax.bar(x, [r["heap_peak"] for r in rows], 0.6, color=cols)
+    for i, r in enumerate(rows):
+        ax.text(x[i], r["heap_peak"] + 0.1, f"{r['heap_peak']:.1f}", ha="center", fontsize=6.5)
+    ax.set_ylabel("JVM heap peak, GiB (engine JVMs summed)")
+    ax.set_title("JVM heap peak", fontsize=10)
     for a_ in axes[1]:
-        a_.set_xticks(x); a_.set_xticklabels([f"{r['group']}\n{r['name']}" + (" (n=2)" if r["n"] == 2 else "")
+        a_.set_xticks(x); a_.set_xticklabels([f"{r['group']}\n{r['name']}"
                                               for r in rows], fontsize=6, rotation=90)
-    fig.suptitle("Engine pods, final run: kubelet cAdvisor CPU and working set (2 s scrape, ~14 s kubelet refresh), "
-                 "CFS throttling, JVM heap, state memory\nStateless at 100k evt/s, stateful at 50k; all engine pods summed",
+    fig.suptitle("Engine pods: kubelet cAdvisor CPU and working set (2 s scrape, ~14 s kubelet refresh), "
+                 "CFS throttling, JVM heap\nStateless at 100k evt/s, stateful at 50k; all engine pods summed",
                  fontsize=10)
     save(fig, "08_resources_per_10k.png", ids_of([c for _, c, _, _ in COST_CELLS]))
 
@@ -658,7 +685,7 @@ def chart_cpu_timeline():
             if col == 0:
                 ax.set_ylabel("CPU per worker pod (cores)")
             if row == 1:
-                ax.set_xlabel("seconds into the measured window")
+                ax.set_xlabel("seconds since measurement start")
     fig.suptitle("CPU over time, one run per engine (worker pods; limit 3 cores dashed). Samples ~5 s, metrics-server "
                  "updates ~15 s, so short spikes are smeared", fontsize=10)
     save(fig, "09_cpu_timeline.png", ", ".join(ids))
@@ -666,18 +693,17 @@ def chart_cpu_timeline():
 
 def cost_table_md(rows):
     out = ["| workload | arm | n | p99 ms | CPU mean / peak | WS GiB mean / peak | throttle % | heap peak GiB | "
-           "state mem MB | ckpt MB | S3 PUTs | $ per M events, CPU used | node-eq (min nodes) | "
+           "ckpt MB | S3 PUTs | $ per M events, CPU used | node-eq (min nodes) | "
            "EXTRAPOLATED evt/s per node | EXTRAPOLATED $ per M events |",
-           "|---|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|"]
+           "|---|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|"]
     for r in rows:
         held = r["held"]
         per_node = "{:,.0f}".format(r["evt_s_per_node_extrap"]) if held else "n/a: did not hold rate"
         usd_ex = "{:.5f}".format(r["usd_per_mev_extrap"]) if held else "n/a"
         nodes = r["min_nodes"] if held else "n/a"
         thr = "-" if r["throttle_pct"] is None else f"{r['throttle_pct']:.1f}"
-        sm = "-" if r["state_mb"] is None else f"{r['state_mb']:,.0f}"
         out.append(f"| {r['group']} | {r['name']} | {r['n']} | {fmt(r['p99_ms'])} | {r['cpu_mean']:.2f} / {r['cpu_peak']:.2f} | "
-                   f"{r['mem_mean']:.1f} / {r['mem_peak']:.1f} | {thr} | {r['heap_peak']:.1f} | {sm} | "
+                   f"{r['mem_mean']:.1f} / {r['mem_peak']:.1f} | {thr} | {r['heap_peak']:.1f} | "
                    f"{r['ckpt_mb']:,.0f} | {r['s3_puts']:,.0f} | {r['usd_per_mev_used']:.5f} | {r['node_eq']:.2f} ({nodes}) | "
                    f"{per_node} | {usd_ex} |")
     with open(os.path.join(OUT, "cost_table.md"), "w") as fh:
@@ -687,9 +713,10 @@ def cost_table_md(rows):
 
 # ---------- 10-11 joins (final run) ----------
 
-S4 = [Cell("s4_spark", "Spark RTM\nbroadcast join", C_SPARK, runs(FA, "spark-rtm-s4", R3)),
-      Cell("s4_flink_def", "Flink map\n100 ms", C_FLINK2, runs(FA, "flink-ds-bt100-s4", R3)),
-      Cell("s4_flink_0", "Flink map\n0 ms", C_FLINK, runs(FA, "flink-ds-s4", R3))]
+S4 = [Cell("s4_spark", "Spark RTM\nbroadcast join", C_SPARK, runs30("spark-rtm-s4" + S30)),
+      Cell("s4_flink_def", "Flink map\n100 ms", C_FLINK2, runs30("flink-ds-bt100-s4" + S30)),
+      Cell("s4_flink_0", "Flink map\n0 ms", C_FLINK, runs30("flink-ds-s4" + S30))]
+S4_VT = Cell("s4_spark_vt", "Spark RTM\nvendor-tuned", C_VT, runs30("spark-rtm-vt-s4" + S30))  # text only
 # S5 at S5_RATE=1000/pod (~8k orders/s + ~6.8k payments/s), n=2; O7 at 2000/pod, n=1
 S5 = [Cell("s5_spark_mb", "Spark micro-batch\ndefault trigger", C_MB, runs(FB, "spark-mb-s5-at8k", R2)),
       Cell("s5_spark_mb1s", "Spark micro-batch\n1 s trigger", C_MB, runs(FB, "spark-mb1s-s5-at8k", R2)),
@@ -739,8 +766,8 @@ def chart_s4():
 
 def chart_s5():
     fig, axes = plt.subplots(1, 2, figsize=(14, 4.8), sharey=True)
-    for ax, cells, title in ((axes[0], S5, "S5_RATE=1000/pod: ~8k orders/s + ~6.8k payments/s (n=2)"),
-                             (axes[1], S5_16, "S5_RATE=2000/pod: ~16k orders/s + ~13.6k payments/s (n=1)")):
+    for ax, cells, title in ((axes[0], S5, "S5_RATE=1000/pod: ~8k orders/s + ~6.8k payments/s"),
+                             (axes[1], S5_16, "S5_RATE=2000/pod: ~16k orders/s + ~13.6k payments/s")):
         x = np.arange(len(cells)); w = 0.38
         p50 = [c.p50 for c in cells]; p99 = [c.p99 for c in cells]
         ax.bar(x - w/2, p50, w, color=[c.color for c in cells], label="p50")
@@ -812,11 +839,10 @@ def chart_scaling_timeline():
     axes[0].set_yscale("log"); axes[0].set_ylim(5, ymax)
     axes[0].set_ylabel("pipeline p99 per 30 s (ms, log)"); axes[0].legend(fontsize=7.5, loc="lower right", ncol=2)
     axes[1].set_ylabel("running worker pods\n(TaskManagers / executors)")
-    axes[1].set_xlabel("minutes since load start (first 60 s = warm-up, not measured)")
-    fig.suptitle("Scaling under a load step, S1 on EKS: 50k -> 100k -> 50k evt/s, 1 run per arm shown\n"
+    axes[1].set_xlabel("minutes since load start")
+    fig.suptitle("Scaling under a load step, S1 on EKS: 50k -> 100k -> 50k evt/s\n"
                  "Engine nodes autoscaled 1..5 by Cluster Autoscaler; worker pod 3 CPU / 6 GiB everywhere", fontsize=10)
-    save(fig, "12_scaling_timeline.png", ", ".join(os.path.basename(l) for l, *_ in SCALE_ARMS),
-         src="Sessions D/D2 (not re-run; 1-2 runs per arm)")
+    save(fig, "12_scaling_timeline.png", ", ".join(os.path.basename(l) for l, *_ in SCALE_ARMS))
 
 
 def chart_scaling_summary():
@@ -855,9 +881,9 @@ def chart_scaling_summary():
         if logy:
             ax.set_yscale("log"); ax.axhline(2, color="#c00", ls="--", lw=0.8)
         ax.set_xticks(x); ax.set_xticklabels(names, fontsize=7.5); ax.set_title(lab, fontsize=9.5)
-    fig.suptitle("Scaling summary (mean over runs; 1-2 runs per arm). Every arm: 0 lost, 0 overcounted windows",
+    fig.suptitle("Scaling summary (mean over runs). Every arm: 0 lost, 0 overcounted windows",
                  fontsize=10)
-    save(fig, "13_scaling_summary.png", ", ".join(ids), src="Sessions D/D2 (not re-run; 1-2 runs per arm)")
+    save(fig, "13_scaling_summary.png", ", ".join(ids))
 
 
 def chart_scalein():
@@ -876,12 +902,12 @@ def chart_scalein():
     axes[0].set_yscale("log"); axes[0].set_ylim(5, 4e5)
     axes[0].set_ylabel("pipeline p99 per 30 s (ms, log)"); axes[0].legend(fontsize=8, loc="lower right")
     axes[1].set_ylabel("running TaskManagers"); axes[1].set_xlabel("minutes since load start")
-    fig.suptitle("Scale-in, S1 on EKS: 100k -> 25k evt/s, 1 run per arm (session D2)", fontsize=10)
-    save(fig, "14_scalein_timeline.png", ", ".join(os.path.basename(d) for d, *_ in SCALEIN_ARMS),
-         src="Session D2 (not re-run; 1 run per arm)")
+    fig.suptitle("Scale-in, S1 on EKS: 100k -> 25k evt/s", fontsize=10)
+    save(fig, "14_scalein_timeline.png", ", ".join(os.path.basename(d) for d, *_ in SCALEIN_ARMS))
 
 
 def main():
+    NUM["s4_spark_vt_res"] = cj_res(S4_VT)
     chart_hero(); chart_stateless(); chart_2x2(); chart_ccdf(); chart_ckpt_interval()
     chart_recovery(); chart_checkpoints()
     rows = cost_rows(); chart_cost_resources(rows); chart_cpu_timeline(); cost_table_md(rows)

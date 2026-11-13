@@ -1,0 +1,8 @@
+[producer] DONE sent=12822145 originals=11656062 dups=1166083 heartbeats=0 in 1882.9s avg=6809.7/s
+[producer] DONE sent=12821986 originals=11656062 dups=1165924 heartbeats=0 in 1883.0s avg=6809.4/s
+[producer] DONE sent=12820894 originals=11656062 dups=1164832 heartbeats=0 in 1882.9s avg=6809.0/s
+[producer] DONE sent=12821110 originals=11656062 dups=1165048 heartbeats=0 in 1882.9s avg=6809.1/s
+[producer] DONE sent=12820771 originals=11656062 dups=1164709 heartbeats=0 in 1882.9s avg=6809.1/s
+[producer] DONE sent=12820923 originals=11656062 dups=1164861 heartbeats=0 in 1883.0s avg=6808.9/s
+[producer] DONE sent=12821855 originals=11656062 dups=1165793 heartbeats=0 in 1882.9s avg=6809.6/s
+[producer] DONE sent=12822878 originals=11656062 dups=1166816 heartbeats=0 in 1883.0s avg=6810.0/s

@@ -1,0 +1,35 @@
+{
+  "engine": "flink-ds-bt100-s1-update-at50k-1800s-r1",
+  "topic": "st-output",
+  "kept_records": 89280277,
+  "seen_records": 92121108,
+  "window_seconds": 1800,
+  "warmup_seconds": 60,
+  "throughput_eps": 49600.2,
+  "started_at": 1794484082.05,
+  "ended_at": 1794485942.069,
+  "pipeline_ms": {
+    "count": 89280277,
+    "p50": 55.188,
+    "p95": 162.869,
+    "p99": 1245.03,
+    "max": 2628.242,
+    "mean": 87.842
+  },
+  "e2e_ms": {
+    "count": 89280277,
+    "p50": 80.655,
+    "p95": 214.775,
+    "p99": 1275.97,
+    "max": 2663.492,
+    "mean": 113.711
+  },
+  "window_ms": {
+    "count": 89280277,
+    "p50": -4944.0,
+    "p95": -444.0,
+    "p99": -44.0,
+    "max": 113.0,
+    "mean": -4910.604
+  }
+}

@@ -13,7 +13,7 @@
 #   kubectl -n kafka logs -f job/stateful-runner      (optional)
 #   aws s3 cp --recursive s3://rtm-flink-bench-ckpt-<acct>/<S3_PREFIX>/ results/eks-stateful/
 #
-# Env: SELF_TEARDOWN (1; 0 only for a smoke Job that must leave the cluster up), BUDGET_S (45000 = 12.5 h), PLAN_SET (B; A = session A, C = joins, D = scaling), PLAN ("" = PLAN_SET),
+# Env: RUN_EST_S (780; final run A: 1260), SELF_TEARDOWN (1; 0 only for a smoke Job that must leave the cluster up), BUDGET_S (45000 = 12.5 h), PLAN_SET (B; A = session A, C = joins, D = scaling), PLAN ("" = PLAN_SET),
 #      RUNS (2, PLAN_SET A only), STATELESS_TAG (v43), S3_PREFIX (stateful/<stamp>), CLUSTER
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
@@ -59,5 +59,5 @@ sed -e "s#__REGISTRY__#$REGISTRY#g" -e "s#__TAG__#$TAG#g" -e "s#__ACCOUNT__#$ACC
     -e "s#__RUNNER_ROLE_ARN__#$ROLE_ARN#g" -e "s#__BUDGET_S__#$BUDGET_S#g" \
     -e "s#__DEADLINE_S__#$((BUDGET_S + 1800))#g" -e "s#__PLAN__#${PLAN:-}#g" -e "s#__RUNS__#$RUNS#g" -e "s#__START_EPOCH__#$(date +%s)#g" \
     -e "s#__PLAN_SET__#$PLAN_SET#g" -e "s#__STATELESS_TAG__#$STATELESS_TAG#g" -e "s#__CLUSTER__#$CLUSTER#g" \
-    -e "s#__S3_PREFIX__#$S3_PREFIX#g" -e "s#__SELF_TEARDOWN__#${SELF_TEARDOWN:-1}#g" eks/stateful/runner-job.yaml | kubectl apply -f -
+    -e "s#__S3_PREFIX__#$S3_PREFIX#g" -e "s#__SELF_TEARDOWN__#${SELF_TEARDOWN:-1}#g" -e "s#__RUN_EST_S__#${RUN_EST_S:-780}#g" eks/stateful/runner-job.yaml | kubectl apply -f -
 echo "runner started; artifacts -> s3://rtm-flink-bench-ckpt-${ACCOUNT}/${S3_PREFIX}/"

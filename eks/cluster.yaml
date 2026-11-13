@@ -61,6 +61,15 @@ managedNodeGroups:
     volumeEncrypted: true           # @secure_recommendation: encrypted EBS (ARCC ec2 baseline)
     privateNetworking: true         # @secure_recommendation: nodes in private subnets
     disableIMDSv1: true             # @secure_recommendation: IMDSv2 required (ARCC ec2 baseline)
+    # 30-min runs: kubelet rotates container logs at 10Mi by default, and `kubectl logs` then
+    # returns only the newest file. AL2023 kubelet merges drop-ins from config.json.d; eksctl has
+    # no kubeletExtraConfig for managed nodegroups.
+    preBootstrapCommands:
+      - |
+        mkdir -p /etc/kubernetes/kubelet/config.json.d
+        cat > /etc/kubernetes/kubelet/config.json.d/90-container-log-size.conf <<'EOF'
+        {"apiVersion": "kubelet.config.k8s.io/v1beta1", "kind": "KubeletConfiguration", "containerLogMaxSize": "200Mi"}
+        EOF
     labels:
       workload: bench
       bench/role: engine
@@ -83,6 +92,15 @@ managedNodeGroups:
     volumeEncrypted: true           # @secure_recommendation: encrypted EBS (ARCC ec2 baseline)
     privateNetworking: true         # @secure_recommendation: nodes in private subnets
     disableIMDSv1: true             # @secure_recommendation: IMDSv2 required (ARCC ec2 baseline)
+    # 30-min runs: kubelet rotates container logs at 10Mi by default, and `kubectl logs` then
+    # returns only the newest file. AL2023 kubelet merges drop-ins from config.json.d; eksctl has
+    # no kubeletExtraConfig for managed nodegroups.
+    preBootstrapCommands:
+      - |
+        mkdir -p /etc/kubernetes/kubelet/config.json.d
+        cat > /etc/kubernetes/kubelet/config.json.d/90-container-log-size.conf <<'EOF'
+        {"apiVersion": "kubelet.config.k8s.io/v1beta1", "kind": "KubeletConfiguration", "containerLogMaxSize": "200Mi"}
+        EOF
     labels:
       workload: bench
     tags:

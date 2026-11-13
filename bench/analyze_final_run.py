@@ -19,6 +19,8 @@ min-max), throughput, and from eks/stateful/sampler.py:
   recovery   kill runs: bench/recovery_check.py (outage, recover, lost / overcount)
 
 Usage: python bench/analyze_final_run.py results/final-run  (writes cells.md and cells.json there)
+       python bench/analyze_final_run.py results/final30 --runs 2 --title "Final run A (30 min)"
+       (--runs: runs per cell by design; a cell with fewer is flagged **n=<k>**; default 3)
 """
 import collections
 import glob
@@ -121,6 +123,20 @@ def spark_state_mem(d):
     return out
 
 
+def backlog_slope(rate, t0, t1):
+    """Backlog growth over the measured window, in seconds of lag gained per minute: least-squares
+    slope of the per-second mean pipeline latency (rate.json: {epoch_s: [count, latency_sum_ms]}).
+    ~0 for an engine that keeps up; for one that falls behind at a steady output rate it is
+    60 * (1 - out/in), independent of the window length (unlike p99)."""
+    pts = [(int(t), v[1] / v[0]) for t, v in rate.items() if v[0] > 0 and t0 <= int(t) <= t1]
+    if len(pts) < 30:
+        return None
+    mx = st.mean(t for t, _ in pts)
+    my = st.mean(y for _, y in pts)
+    den = sum((t - mx) ** 2 for t, _ in pts)
+    return sum((t - mx) * (y - my) for t, y in pts) / den * 60 / 1000 if den else None
+
+
 def run_row(d):
     s = json.load(open(os.path.join(d, "summary.json")))
     if "started_at" in s:
@@ -142,6 +158,8 @@ def run_row(d):
     if os.path.exists(c):
         cj = json.load(open(c))
         r["ckpt_mb"], r["s3_puts"] = cj["bytes"] / 1e6, cj["objects"]
+    if os.path.exists(os.path.join(d, "rate.json")) and not os.path.exists(os.path.join(d, "kill.txt")):
+        r["backlog_s_per_min"] = backlog_slope(json.load(open(os.path.join(d, "rate.json"))), t0, t1)
     if os.path.exists(os.path.join(d, "kill.txt")) and os.path.exists(os.path.join(d, "rate.json")):
         kill = float(open(os.path.join(d, "kill.txt")).read().split()[0])
         rate = json.load(open(os.path.join(d, "rate.json")))
@@ -171,31 +189,39 @@ def rng(a, nd=0):
 
 
 def main():
-    root = sys.argv[1]
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("root")
+    ap.add_argument("--runs", type=int, default=3, help="runs per cell by design")
+    ap.add_argument("--title", default="Final lean run")
+    args = ap.parse_args()
+    root = args.root
     cells = collections.OrderedDict()
-    for d in sorted(glob.glob(os.path.join(root, "[ab]", "runs", "*"))):
+    for d in sorted(glob.glob(os.path.join(root, "[a-d]", "runs", "*"))):
         if not os.path.exists(os.path.join(d, "summary.json")):
             continue
         cell = re.sub(r"-r\d+$", "", os.path.basename(d))
         cells.setdefault(cell, {"cluster": d.split(os.sep)[-3], "runs": []})["runs"].append(run_row(d))
     out, L = {}, []
-    L += ["# Final lean run: per cell", "",
+    L += [f"# {args.title}: per cell", "",
           "Pipeline latency ms: mean over runs (min-max across runs). CPU cores / memory GiB: engine pods only "
           "(cAdvisor, 2 s, measured window), mean / peak. Heap GiB: JVM heap used, summed over engine JVMs, peak. "
           "RocksDB MB (Flink): block cache + memtables + table readers, peak; Spark: state-store memoryUsedBytes peak. "
-          "Checkpoint: MB written under the run's S3 prefix and object count (= PUT lower bound), mean over runs.", "",
-          "| cell | cl | n | p50 | p95 | p99 | evt/s out | CPU mean / peak | WS mean / peak | heap peak | RocksDB / state MB | throttle % | ckpt MB | S3 PUTs |",
-          "|---|---|--:|---|---|---|--:|---|---|--:|--:|--:|--:|--:|"]
+          "Checkpoint: MB written under the run's S3 prefix and object count (= PUT lower bound), mean over runs. "
+          "Backlog s/min: growth of pipeline latency over the window (least-squares slope of the per-second mean, "
+          "rate.json); ~0 = keeps up, else 60 x (1 - out/in), independent of the window length.", "",
+          "| cell | cl | n | p50 | p95 | p99 | evt/s out | backlog s/min | CPU mean / peak | WS mean / peak | heap peak | RocksDB / state MB | throttle % | ckpt MB | S3 PUTs |",
+          "|---|---|--:|---|---|---|--:|--:|---|---|--:|--:|--:|--:|--:|"]
     for cell, c in cells.items():
         rs = c["runs"]
-        a = {k: agg(rs, k) for k in ("p50", "p95", "p99", "eps", "cpu_mean", "cpu_peak", "ws_mean", "ws_peak", "heap_peak",
+        a = {k: agg(rs, k) for k in ("p50", "p95", "p99", "eps", "backlog_s_per_min", "cpu_mean", "cpu_peak", "ws_mean", "ws_peak", "heap_peak",
                                      "rocks_mem_peak_mb", "spark_state_mem_peak_mb", "throttle_pct", "ckpt_mb", "s3_puts")}
         out[cell] = {"cluster": c["cluster"], "n": len(rs), "agg": a, "runs": rs}
-        flag = " **n=2**" if len(rs) == 2 and "at16k" not in cell else ""
+        flag = f" **n={len(rs)}**" if len(rs) < args.runs and "at16k" not in cell else ""
         mem = a["rocks_mem_peak_mb"] or a["spark_state_mem_peak_mb"]
         g = lambda k, nd=1: f(a[k][0], nd) if a[k] else "-"
         L.append(f"| `{cell}`{flag} | {c['cluster']} | {len(rs)} | {rng(a['p50'], 1)} | {rng(a['p95'])} | {rng(a['p99'])} | "
-                 f"{g('eps', 0)} | {g('cpu_mean')} / {g('cpu_peak')} | {g('ws_mean')} / {g('ws_peak')} | {g('heap_peak')} | "
+                 f"{g('eps', 0)} | {g('backlog_s_per_min')} | {g('cpu_mean')} / {g('cpu_peak')} | {g('ws_mean')} / {g('ws_peak')} | {g('heap_peak')} | "
                  f"{f(mem[0], 0) if mem else '-'} | {g('throttle_pct')} | {g('ckpt_mb', 0)} | {g('s3_puts', 0)} |")
     kills = {k: v for k, v in out.items() if k.endswith("-kill")}
     if kills:

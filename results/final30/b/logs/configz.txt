@@ -1,0 +1,6 @@
+ip-192-168-104-226.ec2.internal 200Mi
+ip-192-168-122-72.ec2.internal 200Mi
+ip-192-168-126-236.ec2.internal 200Mi
+ip-192-168-64-222.ec2.internal 200Mi
+ip-192-168-91-122.ec2.internal 200Mi
+ip-192-168-94-60.ec2.internal 200Mi

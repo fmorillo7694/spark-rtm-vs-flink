@@ -7,7 +7,7 @@
 #
 # Placeholders (rendered by deploy_runner.sh): __REGISTRY__ __TAG__ __ACCOUNT__
 #   __RUNNER_ROLE_ARN__ __BUDGET_S__ __DEADLINE_S__ __PLAN__ __PLAN_SET__ __RUNS__ __S3_PREFIX__
-#   __STATELESS_TAG__ __START_EPOCH__ __SELF_TEARDOWN__ (1 = default)
+#   __STATELESS_TAG__ __START_EPOCH__ __SELF_TEARDOWN__ (1 = default) __RUN_EST_S__
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -23,6 +23,10 @@ rules:
   - apiGroups: ["batch"]
     resources: ["jobs"]
     verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: [""]                   # explicit stop: on SIGTERM the runner tears down only if this
+    resources: ["configmaps"]         # ConfigMap exists (or the budget is over); see on_term
+    resourceNames: ["stateful-runner-stop"]
+    verbs: ["get"]
   - apiGroups: [""]
     resources: ["pods"]
     verbs: ["get", "list", "watch"]
@@ -158,7 +162,9 @@ spec:
     spec:
       serviceAccountName: stateful-runner
       restartPolicy: OnFailure
-      terminationGracePeriodSeconds: 120
+      # the self-teardown after a TERM (budget end / stop marker) deletes Kafka, waits up to 5 min
+      # for its PVs and scales the nodegroups: it must finish before the kubelet SIGKILLs the pod
+      terminationGracePeriodSeconds: 900
       containers:
         - name: runner
           image: "__REGISTRY__/rtm-bench/load:__TAG__"
@@ -173,6 +179,7 @@ spec:
             # call failed with NoRegionError (session C); S3 worked only as a global endpoint
             - { name: AWS_DEFAULT_REGION, value: "us-east-1" }
             - { name: BUDGET_S, value: "__BUDGET_S__" }
+            - { name: RUN_EST_S, value: "__RUN_EST_S__" }   # budget a run needs to START (+ extra load time)
             - { name: START_EPOCH, value: "__START_EPOCH__" }   # budget clock survives pod restarts
             - { name: S3_PREFIX, value: "__S3_PREFIX__" }
             - { name: PLAN, value: "__PLAN__" }      # explicit items; empty = PLAN_SET

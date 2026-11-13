@@ -1,0 +1,82 @@
+# evidence at 2026-11-12T12:12:05Z
+async-log-write threads: 1
+AsyncProgressTrackingMicroBatchExecution frames: 1
+--- active stages (pipelined: source + stateful stage RUNNING together)
+73 ACTIVE 6 6 start at StatefulPipelineJava.java:244
+--- driver log: pipelined / commits / batch starts (boundary split input)
+26/11/12 11:35:57 INFO SparkContext: Starting job: count at StatefulPipelineJava.java:152
+[StatefulPipelineJava] s4 reference rows=980000 topic=st-ref
+[StatefulPipelineJava] workload=s4 mode=rtm id=b38c6afe-402a-496c-aff2-39722411111b trigger=RealTime(60 seconds) outputMode=update secondTopic=st-ref startingOffsets=latest watermark=5s window=10s gapMs=5000 timeoutMs=5000 stateStore=org.ap
+26/11/12 11:36:12 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:36:14 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:37:14 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:37:15 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:38:15 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:38:16 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:39:16 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:39:17 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:40:17 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:40:17 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:41:18 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:41:18 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:42:18 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:42:19 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:43:19 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:43:20 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:44:20 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:44:20 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:45:20 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:45:21 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:46:21 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:46:21 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:47:22 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:47:22 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:48:22 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:48:23 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:49:23 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:49:23 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:50:23 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:50:24 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:51:24 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:51:25 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:52:25 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:52:25 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:53:25 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:53:26 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:54:26 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:54:26 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:55:26 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:55:27 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:56:27 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:56:28 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:57:28 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:57:28 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:58:28 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:58:29 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:59:29 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 11:59:30 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:00:30 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:00:30 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:01:30 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:01:31 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:02:31 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:02:31 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:03:31 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:03:32 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:04:32 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:04:33 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:05:33 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:05:33 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:06:33 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:06:34 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:07:34 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:07:34 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:08:34 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:08:35 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:09:35 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:09:35 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:10:36 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:10:36 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:11:36 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/12 12:11:37 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+--- progress blocks: 35

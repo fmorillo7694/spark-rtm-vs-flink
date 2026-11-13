@@ -1,0 +1,13 @@
+# final30 global teardown verification 2026-11-12T18:35:21Z
+clusters: []
+scheduler schedules (all): []
+bench7 stacks not DELETE_COMPLETE: []
+bench4 stacks (untouched): 9
+running instances tagged bench7: []
+unattached volumes: [<VOLUME_ID>	<VOLUME_ID>	<VOLUME_ID>] (= bench4 leftovers)
+NAT <NAT_ID>: available
+a create 10:10:14 -> verified gone 2026-11-12T17:45:56: 7.59 cluster-h
+b create 11:07:16 -> verified gone 2026-11-12T18:15:40: 7.14 cluster-h
+c create 11:07:29 -> verified gone 2026-11-12T18:34:54: 7.46 cluster-h
+d create 11:07:41 -> verified gone 2026-11-12T18:14:32: 7.11 cluster-h
+total 29.30 cluster-h (cap 38.6, plan 30.9)

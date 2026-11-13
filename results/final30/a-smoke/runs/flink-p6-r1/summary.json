@@ -1,0 +1,25 @@
+{
+  "engine": "flink-p6-r1",
+  "topic": "output-events",
+  "kept_records": 10001691,
+  "seen_records": 11894789,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 33339.0,
+  "pipeline_ms": {
+    "count": 10001691,
+    "p50": 6.092,
+    "p95": 7.386,
+    "p99": 32.057,
+    "max": 230.44,
+    "mean": 6.789
+  },
+  "e2e_ms": {
+    "count": 10001691,
+    "p50": 12.343,
+    "p95": 16.286,
+    "p99": 63.134,
+    "max": 292.634,
+    "mean": 13.803
+  }
+}
