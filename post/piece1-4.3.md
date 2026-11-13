@@ -59,7 +59,7 @@ and this post does not measure them.
 - **Aggregation:** each number is a geomean across repeated runs, with the min-max range in
   brackets where spread matters.
 - **Measured with 5-minute windows** (same harness, rates and resources): the Spark 1 ms flush
-  arm, the async-progress-off control, the checkpoint-interval sweep, recovery, the dedup trap,
+  arm, the async-progress-off control, the checkpoint-interval sweep, recovery,
   the smaller results, S4 at 100k evt/s and the S5 joins. Scaling uses its own ~40-minute load
   profile.
 
@@ -168,12 +168,15 @@ checkpoint interval 60 s).
   allows update output mode, so Spark emits the running result on every input row. The Flink arm
   does the same thing with a `KeyedProcessFunction` (`s1-update`), so both produce the same
   stream of updates.
-- **S2, dedup on `event_id`:** 10% of events are re-sent 0-3 s later. Spark uses
-  `withWatermark(...).dropDuplicates(...)`. Flink uses keyed state cleared by an event-time
-  timer, which is Spark's semantics (more on why below).
+- **S2, dedup on `event_id`:** 10% of events are re-sent 0-3 s later. Both engines dedup in
+  event time with a 5 s watermark. Spark uses `withWatermark(...).dropDuplicates(...)`. Flink
+  uses keyed state cleared by an event-time timer when the watermark passes the event, so both
+  forget an id at the same point and both drop the same late copies.
 - **S3, sessions with timers:** per-user session state machine with 4 value states and a
   processing-time timeout. Spark: Java `transformWithState`. Flink: `KeyedProcessFunction`. Same
-  code path in both, verified by an exact local replay against ground truth.
+  code path in both, verified by an exact local replay against ground truth. The timeout is
+  processing time on both engines because RTM holds its watermark fixed for a whole batch, so
+  event-time timers would only fire at batch boundaries (every 60 s here).
 
 Every setting for every arm is in
 [`STATEFUL_CONFIG.md`](https://github.com/fmorillo7694/spark-rtm-vs-flink/blob/main/STATEFUL_CONFIG.md).
@@ -342,26 +345,6 @@ exactly-once sink, which RTM doesn't have).
 This is a big change from the stateless result in the original post, where both engines
 recovered in ~20 s. State is what makes recovery expensive, and the two engines pay for it very
 differently.
-
-### Dedup correctness: a Flink trap
-
-My first Flink dedup was the textbook one: keyed state with a 5 s
-processing-time TTL. Spark's `dropDuplicates` with a watermark is event-time. Those sound
-equivalent, and at steady state they are. But any processing stall longer than TTL minus the
-duplicate delay lets duplicates through: a 2.8 s stall plus a 3 s late copy passes a 5 s TTL.
-**Flink leaked 6 duplicates at 50k evt/s and up to 9,813 at 100k.** Spark was exact in every run.
-
-Two fixes, both exact in every run, including at 100k:
-
-- **DataStream, event-time cleanup** (`s2-et`): state cleared by an event-time timer when the
-  watermark passes the event. This is Spark's semantics, and it's the Flink arm in the tables
-  above. Cost: one timer per event, which fires in bursts on watermark advances and roughly
-  6x the p99 (1.8 s vs 0.32 s for the leaky version).
-- **SQL, 60 s TTL** (`ROW_NUMBER` dedup with `table.exec.state.ttl = 60 s`): same low-latency
-  path, 12x the state, p99 0.74 s. Still processing time, so a stall over 60 s would leak.
-
-If you dedup in Flink with a processing-time TTL, size the TTL for your worst stall, not your
-duplicate delay.
 
 CPU, memory and cost for every arm are in [Resources and cost](#resources-and-cost) below.
 
@@ -822,8 +805,9 @@ These are not head-to-head numbers, because only one engine can run them.
   emitted the same 2,432,233 pairs); the local replay is the ground truth.
 - **One region, one instance type,** RocksDB on both sides, aligned checkpoints. The Flink
   tuning that targets checkpoint tails (changelog, unaligned, ForSt) is deferred to Part 2.
-- **The Flink `s2-et` tail is not fully explained.** Event-time cleanup raised Flink's S2 p99
-  ~6x. Timer bursts on watermark advances are the likely cause, but I haven't profiled it.
+- **The Flink S2 tail is not fully explained.** Event-time cleanup registers one timer per
+  event, and the likely cause of the 1.7 s p99 is those timers firing in bursts on watermark
+  advances, but I haven't profiled it.
 - **Stateless placement differs from the original post.** Here the engines run on 2 dedicated
   nodes; the original post used one shared 6-node pool with Kafka and the producers. Keep that
   in mind when comparing against the published 4.1.2 / 2.2.0 numbers.
@@ -902,7 +886,7 @@ Everything below is in
 | what | how |
 |---|---|
 | 30-minute cells (stateless, S1-S4) | four clusters, one plan set each: `PLAN_SET=F30A` (S1), `F30B` (S2), `F30C` (S3), `F30D` (S4), plus three stateless cells, via `eks/stateful/deploy_runner.sh` with `RUN_EST_S=1260` and `BUDGET_S=34200` (F30C: `35900`); the in-cluster runner is `eks/stateful/run_matrix_incluster.sh` |
-| 5-minute cells (Spark 1 ms, async-off, dedup, recovery, S5, S4 at 100k, interval sweep, smaller results) and scaling | the other plan sets of the same runner (`PLAN_SET=FA` / `FB`, and the scaling profiles); stateless also via `eks/04b_run_p6.sh <engine>` |
+| 5-minute cells (Spark 1 ms, async-off, recovery, S5, S4 at 100k, interval sweep, smaller results) and scaling | the other plan sets of the same runner (`PLAN_SET=FA` / `FB`, and the scaling profiles); stateless also via `eks/04b_run_p6.sh <engine>` |
 | runner budget and teardown | the runner starts no run that doesn't fit in `BUDGET_S`, and scales both nodegroups to 0 when it ends; `eks/stateful/arm_deadline.sh` arms an EventBridge deadline that deletes the nodegroups and the cluster independently of the runner |
 | before launch | `eks/stateful/preflight_runner.sh`: the runner's IAM role and RBAC exist and its self-teardown calls are allowed (IAM simulation, `kubectl auth can-i`) |
 | after the runner | `eks/stateful/wrapup_cluster.sh`: checks the nodegroups are at 0 and the results are complete in S3 (`eks/stateful/verify_s3_results.sh`), then deletes the cluster, disarms the deadline and verifies nothing is left |
@@ -929,7 +913,7 @@ cluster.
 |---|---|---|
 | stateless p6, 100k | `spark-rtm-java-p6`, `spark-rtm-scala-p6`, `pyspark-rtm-p6`, `flink-p6`, `flink-sql-p6`, `pyflink-p6`, `spark-rtm-syncckpt-p6` | Part 1, hero |
 | S1, 50k | `spark-rtm-s1`, `spark-rtm-sw1-s1`, `spark-rtm-vt-s1`, `flink-ds-bt100-s1-update`, `flink-ds-s1-update` | 2x2, checkpoints, resources |
-| S2, 50k | `spark-rtm-s2`, `spark-rtm-sw1-s2`, `spark-rtm-vt-s2`, `flink-ds-bt100-s2-et`, `flink-ds-s2-et`, `flink-sql-s2-ttl60`, `flink-ds-s2` | 2x2, dedup, resources |
+| S2, 50k | `spark-rtm-s2`, `spark-rtm-sw1-s2`, `spark-rtm-vt-s2`, `flink-ds-bt100-s2-et`, `flink-ds-s2-et` | 2x2, resources |
 | S3, 50k | `spark-rtm-s3`, `spark-rtm-sw1-s3`, `spark-rtm-vt-s3`, `flink-ds-bt100-s3`, `flink-ds-s3` | 2x2, resources |
 | S4, 50k | `spark-rtm-s4`, `spark-rtm-vt-s4`, `flink-ds-bt100-s4`, `flink-ds-s4` | Part 3 |
 | S5, 1000/pod | `spark-mb-s5-at8k`, `spark-mb1s-s5-at8k`, `flink-ds-bt100-s5-at8k`, `flink-ds-s5-at8k` | Part 3 |
