@@ -25,7 +25,8 @@ original post's published number.*
 
 *All code, configs and raw per-run data:
 [github.com/fmorillo7694/spark-rtm-vs-flink](https://github.com/fmorillo7694/spark-rtm-vs-flink)
-(TODO: push the 4.3 branch before publishing).*
+(raw results under [`results/final30/`](https://github.com/fmorillo7694/spark-rtm-vs-flink/tree/main/results/final30),
+summary in [`results/final30/RESULTS.md`](https://github.com/fmorillo7694/spark-rtm-vs-flink/blob/main/results/final30/RESULTS.md)).*
 
 ---
 
@@ -942,6 +943,6 @@ cluster.
 
 - SPARK-58131 is the JIRA quoted for async progress tracking in RTM; the behaviour is verified
   from the jars and jstack, the JIRA number is not.
-- Links: the Databricks latency-benchmark repo, and the Spark 4.3 branch of this benchmark's repo.
+- Link: the Databricks latency-benchmark repo.
 - The original post's text quotes 669 ms for Spark RTM Java p99; its run summary says 642 ms.
   This post uses 642; decide whether to note the discrepancy.
