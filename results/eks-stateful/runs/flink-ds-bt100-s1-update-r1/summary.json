@@ -1,0 +1,33 @@
+{
+  "engine": "flink-ds-bt100-s1-update-r1",
+  "topic": "st-output",
+  "kept_records": 14879972,
+  "seen_records": 17725202,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 49599.9,
+  "pipeline_ms": {
+    "count": 14879972,
+    "p50": 55.308,
+    "p95": 204.267,
+    "p99": 1378.812,
+    "max": 2510.678,
+    "mean": 93.602
+  },
+  "e2e_ms": {
+    "count": 14879972,
+    "p50": 79.299,
+    "p95": 246.099,
+    "p99": 1402.32,
+    "max": 2529.59,
+    "mean": 117.717
+  },
+  "window_ms": {
+    "count": 14879972,
+    "p50": -4943.0,
+    "p95": -300.0,
+    "p99": 52.0,
+    "max": 440.0,
+    "mean": -4906.237
+  }
+}

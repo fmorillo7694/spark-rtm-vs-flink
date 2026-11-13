@@ -1,0 +1,69 @@
+# Stateful load: N indexed producer pods + one latency consumer, both on st-input/st-output.
+# Each producer pod gets a disjoint event_id range (id-base = index * 1e12) and its own seed
+# (SEED + index), so dedup ground truth stays exact with parallel producers.
+# Placeholders: __REGISTRY__ __TAG__ __RUN__ __PRODPODS__ __RATE__ __PRODUCER_SECONDS__
+#   __CONSUMER_SECONDS__ __WARMUP__ __KEYS__ __HOT__ __DUP__ __SEED__ __ISOLATION__
+#   __TRUTH__ (recovery runs: 100 = exact window counts for user_id % 100 == 0; 0 = off)
+#   __PROD_EXTRA__ (s5: "--payments-topic st-payments" = orders on st-input + payments; "" otherwise)
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: st-consumer
+  namespace: kafka
+  labels: { bench: stateful, run: "__RUN__" }
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels: { app: st-consumer, bench: stateful }
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: consumer
+          image: "__REGISTRY__/rtm-bench/load:__TAG__"
+          imagePullPolicy: Always   # same tag is re-pushed; never run a stale cached consumer
+          command: ["python", "latency_consumer.py"]
+          args: ["--engine", "__RUN__", "--bootstrap", "bench-kafka-bootstrap.kafka.svc:9092",
+                 "--topic", "st-output", "--warmup", "__WARMUP__", "--seconds", "__CONSUMER_SECONDS__",
+                 "--outdir", "/tmp", "--hist", "--isolation", "__ISOLATION__", "--no-raw",
+                 "--truth-sample", "__TRUTH__"]
+          # ~36M kept records per S1/S2 run (one output per input at ~100k/s): float32 arrays
+          # (~0.5 GB) + numpy sort copies; no per-record CSV (--no-raw).
+          resources:
+            requests: { cpu: "2", memory: 2Gi }
+            limits:   { cpu: "2", memory: 4Gi }
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: st-producer
+  namespace: kafka
+  labels: { bench: stateful, run: "__RUN__" }
+spec:
+  completions: __PRODPODS__
+  parallelism: __PRODPODS__
+  completionMode: Indexed
+  backoffLimit: 0
+  template:
+    metadata:
+      labels: { app: st-producer, bench: stateful }
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: producer
+          image: "__REGISTRY__/rtm-bench/load:__TAG__"
+          imagePullPolicy: Always   # same tag is re-pushed; never run a stale cached consumer
+          command: ["sh", "-c"]
+          args:
+            - >-
+              exec python producer.py --bootstrap bench-kafka-bootstrap.kafka.svc:9092
+              --topic st-input --rate __RATE__ --seconds __PRODUCER_SECONDS__
+              --keys __KEYS__ --hot-key-fraction __HOT__ --hot-keys 10
+              --dup-rate __DUP__ --dup-max-delay-ms 3000
+              --seed $((__SEED__ + JOB_COMPLETION_INDEX))
+              --id-base $((JOB_COMPLETION_INDEX * 1000000000000))
+              --truth-sample __TRUTH__ __PROD_EXTRA__
+          resources:
+            requests: { cpu: "1", memory: 512Mi }
+            limits:   { cpu: "2", memory: 1Gi }

@@ -1,0 +1,15 @@
+{
+ "prefix": "stateful/flink-ds-bt100-s3-at50k-1800s-r2-1794498966/",
+ "objects": 133,
+ "bytes": 277038922,
+ "by_dir": {
+  "chk-*": {
+   "objects": 1,
+   "bytes": 49771
+  },
+  "shared": {
+   "objects": 132,
+   "bytes": 276989151
+  }
+ }
+}

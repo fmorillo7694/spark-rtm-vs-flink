@@ -1,0 +1,100 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=spark-rtm-sw1-s3-r3 warmup=60s window=300s
+[consumer] seen=0 kept=0 (warmup)
+[consumer] seen=19130 kept=0 (warmup)
+[consumer] seen=32054 kept=0 (warmup)
+[consumer] seen=57673 kept=0 (warmup)
+[consumer] seen=72957 kept=0 (warmup)
+[consumer] seen=98516 kept=0 (warmup)
+[consumer] seen=123671 kept=0 (warmup)
+[consumer] seen=160725 kept=0 (warmup)
+[consumer] seen=197550 kept=0 (warmup)
+[consumer] seen=265550 kept=0 (warmup)
+[consumer] seen=428550 kept=0 (warmup)
+[consumer] seen=531550 kept=26000 (steady)
+[consumer] seen=707550 kept=202000 (steady)
+[consumer] seen=876550 kept=371000 (steady)
+[consumer] seen=964550 kept=459000 (steady)
+[consumer] seen=1134550 kept=629000 (steady)
+[consumer] seen=1272550 kept=767000 (steady)
+[consumer] seen=1377550 kept=872000 (steady)
+[consumer] seen=1526550 kept=1021000 (steady)
+[consumer] seen=1674550 kept=1169000 (steady)
+[consumer] seen=1743307 kept=1237757 (steady)
+[consumer] seen=1743307 kept=1237757 (steady)
+[consumer] seen=1779114 kept=1273564 (steady)
+[consumer] seen=1833114 kept=1327564 (steady)
+[consumer] seen=1891114 kept=1385564 (steady)
+[consumer] seen=1913630 kept=1408080 (steady)
+[consumer] seen=1951334 kept=1445784 (steady)
+[consumer] seen=1989581 kept=1484031 (steady)
+[consumer] seen=2024966 kept=1519416 (steady)
+[consumer] seen=2065080 kept=1559530 (steady)
+[consumer] seen=2105039 kept=1599489 (steady)
+[consumer] seen=2144987 kept=1639437 (steady)
+[consumer] seen=2181987 kept=1676437 (steady)
+[consumer] seen=2320987 kept=1815437 (steady)
+[consumer] seen=2387603 kept=1882053 (steady)
+[consumer] seen=2569603 kept=2064053 (steady)
+[consumer] seen=2708603 kept=2203053 (steady)
+[consumer] seen=2818603 kept=2313053 (steady)
+[consumer] seen=2962603 kept=2457053 (steady)
+[consumer] seen=3109603 kept=2604053 (steady)
+[consumer] seen=3207603 kept=2702053 (steady)
+[consumer] seen=3395603 kept=2890053 (steady)
+[consumer] seen=3559603 kept=3054053 (steady)
+[consumer] seen=3665603 kept=3160053 (steady)
+[consumer] seen=3842603 kept=3337053 (steady)
+[consumer] seen=3986603 kept=3481053 (steady)
+[consumer] seen=4089603 kept=3584053 (steady)
+[consumer] seen=4252603 kept=3747053 (steady)
+[consumer] seen=4391603 kept=3886053 (steady)
+[consumer] seen=4494603 kept=3989053 (steady)
+[consumer] seen=4635603 kept=4130053 (steady)
+[consumer] seen=4768603 kept=4263053 (steady)
+[consumer] seen=4875603 kept=4370053 (steady)
+[consumer] seen=5043603 kept=4538053 (steady)
+[consumer] seen=5222603 kept=4717053 (steady)
+[consumer] seen=5334603 kept=4829053 (steady)
+[consumer] seen=5509603 kept=5004053 (steady)
+[consumer] seen=5645603 kept=5140053 (steady)
+[consumer] seen=5770603 kept=5265053 (steady)
+[consumer] seen=5915603 kept=5410053 (steady)
+[consumer] seen=6053603 kept=5548053 (steady)
+[consumer] seen=6166603 kept=5661053 (steady)
+[consumer] seen=6305603 kept=5800053 (steady)
+[consumer] seen=6438603 kept=5933053 (steady)
+[consumer] seen=6563603 kept=6058053 (steady)
+[consumer] seen=6651603 kept=6146053 (steady)
+[consumer] seen=6723817 kept=6218267 (steady)
+[consumer] seen=6747837 kept=6242287 (steady)
+[consumer] seen=6823837 kept=6318287 (steady)
+[consumer] seen=6892837 kept=6387287 (steady)
+[consumer] seen=6899636 kept=6394086 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "spark-rtm-sw1-s3-r3",
+  "topic": "st-output",
+  "kept_records": 6411086,
+  "seen_records": 6916636,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 21370.3,
+  "pipeline_ms": {
+    "count": 6411086,
+    "p50": 131443.68,
+    "p95": 169929.699,
+    "p99": 183478.005,
+    "max": 193654.562,
+    "mean": 121057.691
+  },
+  "e2e_ms": {
+    "count": 6411086,
+    "p50": 131474.492,
+    "p95": 169965.734,
+    "p99": 183536.739,
+    "max": 193699.016,
+    "mean": 121095.225
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/spark-rtm-sw1-s3-r3_summary.json

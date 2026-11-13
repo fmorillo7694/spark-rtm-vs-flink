@@ -4,10 +4,11 @@
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 cd "$HERE"
-export AWS_PROFILE="${AWS_PROFILE:-default}" AWS_REGION=us-east-1
-export KUBECONFIG="$HERE/kubeconfig"
-CLUSTER=rtm-flink-bench3
-BUCKET=rtm-flink-bench-ckpt-<YOUR_ACCOUNT_ID>
+export AWS_REGION=us-east-1 PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
+export KUBECONFIG="${KUBECONFIG_FILE:-$HERE/kubeconfig}"
+CLUSTER="${CLUSTER:-rtm-flink-bench4}"
+ACCOUNT_ID="${ACCOUNT_ID:-$(aws sts get-caller-identity --query Account --output text)}"
+BUCKET="${BENCH_BUCKET:-rtm-flink-bench-ckpt-${ACCOUNT_ID}}"
 
 # A least-privilege policy scoped to the checkpoint bucket only.
 POLICY_ARN=$(aws iam list-policies --scope Local --query "Policies[?PolicyName=='rtm-flink-ckpt-s3'].Arn" --output text 2>/dev/null)

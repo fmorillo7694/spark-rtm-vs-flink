@@ -8,11 +8,11 @@ set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 cd "$HERE"
 
-export AWS_PROFILE="${AWS_PROFILE:-default}"
-export KUBECONFIG="$HERE/kubeconfig"
+export KUBECONFIG="${KUBECONFIG_FILE:-$HERE/kubeconfig}"
 export AWS_REGION=us-east-1
 
 echo "==> [1/5] metrics-server (pod CPU/mem). Installed via EKS addon (see cluster.yaml)."
+export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
 # EKS kubelet serving certs aren't signed by the cluster CA -> metrics-server needs this.
 # Patch whichever metrics-server deployment exists (addon-managed); ignore if absent.
 kubectl patch deployment metrics-server -n kube-system --type=json \
@@ -37,8 +37,13 @@ kubectl patch storageclass gp2 -p '{"metadata":{"annotations":{"storageclass.kub
 
 echo "==> [2/5] Strimzi operator"
 kubectl create namespace kafka --dry-run=client -o yaml | kubectl apply -f -
-kubectl create -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka 2>/dev/null || \
-  kubectl apply -f 'https://strimzi.io/install/latest?namespace=kafka' -n kafka
+# Pinned: 0.51.0 is the newest Strimzi that still supports Kafka 4.1.0 (the broker version
+# of every earlier local/EKS run); "latest" (0.52+) only supports 4.2+.
+STRIMZI=0.51.0
+curl -sfL "https://github.com/strimzi/strimzi-kafka-operator/releases/download/$STRIMZI/strimzi-cluster-operator-$STRIMZI.yaml" \
+  | sed 's/namespace: myproject/namespace: kafka/' | kubectl create -n kafka -f - 2>/dev/null || \
+curl -sfL "https://github.com/strimzi/strimzi-kafka-operator/releases/download/$STRIMZI/strimzi-cluster-operator-$STRIMZI.yaml" \
+  | sed 's/namespace: myproject/namespace: kafka/' | kubectl replace -n kafka -f -
 echo "    waiting for Strimzi operator..."
 kubectl -n kafka rollout status deploy/strimzi-cluster-operator --timeout=300s
 echo "    waiting for Strimzi CRDs to register..."
@@ -49,18 +54,16 @@ kubectl apply -f 02_kafka_strimzi.yaml
 echo "    waiting for Kafka to be ready (this takes a few min)..."
 kubectl -n kafka wait kafka/bench --for=condition=Ready --timeout=600s
 
-echo "==> [4/5] cert-manager (Flink operator dependency)"
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.16.2/cert-manager.yaml
-kubectl -n cert-manager rollout status deploy/cert-manager-webhook --timeout=300s
+echo "==> [4/5] (no cert-manager: the Flink operator webhook is disabled below)"
 
 echo "==> [5/5] Flink + Spark Kubernetes operators (helm)"
-helm repo add flink-operator-repo https://downloads.apache.org/flink/flink-kubernetes-operator-1.10.0/ 2>/dev/null || true
-helm repo add spark-operator https://kubeflow.github.io/spark-operator 2>/dev/null || true
-helm repo update
+helm repo add --force-update flink-operator-repo https://downloads.apache.org/flink/flink-kubernetes-operator-1.16.1/
+helm repo add --force-update spark-operator https://kubeflow.github.io/spark-operator
+helm repo update flink-operator-repo spark-operator
 kubectl create namespace flink --dry-run=client -o yaml | kubectl apply -f -
 kubectl create namespace spark --dry-run=client -o yaml | kubectl apply -f -
 helm upgrade --install flink-kubernetes-operator flink-operator-repo/flink-kubernetes-operator \
-  -n flink --set watchNamespaces="{flink}"
+  -n flink --set watchNamespaces="{flink}" --set webhook.create=false
 helm upgrade --install spark-operator spark-operator/spark-operator \
   -n spark --set spark.jobNamespaces="{spark}" --set webhook.enable=true
 

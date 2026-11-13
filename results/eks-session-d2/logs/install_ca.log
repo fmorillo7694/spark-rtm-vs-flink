@@ -1,0 +1,25 @@
+==> engine-ng scaling min=1 desired=2 max=5
+    engine ASG: eks-engine-ng-90d0e52e-9704-8289-476f-ffaf262dbcbe
+2026-11-11 12:36:50 [ℹ]  2 existing iamserviceaccount(s) (flink/flink,spark/spark-operator-spark) will be excluded
+2026-11-11 12:36:50 [ℹ]  1 iamserviceaccount (kube-system/cluster-autoscaler) was included (based on the include/exclude rules)
+2026-11-11 12:36:50 [!]  serviceaccounts in Kubernetes will not be created or modified, since the option --role-only is used
+2026-11-11 12:36:50 [ℹ]  1 task: { create IAM role for serviceaccount "kube-system/cluster-autoscaler" }
+2026-11-11 12:36:50 [ℹ]  building iamserviceaccount stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kube-system-cluster-autoscaler"
+2026-11-11 12:36:50 [ℹ]  deploying stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kube-system-cluster-autoscaler"
+2026-11-11 12:36:50 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kube-system-cluster-autoscaler"
+2026-11-11 12:37:20 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-kube-system-cluster-autoscaler"
+==> helm cluster-autoscaler 9.60.0 (image v1.36.1)
+Release "cluster-autoscaler" does not exist. Installing it now.
+NAME: cluster-autoscaler
+LAST DEPLOYED: Wed Nov 11 12:37:23 2026
+NAMESPACE: kube-system
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+NOTES:
+To verify that cluster-autoscaler has started, run:
+
+  kubectl --namespace=kube-system get pods -l "app.kubernetes.io/name=aws-cluster-autoscaler,app.kubernetes.io/instance=cluster-autoscaler"
+Waiting for deployment "cluster-autoscaler" rollout to finish: 0 of 1 updated replicas are available...
+deployment "cluster-autoscaler" successfully rolled out

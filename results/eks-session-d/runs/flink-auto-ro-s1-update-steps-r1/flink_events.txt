@@ -1,0 +1,8 @@
+2026-11-10T19:53:36Z JobStatusChanged Job status changed from RECONCILING to CREATED
+2026-11-10T19:53:51Z JobStatusChanged Job status changed from CREATED to RUNNING
+2026-11-10T19:52:53Z Submit Starting deployment
+2026-11-10T19:24:03Z Cleanup Cleaning up FlinkDeployment
+2026-11-10T19:42:43Z ValidationError Checkpoint directory[execution.checkpointing.dir] must be defined for last-state and savepoint upgrade modes
+2026-11-10T19:52:49Z Cleanup Cleaning up FlinkDeployment
+2026-11-10T20:23:32Z ScalingReport Scaling execution disabled by config job.autoscaler.scaling.enabled:false, recommended parallelism change:{ Vertex ID 20ba6b65f97481d5570070de90e4e791 | Parallelism 6 -> 4 | Processing capacity 129421.13 -> 86280.76 | Target data rate 49669.07}{ Vertex ID bc764cd8ddf7a0cff126f51c16239658 | Parallelism 6 -> 3 | Processing capacity 563620.36 -> 281810.18 | Target data rate 49669.04}
+2026-11-10T19:52:54Z ScalingReplicaSet Scaled up replica set flink-stateful-56bbd8497c from 0 to 1

@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-bt100-s3-r3 warmup=60s window=300s
+[consumer] seen=388 kept=0 (warmup)
+[consumer] seen=196388 kept=0 (warmup)
+[consumer] seen=303057 kept=0 (warmup)
+[consumer] seen=547996 kept=0 (warmup)
+[consumer] seen=770996 kept=0 (warmup)
+[consumer] seen=976996 kept=0 (warmup)
+[consumer] seen=1184996 kept=0 (warmup)
+[consumer] seen=1379996 kept=0 (warmup)
+[consumer] seen=1574996 kept=0 (warmup)
+[consumer] seen=1767996 kept=0 (warmup)
+[consumer] seen=1961996 kept=0 (warmup)
+[consumer] seen=2155996 kept=6196 (steady)
+[consumer] seen=2349996 kept=200196 (steady)
+[consumer] seen=2544996 kept=395196 (steady)
+[consumer] seen=2669568 kept=519768 (steady)
+[consumer] seen=2884568 kept=734768 (steady)
+[consumer] seen=3040340 kept=890540 (steady)
+[consumer] seen=3345340 kept=1195540 (steady)
+[consumer] seen=3540340 kept=1390540 (steady)
+[consumer] seen=3734340 kept=1584540 (steady)
+[consumer] seen=3928340 kept=1778540 (steady)
+[consumer] seen=4122340 kept=1972540 (steady)
+[consumer] seen=4319340 kept=2169540 (steady)
+[consumer] seen=4514340 kept=2364540 (steady)
+[consumer] seen=4708340 kept=2558540 (steady)
+[consumer] seen=4902340 kept=2752540 (steady)
+[consumer] seen=5016540 kept=2866740 (steady)
+[consumer] seen=5240626 kept=3090826 (steady)
+[consumer] seen=5491564 kept=3341764 (steady)
+[consumer] seen=5705564 kept=3555764 (steady)
+[consumer] seen=5904564 kept=3754764 (steady)
+[consumer] seen=6098564 kept=3948764 (steady)
+[consumer] seen=6292564 kept=4142764 (steady)
+[consumer] seen=6486564 kept=4336764 (steady)
+[consumer] seen=6681564 kept=4531764 (steady)
+[consumer] seen=6875564 kept=4725764 (steady)
+[consumer] seen=7070564 kept=4920764 (steady)
+[consumer] seen=7264564 kept=5114764 (steady)
+[consumer] seen=7366375 kept=5216575 (steady)
+[consumer] seen=7591026 kept=5441226 (steady)
+[consumer] seen=7852020 kept=5702220 (steady)
+[consumer] seen=8063020 kept=5913220 (steady)
+[consumer] seen=8262020 kept=6112220 (steady)
+[consumer] seen=8455020 kept=6305220 (steady)
+[consumer] seen=8649020 kept=6499220 (steady)
+[consumer] seen=8843020 kept=6693220 (steady)
+[consumer] seen=9037020 kept=6887220 (steady)
+[consumer] seen=9233020 kept=7083220 (steady)
+[consumer] seen=9428020 kept=7278220 (steady)
+[consumer] seen=9622020 kept=7472220 (steady)
+[consumer] seen=9714430 kept=7564630 (steady)
+[consumer] seen=9940238 kept=7790438 (steady)
+[consumer] seen=10235238 kept=8085438 (steady)
+[consumer] seen=10429238 kept=8279438 (steady)
+[consumer] seen=10623238 kept=8473438 (steady)
+[consumer] seen=10817238 kept=8667438 (steady)
+[consumer] seen=11011238 kept=8861438 (steady)
+[consumer] seen=11205238 kept=9055438 (steady)
+[consumer] seen=11399238 kept=9249438 (steady)
+[consumer] seen=11594238 kept=9444438 (steady)
+[consumer] seen=11788238 kept=9638438 (steady)
+[consumer] seen=11982238 kept=9832438 (steady)
+[consumer] seen=12065700 kept=9915900 (steady)
+[consumer] seen=12290263 kept=10140463 (steady)
+[consumer] seen=12594263 kept=10444463 (steady)
+[consumer] seen=12787263 kept=10637463 (steady)
+[consumer] seen=12981263 kept=10831463 (steady)
+[consumer] seen=13176263 kept=11026463 (steady)
+[consumer] seen=13369263 kept=11219463 (steady)
+[consumer] seen=13563263 kept=11413463 (steady)
+[consumer] seen=13757263 kept=11607463 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-bt100-s3-r3",
+  "topic": "st-output",
+  "kept_records": 11740463,
+  "seen_records": 13890263,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 39134.9,
+  "started_at": 1794445528.076,
+  "ended_at": 1794445888.102,
+  "pipeline_ms": {
+    "count": 11740463,
+    "p50": 72.699,
+    "p95": 3320.433,
+    "p99": 4639.472,
+    "max": 6613.334,
+    "mean": 513.047
+  },
+  "e2e_ms": {
+    "count": 11740463,
+    "p50": 98.597,
+    "p95": 3368.067,
+    "p99": 4696.559,
+    "max": 6632.741,
+    "mean": 547.674
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-bt100-s3-r3_summary.json

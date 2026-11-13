@@ -1,0 +1,152 @@
+# spark-microbatch-s5 spark evidence at 2026-11-09T12:31:25Z
+async-log-write threads: 0
+AsyncProgressTrackingMicroBatchExecution frames: 0
+--- active stages (pipelined shuffle => source stage and stateful stage RUNNING together)
+--- driver log: pipelined / state store / commit lines
+ 187       "rocksdbReplayChangeLogLatencyMs" : 0,
+ 187       "rocksdbNumReplayChangelogFiles" : 0,
+   9       "rocksdbChangeLogWriterCommitLatencyMs" : 347,
+   7       "rocksdbChangeLogWriterCommitLatencyMs" : 351,
+   6       "rocksdbChangeLogWriterCommitLatencyMs" : 358,
+   5       "rocksdbChangeLogWriterCommitLatencyMs" : 345,
+   4 26/11/09 12:31:15 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+   4 26/11/09 12:30:54 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+   4       "rocksdbChangeLogWriterCommitLatencyMs" : 410,
+   4       "rocksdbChangeLogWriterCommitLatencyMs" : 387,
+   4       "rocksdbChangeLogWriterCommitLatencyMs" : 375,
+   4       "rocksdbChangeLogWriterCommitLatencyMs" : 369,
+   4       "rocksdbChangeLogWriterCommitLatencyMs" : 368,
+   4       "rocksdbChangeLogWriterCommitLatencyMs" : 355,
+   4       "rocksdbChangeLogWriterCommitLatencyMs" : 354,
+--- checkpoint /tmp/spark-checkpoints/stateful-s5-microbatch-1794227394/
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394/:
+commits
+metadata
+offsets
+sources
+state
+
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394//state/0:
+0
+1
+2
+3
+4
+5
+_metadata
+[commits]
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+[latest commit]
+v2
+{"nextBatchWatermarkMs":1794227466226,"stateUniqueIds":{"0":[["8d24022d-9fc9-4cd0-9dfb-26d126655c3e","98c2557b-ac41-4bcb-9506-f83d1e2291c1","8db0ec60-b40b-4a35-a021-a4852c84d4fc","5b9db05e-2d10-4b88-96cf-0a1858d3a8ca"],["d137b0f5-392d-476b-bee4-e514e9d7ec2f","f8ba61dc-550a-4580-9113-02cb5ee2b37c","afc29984-3081-47e6-a749-ee288bfecaae","365d67c3-ea22-46b0-adbd-7757b33b6632"],["2229d7fd-529e-40b4-bf07-fd87ba882dad","7492a32b-7f7d-4856-97c4-3a0812d55759","bd09dd28-b085-4533-aa73-b0b3fcc3774a","9e072d60-7e0f-4571-94c7-110c1bbe5e5f"],["9b3aa40b-e681-480c-aa5d-85ca59f5c74a","d39eb931-8328-4330-b664-3db52069ff96","304498b3-10e5-427d-8034-972cee2aa75a","91a8297d-d246-49eb-a76f-2896a900918b"],["e0db6d04-759f-4eb4-a5db-94a5bf4ed36b","06421949-f46c-4084-8292-7288a4cc8d67","2a065c4a-ac4c-4d23-abc3-fbc4dd88b6f2","407f02e0-bdee-480a-8e20-4ea0b9bce919"],["47937f68-de4e-49ec-a05a-9257a312d66d","647c6c71-f5d5-4cd0-80d1-5d187eac7b2e","c835fb79-8d29-40ae-8473-c1f449546db9","260dfb34-e1c1-4c42-824e-0d721c284efc"]]}}
+[state files, partition 0]
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394//state/0/2/right-keyWithIndexToValue/.96_713b7d33-9ac8-459f-9b70-5b35b65d921c.changelog.crc
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394//state/0/2/right-keyWithIndexToValue/85_b11bc3c8-9177-4de0-972d-d73ee4279a31.changelog.crc
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394//state/0/2/right-keyWithIndexToValue/164_3432af22-e041-405a-af2d-3550b37a9035.changelog.crc
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394//state/0/2/right-keyWithIndexToValue/.162_20b9f3dd-6fdd-4839-8e2e-8277c5491e35.changelog.crc.crc
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394//state/0/2/right-keyWithIndexToValue/104_6486c125-d85b-494b-b76e-45a10c8e682d.changelog
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394//state/0/2/right-keyWithIndexToValue/.168_5d79c598-8f7f-4333-bec4-fd34743d48e4.changelog.crc.crc
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394//state/0/2/right-keyWithIndexToValue/75_da4ee92f-e75a-4587-a3a8-f7f67dad41fc.changelog
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394//state/0/2/right-keyWithIndexToValue/109_5091fe89-8e94-4e06-9940-6fa34aaccb91.changelog.crc
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394//state/0/2/right-keyWithIndexToValue/.110_81cb3b98-9ba6-427a-8d86-39f249e0e3c9.changelog.crc.crc
+/tmp/spark-checkpoints/stateful-s5-microbatch-1794227394//state/0/2/right-keyWithIndexToValue/.130_5d25b2de-6397-43b6-9368-c9fc22628ce2.changelog.crc

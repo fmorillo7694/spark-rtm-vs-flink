@@ -1,0 +1,73 @@
+# spark-rtm-java-p6-r2 evidence at 2026-11-12T13:20:34Z ckpt=spark-rtm-java-p6-43b-1794487705
+--- driver log lines
+[RtmPipelineJava] mode=rtm id=21223266-1501-42c4-8ac0-3571587c3159 trigger=RealTime(60 seconds) asyncProgressTrackingEnabled=auto ckpt=s3a://rtm-flink-bench-ckpt-__ACCOUNT__/spark-rtm-java-p6-43b-1794487705
+async-log-write threads: 1
+AsyncProgressTrackingMicroBatchExecution frames: 1
+--- checkpoint s3://rtm-flink-bench-ckpt-__ACCOUNT__/spark-rtm-java-p6-43b-1794487705 (LastModified UTC, key)
+[offsets]
+2026-11-12T12:49:24+00:00	spark-rtm-java-p6-43b-1794487705/offsets/
+2026-11-12T12:50:29+00:00	spark-rtm-java-p6-43b-1794487705/offsets/0
+2026-11-12T12:51:29+00:00	spark-rtm-java-p6-43b-1794487705/offsets/1
+2026-11-12T13:00:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/10
+2026-11-12T13:01:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/11
+2026-11-12T13:02:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/12
+2026-11-12T13:03:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/13
+2026-11-12T13:04:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/14
+2026-11-12T13:05:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/15
+2026-11-12T13:06:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/16
+2026-11-12T13:07:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/17
+2026-11-12T13:08:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/18
+2026-11-12T13:09:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/19
+2026-11-12T12:52:29+00:00	spark-rtm-java-p6-43b-1794487705/offsets/2
+2026-11-12T13:10:31+00:00	spark-rtm-java-p6-43b-1794487705/offsets/20
+2026-11-12T13:11:31+00:00	spark-rtm-java-p6-43b-1794487705/offsets/21
+2026-11-12T13:12:31+00:00	spark-rtm-java-p6-43b-1794487705/offsets/22
+2026-11-12T13:13:31+00:00	spark-rtm-java-p6-43b-1794487705/offsets/23
+2026-11-12T13:14:31+00:00	spark-rtm-java-p6-43b-1794487705/offsets/24
+2026-11-12T13:15:31+00:00	spark-rtm-java-p6-43b-1794487705/offsets/25
+2026-11-12T13:16:31+00:00	spark-rtm-java-p6-43b-1794487705/offsets/26
+2026-11-12T13:17:31+00:00	spark-rtm-java-p6-43b-1794487705/offsets/27
+2026-11-12T13:18:31+00:00	spark-rtm-java-p6-43b-1794487705/offsets/28
+2026-11-12T13:19:31+00:00	spark-rtm-java-p6-43b-1794487705/offsets/29
+2026-11-12T12:53:29+00:00	spark-rtm-java-p6-43b-1794487705/offsets/3
+2026-11-12T13:20:31+00:00	spark-rtm-java-p6-43b-1794487705/offsets/30
+2026-11-12T12:54:29+00:00	spark-rtm-java-p6-43b-1794487705/offsets/4
+2026-11-12T12:55:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/5
+2026-11-12T12:56:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/6
+2026-11-12T12:57:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/7
+2026-11-12T12:58:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/8
+2026-11-12T12:59:30+00:00	spark-rtm-java-p6-43b-1794487705/offsets/9
+[commits]
+2026-11-12T12:49:24+00:00	spark-rtm-java-p6-43b-1794487705/commits/
+2026-11-12T12:50:30+00:00	spark-rtm-java-p6-43b-1794487705/commits/0
+2026-11-12T12:51:30+00:00	spark-rtm-java-p6-43b-1794487705/commits/1
+2026-11-12T13:00:30+00:00	spark-rtm-java-p6-43b-1794487705/commits/10
+2026-11-12T13:01:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/11
+2026-11-12T13:02:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/12
+2026-11-12T13:03:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/13
+2026-11-12T13:04:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/14
+2026-11-12T13:05:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/15
+2026-11-12T13:06:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/16
+2026-11-12T13:07:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/17
+2026-11-12T13:08:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/18
+2026-11-12T13:09:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/19
+2026-11-12T12:52:30+00:00	spark-rtm-java-p6-43b-1794487705/commits/2
+2026-11-12T13:10:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/20
+2026-11-12T13:11:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/21
+2026-11-12T13:12:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/22
+2026-11-12T13:13:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/23
+2026-11-12T13:14:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/24
+2026-11-12T13:15:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/25
+2026-11-12T13:16:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/26
+2026-11-12T13:17:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/27
+2026-11-12T13:18:31+00:00	spark-rtm-java-p6-43b-1794487705/commits/28
+2026-11-12T13:19:32+00:00	spark-rtm-java-p6-43b-1794487705/commits/29
+2026-11-12T12:53:30+00:00	spark-rtm-java-p6-43b-1794487705/commits/3
+2026-11-12T13:20:32+00:00	spark-rtm-java-p6-43b-1794487705/commits/30
+2026-11-12T12:54:30+00:00	spark-rtm-java-p6-43b-1794487705/commits/4
+2026-11-12T12:55:30+00:00	spark-rtm-java-p6-43b-1794487705/commits/5
+2026-11-12T12:56:30+00:00	spark-rtm-java-p6-43b-1794487705/commits/6
+2026-11-12T12:57:30+00:00	spark-rtm-java-p6-43b-1794487705/commits/7
+2026-11-12T12:58:30+00:00	spark-rtm-java-p6-43b-1794487705/commits/8
+2026-11-12T12:59:30+00:00	spark-rtm-java-p6-43b-1794487705/commits/9
+--- latest commit log entry

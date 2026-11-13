@@ -1,0 +1,23 @@
+{
+ "prefix": "pyspark-rtm-p6-43b-1794419878/",
+ "objects": 18,
+ "bytes": 7723,
+ "by_dir": {
+  "(root)": {
+   "objects": 2,
+   "bytes": 45
+  },
+  "commits": {
+   "objects": 7,
+   "bytes": 174
+  },
+  "offsets": {
+   "objects": 7,
+   "bytes": 7446
+  },
+  "sources": {
+   "objects": 2,
+   "bytes": 58
+  }
+ }
+}

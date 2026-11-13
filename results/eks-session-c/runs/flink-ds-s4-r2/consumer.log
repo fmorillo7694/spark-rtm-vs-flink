@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-s4-r2 warmup=60s window=300s
+[consumer] seen=90000 kept=0 (warmup)
+[consumer] seen=334000 kept=0 (warmup)
+[consumer] seen=578000 kept=0 (warmup)
+[consumer] seen=822000 kept=0 (warmup)
+[consumer] seen=1066000 kept=0 (warmup)
+[consumer] seen=1309000 kept=0 (warmup)
+[consumer] seen=1553000 kept=0 (warmup)
+[consumer] seen=1797000 kept=0 (warmup)
+[consumer] seen=2040000 kept=0 (warmup)
+[consumer] seen=2284000 kept=0 (warmup)
+[consumer] seen=2528000 kept=0 (warmup)
+[consumer] seen=2771000 kept=9000 (steady)
+[consumer] seen=3014000 kept=252000 (steady)
+[consumer] seen=3257000 kept=495000 (steady)
+[consumer] seen=3500000 kept=738000 (steady)
+[consumer] seen=3744000 kept=982000 (steady)
+[consumer] seen=3987000 kept=1225000 (steady)
+[consumer] seen=4231000 kept=1469000 (steady)
+[consumer] seen=4474000 kept=1712000 (steady)
+[consumer] seen=4717000 kept=1955000 (steady)
+[consumer] seen=4961000 kept=2199000 (steady)
+[consumer] seen=5204000 kept=2442000 (steady)
+[consumer] seen=5447000 kept=2685000 (steady)
+[consumer] seen=5691000 kept=2929000 (steady)
+[consumer] seen=5935000 kept=3173000 (steady)
+[consumer] seen=6179000 kept=3417000 (steady)
+[consumer] seen=6423000 kept=3661000 (steady)
+[consumer] seen=6666000 kept=3904000 (steady)
+[consumer] seen=6909000 kept=4147000 (steady)
+[consumer] seen=7153000 kept=4391000 (steady)
+[consumer] seen=7397000 kept=4635000 (steady)
+[consumer] seen=7640000 kept=4878000 (steady)
+[consumer] seen=7884000 kept=5122000 (steady)
+[consumer] seen=8128000 kept=5366000 (steady)
+[consumer] seen=8372000 kept=5610000 (steady)
+[consumer] seen=8616000 kept=5854000 (steady)
+[consumer] seen=8860000 kept=6098000 (steady)
+[consumer] seen=9104000 kept=6342000 (steady)
+[consumer] seen=9348000 kept=6586000 (steady)
+[consumer] seen=9592000 kept=6830000 (steady)
+[consumer] seen=9835000 kept=7073000 (steady)
+[consumer] seen=10079000 kept=7317000 (steady)
+[consumer] seen=10322000 kept=7560000 (steady)
+[consumer] seen=10566000 kept=7804000 (steady)
+[consumer] seen=10809000 kept=8047000 (steady)
+[consumer] seen=11053000 kept=8291000 (steady)
+[consumer] seen=11297000 kept=8535000 (steady)
+[consumer] seen=11538000 kept=8776000 (steady)
+[consumer] seen=11784000 kept=9022000 (steady)
+[consumer] seen=12028000 kept=9266000 (steady)
+[consumer] seen=12271000 kept=9509000 (steady)
+[consumer] seen=12515000 kept=9753000 (steady)
+[consumer] seen=12758000 kept=9996000 (steady)
+[consumer] seen=13002000 kept=10240000 (steady)
+[consumer] seen=13246000 kept=10484000 (steady)
+[consumer] seen=13490000 kept=10728000 (steady)
+[consumer] seen=13733000 kept=10971000 (steady)
+[consumer] seen=13976000 kept=11214000 (steady)
+[consumer] seen=14220000 kept=11458000 (steady)
+[consumer] seen=14464000 kept=11702000 (steady)
+[consumer] seen=14708000 kept=11946000 (steady)
+[consumer] seen=14952000 kept=12190000 (steady)
+[consumer] seen=15196000 kept=12434000 (steady)
+[consumer] seen=15440000 kept=12678000 (steady)
+[consumer] seen=15683000 kept=12921000 (steady)
+[consumer] seen=15926000 kept=13164000 (steady)
+[consumer] seen=16170000 kept=13408000 (steady)
+[consumer] seen=16413000 kept=13651000 (steady)
+[consumer] seen=16657000 kept=13895000 (steady)
+[consumer] seen=16900000 kept=14138000 (steady)
+[consumer] seen=17144000 kept=14382000 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-s4-r2",
+  "topic": "st-output",
+  "kept_records": 14583000,
+  "seen_records": 17345000,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 48610.0,
+  "started_at": 1794311904.954,
+  "ended_at": 1794312264.978,
+  "pipeline_ms": {
+    "count": 14583000,
+    "p50": 6.277,
+    "p95": 7.31,
+    "p99": 18.372,
+    "max": 116.773,
+    "mean": 6.62
+  },
+  "e2e_ms": {
+    "count": 14583000,
+    "p50": 26.804,
+    "p95": 34.887,
+    "p99": 49.825,
+    "max": 149.63,
+    "mean": 27.461
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-s4-r2_summary.json

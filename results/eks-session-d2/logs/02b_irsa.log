@@ -1,0 +1,27 @@
+policy: arn:aws:iam::<ACCOUNT_ID>:policy/rtm-flink-ckpt-s3
+2026-11-11 12:35:02 [ℹ]  1 iamserviceaccount (spark/spark-operator-spark) was included (based on the include/exclude rules)
+2026-11-11 12:35:02 [!]  metadata of serviceaccounts that exist in Kubernetes will be updated, as --override-existing-serviceaccounts was set
+2026-11-11 12:35:02 [ℹ]  1 task: { 
+    2 sequential sub-tasks: { 
+        create IAM role for serviceaccount "spark/spark-operator-spark",
+        create serviceaccount "spark/spark-operator-spark",
+    } }2026-11-11 12:35:02 [ℹ]  building iamserviceaccount stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-spark-spark-operator-spark"
+2026-11-11 12:35:03 [ℹ]  deploying stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-spark-spark-operator-spark"
+2026-11-11 12:35:03 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-spark-spark-operator-spark"
+2026-11-11 12:35:33 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-spark-spark-operator-spark"
+2026-11-11 12:35:34 [ℹ]  serviceaccount "spark/spark-operator-spark" already exists
+2026-11-11 12:35:34 [ℹ]  updated serviceaccount "spark/spark-operator-spark"
+2026-11-11 12:35:37 [ℹ]  1 existing iamserviceaccount(s) (spark/spark-operator-spark) will be excluded
+2026-11-11 12:35:37 [ℹ]  1 iamserviceaccount (flink/flink) was included (based on the include/exclude rules)
+2026-11-11 12:35:37 [!]  metadata of serviceaccounts that exist in Kubernetes will be updated, as --override-existing-serviceaccounts was set
+2026-11-11 12:35:37 [ℹ]  1 task: { 
+    2 sequential sub-tasks: { 
+        create IAM role for serviceaccount "flink/flink",
+        create serviceaccount "flink/flink",
+    } }2026-11-11 12:35:37 [ℹ]  building iamserviceaccount stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-flink-flink"
+2026-11-11 12:35:37 [ℹ]  deploying stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-flink-flink"
+2026-11-11 12:35:37 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-flink-flink"
+2026-11-11 12:36:08 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench5-addon-iamserviceaccount-flink-flink"
+2026-11-11 12:36:08 [ℹ]  serviceaccount "flink/flink" already exists
+2026-11-11 12:36:09 [ℹ]  updated serviceaccount "flink/flink"
+IRSA configured for spark + flink service accounts

@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=spark-rtm-s4-r1 warmup=60s window=300s
+[consumer] seen=90000 kept=0 (warmup)
+[consumer] seen=334000 kept=0 (warmup)
+[consumer] seen=577000 kept=0 (warmup)
+[consumer] seen=821000 kept=0 (warmup)
+[consumer] seen=1064000 kept=0 (warmup)
+[consumer] seen=1308000 kept=0 (warmup)
+[consumer] seen=1552000 kept=0 (warmup)
+[consumer] seen=1795000 kept=0 (warmup)
+[consumer] seen=2039000 kept=0 (warmup)
+[consumer] seen=2283000 kept=0 (warmup)
+[consumer] seen=2503425 kept=0 (warmup)
+[consumer] seen=2776425 kept=15000 (steady)
+[consumer] seen=3019425 kept=258000 (steady)
+[consumer] seen=3262425 kept=501000 (steady)
+[consumer] seen=3506425 kept=745000 (steady)
+[consumer] seen=3750425 kept=989000 (steady)
+[consumer] seen=3993425 kept=1232000 (steady)
+[consumer] seen=4237425 kept=1476000 (steady)
+[consumer] seen=4481425 kept=1720000 (steady)
+[consumer] seen=4725425 kept=1964000 (steady)
+[consumer] seen=4969425 kept=2208000 (steady)
+[consumer] seen=5213425 kept=2452000 (steady)
+[consumer] seen=5452738 kept=2691313 (steady)
+[consumer] seen=5706738 kept=2945313 (steady)
+[consumer] seen=5950738 kept=3189313 (steady)
+[consumer] seen=6194738 kept=3433313 (steady)
+[consumer] seen=6438738 kept=3677313 (steady)
+[consumer] seen=6681738 kept=3920313 (steady)
+[consumer] seen=6924738 kept=4163313 (steady)
+[consumer] seen=7168738 kept=4407313 (steady)
+[consumer] seen=7412738 kept=4651313 (steady)
+[consumer] seen=7656738 kept=4895313 (steady)
+[consumer] seen=7900738 kept=5139313 (steady)
+[consumer] seen=8143738 kept=5382313 (steady)
+[consumer] seen=8387738 kept=5626313 (steady)
+[consumer] seen=8631646 kept=5870221 (steady)
+[consumer] seen=8875646 kept=6114221 (steady)
+[consumer] seen=9119646 kept=6358221 (steady)
+[consumer] seen=9363646 kept=6602221 (steady)
+[consumer] seen=9607646 kept=6846221 (steady)
+[consumer] seen=9850646 kept=7089221 (steady)
+[consumer] seen=10094646 kept=7333221 (steady)
+[consumer] seen=10338646 kept=7577221 (steady)
+[consumer] seen=10582646 kept=7821221 (steady)
+[consumer] seen=10825646 kept=8064221 (steady)
+[consumer] seen=11068646 kept=8307221 (steady)
+[consumer] seen=11313646 kept=8552221 (steady)
+[consumer] seen=11557043 kept=8795618 (steady)
+[consumer] seen=11801043 kept=9039618 (steady)
+[consumer] seen=12045043 kept=9283618 (steady)
+[consumer] seen=12288043 kept=9526618 (steady)
+[consumer] seen=12532043 kept=9770618 (steady)
+[consumer] seen=12775043 kept=10013618 (steady)
+[consumer] seen=13013043 kept=10251618 (steady)
+[consumer] seen=13262043 kept=10500618 (steady)
+[consumer] seen=13506043 kept=10744618 (steady)
+[consumer] seen=13749043 kept=10987618 (steady)
+[consumer] seen=13992043 kept=11230618 (steady)
+[consumer] seen=14232043 kept=11470618 (steady)
+[consumer] seen=14478742 kept=11717317 (steady)
+[consumer] seen=14721742 kept=11960317 (steady)
+[consumer] seen=14965742 kept=12204317 (steady)
+[consumer] seen=15209742 kept=12448317 (steady)
+[consumer] seen=15452742 kept=12691317 (steady)
+[consumer] seen=15695742 kept=12934317 (steady)
+[consumer] seen=15938742 kept=13177317 (steady)
+[consumer] seen=16181742 kept=13420317 (steady)
+[consumer] seen=16425742 kept=13664317 (steady)
+[consumer] seen=16669742 kept=13908317 (steady)
+[consumer] seen=16912742 kept=14151317 (steady)
+[consumer] seen=17156742 kept=14395317 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "spark-rtm-s4-r1",
+  "topic": "st-output",
+  "kept_records": 14582243,
+  "seen_records": 17343668,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 48607.5,
+  "started_at": 1794425395.596,
+  "ended_at": 1794425755.605,
+  "pipeline_ms": {
+    "count": 14582243,
+    "p50": 6.729,
+    "p95": 10.01,
+    "p99": 404.713,
+    "max": 947.513,
+    "mean": 16.185
+  },
+  "e2e_ms": {
+    "count": 14582243,
+    "p50": 33.015,
+    "p95": 66.271,
+    "p99": 577.648,
+    "max": 1000.121,
+    "mean": 47.255
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/spark-rtm-s4-r1_summary.json

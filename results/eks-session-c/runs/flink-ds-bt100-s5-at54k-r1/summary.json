@@ -1,0 +1,27 @@
+{
+  "engine": "flink-ds-bt100-s5-at54k-r1",
+  "topic": "st-output",
+  "kept_records": 3509629,
+  "seen_records": 5360990,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 11698.8,
+  "started_at": 1794321982.878,
+  "ended_at": 1794322342.901,
+  "pipeline_ms": {
+    "count": 3509629,
+    "p50": 130096.617,
+    "p95": 213790.566,
+    "p99": 228452.554,
+    "max": 240613.797,
+    "mean": 115330.434
+  },
+  "e2e_ms": {
+    "count": 3509629,
+    "p50": 130128.43,
+    "p95": 213860.997,
+    "p99": 228529.386,
+    "max": 240653.578,
+    "mean": 115383.739
+  }
+}

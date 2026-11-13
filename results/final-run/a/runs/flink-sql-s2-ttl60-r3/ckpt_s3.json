@@ -1,0 +1,15 @@
+{
+ "prefix": "stateful/flink-sql-s2-ttl60-r3-1794441481/",
+ "objects": 25,
+ "bytes": 121500517,
+ "by_dir": {
+  "chk-*": {
+   "objects": 1,
+   "bytes": 42630
+  },
+  "shared": {
+   "objects": 24,
+   "bytes": 121457887
+  }
+ }
+}

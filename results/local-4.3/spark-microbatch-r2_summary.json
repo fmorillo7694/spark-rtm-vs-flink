@@ -1,0 +1,25 @@
+{
+  "engine": "spark-microbatch-r2",
+  "topic": "output-events",
+  "kept_records": 949869,
+  "seen_records": 992646,
+  "window_seconds": 285,
+  "warmup_seconds": 15,
+  "throughput_eps": 3332.9,
+  "pipeline_ms": {
+    "count": 949869,
+    "p50": 66.399,
+    "p95": 104.279,
+    "p99": 147.398,
+    "max": 321.579,
+    "mean": 69.475
+  },
+  "e2e_ms": {
+    "count": 949869,
+    "p50": 69.665,
+    "p95": 108.513,
+    "p99": 153.118,
+    "max": 340.062,
+    "mean": 72.673
+  }
+}

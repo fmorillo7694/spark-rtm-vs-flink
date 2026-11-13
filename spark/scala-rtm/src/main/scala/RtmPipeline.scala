@@ -37,6 +37,9 @@ object RtmPipeline {
     val outputTopic     = args(3)
     val checkpointDir   = args(4)
     val triggerDuration = if (args.length > 5) args(5) else "5 seconds"
+    // "auto" = leave Spark's default (4.3: async progress tracking ON for stateless RTM);
+    // "false" = control arm, force synchronous offset/commit log writes.
+    val asyncProgress   = if (args.length > 6) args(6) else "auto"
 
     // Per-ROW wall-clock stamp. current_timestamp() is frozen at epoch/batch start, which
     // in RTM's long-running tasks is stamped when the task launched (BEFORE most rows are
@@ -84,11 +87,14 @@ object RtmPipeline {
       )).alias("value")
     )
 
-    val baseWriter = out.writeStream
+    val writer0 = out.writeStream
       .format("kafka")
       .option("kafka.bootstrap.servers", bootstrap)
       .option("topic", outputTopic)
       .option("checkpointLocation", checkpointDir)
+    val baseWriter =
+      if (asyncProgress == "auto") writer0
+      else writer0.option("asyncProgressTrackingEnabled", asyncProgress)
 
     val query = mode match {
       case "rtm" =>
@@ -105,7 +111,8 @@ object RtmPipeline {
     }
 
     println(s"[RtmPipeline] mode=$mode id=${query.id} runId=${query.runId} " +
-      s"trigger=${if (mode == "rtm") s"RealTime($triggerDuration)" else "micro-batch(default)"}")
+      s"trigger=${if (mode == "rtm") s"RealTime($triggerDuration)" else "micro-batch(default)"} " +
+      s"asyncProgressTrackingEnabled=$asyncProgress ckpt=$checkpointDir")
     query.awaitTermination()
   }
 }

@@ -7,7 +7,7 @@ BOOTSTRAP="${KAFKA_BOOTSTRAP_INTERNAL:-kafka:9092}"
 INPUT="${INPUT_TOPIC:-input-events}"
 OUTPUT="${OUTPUT_TOPIC:-output-events}"
 SCALA_BIN="${SPARK_SCALA_BINARY:-2.13}"
-SPARK_VER="${SPARK_VERSION:-4.1.2}"
+SPARK_VER="${SPARK_VERSION:-4.3.0}"
 JAR=/workspace/spark/scala-rtm/target/scala-${SCALA_BIN}/scala-rtm_${SCALA_BIN}-0.1.0.jar
 CKPT=/tmp/spark-checkpoints/microbatch-$(date +%s)
 

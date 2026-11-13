@@ -1,0 +1,8 @@
+verified 2026-11-10T16:06:50Z
+clusters: []
+stacks: []
+instances: []
+tagged volumes: []
+deadline schedules: []
+NAT <NAT_ID>: available	<EIP>
+<VPCE_ID>: available

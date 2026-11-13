@@ -1,0 +1,27 @@
+{
+ "prefix": "stateful/spark-rtm-s2-at50k-1800s-r1-1794483408/",
+ "objects": 565,
+ "bytes": 2636927822,
+ "by_dir": {
+  "(root)": {
+   "objects": 2,
+   "bytes": 45
+  },
+  "commits": {
+   "objects": 33,
+   "bytes": 9936
+  },
+  "offsets": {
+   "objects": 33,
+   "bytes": 39844
+  },
+  "sources": {
+   "objects": 2,
+   "bytes": 54
+  },
+  "state": {
+   "objects": 495,
+   "bytes": 2636877943
+  }
+ }
+}

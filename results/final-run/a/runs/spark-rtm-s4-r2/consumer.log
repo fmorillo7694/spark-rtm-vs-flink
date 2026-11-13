@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=spark-rtm-s4-r2 warmup=60s window=300s
+[consumer] seen=90000 kept=0 (warmup)
+[consumer] seen=333000 kept=0 (warmup)
+[consumer] seen=577000 kept=0 (warmup)
+[consumer] seen=821000 kept=0 (warmup)
+[consumer] seen=1064000 kept=0 (warmup)
+[consumer] seen=1308000 kept=0 (warmup)
+[consumer] seen=1551000 kept=0 (warmup)
+[consumer] seen=1795000 kept=0 (warmup)
+[consumer] seen=2037000 kept=0 (warmup)
+[consumer] seen=2283000 kept=0 (warmup)
+[consumer] seen=2507347 kept=0 (warmup)
+[consumer] seen=2771347 kept=9601 (steady)
+[consumer] seen=3014347 kept=252601 (steady)
+[consumer] seen=3257347 kept=495601 (steady)
+[consumer] seen=3500347 kept=738601 (steady)
+[consumer] seen=3744347 kept=982601 (steady)
+[consumer] seen=3987347 kept=1225601 (steady)
+[consumer] seen=4231347 kept=1469601 (steady)
+[consumer] seen=4474347 kept=1712601 (steady)
+[consumer] seen=4718347 kept=1956601 (steady)
+[consumer] seen=4962347 kept=2200601 (steady)
+[consumer] seen=5205347 kept=2443601 (steady)
+[consumer] seen=5449347 kept=2687601 (steady)
+[consumer] seen=5693065 kept=2931319 (steady)
+[consumer] seen=5937065 kept=3175319 (steady)
+[consumer] seen=6181065 kept=3419319 (steady)
+[consumer] seen=6425065 kept=3663319 (steady)
+[consumer] seen=6669065 kept=3907319 (steady)
+[consumer] seen=6912065 kept=4150319 (steady)
+[consumer] seen=7156065 kept=4394319 (steady)
+[consumer] seen=7399065 kept=4637319 (steady)
+[consumer] seen=7643065 kept=4881319 (steady)
+[consumer] seen=7886065 kept=5124319 (steady)
+[consumer] seen=8129065 kept=5367319 (steady)
+[consumer] seen=8373065 kept=5611319 (steady)
+[consumer] seen=8617138 kept=5855392 (steady)
+[consumer] seen=8861138 kept=6099392 (steady)
+[consumer] seen=9105138 kept=6343392 (steady)
+[consumer] seen=9349138 kept=6587392 (steady)
+[consumer] seen=9593138 kept=6831392 (steady)
+[consumer] seen=9836138 kept=7074392 (steady)
+[consumer] seen=10080138 kept=7318392 (steady)
+[consumer] seen=10324138 kept=7562392 (steady)
+[consumer] seen=10568138 kept=7806392 (steady)
+[consumer] seen=10812138 kept=8050392 (steady)
+[consumer] seen=11055138 kept=8293392 (steady)
+[consumer] seen=11299138 kept=8537392 (steady)
+[consumer] seen=11542537 kept=8780791 (steady)
+[consumer] seen=11789537 kept=9027791 (steady)
+[consumer] seen=12032537 kept=9270791 (steady)
+[consumer] seen=12275537 kept=9513791 (steady)
+[consumer] seen=12519537 kept=9757791 (steady)
+[consumer] seen=12763537 kept=10001791 (steady)
+[consumer] seen=13006537 kept=10244791 (steady)
+[consumer] seen=13250537 kept=10488791 (steady)
+[consumer] seen=13494537 kept=10732791 (steady)
+[consumer] seen=13737537 kept=10975791 (steady)
+[consumer] seen=13980537 kept=11218791 (steady)
+[consumer] seen=14224537 kept=11462791 (steady)
+[consumer] seen=14468301 kept=11706555 (steady)
+[consumer] seen=14711301 kept=11949555 (steady)
+[consumer] seen=14955301 kept=12193555 (steady)
+[consumer] seen=15199301 kept=12437555 (steady)
+[consumer] seen=15443301 kept=12681555 (steady)
+[consumer] seen=15686301 kept=12924555 (steady)
+[consumer] seen=15929301 kept=13167555 (steady)
+[consumer] seen=16173301 kept=13411555 (steady)
+[consumer] seen=16417301 kept=13655555 (steady)
+[consumer] seen=16660301 kept=13898555 (steady)
+[consumer] seen=16904301 kept=14142555 (steady)
+[consumer] seen=17147301 kept=14385555 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "spark-rtm-s4-r2",
+  "topic": "st-output",
+  "kept_records": 14575122,
+  "seen_records": 17336868,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 48583.7,
+  "started_at": 1794434117.978,
+  "ended_at": 1794434477.989,
+  "pipeline_ms": {
+    "count": 14575122,
+    "p50": 6.724,
+    "p95": 8.125,
+    "p99": 448.59,
+    "max": 1041.595,
+    "mean": 16.094
+  },
+  "e2e_ms": {
+    "count": 14575122,
+    "p50": 33.138,
+    "p95": 47.766,
+    "p99": 625.455,
+    "max": 1075.178,
+    "mean": 46.437
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/spark-rtm-s4-r2_summary.json

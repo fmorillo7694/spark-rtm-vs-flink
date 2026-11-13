@@ -1,0 +1,2 @@
+[10:58:49] matrix: 1 runs (plan customsl-flink:p6:1:secs=300), budget 34200s, s3://<BUCKET>/final30/a-termtest dry_run=0
+[10:58:50] ######## flink-p6-r1 attempt=1 elapsed=5s

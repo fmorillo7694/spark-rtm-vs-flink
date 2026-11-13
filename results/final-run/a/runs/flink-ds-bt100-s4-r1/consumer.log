@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-bt100-s4-r1 warmup=60s window=300s
+[consumer] seen=90000 kept=0 (warmup)
+[consumer] seen=334000 kept=0 (warmup)
+[consumer] seen=578000 kept=0 (warmup)
+[consumer] seen=822000 kept=0 (warmup)
+[consumer] seen=1065000 kept=0 (warmup)
+[consumer] seen=1309000 kept=0 (warmup)
+[consumer] seen=1552000 kept=0 (warmup)
+[consumer] seen=1795000 kept=0 (warmup)
+[consumer] seen=2039000 kept=0 (warmup)
+[consumer] seen=2283000 kept=0 (warmup)
+[consumer] seen=2527000 kept=0 (warmup)
+[consumer] seen=2770000 kept=8148 (steady)
+[consumer] seen=3013000 kept=251148 (steady)
+[consumer] seen=3256000 kept=494148 (steady)
+[consumer] seen=3500000 kept=738148 (steady)
+[consumer] seen=3744000 kept=982148 (steady)
+[consumer] seen=3987000 kept=1225148 (steady)
+[consumer] seen=4230000 kept=1468148 (steady)
+[consumer] seen=4473000 kept=1711148 (steady)
+[consumer] seen=4716000 kept=1954148 (steady)
+[consumer] seen=4956000 kept=2194148 (steady)
+[consumer] seen=5203000 kept=2441148 (steady)
+[consumer] seen=5447000 kept=2685148 (steady)
+[consumer] seen=5690000 kept=2928148 (steady)
+[consumer] seen=5934000 kept=3172148 (steady)
+[consumer] seen=6178000 kept=3416148 (steady)
+[consumer] seen=6422000 kept=3660148 (steady)
+[consumer] seen=6665000 kept=3903148 (steady)
+[consumer] seen=6908000 kept=4146148 (steady)
+[consumer] seen=7151000 kept=4389148 (steady)
+[consumer] seen=7395000 kept=4633148 (steady)
+[consumer] seen=7639000 kept=4877148 (steady)
+[consumer] seen=7882000 kept=5120148 (steady)
+[consumer] seen=8126000 kept=5364148 (steady)
+[consumer] seen=8370000 kept=5608148 (steady)
+[consumer] seen=8614000 kept=5852148 (steady)
+[consumer] seen=8858000 kept=6096148 (steady)
+[consumer] seen=9102000 kept=6340148 (steady)
+[consumer] seen=9346000 kept=6584148 (steady)
+[consumer] seen=9589000 kept=6827148 (steady)
+[consumer] seen=9833000 kept=7071148 (steady)
+[consumer] seen=10076000 kept=7314148 (steady)
+[consumer] seen=10320000 kept=7558148 (steady)
+[consumer] seen=10564000 kept=7802148 (steady)
+[consumer] seen=10807000 kept=8045148 (steady)
+[consumer] seen=11051000 kept=8289148 (steady)
+[consumer] seen=11295000 kept=8533148 (steady)
+[consumer] seen=11539000 kept=8777148 (steady)
+[consumer] seen=11783000 kept=9021148 (steady)
+[consumer] seen=12027000 kept=9265148 (steady)
+[consumer] seen=12270000 kept=9508148 (steady)
+[consumer] seen=12514000 kept=9752148 (steady)
+[consumer] seen=12757000 kept=9995148 (steady)
+[consumer] seen=13001000 kept=10239148 (steady)
+[consumer] seen=13244000 kept=10482148 (steady)
+[consumer] seen=13488000 kept=10726148 (steady)
+[consumer] seen=13732000 kept=10970148 (steady)
+[consumer] seen=13975000 kept=11213148 (steady)
+[consumer] seen=14219000 kept=11457148 (steady)
+[consumer] seen=14463000 kept=11701148 (steady)
+[consumer] seen=14707000 kept=11945148 (steady)
+[consumer] seen=14951000 kept=12189148 (steady)
+[consumer] seen=15194000 kept=12432148 (steady)
+[consumer] seen=15438000 kept=12676148 (steady)
+[consumer] seen=15681000 kept=12919148 (steady)
+[consumer] seen=15924000 kept=13162148 (steady)
+[consumer] seen=16168000 kept=13406148 (steady)
+[consumer] seen=16412000 kept=13650148 (steady)
+[consumer] seen=16650000 kept=13888148 (steady)
+[consumer] seen=16899000 kept=14137148 (steady)
+[consumer] seen=17143000 kept=14381148 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-bt100-s4-r1",
+  "topic": "st-output",
+  "kept_records": 14582148,
+  "seen_records": 17344000,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 48607.2,
+  "started_at": 1794425898.137,
+  "ended_at": 1794426258.206,
+  "pipeline_ms": {
+    "count": 14582148,
+    "p50": 6.506,
+    "p95": 7.577,
+    "p99": 21.918,
+    "max": 239.415,
+    "mean": 7.097
+  },
+  "e2e_ms": {
+    "count": 14582148,
+    "p50": 27.228,
+    "p95": 35.386,
+    "p99": 61.566,
+    "max": 268.19,
+    "mean": 28.352
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-bt100-s4-r1_summary.json

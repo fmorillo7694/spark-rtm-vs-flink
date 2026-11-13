@@ -219,6 +219,23 @@ docs/charts/                    generated PNG charts
 REPORT.md                       the full written-up comparison (local §1–8, EKS §9–10)
 ```
 
+## Stateful extension (Spark 4.3 RTM vs Flink 2.3)
+
+Three stateful workloads on the same datagen: S1 10 s tumbling count/sum per user, S2 dedup on
+`event_id`, S3 per-user session state machine with timers. Spark RTM Java (+ micro-batch S1
+floor), Flink DataStream and Flink SQL, RocksDB on both. Every setting and the semantic
+differences between engines are in [`STATEFUL_CONFIG.md`](STATEFUL_CONFIG.md); local
+correctness checks (all arms match the ground truth) and smoke-only observations are in
+[`results/local-stateful/RESULTS.md`](results/local-stateful/RESULTS.md).
+
+```bash
+bench/stateful_input.sh && PHASE=replay bench/run_stateful.sh flink && PHASE=replay bench/run_stateful.sh spark
+bench/stateful_correctness.sh                       # diff every engine against the ground truth
+PHASE=smoke bench/run_stateful.sh spark             # short latency smokes (not results)
+eks/stateful/check.sh                               # offline check of the in-cluster EKS runner
+eks/stateful/deploy_runner.sh                       # EKS: whole matrix as a Kubernetes Job
+```
+
 ## Results
 
 See **[`REPORT.md`](REPORT.md)** for the complete write-up and **`results/`** for raw data

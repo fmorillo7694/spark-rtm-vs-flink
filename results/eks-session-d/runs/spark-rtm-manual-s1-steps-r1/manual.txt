@@ -1,0 +1,8 @@
+1794346109 stop step=2 rate=12500 shape=peak
+1794346115 gone step=2
+1794346124 running step=2
+1794346210 query-started step=2
+1794347129 stop step=3 rate=6250 shape=low
+1794347136 gone step=3
+1794347144 running step=3
+1794347449 query-started step=3

@@ -1,0 +1,11 @@
+{
+  "run": "flink-ds-s1-update-kill",
+  "kill_epoch": 1794221706.859,
+  "pre_rate": 2020.0,
+  "outage_s": 17.141000032424927,
+  "recover_s": 18.141000032424927,
+  "settled_windows": 970,
+  "lost": 0,
+  "overcount": 0,
+  "dup_records": 14600
+}

@@ -1,0 +1,8 @@
+{
+  "run": "flink-ds-s1-update-kill-r3",
+  "kill_epoch": 1794258744.0,
+  "pre_rate": 49562.0,
+  "outage_s": 8.0,
+  "recover_s": 56.0,
+  "dup_records": 1991122
+}

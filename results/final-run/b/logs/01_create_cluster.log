@@ -1,0 +1,114 @@
+==> eksctl create cluster (cluster.rtm-flink-bench6b.local.yaml)
+2026-11-11 17:36:53 [ℹ]  eksctl version 0.225.0
+2026-11-11 17:36:53 [ℹ]  using region us-east-1
+2026-11-11 17:36:54 [✔]  using existing VPC (<VPC_ID>) and subnets (private:map[us-east-1d:{<SUBNET_ID> us-east-1d 192.168.64.0/19 0 } us-east-1f:{<SUBNET_ID> us-east-1f 192.168.96.0/19 0 }] public:map[us-east-1d:{<SUBNET_ID> us-east-1d 192.168.0.0/19 0 } us-east-1f:{<SUBNET_ID> us-east-1f 192.168.32.0/19 0 }])
+2026-11-11 17:36:54 [!]  custom VPC/subnets will be used; if resulting cluster doesn't function as expected, make sure to review the configuration of VPC/subnets
+2026-11-11 17:36:54 [ℹ]  nodegroup "engine-ng" will use "" [AmazonLinux2023/1.36]
+2026-11-11 17:36:54 [ℹ]  nodegroup "bench-ng" will use "" [AmazonLinux2023/1.36]
+2026-11-11 17:36:54 [!]  Auto Mode will be enabled by default in an upcoming release of eksctl. This means managed node groups and managed networking add-ons will no longer be created by default. To maintain current behavior, explicitly set 'autoModeConfig.enabled: false' in your cluster configuration. Learn more: https://eksctl.io/usage/auto-mode/
+2026-11-11 17:36:54 [ℹ]  using Kubernetes version 1.36
+2026-11-11 17:36:54 [ℹ]  creating EKS cluster "rtm-flink-bench6b" in "us-east-1" region with managed nodes
+2026-11-11 17:36:54 [ℹ]  2 nodegroups (bench-ng, engine-ng) were included (based on the include/exclude rules)
+2026-11-11 17:36:54 [ℹ]  will create a CloudFormation stack for cluster itself and 2 managed nodegroup stack(s)
+2026-11-11 17:36:54 [ℹ]  if you encounter any issues, check CloudFormation console or try 'eksctl utils describe-stacks --region=us-east-1 --cluster=rtm-flink-bench6b'
+2026-11-11 17:36:54 [ℹ]  Kubernetes API endpoint access will use provided values {publicAccess=true, privateAccess=true} for cluster "rtm-flink-bench6b" in "us-east-1"
+2026-11-11 17:36:54 [ℹ]  configuring CloudWatch logging for cluster "rtm-flink-bench6b" in "us-east-1" (enabled types: api, audit, authenticator, controllerManager, scheduler & no types disabled)
+2026-11-11 17:36:54 [ℹ]  
+2 sequential tasks: { create cluster control plane "rtm-flink-bench6b", 
+    2 sequential sub-tasks: { 
+        5 sequential sub-tasks: { 
+            1 task: { create addons },
+            wait for control plane to become ready,
+            associate IAM OIDC provider,
+            no tasks,
+            update VPC CNI to use IRSA if required,
+        },
+        2 parallel sub-tasks: { 
+            create managed nodegroup "engine-ng",
+            create managed nodegroup "bench-ng",
+        },
+    } 
+}
+2026-11-11 17:36:54 [ℹ]  building cluster stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:36:55 [ℹ]  deploying stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:37:25 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:37:56 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:38:56 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:39:56 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:40:57 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:41:57 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:42:57 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:43:58 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:44:58 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:45:58 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:46:59 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:47:59 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-cluster"
+2026-11-11 17:48:02 [!]  recommended policies were found for "vpc-cni" addon, but since OIDC is disabled on the cluster, eksctl cannot configure the requested permissions; the recommended way to provide IAM permissions for "vpc-cni" addon is via pod identity associations; after addon creation is completed, add all recommended policies to the config file, under `addon.PodIdentityAssociations`, and run `eksctl update addon`
+2026-11-11 17:48:02 [ℹ]  creating addon: vpc-cni
+2026-11-11 17:48:02 [ℹ]  successfully created addon: vpc-cni
+2026-11-11 17:48:03 [ℹ]  creating addon: coredns
+2026-11-11 17:48:03 [ℹ]  successfully created addon: coredns
+2026-11-11 17:48:04 [ℹ]  creating addon: kube-proxy
+2026-11-11 17:48:04 [ℹ]  successfully created addon: kube-proxy
+2026-11-11 17:50:07 [ℹ]  addon "vpc-cni" active
+2026-11-11 17:50:08 [ℹ]  deploying stack "eksctl-rtm-flink-bench6b-addon-vpc-cni"
+2026-11-11 17:50:08 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-addon-vpc-cni"
+2026-11-11 17:50:39 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-addon-vpc-cni"
+2026-11-11 17:50:39 [ℹ]  updating addon
+2026-11-11 17:50:50 [ℹ]  addon "vpc-cni" active
+2026-11-11 17:50:50 [ℹ]  building managed nodegroup stack "eksctl-rtm-flink-bench6b-nodegroup-engine-ng"
+2026-11-11 17:50:50 [ℹ]  building managed nodegroup stack "eksctl-rtm-flink-bench6b-nodegroup-bench-ng"
+2026-11-11 17:50:51 [ℹ]  deploying stack "eksctl-rtm-flink-bench6b-nodegroup-engine-ng"
+2026-11-11 17:50:51 [ℹ]  deploying stack "eksctl-rtm-flink-bench6b-nodegroup-bench-ng"
+2026-11-11 17:50:51 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-nodegroup-engine-ng"
+2026-11-11 17:50:51 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-nodegroup-bench-ng"
+2026-11-11 17:51:22 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-nodegroup-engine-ng"
+2026-11-11 17:51:22 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-nodegroup-bench-ng"
+2026-11-11 17:51:55 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-nodegroup-bench-ng"
+2026-11-11 17:52:19 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-nodegroup-engine-ng"
+2026-11-11 17:53:20 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-nodegroup-bench-ng"
+2026-11-11 17:53:22 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-nodegroup-engine-ng"
+2026-11-11 17:53:22 [ℹ]  waiting for the control plane to become ready
+2026-11-11 17:53:22 [✔]  saved kubeconfig as "<WORKDIR>"
+2026-11-11 17:53:22 [ℹ]  no tasks
+2026-11-11 17:53:22 [✔]  all EKS cluster resources for "rtm-flink-bench6b" have been created
+2026-11-11 17:53:23 [ℹ]  nodegroup "engine-ng" has 2 node(s)
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-102-82.ec2.internal" is ready
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-90-224.ec2.internal" is ready
+2026-11-11 17:53:23 [ℹ]  waiting for at least 2 node(s) to become ready in "engine-ng"
+2026-11-11 17:53:23 [ℹ]  nodegroup "engine-ng" has 2 node(s)
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-102-82.ec2.internal" is ready
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-90-224.ec2.internal" is ready
+2026-11-11 17:53:23 [ℹ]  nodegroup "bench-ng" has 4 node(s)
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-111-94.ec2.internal" is ready
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-119-238.ec2.internal" is ready
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-83-11.ec2.internal" is ready
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-86-45.ec2.internal" is ready
+2026-11-11 17:53:23 [ℹ]  waiting for at least 4 node(s) to become ready in "bench-ng"
+2026-11-11 17:53:23 [ℹ]  nodegroup "bench-ng" has 4 node(s)
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-111-94.ec2.internal" is ready
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-119-238.ec2.internal" is ready
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-83-11.ec2.internal" is ready
+2026-11-11 17:53:23 [ℹ]  node "ip-192-168-86-45.ec2.internal" is ready
+2026-11-11 17:53:23 [✔]  created 2 managed nodegroup(s) in cluster "rtm-flink-bench6b"
+2026-11-11 17:53:25 [!]  the recommended way to provide IAM permissions for "aws-ebs-csi-driver" addon is via pod identity associations; after addon creation is completed, run `eksctl utils migrate-to-pod-identity`
+2026-11-11 17:53:25 [ℹ]  creating role using recommended policies for "aws-ebs-csi-driver" addon
+2026-11-11 17:53:25 [ℹ]  deploying stack "eksctl-rtm-flink-bench6b-addon-aws-ebs-csi-driver"
+2026-11-11 17:53:25 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-addon-aws-ebs-csi-driver"
+2026-11-11 17:53:56 [ℹ]  waiting for CloudFormation stack "eksctl-rtm-flink-bench6b-addon-aws-ebs-csi-driver"
+2026-11-11 17:53:56 [ℹ]  creating addon: aws-ebs-csi-driver
+2026-11-11 17:54:37 [ℹ]  addon "aws-ebs-csi-driver" active
+2026-11-11 17:54:37 [ℹ]  creating addon: metrics-server
+2026-11-11 17:55:14 [ℹ]  addon "metrics-server" active
+2026-11-11 17:55:15 [ℹ]  kubectl command should work with "<WORKDIR>", try 'kubectl --kubeconfig=<WORKDIR> get nodes'
+2026-11-11 17:55:15 [✔]  EKS cluster "rtm-flink-bench6b" in "us-east-1" region is ready
+==> Refresh the DEDICATED kubeconfig (never touch shared ~/.kube/config)
+Added new context arn:aws:eks:us-east-1:<ACCOUNT_ID>:cluster/rtm-flink-bench6b to <WORKDIR>
+==> Cluster up. Nodes:
+NAME                              STATUS   ROLES    AGE     VERSION               INTERNAL-IP       EXTERNAL-IP   OS-IMAGE                        KERNEL-VERSION                            CONTAINER-RUNTIME
+ip-192-168-102-82.ec2.internal    Ready    <none>   3m4s    v1.36.5-eks-8418f54   192.168.102.82    <none>        Amazon Linux 2023.12.20261102   6.18.56-125.164.amzn2023.x86_64 (amd64)   containerd://2.3.7+unknown
+ip-192-168-111-94.ec2.internal    Ready    <none>   2m58s   v1.36.5-eks-8418f54   192.168.111.94    <none>        Amazon Linux 2023.12.20261102   6.18.56-125.164.amzn2023.x86_64 (amd64)   containerd://2.3.7+unknown
+ip-192-168-119-238.ec2.internal   Ready    <none>   2m59s   v1.36.5-eks-8418f54   192.168.119.238   <none>        Amazon Linux 2023.12.20261102   6.18.56-125.164.amzn2023.x86_64 (amd64)   containerd://2.3.7+unknown
+ip-192-168-83-11.ec2.internal     Ready    <none>   2m57s   v1.36.5-eks-8418f54   192.168.83.11     <none>        Amazon Linux 2023.12.20261102   6.18.56-125.164.amzn2023.x86_64 (amd64)   containerd://2.3.7+unknown
+ip-192-168-86-45.ec2.internal     Ready    <none>   2m58s   v1.36.5-eks-8418f54   192.168.86.45     <none>        Amazon Linux 2023.12.20261102   6.18.56-125.164.amzn2023.x86_64 (amd64)   containerd://2.3.7+unknown
+ip-192-168-90-224.ec2.internal    Ready    <none>   3m5s    v1.36.5-eks-8418f54   192.168.90.224    <none>        Amazon Linux 2023.12.20261102   6.18.56-125.164.amzn2023.x86_64 (amd64)   containerd://2.3.7+unknown

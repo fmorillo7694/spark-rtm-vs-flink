@@ -1,0 +1,35 @@
+apiVersion: v1
+data:
+  collectedMetrics: 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
+  delayedScaleDown: |
+    ---
+    delayedVertices:
+      bc764cd8ddf7a0cff126f51c16239658:
+        firstTriggerTime: 1794340870.107367614
+        recommendedParallelisms:
+        - triggerTime: 1794342273.152541358
+          parallelism: 3
+          outsideUtilizationBound: true
+      "20ba6b65f97481d5570070de90e4e791":
+        firstTriggerTime: 1794341775.461940629
+        recommendedParallelisms:
+        - triggerTime: 1794342273.151832648
+          parallelism: 4
+          outsideUtilizationBound: true
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2026-11-10T19:54:07Z"
+  labels:
+    app: flink-stateful
+    component: autoscaler
+  name: autoscaler-flink-stateful
+  namespace: flink
+  ownerReferences:
+  - apiVersion: flink.apache.org/v1beta1
+    blockOwnerDeletion: false
+    controller: false
+    kind: FlinkDeployment
+    name: flink-stateful
+    uid: 99b2aaf3-8041-48ba-8c23-9ec00ac2ebe3
+  resourceVersion: "34478"
+  uid: c928fe72-4248-4b0f-be5d-8ee37d544f4a

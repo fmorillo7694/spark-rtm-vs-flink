@@ -1,0 +1,25 @@
+# Burst producers for the +50% spike: 4 extra pods × 12,500/s = +50k/s on top of the soak's
+# 100k/s → 150k/s for the spike duration. Created when a spike starts, deleted when it ends.
+# __SECS__ substituted per spike (~600s = 10 min).
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: soak-burst
+  namespace: kafka
+spec:
+  completions: 4
+  parallelism: 4
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: burst
+          image: "__REGISTRY__/rtm-bench/load:__TAG__"
+          imagePullPolicy: IfNotPresent
+          command: ["python", "producer.py"]
+          args: ["--rate", "12500", "--seconds", "__SECS__", "--payload-bytes", "0",
+                 "--bootstrap", "bench-kafka-bootstrap.kafka.svc:9092",
+                 "--topic", "input-events"]
+          resources:
+            requests: { cpu: "1", memory: "512Mi" }

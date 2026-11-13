@@ -1,0 +1,108 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-bt100-s1-update-r2 warmup=60s window=300s
+[consumer] seen=113000 kept=0 (warmup)
+[consumer] seen=373000 kept=0 (warmup)
+[consumer] seen=572083 kept=0 (warmup)
+[consumer] seen=872083 kept=0 (warmup)
+[consumer] seen=1120091 kept=0 (warmup)
+[consumer] seen=1368091 kept=0 (warmup)
+[consumer] seen=1616522 kept=0 (warmup)
+[consumer] seen=1864522 kept=0 (warmup)
+[consumer] seen=2113569 kept=0 (warmup)
+[consumer] seen=2362569 kept=0 (warmup)
+[consumer] seen=2610631 kept=0 (warmup)
+[consumer] seen=2858631 kept=8000 (steady)
+[consumer] seen=3107051 kept=256420 (steady)
+[consumer] seen=3356051 kept=505420 (steady)
+[consumer] seen=3533826 kept=683195 (steady)
+[consumer] seen=3852826 kept=1002195 (steady)
+[consumer] seen=4101385 kept=1250754 (steady)
+[consumer] seen=4349385 kept=1498754 (steady)
+[consumer] seen=4597347 kept=1746716 (steady)
+[consumer] seen=4846347 kept=1995716 (steady)
+[consumer] seen=5094671 kept=2244040 (steady)
+[consumer] seen=5342671 kept=2492040 (steady)
+[consumer] seen=5591044 kept=2740413 (steady)
+[consumer] seen=5839044 kept=2988413 (steady)
+[consumer] seen=6087710 kept=3237079 (steady)
+[consumer] seen=6335710 kept=3485079 (steady)
+[consumer] seen=6520440 kept=3669809 (steady)
+[consumer] seen=6833440 kept=3982809 (steady)
+[consumer] seen=7081748 kept=4231117 (steady)
+[consumer] seen=7329748 kept=4479117 (steady)
+[consumer] seen=7579193 kept=4728562 (steady)
+[consumer] seen=7827193 kept=4976562 (steady)
+[consumer] seen=8075373 kept=5224742 (steady)
+[consumer] seen=8323373 kept=5472742 (steady)
+[consumer] seen=8571225 kept=5720594 (steady)
+[consumer] seen=8819225 kept=5968594 (steady)
+[consumer] seen=9068225 kept=6217594 (steady)
+[consumer] seen=9316225 kept=6465594 (steady)
+[consumer] seen=9496298 kept=6645667 (steady)
+[consumer] seen=9814298 kept=6963667 (steady)
+[consumer] seen=10062017 kept=7211386 (steady)
+[consumer] seen=10310017 kept=7459386 (steady)
+[consumer] seen=10558651 kept=7708020 (steady)
+[consumer] seen=10806651 kept=7956020 (steady)
+[consumer] seen=11054946 kept=8204315 (steady)
+[consumer] seen=11303946 kept=8453315 (steady)
+[consumer] seen=11551946 kept=8701315 (steady)
+[consumer] seen=11799946 kept=8949315 (steady)
+[consumer] seen=12048655 kept=9198024 (steady)
+[consumer] seen=12296655 kept=9446024 (steady)
+[consumer] seen=12485506 kept=9634875 (steady)
+[consumer] seen=12795506 kept=9944875 (steady)
+[consumer] seen=13044488 kept=10193857 (steady)
+[consumer] seen=13293488 kept=10442857 (steady)
+[consumer] seen=13541988 kept=10691357 (steady)
+[consumer] seen=13789988 kept=10939357 (steady)
+[consumer] seen=14037947 kept=11187316 (steady)
+[consumer] seen=14285947 kept=11435316 (steady)
+[consumer] seen=14533919 kept=11683288 (steady)
+[consumer] seen=14781919 kept=11931288 (steady)
+[consumer] seen=15030835 kept=12180204 (steady)
+[consumer] seen=15278835 kept=12428204 (steady)
+[consumer] seen=15466513 kept=12615882 (steady)
+[consumer] seen=15775513 kept=12924882 (steady)
+[consumer] seen=16024109 kept=13173478 (steady)
+[consumer] seen=16272109 kept=13421478 (steady)
+[consumer] seen=16519872 kept=13669241 (steady)
+[consumer] seen=16768872 kept=13918241 (steady)
+[consumer] seen=17016287 kept=14165656 (steady)
+[consumer] seen=17265287 kept=14414656 (steady)
+[consumer] seen=17513147 kept=14662516 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-bt100-s1-update-r2",
+  "topic": "st-output",
+  "kept_records": 14881516,
+  "seen_records": 17732147,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 49605.1,
+  "pipeline_ms": {
+    "count": 14881516,
+    "p50": 56.138,
+    "p95": 271.869,
+    "p99": 1727.953,
+    "max": 2908.216,
+    "mean": 109.975
+  },
+  "e2e_ms": {
+    "count": 14881516,
+    "p50": 81.745,
+    "p95": 305.217,
+    "p99": 1755.702,
+    "max": 3033.012,
+    "mean": 135.462
+  },
+  "window_ms": {
+    "count": 14881516,
+    "p50": -4825.0,
+    "p95": -443.0,
+    "p99": -42.0,
+    "max": 112.0,
+    "mean": -4889.871
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-bt100-s1-update-r2_summary.json

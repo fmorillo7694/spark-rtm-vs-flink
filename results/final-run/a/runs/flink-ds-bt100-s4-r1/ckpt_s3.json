@@ -1,0 +1,11 @@
+{
+ "prefix": "stateful/flink-ds-bt100-s4-r1-1794425808/",
+ "objects": 1,
+ "bytes": 10238,
+ "by_dir": {
+  "chk-*": {
+   "objects": 1,
+   "bytes": 10238
+  }
+ }
+}

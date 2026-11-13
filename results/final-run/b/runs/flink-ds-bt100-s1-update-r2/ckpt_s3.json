@@ -1,0 +1,15 @@
+{
+ "prefix": "stateful/flink-ds-bt100-s1-update-r2-1794430376/",
+ "objects": 43,
+ "bytes": 125347964,
+ "by_dir": {
+  "chk-*": {
+   "objects": 1,
+   "bytes": 47171
+  },
+  "shared": {
+   "objects": 42,
+   "bytes": 125300793
+  }
+ }
+}

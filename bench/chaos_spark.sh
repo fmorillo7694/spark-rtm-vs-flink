@@ -28,7 +28,7 @@ until [ "$(curl -s http://localhost:8080/json/ | $PY -c 'import sys,json;print(l
 CKPT=/tmp/spark-checkpoints/chaos-$(date +%s)
 echo "==> Submit Java RTM with checkpoint=$CKPT (3 cores, all on worker-1)"
 docker exec -e HOME=/opt/spark spark-master /opt/spark/bin/spark-submit --master spark://spark-master:7077 \
-  --packages org.apache.spark:spark-sql-kafka-0-10_2.13:4.1.2 --conf spark.jars.ivy=/opt/spark/.ivy2 \
+  --packages org.apache.spark:spark-sql-kafka-0-10_2.13:4.3.0 --conf spark.jars.ivy=/opt/spark/.ivy2 \
   --conf spark.cores.max=3 --conf spark.executor.cores=3 --conf spark.task.maxFailures=10 \
   --class bench.RtmPipelineJava /workspace/spark/java-rtm/target/java-rtm.jar \
   rtm $KAFKA_BOOTSTRAP_INTERNAL $INPUT_TOPIC $OUTPUT_TOPIC "$CKPT" "5 seconds" >"$DRIVERLOG" 2>&1 &

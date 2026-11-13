@@ -1,0 +1,22 @@
+2026-11-10 20:28:49 [ℹ]  4 existing iamserviceaccount(s) (flink/flink,kafka/stateful-runner,kube-system/cluster-autoscaler,spark/spark-operator-spark) will be excluded
+2026-11-10 20:28:49 [ℹ]  1 iamserviceaccount (kafka/stateful-runner) was excluded (based on the include/exclude rules)
+2026-11-10 20:28:49 [!]  serviceaccounts in Kubernetes will not be created or modified, since the option --role-only is used
+2026-11-10 20:28:49 [ℹ]  no tasks
+armed rtm-flink-bench4-deadline-ng-engine-ng: eks:deleteNodegroup at 2026-11-11T06:58:49Z {"ClusterName":"rtm-flink-bench4","NodegroupName":"engine-ng"}
+armed rtm-flink-bench4-deadline-ng-bench-ng: eks:deleteNodegroup at 2026-11-11T06:58:49Z {"ClusterName":"rtm-flink-bench4","NodegroupName":"bench-ng"}
+armed rtm-flink-bench4-deadline-cluster: eks:deleteCluster at 2026-11-11T07:43:49Z {"Name":"rtm-flink-bench4"}
+configmap/stateful-runner unchanged
+job.batch "stateful-runner" deleted from kafka namespace
+serviceaccount/stateful-runner unchanged
+role.rbac.authorization.k8s.io/stateful-runner unchanged
+role.rbac.authorization.k8s.io/stateful-runner unchanged
+role.rbac.authorization.k8s.io/stateful-runner unchanged
+clusterrole.rbac.authorization.k8s.io/stateful-runner-pv-read unchanged
+role.rbac.authorization.k8s.io/stateful-runner unchanged
+rolebinding.rbac.authorization.k8s.io/stateful-runner unchanged
+clusterrolebinding.rbac.authorization.k8s.io/stateful-runner-pv-read unchanged
+rolebinding.rbac.authorization.k8s.io/stateful-runner unchanged
+rolebinding.rbac.authorization.k8s.io/stateful-runner unchanged
+rolebinding.rbac.authorization.k8s.io/stateful-runner unchanged
+job.batch/stateful-runner created
+runner started; artifacts -> s3://<BUCKET>/stateful/sessd-20261110T192841Z/

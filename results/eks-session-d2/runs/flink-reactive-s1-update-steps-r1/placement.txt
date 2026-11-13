@@ -1,0 +1,21 @@
+flink ip-192-168-97-32.ec2.internal flink-stateful-d954c6d6d-fkrhf
+flink ip-192-168-88-149.ec2.internal flink-stateful-taskmanager-7c45c57899-9kh5x
+flink ip-192-168-97-32.ec2.internal flink-stateful-taskmanager-7c45c57899-bqj9d
+flink ip-192-168-120-40.ec2.internal flink-stateful-taskmanager-7c45c57899-p2wr5
+flink ip-192-168-65-178.ec2.internal flink-stateful-taskmanager-7c45c57899-zlbk4
+kafka ip-192-168-72-173.ec2.internal bench-brokers-0
+kafka ip-192-168-113-236.ec2.internal bench-brokers-1
+kafka ip-192-168-74-98.ec2.internal bench-brokers-2
+kafka ip-192-168-105-38.ec2.internal bench-entity-operator-8579754c68-l4q7r
+kafka ip-192-168-105-38.ec2.internal st-consumer-nf2rt
+kafka ip-192-168-113-236.ec2.internal st-producer-0-pfr8t
+kafka ip-192-168-74-98.ec2.internal st-producer-1-btjtf
+kafka ip-192-168-72-173.ec2.internal st-producer-2-86kvq
+kafka ip-192-168-113-236.ec2.internal st-producer-3-vhcjg
+kafka ip-192-168-105-38.ec2.internal st-producer-4-8phk5
+kafka ip-192-168-72-173.ec2.internal st-producer-5-p4tb9
+kafka ip-192-168-74-98.ec2.internal st-producer-6-j5m8d
+kafka ip-192-168-113-236.ec2.internal st-producer-7-68zlw
+kafka ip-192-168-105-38.ec2.internal stateful-runner-sthhd
+kafka ip-192-168-105-38.ec2.internal strimzi-cluster-operator-8455547d9f-ggxkt
+engine_nodes=dedicated shared_with_kafka_ns=[]

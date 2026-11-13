@@ -1,0 +1,33 @@
+{
+  "engine": "spark-microbatch-s1-SMOKE",
+  "topic": "st-output",
+  "kept_records": 190786,
+  "seen_records": 238407,
+  "window_seconds": 70,
+  "warmup_seconds": 20,
+  "throughput_eps": 2725.5,
+  "pipeline_ms": {
+    "count": 190786,
+    "p50": 240.468,
+    "p95": 367.481,
+    "p99": 464.55,
+    "max": 614.814,
+    "mean": 246.838
+  },
+  "e2e_ms": {
+    "count": 190786,
+    "p50": 243.602,
+    "p95": 371.207,
+    "p99": 467.76,
+    "max": 617.246,
+    "mean": 250.261
+  },
+  "window_ms": {
+    "count": 190786,
+    "p50": -4784.0,
+    "p95": -224.0,
+    "p99": 199.0,
+    "max": 385.0,
+    "mean": -4750.154
+  }
+}

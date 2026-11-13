@@ -1,0 +1,936 @@
+{
+  "engines": {
+    "spark-rtm-java": {
+      "name": "Spark RTM Java",
+      "runs": [
+        {
+          "run": "spark-rtm-java-r1",
+          "kept_records": 950427,
+          "throughput_eps": 3334.8,
+          "pipeline_ms_p50": 6.057,
+          "pipeline_ms_p99": 9.287,
+          "e2e_ms_p50": 8.309,
+          "e2e_ms_p99": 13.325,
+          "pipeline_ms_max": 351.979,
+          "cpu_mean_cores": 0.29,
+          "mem_mean_mb": 2036.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": -0.18,
+            "min": -0.93,
+            "max": 5.56
+          },
+          "async_evidence": {
+            "async_log_write_threads": 1,
+            "async_exec_frames": 1,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.15,
+            "near_p99": 260.9,
+            "near_max": 352.0,
+            "far_p99": 8.3,
+            "far_max": 27.0
+          },
+          "host_disturbed": true
+        },
+        {
+          "run": "spark-rtm-java-r2",
+          "kept_records": 949894,
+          "throughput_eps": 3333.0,
+          "pipeline_ms_p50": 5.874,
+          "pipeline_ms_p99": 12.739,
+          "e2e_ms_p50": 8.173,
+          "e2e_ms_p99": 21.699,
+          "pipeline_ms_max": 443.989,
+          "cpu_mean_cores": 0.31,
+          "mem_mean_mb": 2317.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": -0.62,
+            "min": -1.53,
+            "max": -0.25
+          },
+          "async_evidence": {
+            "async_log_write_threads": 1,
+            "async_exec_frames": 1,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.08,
+            "near_p99": 286.8,
+            "near_max": 444.0,
+            "far_p99": 9.8,
+            "far_max": 70.4
+          },
+          "host_disturbed": false
+        },
+        {
+          "run": "spark-rtm-java-r3",
+          "kept_records": 950429,
+          "throughput_eps": 3334.8,
+          "pipeline_ms_p50": 5.537,
+          "pipeline_ms_p99": 22.933,
+          "e2e_ms_p50": 7.806,
+          "e2e_ms_p99": 31.983,
+          "pipeline_ms_max": 592.176,
+          "cpu_mean_cores": 0.31,
+          "mem_mean_mb": 2171.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": -0.68,
+            "min": -1.25,
+            "max": -0.34
+          },
+          "async_evidence": {
+            "async_log_write_threads": 1,
+            "async_exec_frames": 1,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.09,
+            "near_p99": 430.2,
+            "near_max": 592.2,
+            "far_p99": 10.5,
+            "far_max": 149.9
+          },
+          "host_disturbed": false
+        }
+      ],
+      "geomean": {
+        "pipeline_ms_p50": 5.818647033254356,
+        "pipeline_ms_p99": 13.94731313260367,
+        "e2e_ms_p50": 8.093187491177426,
+        "e2e_ms_p99": 20.9898198836656,
+        "clean_runs": 2,
+        "clean_pipeline_ms_p99": 17.09220544575802,
+        "cpu_mean_cores": 0.30333333333333334,
+        "mem_mean_mb": 2174.6666666666665
+      },
+      "previous": null
+    },
+    "spark-rtm-scala": {
+      "name": "Spark RTM Scala",
+      "runs": [
+        {
+          "run": "spark-rtm-scala-r1",
+          "kept_records": 947870,
+          "throughput_eps": 3325.9,
+          "pipeline_ms_p50": 6.835,
+          "pipeline_ms_p99": 88.144,
+          "e2e_ms_p50": 9.164,
+          "e2e_ms_p99": 114.802,
+          "pipeline_ms_max": 590.859,
+          "cpu_mean_cores": 0.4,
+          "mem_mean_mb": 2482.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": 1.24,
+            "min": -0.89,
+            "max": 23.61
+          },
+          "async_evidence": {
+            "async_log_write_threads": 1,
+            "async_exec_frames": 1,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.09,
+            "near_p99": 389.8,
+            "near_max": 590.9,
+            "far_p99": 52.7,
+            "far_max": 406.0
+          },
+          "host_disturbed": true
+        },
+        {
+          "run": "spark-rtm-scala-r2",
+          "kept_records": 948385,
+          "throughput_eps": 3327.7,
+          "pipeline_ms_p50": 5.969,
+          "pipeline_ms_p99": 9.809,
+          "e2e_ms_p50": 7.986,
+          "e2e_ms_p99": 13.533,
+          "pipeline_ms_max": 334.598,
+          "cpu_mean_cores": 0.23,
+          "mem_mean_mb": 2106.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": -0.46,
+            "min": -0.83,
+            "max": -0.27
+          },
+          "async_evidence": {
+            "async_log_write_threads": 1,
+            "async_exec_frames": 1,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.07,
+            "near_p99": 239.9,
+            "near_max": 334.6,
+            "far_p99": 8.6,
+            "far_max": 67.3
+          },
+          "host_disturbed": false
+        },
+        {
+          "run": "spark-rtm-scala-r3",
+          "kept_records": 949277,
+          "throughput_eps": 3330.8,
+          "pipeline_ms_p50": 5.994,
+          "pipeline_ms_p99": 11.479,
+          "e2e_ms_p50": 8.062,
+          "e2e_ms_p99": 17.099,
+          "pipeline_ms_max": 405.412,
+          "cpu_mean_cores": 0.26,
+          "mem_mean_mb": 2371.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": -0.5,
+            "min": -0.91,
+            "max": -0.27
+          },
+          "async_evidence": {
+            "async_log_write_threads": 1,
+            "async_exec_frames": 1,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.08,
+            "near_p99": 291.3,
+            "near_max": 405.4,
+            "far_p99": 8.8,
+            "far_max": 77.8
+          },
+          "host_disturbed": false
+        }
+      ],
+      "geomean": {
+        "pipeline_ms_p50": 6.253439398117971,
+        "pipeline_ms_p99": 21.49020286249332,
+        "e2e_ms_p50": 8.387239798718277,
+        "e2e_ms_p99": 29.838117241841857,
+        "clean_runs": 2,
+        "clean_pipeline_ms_p99": 10.611197434785577,
+        "cpu_mean_cores": 0.2966666666666667,
+        "mem_mean_mb": 2319.6666666666665
+      },
+      "previous": {
+        "pipeline_ms_p50": 6.289,
+        "pipeline_ms_p99": 9.439,
+        "e2e_ms_p50": 8.205,
+        "e2e_ms_p99": 12.022,
+        "cpu_mean_cores": 0.22,
+        "mem_mean_mb": 2298.0
+      }
+    },
+    "pyspark-rtm": {
+      "name": "PySpark RTM (native trigger)",
+      "runs": [
+        {
+          "run": "pyspark-rtm-r1",
+          "kept_records": 948453,
+          "throughput_eps": 3327.9,
+          "pipeline_ms_p50": 6.085,
+          "pipeline_ms_p99": 9.862,
+          "e2e_ms_p50": 8.035,
+          "e2e_ms_p99": 20.843,
+          "pipeline_ms_max": 308.98,
+          "cpu_mean_cores": 0.28,
+          "mem_mean_mb": 2474.0,
+          "clock_offset_ms": {
+            "n": 35,
+            "mean": -0.41,
+            "min": -1.04,
+            "max": 0.43
+          },
+          "async_evidence": {
+            "async_log_write_threads": 1,
+            "async_exec_frames": 1,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.12,
+            "near_p99": 209.1,
+            "near_max": 309.0,
+            "far_p99": 8.7,
+            "far_max": 89.2
+          },
+          "host_disturbed": false
+        },
+        {
+          "run": "pyspark-rtm-r2",
+          "kept_records": 949861,
+          "throughput_eps": 3332.8,
+          "pipeline_ms_p50": 6.051,
+          "pipeline_ms_p99": 9.952,
+          "e2e_ms_p50": 8.032,
+          "e2e_ms_p99": 13.873,
+          "pipeline_ms_max": 330.569,
+          "cpu_mean_cores": 0.27,
+          "mem_mean_mb": 2533.0,
+          "clock_offset_ms": {
+            "n": 34,
+            "mean": -0.59,
+            "min": -2.42,
+            "max": -0.26
+          },
+          "async_evidence": {
+            "async_log_write_threads": 1,
+            "async_exec_frames": 1,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.09,
+            "near_p99": 262.4,
+            "near_max": 330.6,
+            "far_p99": 8.7,
+            "far_max": 64.8
+          },
+          "host_disturbed": false
+        },
+        {
+          "run": "pyspark-rtm-r3",
+          "kept_records": 950537,
+          "throughput_eps": 3335.2,
+          "pipeline_ms_p50": 6.003,
+          "pipeline_ms_p99": 9.983,
+          "e2e_ms_p50": 8.009,
+          "e2e_ms_p99": 14.485,
+          "pipeline_ms_max": 402.007,
+          "cpu_mean_cores": 0.24,
+          "mem_mean_mb": 2410.0,
+          "clock_offset_ms": {
+            "n": 34,
+            "mean": -0.46,
+            "min": -0.73,
+            "max": -0.29
+          },
+          "async_evidence": {
+            "async_log_write_threads": 1,
+            "async_exec_frames": 1,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.12,
+            "near_p99": 275.2,
+            "near_max": 402.0,
+            "far_p99": 8.6,
+            "far_max": 42.5
+          },
+          "host_disturbed": false
+        }
+      ],
+      "geomean": {
+        "pipeline_ms_p50": 6.046239686888353,
+        "pipeline_ms_p99": 9.932200519884887,
+        "e2e_ms_p50": 8.025324923933757,
+        "e2e_ms_p99": 16.11943089636915,
+        "clean_runs": 3,
+        "clean_pipeline_ms_p99": 9.932200519884887,
+        "cpu_mean_cores": 0.26333333333333336,
+        "mem_mean_mb": 2472.3333333333335
+      },
+      "previous": {
+        "pipeline_ms_p50": 5.662,
+        "pipeline_ms_p99": 8.646,
+        "e2e_ms_p50": 7.651,
+        "e2e_ms_p99": 11.247,
+        "cpu_mean_cores": 0.21,
+        "mem_mean_mb": 2263.0
+      }
+    },
+    "spark-rtm-syncckpt": {
+      "name": "Spark RTM Scala, async tracking OFF",
+      "runs": [
+        {
+          "run": "spark-rtm-syncckpt-r1",
+          "kept_records": 947970,
+          "throughput_eps": 3326.2,
+          "pipeline_ms_p50": 6.109,
+          "pipeline_ms_p99": 109.226,
+          "e2e_ms_p50": 8.264,
+          "e2e_ms_p99": 129.922,
+          "pipeline_ms_max": 1178.602,
+          "cpu_mean_cores": 0.31,
+          "mem_mean_mb": 2512.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": -0.67,
+            "min": -2.58,
+            "max": -0.28
+          },
+          "async_evidence": {
+            "async_log_write_threads": 0,
+            "async_exec_frames": 0,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.14,
+            "near_p99": 543.0,
+            "near_max": 716.4,
+            "far_p99": 11.0,
+            "far_max": 1178.6
+          },
+          "host_disturbed": true
+        },
+        {
+          "run": "spark-rtm-syncckpt-r2",
+          "kept_records": 940107,
+          "throughput_eps": 3298.6,
+          "pipeline_ms_p50": 5.641,
+          "pipeline_ms_p99": 1229.252,
+          "e2e_ms_p50": 8.218,
+          "e2e_ms_p99": 1620.908,
+          "pipeline_ms_max": 2509.886,
+          "cpu_mean_cores": 0.42,
+          "mem_mean_mb": 2438.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": -1.75,
+            "min": -18.6,
+            "max": -0.24
+          },
+          "async_evidence": {
+            "async_log_write_threads": 0,
+            "async_exec_frames": 0,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.13,
+            "near_p99": 483.3,
+            "near_max": 2509.9,
+            "far_p99": 1274.2,
+            "far_max": 2432.6
+          },
+          "host_disturbed": true
+        },
+        {
+          "run": "spark-rtm-syncckpt-r3",
+          "kept_records": 948242,
+          "throughput_eps": 3327.2,
+          "pipeline_ms_p50": 5.694,
+          "pipeline_ms_p99": 39.171,
+          "e2e_ms_p50": 7.806,
+          "e2e_ms_p99": 70.769,
+          "pipeline_ms_max": 857.442,
+          "cpu_mean_cores": 0.33,
+          "mem_mean_mb": 2154.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": -0.71,
+            "min": -3.58,
+            "max": -0.3
+          },
+          "async_evidence": {
+            "async_log_write_threads": 0,
+            "async_exec_frames": 0,
+            "offset_log_entries": 5,
+            "commit_log_entries": 5
+          },
+          "flink_checkpoints": null,
+          "boundary_split": {
+            "boundaries": 5,
+            "near_share_pct": 7.14,
+            "near_p99": 697.3,
+            "near_max": 857.4,
+            "far_p99": 10.2,
+            "far_max": 525.5
+          },
+          "host_disturbed": false
+        }
+      ],
+      "geomean": {
+        "pipeline_ms_p50": 5.810960132807424,
+        "pipeline_ms_p99": 173.90438677100153,
+        "e2e_ms_p50": 8.09335016334959,
+        "e2e_ms_p99": 246.09041991828627,
+        "clean_runs": 1,
+        "clean_pipeline_ms_p99": 39.171,
+        "cpu_mean_cores": 0.35333333333333333,
+        "mem_mean_mb": 2368.0
+      },
+      "previous": null
+    },
+    "spark-microbatch": {
+      "name": "Spark micro-batch (floor)",
+      "runs": [
+        {
+          "run": "spark-microbatch-r1",
+          "kept_records": 948679,
+          "throughput_eps": 3328.7,
+          "pipeline_ms_p50": 65.908,
+          "pipeline_ms_p99": 133.009,
+          "e2e_ms_p50": 69.15,
+          "e2e_ms_p99": 139.154,
+          "pipeline_ms_max": 314.494,
+          "cpu_mean_cores": 1.77,
+          "mem_mean_mb": 2411.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": -0.67,
+            "min": -1.71,
+            "max": -0.33
+          },
+          "async_evidence": null,
+          "flink_checkpoints": null,
+          "boundary_split": null,
+          "host_disturbed": false
+        },
+        {
+          "run": "spark-microbatch-r2",
+          "kept_records": 949869,
+          "throughput_eps": 3332.9,
+          "pipeline_ms_p50": 66.399,
+          "pipeline_ms_p99": 147.398,
+          "e2e_ms_p50": 69.665,
+          "e2e_ms_p99": 153.118,
+          "pipeline_ms_max": 321.579,
+          "cpu_mean_cores": 1.76,
+          "mem_mean_mb": 2382.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": 0.49,
+            "min": -1.42,
+            "max": 12.82
+          },
+          "async_evidence": null,
+          "flink_checkpoints": null,
+          "boundary_split": null,
+          "host_disturbed": true
+        },
+        {
+          "run": "spark-microbatch-r3",
+          "kept_records": 945288,
+          "throughput_eps": 3316.8,
+          "pipeline_ms_p50": 64.884,
+          "pipeline_ms_p99": 235.101,
+          "e2e_ms_p50": 68.127,
+          "e2e_ms_p99": 340.517,
+          "pipeline_ms_max": 1608.509,
+          "cpu_mean_cores": 1.73,
+          "mem_mean_mb": 2375.0,
+          "clock_offset_ms": {
+            "n": 33,
+            "mean": -0.49,
+            "min": -1.05,
+            "max": -0.26
+          },
+          "async_evidence": null,
+          "flink_checkpoints": null,
+          "boundary_split": null,
+          "host_disturbed": true
+        }
+      ],
+      "geomean": {
+        "pipeline_ms_p50": 65.7272954783315,
+        "pipeline_ms_p99": 166.42134661377244,
+        "e2e_ms_p50": 68.97769807235984,
+        "e2e_ms_p99": 193.59178029789518,
+        "clean_runs": 1,
+        "clean_pipeline_ms_p99": 133.00899999999996,
+        "cpu_mean_cores": 1.7533333333333334,
+        "mem_mean_mb": 2389.3333333333335
+      },
+      "previous": {
+        "pipeline_ms_p50": 46.123,
+        "pipeline_ms_p99": 78.113,
+        "e2e_ms_p50": 48.645,
+        "e2e_ms_p99": 81.561,
+        "cpu_mean_cores": 1.79,
+        "mem_mean_mb": 2449.0
+      }
+    },
+    "flink": {
+      "name": "Flink DataStream (Java)",
+      "runs": [
+        {
+          "run": "flink-r1",
+          "kept_records": 928122,
+          "throughput_eps": 3256.6,
+          "pipeline_ms_p50": 5.549,
+          "pipeline_ms_p99": 301.615,
+          "e2e_ms_p50": 13.133,
+          "e2e_ms_p99": 617.279,
+          "pipeline_ms_max": 2580.141,
+          "cpu_mean_cores": 0.44,
+          "mem_mean_mb": 1786.0,
+          "clock_offset_ms": {
+            "n": 31,
+            "mean": -1.01,
+            "min": -4.74,
+            "max": -0.33
+          },
+          "async_evidence": null,
+          "flink_checkpoints": {
+            "completed": 7,
+            "failed": 0
+          },
+          "boundary_split": {
+            "boundaries": 7,
+            "near_share_pct": 7.2,
+            "near_p99": 109.3,
+            "near_max": 252.4,
+            "far_p99": 357.8,
+            "far_max": 2580.1
+          },
+          "host_disturbed": true
+        },
+        {
+          "run": "flink-r2",
+          "kept_records": 916891,
+          "throughput_eps": 3217.2,
+          "pipeline_ms_p50": 5.535,
+          "pipeline_ms_p99": 58.465,
+          "e2e_ms_p50": 13.256,
+          "e2e_ms_p99": 502.573,
+          "pipeline_ms_max": 2616.544,
+          "cpu_mean_cores": 0.42,
+          "mem_mean_mb": 1731.0,
+          "clock_offset_ms": {
+            "n": 31,
+            "mean": -1.41,
+            "min": -12.77,
+            "max": -0.34
+          },
+          "async_evidence": null,
+          "flink_checkpoints": {
+            "completed": 7,
+            "failed": 0
+          },
+          "boundary_split": {
+            "boundaries": 7,
+            "near_share_pct": 7.04,
+            "near_p99": 20.7,
+            "near_max": 82.8,
+            "far_p99": 67.8,
+            "far_max": 2616.5
+          },
+          "host_disturbed": true
+        },
+        {
+          "run": "flink-r3",
+          "kept_records": 948717,
+          "throughput_eps": 3328.8,
+          "pipeline_ms_p50": 5.83,
+          "pipeline_ms_p99": 216.318,
+          "e2e_ms_p50": 13.611,
+          "e2e_ms_p99": 236.411,
+          "pipeline_ms_max": 508.679,
+          "cpu_mean_cores": 0.54,
+          "mem_mean_mb": 1768.0,
+          "clock_offset_ms": {
+            "n": 30,
+            "mean": 0.86,
+            "min": -5.25,
+            "max": 58.32
+          },
+          "async_evidence": null,
+          "flink_checkpoints": {
+            "completed": 7,
+            "failed": 0
+          },
+          "boundary_split": {
+            "boundaries": 7,
+            "near_share_pct": 7.07,
+            "near_p99": 16.9,
+            "near_max": 87.4,
+            "far_p99": 241.3,
+            "far_max": 508.7
+          },
+          "host_disturbed": true
+        }
+      ],
+      "geomean": {
+        "pipeline_ms_p50": 5.636380472444823,
+        "pipeline_ms_p99": 156.24777791359017,
+        "e2e_ms_p50": 13.331801064672096,
+        "e2e_ms_p99": 418.5841490952387,
+        "clean_runs": 0,
+        "clean_pipeline_ms_p99": null,
+        "cpu_mean_cores": 0.4666666666666667,
+        "mem_mean_mb": 1761.6666666666667
+      },
+      "previous": {
+        "pipeline_ms_p50": 5.553,
+        "pipeline_ms_p99": 8.139,
+        "e2e_ms_p50": 13.208,
+        "e2e_ms_p99": 16.507,
+        "cpu_mean_cores": 0.23,
+        "mem_mean_mb": 2610.0
+      }
+    },
+    "flink-sql": {
+      "name": "Flink SQL (Java)",
+      "runs": [
+        {
+          "run": "flink-sql-r1",
+          "kept_records": 947465,
+          "throughput_eps": 3324.4,
+          "pipeline_ms_p50": 5.969,
+          "pipeline_ms_p99": 111.266,
+          "e2e_ms_p50": 13.382,
+          "e2e_ms_p99": 136.627,
+          "pipeline_ms_max": 338.041,
+          "cpu_mean_cores": 0.53,
+          "mem_mean_mb": 2123.0,
+          "clock_offset_ms": {
+            "n": 30,
+            "mean": -0.68,
+            "min": -3.77,
+            "max": -0.12
+          },
+          "async_evidence": null,
+          "flink_checkpoints": {
+            "completed": 6,
+            "failed": 1
+          },
+          "boundary_split": {
+            "boundaries": 6,
+            "near_share_pct": 5.93,
+            "near_p99": 28.5,
+            "near_max": 50.7,
+            "far_p99": 121.6,
+            "far_max": 338.0
+          },
+          "host_disturbed": false
+        },
+        {
+          "run": "flink-sql-r2",
+          "kept_records": 950848,
+          "throughput_eps": 3336.3,
+          "pipeline_ms_p50": 5.633,
+          "pipeline_ms_p99": 16.701,
+          "e2e_ms_p50": 13.15,
+          "e2e_ms_p99": 34.571,
+          "pipeline_ms_max": 289.252,
+          "cpu_mean_cores": 0.45,
+          "mem_mean_mb": 2160.0,
+          "clock_offset_ms": {
+            "n": 30,
+            "mean": -0.63,
+            "min": -2.42,
+            "max": -0.12
+          },
+          "async_evidence": null,
+          "flink_checkpoints": {
+            "completed": 6,
+            "failed": 1
+          },
+          "boundary_split": {
+            "boundaries": 6,
+            "near_share_pct": 6.01,
+            "near_p99": 15.2,
+            "near_max": 53.1,
+            "far_p99": 16.9,
+            "far_max": 289.3
+          },
+          "host_disturbed": false
+        },
+        {
+          "run": "flink-sql-r3",
+          "kept_records": 949701,
+          "throughput_eps": 3332.3,
+          "pipeline_ms_p50": 5.77,
+          "pipeline_ms_p99": 15.354,
+          "e2e_ms_p50": 13.158,
+          "e2e_ms_p99": 27.507,
+          "pipeline_ms_max": 114.623,
+          "cpu_mean_cores": 0.45,
+          "mem_mean_mb": 2109.0,
+          "clock_offset_ms": {
+            "n": 30,
+            "mean": -0.44,
+            "min": -0.96,
+            "max": -0.09
+          },
+          "async_evidence": null,
+          "flink_checkpoints": {
+            "completed": 6,
+            "failed": 1
+          },
+          "boundary_split": {
+            "boundaries": 6,
+            "near_share_pct": 5.96,
+            "near_p99": 17.7,
+            "near_max": 43.6,
+            "far_p99": 15.3,
+            "far_max": 114.6
+          },
+          "host_disturbed": false
+        }
+      ],
+      "geomean": {
+        "pipeline_ms_p50": 5.789028856941143,
+        "pipeline_ms_p99": 30.55686737663552,
+        "e2e_ms_p50": 13.229564666372656,
+        "e2e_ms_p99": 50.64818661019192,
+        "clean_runs": 3,
+        "clean_pipeline_ms_p99": 30.55686737663552,
+        "cpu_mean_cores": 0.4766666666666667,
+        "mem_mean_mb": 2130.6666666666665
+      },
+      "previous": {
+        "pipeline_ms_p50": 5.962,
+        "pipeline_ms_p99": 8.851,
+        "e2e_ms_p50": 13.756,
+        "e2e_ms_p99": 17.366,
+        "cpu_mean_cores": 0.26,
+        "mem_mean_mb": 2876.0
+      }
+    },
+    "pyflink": {
+      "name": "PyFlink",
+      "runs": [
+        {
+          "run": "pyflink-r1",
+          "kept_records": 948202,
+          "throughput_eps": 3327.0,
+          "pipeline_ms_p50": 8.144,
+          "pipeline_ms_p99": 161.673,
+          "e2e_ms_p50": 17.651,
+          "e2e_ms_p99": 224.079,
+          "pipeline_ms_max": 1092.284,
+          "cpu_mean_cores": 2.43,
+          "mem_mean_mb": 3115.0,
+          "clock_offset_ms": {
+            "n": 30,
+            "mean": -0.77,
+            "min": -3.07,
+            "max": -0.07
+          },
+          "async_evidence": null,
+          "flink_checkpoints": {
+            "completed": 7,
+            "failed": 0
+          },
+          "boundary_split": {
+            "boundaries": 7,
+            "near_share_pct": 5.67,
+            "near_p99": 34.5,
+            "near_max": 107.5,
+            "far_p99": 168.0,
+            "far_max": 1092.3
+          },
+          "host_disturbed": true
+        },
+        {
+          "run": "pyflink-r2",
+          "kept_records": 938720,
+          "throughput_eps": 3293.8,
+          "pipeline_ms_p50": 7.687,
+          "pipeline_ms_p99": 15.839,
+          "e2e_ms_p50": 16.672,
+          "e2e_ms_p99": 28.068,
+          "pipeline_ms_max": 121.918,
+          "cpu_mean_cores": 2.09,
+          "mem_mean_mb": 3283.0,
+          "clock_offset_ms": {
+            "n": 30,
+            "mean": -0.42,
+            "min": -0.95,
+            "max": -0.05
+          },
+          "async_evidence": null,
+          "flink_checkpoints": {
+            "completed": 7,
+            "failed": 0
+          },
+          "boundary_split": {
+            "boundaries": 7,
+            "near_share_pct": 5.71,
+            "near_p99": 16.1,
+            "near_max": 46.4,
+            "far_p99": 15.9,
+            "far_max": 121.9
+          },
+          "host_disturbed": false
+        },
+        {
+          "run": "pyflink-r3",
+          "kept_records": 927410,
+          "throughput_eps": 3254.1,
+          "pipeline_ms_p50": 8.046,
+          "pipeline_ms_p99": 7929.647,
+          "e2e_ms_p50": 18.281,
+          "e2e_ms_p99": 9207.712,
+          "pipeline_ms_max": 11345.202,
+          "cpu_mean_cores": 2.45,
+          "mem_mean_mb": 3281.0,
+          "clock_offset_ms": {
+            "n": 29,
+            "mean": -5.71,
+            "min": -67.23,
+            "max": -0.24
+          },
+          "async_evidence": null,
+          "flink_checkpoints": {
+            "completed": 7,
+            "failed": 0
+          },
+          "boundary_split": {
+            "boundaries": 7,
+            "near_share_pct": 5.88,
+            "near_p99": 108.4,
+            "near_max": 166.1,
+            "far_p99": 8053.6,
+            "far_max": 11345.2
+          },
+          "host_disturbed": true
+        }
+      ],
+      "geomean": {
+        "pipeline_ms_p50": 7.956551743140166,
+        "pipeline_ms_p99": 272.81801003829247,
+        "e2e_ms_p50": 17.522079847711254,
+        "e2e_ms_p99": 386.8905459925607,
+        "clean_runs": 1,
+        "clean_pipeline_ms_p99": 15.838999999999999,
+        "cpu_mean_cores": 2.3233333333333333,
+        "mem_mean_mb": 3226.3333333333335
+      },
+      "previous": {
+        "pipeline_ms_p50": 7.146,
+        "pipeline_ms_p99": 12.524,
+        "e2e_ms_p50": 16.663,
+        "e2e_ms_p99": 21.164,
+        "cpu_mean_cores": 1.7,
+        "mem_mean_mb": 4849.0
+      }
+    }
+  }
+}

@@ -7,9 +7,9 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: rtm-flink-bench3
+  name: rtm-flink-bench4
   region: us-east-1
-  version: "1.31"
+  version: "1.36"
   tags:
     project: spark-rtm-vs-flink
     owner: fmorillo
@@ -22,7 +22,7 @@ iam:
 
 # @secure_recommendation: KMS envelope encryption for Kubernetes secrets (ARCC eks baseline)
 secretsEncryption:
-  # Dedicated us-east-1 CMK created by eks/01_create_cluster.sh (alias rtm-flink-bench3-secrets).
+  # Dedicated us-east-1 CMK created by eks/01_create_cluster.sh (reused CMK, alias rtm-flink-bench3-secrets).
   keyARN: "arn:aws:kms:us-east-1:<YOUR_ACCOUNT_ID>:key/<YOUR_KMS_KEY_ID>"
 
 # Control-plane logging to CloudWatch (audit/authenticator) — observability + ARCC.
@@ -47,17 +47,60 @@ vpc:
     publicAccess: true
     privateAccess: true
 
+# 6x m5.2xlarge as before, split 4 + 2: the 2 engine nodes are tainted so only Spark/Flink
+# engine pods (which carry the toleration, added by eks/stateful/run_matrix_incluster.sh)
+# land there; Kafka brokers, producers, the consumer, operators and the runner stay on bench-ng.
 managedNodeGroups:
-  - name: bench-ng
-    instanceType: m5.2xlarge        # 8 vCPU / 32 GiB
-    desiredCapacity: 6              # 48 vCPU / 192 GiB total
-    minSize: 6
-    maxSize: 8
+  - name: engine-ng
+    instanceType: m5.2xlarge        # one engine worker per node (+ driver/JM on one of them)
+    desiredCapacity: 2
+    minSize: 2
+    maxSize: 2
     volumeSize: 100
     volumeType: gp3
     volumeEncrypted: true           # @secure_recommendation: encrypted EBS (ARCC ec2 baseline)
     privateNetworking: true         # @secure_recommendation: nodes in private subnets
     disableIMDSv1: true             # @secure_recommendation: IMDSv2 required (ARCC ec2 baseline)
+    # 30-min runs: kubelet rotates container logs at 10Mi by default, and `kubectl logs` then
+    # returns only the newest file. AL2023 kubelet merges drop-ins from config.json.d; eksctl has
+    # no kubeletExtraConfig for managed nodegroups.
+    preBootstrapCommands:
+      - |
+        mkdir -p /etc/kubernetes/kubelet/config.json.d
+        cat > /etc/kubernetes/kubelet/config.json.d/90-container-log-size.conf <<'EOF'
+        {"apiVersion": "kubelet.config.k8s.io/v1beta1", "kind": "KubeletConfiguration", "containerLogMaxSize": "200Mi"}
+        EOF
+    labels:
+      workload: bench
+      bench/role: engine
+    taints:
+      - { key: bench/role, value: engine, effect: NoSchedule }
+    tags:
+      project: spark-rtm-vs-flink
+      lifecycle: ephemeral-benchmark
+    iam:
+      withAddonPolicies:
+        ebs: true
+        cloudWatch: true
+  - name: bench-ng
+    instanceType: m5.2xlarge        # 8 vCPU / 32 GiB
+    desiredCapacity: 4              # Kafka x3, 8 producers, consumer, operators, runner
+    minSize: 4
+    maxSize: 6
+    volumeSize: 100
+    volumeType: gp3
+    volumeEncrypted: true           # @secure_recommendation: encrypted EBS (ARCC ec2 baseline)
+    privateNetworking: true         # @secure_recommendation: nodes in private subnets
+    disableIMDSv1: true             # @secure_recommendation: IMDSv2 required (ARCC ec2 baseline)
+    # 30-min runs: kubelet rotates container logs at 10Mi by default, and `kubectl logs` then
+    # returns only the newest file. AL2023 kubelet merges drop-ins from config.json.d; eksctl has
+    # no kubeletExtraConfig for managed nodegroups.
+    preBootstrapCommands:
+      - |
+        mkdir -p /etc/kubernetes/kubelet/config.json.d
+        cat > /etc/kubernetes/kubelet/config.json.d/90-container-log-size.conf <<'EOF'
+        {"apiVersion": "kubelet.config.k8s.io/v1beta1", "kind": "KubeletConfiguration", "containerLogMaxSize": "200Mi"}
+        EOF
     labels:
       workload: bench
     tags:
@@ -73,3 +116,4 @@ addons:
   - name: coredns
   - name: kube-proxy
   - name: aws-ebs-csi-driver        # dynamic gp3 PVCs for Strimzi brokers
+  - name: metrics-server            # kubectl top (pod CPU/mem sampling)

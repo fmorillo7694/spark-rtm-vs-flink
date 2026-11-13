@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-bt100-s3-lt-r2 warmup=60s window=300s
+[consumer] seen=8 kept=0 (warmup)
+[consumer] seen=166912 kept=0 (warmup)
+[consumer] seen=361774 kept=0 (warmup)
+[consumer] seen=517132 kept=0 (warmup)
+[consumer] seen=751416 kept=0 (warmup)
+[consumer] seen=956745 kept=0 (warmup)
+[consumer] seen=1150167 kept=0 (warmup)
+[consumer] seen=1344811 kept=0 (warmup)
+[consumer] seen=1538887 kept=0 (warmup)
+[consumer] seen=1732080 kept=0 (warmup)
+[consumer] seen=1926537 kept=0 (warmup)
+[consumer] seen=2119247 kept=12512 (steady)
+[consumer] seen=2312416 kept=205681 (steady)
+[consumer] seen=2507679 kept=400944 (steady)
+[consumer] seen=2701399 kept=594664 (steady)
+[consumer] seen=2843041 kept=736306 (steady)
+[consumer] seen=3091588 kept=984853 (steady)
+[consumer] seen=3235484 kept=1128749 (steady)
+[consumer] seen=3506363 kept=1399628 (steady)
+[consumer] seen=3700203 kept=1593468 (steady)
+[consumer] seen=3892711 kept=1785976 (steady)
+[consumer] seen=4088795 kept=1982060 (steady)
+[consumer] seen=4283673 kept=2176938 (steady)
+[consumer] seen=4475026 kept=2368291 (steady)
+[consumer] seen=4670408 kept=2563673 (steady)
+[consumer] seen=4862526 kept=2755791 (steady)
+[consumer] seen=5056332 kept=2949597 (steady)
+[consumer] seen=5183457 kept=3076722 (steady)
+[consumer] seen=5430643 kept=3323908 (steady)
+[consumer] seen=5638885 kept=3532150 (steady)
+[consumer] seen=5858366 kept=3751631 (steady)
+[consumer] seen=6052198 kept=3945463 (steady)
+[consumer] seen=6246198 kept=4139463 (steady)
+[consumer] seen=6439991 kept=4333256 (steady)
+[consumer] seen=6634428 kept=4527693 (steady)
+[consumer] seen=6828003 kept=4721268 (steady)
+[consumer] seen=7022395 kept=4915660 (steady)
+[consumer] seen=7215787 kept=5109052 (steady)
+[consumer] seen=7408701 kept=5301966 (steady)
+[consumer] seen=7523783 kept=5417048 (steady)
+[consumer] seen=7772709 kept=5665974 (steady)
+[consumer] seen=8022842 kept=5916107 (steady)
+[consumer] seen=8218016 kept=6111281 (steady)
+[consumer] seen=8411379 kept=6304644 (steady)
+[consumer] seen=8606177 kept=6499442 (steady)
+[consumer] seen=8801098 kept=6694363 (steady)
+[consumer] seen=8995540 kept=6888805 (steady)
+[consumer] seen=9188847 kept=7082112 (steady)
+[consumer] seen=9381335 kept=7274600 (steady)
+[consumer] seen=9575398 kept=7468663 (steady)
+[consumer] seen=9769052 kept=7662317 (steady)
+[consumer] seen=9862263 kept=7755528 (steady)
+[consumer] seen=10110301 kept=8003566 (steady)
+[consumer] seen=10378490 kept=8271755 (steady)
+[consumer] seen=10572534 kept=8465799 (steady)
+[consumer] seen=10767006 kept=8660271 (steady)
+[consumer] seen=10960733 kept=8853998 (steady)
+[consumer] seen=11154967 kept=9048232 (steady)
+[consumer] seen=11348756 kept=9242021 (steady)
+[consumer] seen=11542595 kept=9435860 (steady)
+[consumer] seen=11736172 kept=9629437 (steady)
+[consumer] seen=11930085 kept=9823350 (steady)
+[consumer] seen=12123490 kept=10016755 (steady)
+[consumer] seen=12252362 kept=10145627 (steady)
+[consumer] seen=12451624 kept=10344889 (steady)
+[consumer] seen=12717288 kept=10610553 (steady)
+[consumer] seen=12914990 kept=10808255 (steady)
+[consumer] seen=13109496 kept=11002761 (steady)
+[consumer] seen=13303298 kept=11196563 (steady)
+[consumer] seen=13497930 kept=11391195 (steady)
+[consumer] seen=13691696 kept=11584961 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-bt100-s3-lt-r2",
+  "topic": "st-output",
+  "kept_records": 11692124,
+  "seen_records": 13798859,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 38973.7,
+  "started_at": 1794246734.581,
+  "ended_at": 1794247094.785,
+  "pipeline_ms": {
+    "count": 11692124,
+    "p50": 679.449,
+    "p95": 2989.082,
+    "p99": 4257.349,
+    "max": 6501.528,
+    "mean": 876.696
+  },
+  "e2e_ms": {
+    "count": 11692124,
+    "p50": 788.784,
+    "p95": 3100.394,
+    "p99": 4419.456,
+    "max": 6907.104,
+    "mean": 987.876
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-bt100-s3-lt-r2_summary.json

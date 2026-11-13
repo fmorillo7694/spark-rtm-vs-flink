@@ -1,0 +1,12 @@
+--- self-teardown preflight rtm-flink-bench7d 2026-11-12T11:33:40Z (before matrix Job; SELF_TEARDOWN=1 in launch cmd)
+IAM: rtm-flink-ckpt-s3	rtm-flink-bench7d-runner-scale-down
+simulate engine-ng: allowed	allowed
+simulate bench-ng: allowed	allowed
+can-i delete kafkas.kafka.strimzi.io -n kafka: yes
+can-i delete kafkanodepools.kafka.strimzi.io -n kafka: yes
+can-i delete persistentvolumeclaims -n kafka: yes
+can-i list persistentvolumes: yes
+can-i get nodes/proxy: yes
+can-i get configmap/stateful-runner-stop -n kafka: yes
+stop marker present: no
+d deploy rc=0 start=2026-11-12T11:34:38Z

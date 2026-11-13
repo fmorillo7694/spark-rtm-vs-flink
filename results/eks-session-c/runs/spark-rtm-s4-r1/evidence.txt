@@ -1,0 +1,22 @@
+# evidence at 2026-11-10T11:22:49Z
+async-log-write threads: 1
+AsyncProgressTrackingMicroBatchExecution frames: 1
+--- active stages (pipelined: source + stateful stage RUNNING together)
+13 ACTIVE 6 6 start at StatefulPipelineJava.java:244
+--- driver log: pipelined / commits / batch starts (boundary split input)
+26/11/10 11:16:42 INFO SparkContext: Starting job: count at StatefulPipelineJava.java:152
+[StatefulPipelineJava] s4 reference rows=980000 topic=st-ref
+[StatefulPipelineJava] workload=s4 mode=rtm id=208dcdb3-9e11-41b2-a57a-04220dd26b28 trigger=RealTime(60 seconds) outputMode=update secondTopic=st-ref startingOffsets=latest watermark=5s window=10s gapMs=5000 timeoutMs=5000 stateStore=org.ap
+26/11/10 11:16:56 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/10 11:16:58 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/10 11:17:58 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/10 11:17:59 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/10 11:18:59 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/10 11:18:59 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/10 11:20:00 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/10 11:20:00 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/10 11:21:00 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/10 11:21:01 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/10 11:22:01 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/10 11:22:02 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+--- progress blocks: 5

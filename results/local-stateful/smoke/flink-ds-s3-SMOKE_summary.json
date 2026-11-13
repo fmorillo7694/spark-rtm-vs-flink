@@ -1,0 +1,25 @@
+{
+  "engine": "flink-ds-s3-SMOKE",
+  "topic": "st-output",
+  "kept_records": 96218,
+  "seen_records": 114031,
+  "window_seconds": 70,
+  "warmup_seconds": 20,
+  "throughput_eps": 1374.5,
+  "pipeline_ms": {
+    "count": 96218,
+    "p50": 6.868,
+    "p95": 8.515,
+    "p99": 11.211,
+    "max": 197.92,
+    "mean": 7.475
+  },
+  "e2e_ms": {
+    "count": 96218,
+    "p50": 13.725,
+    "p95": 15.034,
+    "p99": 19.348,
+    "max": 202.96,
+    "mean": 14.173
+  }
+}

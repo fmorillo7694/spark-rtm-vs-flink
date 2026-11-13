@@ -1,0 +1,68 @@
+{
+  "workload": "s3",
+  "input": "results/local-stateful/captures/input.jsonl",
+  "input_events": 131886,
+  "input_distinct_event_ids": 120000,
+  "engines": {
+    "flink-ds-s3-lt": {
+      "truth_sessions": 20578,
+      "output_sessions": 20578,
+      "missing": 0,
+      "extra": 0,
+      "close_reasons": {
+        "gap": 15578,
+        "timeout": 5000
+      },
+      "samples": {
+        "missing": [],
+        "extra": []
+      },
+      "pass": true
+    },
+    "flink-ds-s3": {
+      "truth_sessions": 20578,
+      "output_sessions": 20578,
+      "missing": 0,
+      "extra": 0,
+      "close_reasons": {
+        "gap": 15578,
+        "timeout": 5000
+      },
+      "samples": {
+        "missing": [],
+        "extra": []
+      },
+      "pass": true
+    },
+    "spark-rtm-s3-lt": {
+      "truth_sessions": 20578,
+      "output_sessions": 20578,
+      "missing": 0,
+      "extra": 0,
+      "close_reasons": {
+        "gap": 15578,
+        "timeout": 5000
+      },
+      "samples": {
+        "missing": [],
+        "extra": []
+      },
+      "pass": true
+    },
+    "spark-rtm-s3": {
+      "truth_sessions": 20578,
+      "output_sessions": 20578,
+      "missing": 0,
+      "extra": 0,
+      "close_reasons": {
+        "gap": 15578,
+        "timeout": 5000
+      },
+      "samples": {
+        "missing": [],
+        "extra": []
+      },
+      "pass": true
+    }
+  }
+}

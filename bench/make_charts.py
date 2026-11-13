@@ -35,7 +35,7 @@ def save(fig, name):
 def chart_floor():
     fig, ax = plt.subplots(figsize=(7, 4))
     modes = ["micro-batch", "RTM"]
-    p50 = [50.0, 7.9]; p99 = [80.4, 42.1]
+    p50 = [48.6, 8.2]; p99 = [81.6, 12.0]
     x = range(len(modes)); w = 0.35
     ax.bar([i - w/2 for i in x], p50, w, label="p50", color=[C_MB, C_SPARK])
     ax.bar([i + w/2 for i in x], p99, w, label="p99", color=[C_MB, C_SPARK], alpha=0.55)
@@ -222,7 +222,7 @@ def chart_scaling():
     import numpy as np
     configs = ["6 part\n7 cores", "12 part\n13 cores"]
     flink = [33, 40]          # Flink DataStream (Java), keyed output
-    rtm = [669, 829]          # Spark RTM (Java)
+    rtm = [669, 1299]         # Spark RTM (Java)
     x = np.arange(len(configs)); w = 0.36
     fig, ax = plt.subplots(figsize=(7.5, 4.4))
     b1 = ax.bar(x - w/2, rtm, w, label="Spark RTM (Java)", color=C_SPARK)
@@ -230,8 +230,8 @@ def chart_scaling():
     ax.set_yscale("log")
     ax.set_ylabel("pipeline p99 latency (ms, log scale)")
     ax.set_xticks(x); ax.set_xticklabels(configs)
-    ax.set_title("Halving partitions + cores barely moves either tail:\n"
-                 "RTM stays ~700-830 ms, Flink stays ~30-40 ms", fontsize=11)
+    ax.set_title("Doubling partitions + cores doesn't fix RTM's tail:\n"
+                 "RTM stays in the hundreds-of-ms, Flink stays ~30-40 ms", fontsize=11)
     ax.legend(loc="center right", fontsize=10)
     for bars in (b1, b2):
         for b in bars:
@@ -274,7 +274,8 @@ def _main():
     chart_matrix()
     chart_checkpoint()
     chart_datarate()
-    chart_efficiency()
+    # chart_efficiency() — superseded by chart_cpu/chart_memory (08/09), which read live
+    # per-engine resource samples for all six engines. Kept out to avoid a stale duplicate.
     chart_recovery()
     chart_cpu()
     chart_memory()

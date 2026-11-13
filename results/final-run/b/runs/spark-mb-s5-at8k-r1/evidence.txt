@@ -1,0 +1,200 @@
+# evidence at 2026-11-11T19:47:24Z
+async-log-write threads: 0
+AsyncProgressTrackingMicroBatchExecution frames: 0
+--- active stages (pipelined: source + stateful stage RUNNING together)
+--- driver log: pipelined / commits / batch starts (boundary split input)
+26/11/11 19:41:20 INFO MicroBatchExecution: Committed offsets for batch 1. Metadata OffsetSeqMetadata(0,1794426079936,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDBStateStorePr
+26/11/11 19:41:20 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:41:25 INFO MicroBatchExecution: Committed offsets for batch 2. Metadata OffsetSeqMetadata(0,1794426084608,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDBStateStorePr
+26/11/11 19:41:25 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:41:31 INFO MicroBatchExecution: Committed offsets for batch 3. Metadata OffsetSeqMetadata(1794426079597,1794426090625,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDB
+26/11/11 19:41:31 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:41:36 INFO MicroBatchExecution: Committed offsets for batch 4. Metadata OffsetSeqMetadata(1794426085614,1794426096142,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDB
+26/11/11 19:41:36 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:41:41 INFO MicroBatchExecution: Committed offsets for batch 5. Metadata OffsetSeqMetadata(1794426091131,1794426101049,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDB
+26/11/11 19:41:41 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:41:45 INFO MicroBatchExecution: Committed offsets for batch 6. Metadata OffsetSeqMetadata(1794426096039,1794426105503,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDB
+26/11/11 19:41:46 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:41:50 INFO MicroBatchExecution: Committed offsets for batch 7. Metadata OffsetSeqMetadata(1794426100493,1794426109566,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDB
+26/11/11 19:41:50 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:41:53 INFO MicroBatchExecution: Committed offsets for batch 8. Metadata OffsetSeqMetadata(1794426104554,1794426113420,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDB
+26/11/11 19:41:53 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:41:57 INFO MicroBatchExecution: Committed offsets for batch 9. Metadata OffsetSeqMetadata(1794426108409,1794426117218,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDB
+26/11/11 19:41:57 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:01 INFO MicroBatchExecution: Committed offsets for batch 10. Metadata OffsetSeqMetadata(1794426112209,1794426121352,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:01 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:05 INFO MicroBatchExecution: Committed offsets for batch 11. Metadata OffsetSeqMetadata(1794426116341,1794426125415,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:06 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:09 INFO MicroBatchExecution: Committed offsets for batch 12. Metadata OffsetSeqMetadata(1794426120403,1794426129526,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:10 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:14 INFO MicroBatchExecution: Committed offsets for batch 13. Metadata OffsetSeqMetadata(1794426124514,1794426134138,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:14 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:18 INFO MicroBatchExecution: Committed offsets for batch 14. Metadata OffsetSeqMetadata(1794426129128,1794426138405,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:18 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:23 INFO MicroBatchExecution: Committed offsets for batch 15. Metadata OffsetSeqMetadata(1794426133394,1794426142874,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:23 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:27 INFO MicroBatchExecution: Committed offsets for batch 16. Metadata OffsetSeqMetadata(1794426137864,1794426147006,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:27 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:31 INFO MicroBatchExecution: Committed offsets for batch 17. Metadata OffsetSeqMetadata(1794426141997,1794426150781,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:31 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:35 INFO MicroBatchExecution: Committed offsets for batch 18. Metadata OffsetSeqMetadata(1794426145771,1794426154880,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:35 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:38 INFO MicroBatchExecution: Committed offsets for batch 19. Metadata OffsetSeqMetadata(1794426149869,1794426158506,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:39 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:42 INFO MicroBatchExecution: Committed offsets for batch 20. Metadata OffsetSeqMetadata(1794426153494,1794426162585,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:43 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:46 INFO MicroBatchExecution: Committed offsets for batch 21. Metadata OffsetSeqMetadata(1794426157574,1794426166195,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:46 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:50 INFO MicroBatchExecution: Committed offsets for batch 22. Metadata OffsetSeqMetadata(1794426161184,1794426169804,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:50 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:53 INFO MicroBatchExecution: Committed offsets for batch 23. Metadata OffsetSeqMetadata(1794426164794,1794426173605,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:54 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:42:57 INFO MicroBatchExecution: Committed offsets for batch 24. Metadata OffsetSeqMetadata(1794426168594,1794426177119,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:42:57 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:00 INFO MicroBatchExecution: Committed offsets for batch 25. Metadata OffsetSeqMetadata(1794426172109,1794426180454,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:00 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:04 INFO MicroBatchExecution: Committed offsets for batch 26. Metadata OffsetSeqMetadata(1794426175444,1794426183685,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:04 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:07 INFO MicroBatchExecution: Committed offsets for batch 27. Metadata OffsetSeqMetadata(1794426178674,1794426187166,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:07 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:11 INFO MicroBatchExecution: Committed offsets for batch 28. Metadata OffsetSeqMetadata(1794426182154,1794426191052,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:11 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:15 INFO MicroBatchExecution: Committed offsets for batch 29. Metadata OffsetSeqMetadata(1794426186041,1794426194781,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:15 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:18 INFO MicroBatchExecution: Committed offsets for batch 30. Metadata OffsetSeqMetadata(1794426189771,1794426198522,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:19 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:22 INFO MicroBatchExecution: Committed offsets for batch 31. Metadata OffsetSeqMetadata(1794426193511,1794426202590,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:23 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:26 INFO MicroBatchExecution: Committed offsets for batch 32. Metadata OffsetSeqMetadata(1794426197579,1794426206206,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:26 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:30 INFO MicroBatchExecution: Committed offsets for batch 33. Metadata OffsetSeqMetadata(1794426201197,1794426209823,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:30 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:33 INFO MicroBatchExecution: Committed offsets for batch 34. Metadata OffsetSeqMetadata(1794426204814,1794426213463,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:34 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:37 INFO MicroBatchExecution: Committed offsets for batch 35. Metadata OffsetSeqMetadata(1794426208453,1794426217027,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:37 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:41 INFO MicroBatchExecution: Committed offsets for batch 36. Metadata OffsetSeqMetadata(1794426212017,1794426220735,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:41 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:44 INFO MicroBatchExecution: Committed offsets for batch 37. Metadata OffsetSeqMetadata(1794426215724,1794426224330,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:44 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:48 INFO MicroBatchExecution: Committed offsets for batch 38. Metadata OffsetSeqMetadata(1794426219319,1794426228000,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:48 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:52 INFO MicroBatchExecution: Committed offsets for batch 39. Metadata OffsetSeqMetadata(1794426222989,1794426231979,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:52 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:56 INFO MicroBatchExecution: Committed offsets for batch 40. Metadata OffsetSeqMetadata(1794426226969,1794426235925,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:43:56 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:43:59 INFO MicroBatchExecution: Committed offsets for batch 41. Metadata OffsetSeqMetadata(1794426230914,1794426239543,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:00 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:03 INFO MicroBatchExecution: Committed offsets for batch 42. Metadata OffsetSeqMetadata(1794426234533,1794426243064,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:03 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:06 INFO MicroBatchExecution: Committed offsets for batch 43. Metadata OffsetSeqMetadata(1794426238054,1794426246509,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:07 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:10 INFO MicroBatchExecution: Committed offsets for batch 44. Metadata OffsetSeqMetadata(1794426241499,1794426249892,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:10 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:13 INFO MicroBatchExecution: Committed offsets for batch 45. Metadata OffsetSeqMetadata(1794426244883,1794426253522,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:14 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:17 INFO MicroBatchExecution: Committed offsets for batch 46. Metadata OffsetSeqMetadata(1794426248513,1794426257059,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:17 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:21 INFO MicroBatchExecution: Committed offsets for batch 47. Metadata OffsetSeqMetadata(1794426252048,1794426260776,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:21 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:24 INFO MicroBatchExecution: Committed offsets for batch 48. Metadata OffsetSeqMetadata(1794426255767,1794426264177,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:24 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:27 INFO MicroBatchExecution: Committed offsets for batch 49. Metadata OffsetSeqMetadata(1794426259167,1794426267440,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:27 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:31 INFO MicroBatchExecution: Committed offsets for batch 50. Metadata OffsetSeqMetadata(1794426262429,1794426271055,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:31 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:35 INFO MicroBatchExecution: Committed offsets for batch 51. Metadata OffsetSeqMetadata(1794426266044,1794426274731,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:35 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:38 INFO MicroBatchExecution: Committed offsets for batch 52. Metadata OffsetSeqMetadata(1794426269721,1794426278164,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:38 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:42 INFO MicroBatchExecution: Committed offsets for batch 53. Metadata OffsetSeqMetadata(1794426273154,1794426281731,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:42 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:45 INFO MicroBatchExecution: Committed offsets for batch 54. Metadata OffsetSeqMetadata(1794426276721,1794426285035,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:45 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:48 INFO MicroBatchExecution: Committed offsets for batch 55. Metadata OffsetSeqMetadata(1794426280024,1794426288271,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:48 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:52 INFO MicroBatchExecution: Committed offsets for batch 56. Metadata OffsetSeqMetadata(1794426283261,1794426291738,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:52 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:55 INFO MicroBatchExecution: Committed offsets for batch 57. Metadata OffsetSeqMetadata(1794426286728,1794426295097,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:55 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:44:59 INFO MicroBatchExecution: Committed offsets for batch 58. Metadata OffsetSeqMetadata(1794426290088,1794426298586,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:44:59 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:03 INFO MicroBatchExecution: Committed offsets for batch 59. Metadata OffsetSeqMetadata(1794426293574,1794426302461,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:03 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:07 INFO MicroBatchExecution: Committed offsets for batch 60. Metadata OffsetSeqMetadata(1794426297451,1794426306666,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:07 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:10 INFO MicroBatchExecution: Committed offsets for batch 61. Metadata OffsetSeqMetadata(1794426301654,1794426310398,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:10 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:14 INFO MicroBatchExecution: Committed offsets for batch 62. Metadata OffsetSeqMetadata(1794426305389,1794426314208,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:14 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:18 INFO MicroBatchExecution: Committed offsets for batch 63. Metadata OffsetSeqMetadata(1794426309199,1794426318044,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:18 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:22 INFO MicroBatchExecution: Committed offsets for batch 64. Metadata OffsetSeqMetadata(1794426313034,1794426321881,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:22 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:25 INFO MicroBatchExecution: Committed offsets for batch 65. Metadata OffsetSeqMetadata(1794426316871,1794426325503,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:26 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:29 INFO MicroBatchExecution: Committed offsets for batch 66. Metadata OffsetSeqMetadata(1794426320493,1794426329066,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:29 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:33 INFO MicroBatchExecution: Committed offsets for batch 67. Metadata OffsetSeqMetadata(1794426324057,1794426332749,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:33 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:36 INFO MicroBatchExecution: Committed offsets for batch 68. Metadata OffsetSeqMetadata(1794426327739,1794426336255,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:36 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:40 INFO MicroBatchExecution: Committed offsets for batch 69. Metadata OffsetSeqMetadata(1794426331244,1794426339758,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:40 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:44 INFO MicroBatchExecution: Committed offsets for batch 70. Metadata OffsetSeqMetadata(1794426334748,1794426343586,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:44 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:47 INFO MicroBatchExecution: Committed offsets for batch 71. Metadata OffsetSeqMetadata(1794426338574,1794426347500,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:48 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:51 INFO MicroBatchExecution: Committed offsets for batch 72. Metadata OffsetSeqMetadata(1794426342489,1794426351334,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:51 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:55 INFO MicroBatchExecution: Committed offsets for batch 73. Metadata OffsetSeqMetadata(1794426346324,1794426354880,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:55 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:45:59 INFO MicroBatchExecution: Committed offsets for batch 74. Metadata OffsetSeqMetadata(1794426349869,1794426358639,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:45:59 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:03 INFO MicroBatchExecution: Committed offsets for batch 75. Metadata OffsetSeqMetadata(1794426353629,1794426362672,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:03 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:06 INFO MicroBatchExecution: Committed offsets for batch 76. Metadata OffsetSeqMetadata(1794426357661,1794426366555,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:07 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:10 INFO MicroBatchExecution: Committed offsets for batch 77. Metadata OffsetSeqMetadata(1794426361544,1794426370319,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:10 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:14 INFO MicroBatchExecution: Committed offsets for batch 78. Metadata OffsetSeqMetadata(1794426365309,1794426373829,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:14 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:17 INFO MicroBatchExecution: Committed offsets for batch 79. Metadata OffsetSeqMetadata(1794426368819,1794426377586,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:18 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:21 INFO MicroBatchExecution: Committed offsets for batch 80. Metadata OffsetSeqMetadata(1794426372577,1794426381562,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:22 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:25 INFO MicroBatchExecution: Committed offsets for batch 81. Metadata OffsetSeqMetadata(1794426376551,1794426385461,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:25 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:29 INFO MicroBatchExecution: Committed offsets for batch 82. Metadata OffsetSeqMetadata(1794426380451,1794426389154,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:29 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:33 INFO MicroBatchExecution: Committed offsets for batch 83. Metadata OffsetSeqMetadata(1794426384144,1794426392601,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:33 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:36 INFO MicroBatchExecution: Committed offsets for batch 84. Metadata OffsetSeqMetadata(1794426387591,1794426395833,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:36 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:39 INFO MicroBatchExecution: Committed offsets for batch 85. Metadata OffsetSeqMetadata(1794426390823,1794426399195,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:39 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:42 INFO MicroBatchExecution: Committed offsets for batch 86. Metadata OffsetSeqMetadata(1794426394183,1794426402459,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:43 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:46 INFO MicroBatchExecution: Committed offsets for batch 87. Metadata OffsetSeqMetadata(1794426397449,1794426406157,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:46 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:50 INFO MicroBatchExecution: Committed offsets for batch 88. Metadata OffsetSeqMetadata(1794426401147,1794426409756,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:50 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:53 INFO MicroBatchExecution: Committed offsets for batch 89. Metadata OffsetSeqMetadata(1794426404744,1794426413438,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:53 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:46:57 INFO MicroBatchExecution: Committed offsets for batch 90. Metadata OffsetSeqMetadata(1794426408428,1794426417117,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:46:57 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:47:00 INFO MicroBatchExecution: Committed offsets for batch 91. Metadata OffsetSeqMetadata(1794426412108,1794426420582,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:47:01 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:47:04 INFO MicroBatchExecution: Committed offsets for batch 92. Metadata OffsetSeqMetadata(1794426415573,1794426424244,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:47:04 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:47:08 INFO MicroBatchExecution: Committed offsets for batch 93. Metadata OffsetSeqMetadata(1794426419233,1794426427932,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:47:08 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:47:12 INFO MicroBatchExecution: Committed offsets for batch 94. Metadata OffsetSeqMetadata(1794426422923,1794426431983,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:47:12 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:47:16 INFO MicroBatchExecution: Committed offsets for batch 95. Metadata OffsetSeqMetadata(1794426426973,1794426435735,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:47:16 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:47:19 INFO MicroBatchExecution: Committed offsets for batch 96. Metadata OffsetSeqMetadata(1794426430723,1794426439279,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:47:19 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+26/11/11 19:47:23 INFO MicroBatchExecution: Committed offsets for batch 97. Metadata OffsetSeqMetadata(1794426434269,1794426442994,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksD
+26/11/11 19:47:23 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:247
+--- progress blocks: 97

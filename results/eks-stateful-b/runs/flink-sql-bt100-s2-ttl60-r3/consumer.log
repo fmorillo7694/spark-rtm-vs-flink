@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-sql-bt100-s2-ttl60-r3 warmup=60s window=300s
+[consumer] seen=109000 kept=0 (warmup)
+[consumer] seen=413000 kept=0 (warmup)
+[consumer] seen=661000 kept=0 (warmup)
+[consumer] seen=904000 kept=0 (warmup)
+[consumer] seen=1159000 kept=0 (warmup)
+[consumer] seen=1408000 kept=0 (warmup)
+[consumer] seen=1656000 kept=0 (warmup)
+[consumer] seen=1904000 kept=0 (warmup)
+[consumer] seen=2152000 kept=0 (warmup)
+[consumer] seen=2400000 kept=0 (warmup)
+[consumer] seen=2648000 kept=0 (warmup)
+[consumer] seen=2896000 kept=5569 (steady)
+[consumer] seen=3144000 kept=253569 (steady)
+[consumer] seen=3392000 kept=501569 (steady)
+[consumer] seen=3641000 kept=750569 (steady)
+[consumer] seen=3875599 kept=985168 (steady)
+[consumer] seen=4143599 kept=1253168 (steady)
+[consumer] seen=4391599 kept=1501168 (steady)
+[consumer] seen=4640599 kept=1750168 (steady)
+[consumer] seen=4888599 kept=1998168 (steady)
+[consumer] seen=5137599 kept=2247168 (steady)
+[consumer] seen=5385599 kept=2495168 (steady)
+[consumer] seen=5633599 kept=2743168 (steady)
+[consumer] seen=5881599 kept=2991168 (steady)
+[consumer] seen=6130599 kept=3240168 (steady)
+[consumer] seen=6378599 kept=3488168 (steady)
+[consumer] seen=6626599 kept=3736168 (steady)
+[consumer] seen=6855808 kept=3965377 (steady)
+[consumer] seen=7120808 kept=4230377 (steady)
+[consumer] seen=7369808 kept=4479377 (steady)
+[consumer] seen=7618808 kept=4728377 (steady)
+[consumer] seen=7866808 kept=4976377 (steady)
+[consumer] seen=8115808 kept=5225377 (steady)
+[consumer] seen=8362808 kept=5472377 (steady)
+[consumer] seen=8610808 kept=5720377 (steady)
+[consumer] seen=8859808 kept=5969377 (steady)
+[consumer] seen=9107808 kept=6217377 (steady)
+[consumer] seen=9355808 kept=6465377 (steady)
+[consumer] seen=9604808 kept=6714377 (steady)
+[consumer] seen=9833013 kept=6942582 (steady)
+[consumer] seen=10102013 kept=7211582 (steady)
+[consumer] seen=10350013 kept=7459582 (steady)
+[consumer] seen=10598013 kept=7707582 (steady)
+[consumer] seen=10846013 kept=7955582 (steady)
+[consumer] seen=11095013 kept=8204582 (steady)
+[consumer] seen=11343013 kept=8452582 (steady)
+[consumer] seen=11591013 kept=8700582 (steady)
+[consumer] seen=11839013 kept=8948582 (steady)
+[consumer] seen=12088013 kept=9197582 (steady)
+[consumer] seen=12336013 kept=9445582 (steady)
+[consumer] seen=12584013 kept=9693582 (steady)
+[consumer] seen=12812315 kept=9921884 (steady)
+[consumer] seen=13082315 kept=10191884 (steady)
+[consumer] seen=13330315 kept=10439884 (steady)
+[consumer] seen=13579315 kept=10688884 (steady)
+[consumer] seen=13827315 kept=10936884 (steady)
+[consumer] seen=14075315 kept=11184884 (steady)
+[consumer] seen=14323315 kept=11432884 (steady)
+[consumer] seen=14571315 kept=11680884 (steady)
+[consumer] seen=14819315 kept=11928884 (steady)
+[consumer] seen=15067315 kept=12176884 (steady)
+[consumer] seen=15315315 kept=12424884 (steady)
+[consumer] seen=15564315 kept=12673884 (steady)
+[consumer] seen=15790279 kept=12899848 (steady)
+[consumer] seen=16061279 kept=13170848 (steady)
+[consumer] seen=16309279 kept=13418848 (steady)
+[consumer] seen=16557279 kept=13666848 (steady)
+[consumer] seen=16805279 kept=13914848 (steady)
+[consumer] seen=17053279 kept=14162848 (steady)
+[consumer] seen=17302279 kept=14411848 (steady)
+[consumer] seen=17550279 kept=14659848 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-sql-bt100-s2-ttl60-r3",
+  "topic": "st-output",
+  "kept_records": 14879848,
+  "seen_records": 17770279,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 49599.5,
+  "started_at": 1794236396.892,
+  "ended_at": 1794236756.91,
+  "pipeline_ms": {
+    "count": 14879848,
+    "p50": 51.058,
+    "p95": 103.178,
+    "p99": 633.063,
+    "max": 1990.521,
+    "mean": 65.645
+  },
+  "e2e_ms": {
+    "count": 14879848,
+    "p50": 75.666,
+    "p95": 130.565,
+    "p99": 654.127,
+    "max": 2008.297,
+    "mean": 88.96
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-sql-bt100-s2-ttl60-r3_summary.json

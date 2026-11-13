@@ -1,0 +1,27 @@
+{
+  "engine": "flink-ds-bt100-s2-et-r1",
+  "topic": "st-output",
+  "kept_records": 14880069,
+  "seen_records": 17739858,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 49600.2,
+  "started_at": 1794231462.881,
+  "ended_at": 1794231822.902,
+  "pipeline_ms": {
+    "count": 14880069,
+    "p50": 54.495,
+    "p95": 116.823,
+    "p99": 1756.19,
+    "max": 3005.576,
+    "mean": 105.963
+  },
+  "e2e_ms": {
+    "count": 14880069,
+    "p50": 79.82,
+    "p95": 176.466,
+    "p99": 1786.602,
+    "max": 3054.703,
+    "mean": 130.493
+  }
+}

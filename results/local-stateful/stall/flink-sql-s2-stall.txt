@@ -1,0 +1,1 @@
+[s2] flink-sql-s2-stall       FAIL  {"unique_input_events": 140000, "output_records": 140282, "distinct_output_event_ids": 140000, "missing": 0, "extra": 0, "emitted_more_than_once": 282}

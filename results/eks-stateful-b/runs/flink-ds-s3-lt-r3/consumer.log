@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-s3-lt-r3 warmup=60s window=300s
+[consumer] seen=11 kept=0 (warmup)
+[consumer] seen=169450 kept=0 (warmup)
+[consumer] seen=366732 kept=0 (warmup)
+[consumer] seen=527560 kept=0 (warmup)
+[consumer] seen=748865 kept=0 (warmup)
+[consumer] seen=958622 kept=0 (warmup)
+[consumer] seen=1153562 kept=0 (warmup)
+[consumer] seen=1347107 kept=0 (warmup)
+[consumer] seen=1540910 kept=0 (warmup)
+[consumer] seen=1734522 kept=0 (warmup)
+[consumer] seen=1929058 kept=0 (warmup)
+[consumer] seen=2122592 kept=4819 (steady)
+[consumer] seen=2316007 kept=198234 (steady)
+[consumer] seen=2509877 kept=392104 (steady)
+[consumer] seen=2703204 kept=585431 (steady)
+[consumer] seen=2856272 kept=738499 (steady)
+[consumer] seen=3089357 kept=971584 (steady)
+[consumer] seen=3297865 kept=1180092 (steady)
+[consumer] seen=3520611 kept=1402838 (steady)
+[consumer] seen=3714460 kept=1596687 (steady)
+[consumer] seen=3907783 kept=1790010 (steady)
+[consumer] seen=4102416 kept=1984643 (steady)
+[consumer] seen=4297102 kept=2179329 (steady)
+[consumer] seen=4489742 kept=2371969 (steady)
+[consumer] seen=4684092 kept=2566319 (steady)
+[consumer] seen=4877620 kept=2759847 (steady)
+[consumer] seen=5072033 kept=2954260 (steady)
+[consumer] seen=5195659 kept=3077886 (steady)
+[consumer] seen=5428831 kept=3311058 (steady)
+[consumer] seen=5676106 kept=3558333 (steady)
+[consumer] seen=5870067 kept=3752294 (steady)
+[consumer] seen=6063775 kept=3946002 (steady)
+[consumer] seen=6258387 kept=4140614 (steady)
+[consumer] seen=6451789 kept=4334016 (steady)
+[consumer] seen=6646475 kept=4528702 (steady)
+[consumer] seen=6840955 kept=4723182 (steady)
+[consumer] seen=7035050 kept=4917277 (steady)
+[consumer] seen=7229554 kept=5111781 (steady)
+[consumer] seen=7423322 kept=5305549 (steady)
+[consumer] seen=7543825 kept=5426052 (steady)
+[consumer] seen=7770380 kept=5652607 (steady)
+[consumer] seen=8036600 kept=5918827 (steady)
+[consumer] seen=8232737 kept=6114964 (steady)
+[consumer] seen=8425862 kept=6308089 (steady)
+[consumer] seen=8618582 kept=6500809 (steady)
+[consumer] seen=8813276 kept=6695503 (steady)
+[consumer] seen=9007628 kept=6889855 (steady)
+[consumer] seen=9200073 kept=7082300 (steady)
+[consumer] seen=9395587 kept=7277814 (steady)
+[consumer] seen=9589040 kept=7471267 (steady)
+[consumer] seen=9783256 kept=7665483 (steady)
+[consumer] seen=9898021 kept=7780248 (steady)
+[consumer] seen=10106574 kept=7988801 (steady)
+[consumer] seen=10379535 kept=8261762 (steady)
+[consumer] seen=10572010 kept=8454237 (steady)
+[consumer] seen=10766501 kept=8648728 (steady)
+[consumer] seen=10959900 kept=8842127 (steady)
+[consumer] seen=11155166 kept=9037393 (steady)
+[consumer] seen=11349615 kept=9231842 (steady)
+[consumer] seen=11542639 kept=9424866 (steady)
+[consumer] seen=11736849 kept=9619076 (steady)
+[consumer] seen=11931593 kept=9813820 (steady)
+[consumer] seen=12124281 kept=10006508 (steady)
+[consumer] seen=12236738 kept=10118965 (steady)
+[consumer] seen=12442973 kept=10325200 (steady)
+[consumer] seen=12724929 kept=10607156 (steady)
+[consumer] seen=12918498 kept=10800725 (steady)
+[consumer] seen=13111695 kept=10993922 (steady)
+[consumer] seen=13305695 kept=11187922 (steady)
+[consumer] seen=13500354 kept=11382581 (steady)
+[consumer] seen=13694100 kept=11576327 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-s3-lt-r3",
+  "topic": "st-output",
+  "kept_records": 11681750,
+  "seen_records": 13799523,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 38939.2,
+  "started_at": 1794247935.29,
+  "ended_at": 1794248295.305,
+  "pipeline_ms": {
+    "count": 11681750,
+    "p50": 634.571,
+    "p95": 2685.08,
+    "p99": 4034.07,
+    "max": 6140.182,
+    "mean": 801.675
+  },
+  "e2e_ms": {
+    "count": 11681750,
+    "p50": 754.472,
+    "p95": 2810.92,
+    "p99": 4247.669,
+    "max": 6535.41,
+    "mean": 925.314
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-s3-lt-r3_summary.json

@@ -1,0 +1,151 @@
+# spark-microbatch-s1 spark evidence at 2026-11-08T12:21:30Z
+async-log-write threads: 0
+AsyncProgressTrackingMicroBatchExecution frames: 0
+--- active stages (pipelined shuffle => source stage and stateful stage RUNNING together)
+--- driver log: pipelined / state store / commit lines
+grep: results/local-stateful/logs/spark-microbatch-s1_submit.log: No such file or directory
+--- checkpoint /tmp/spark-checkpoints/stateful-s1-microbatch-1794140382/
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382/:
+commits
+metadata
+offsets
+sources
+state
+
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382//state/0:
+0
+1
+2
+3
+4
+5
+_metadata
+[commits]
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+[latest commit]
+v2
+{"nextBatchWatermarkMs":1794140485855,"stateUniqueIds":{"0":[["c79a422c-3875-4d44-ae92-3823b0f1ea1b"],["b2948828-4660-499a-a1cc-df44a533668e"],["c5a264c8-64b0-4be8-a2a8-4e4349bca4bc"],["b6d23117-1ee0-430a-b72f-4c959710d54b"],["80a268ff-ba38-4cfd-8316-c91156d98df2"],["3845f322-e61a-4e81-a76c-53d6ce01b867"]]}}
+[state files, partition 0]
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382//state/0/2/.45_43460eb7-989d-4ba8-9e69-040dfde03a13.changelog.crc.crc
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382//state/0/2/.88_b4ce628f-d954-48e0-8a35-3569a973a93f.changelog.crc
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382//state/0/2/307_e339efed-7aa6-4c25-a2c2-c076b0e1e2e8.changelog.crc
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382//state/0/2/299_ceb0484b-ce1c-4652-8c30-f15c8edb01c6.changelog.crc
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382//state/0/2/55_cfe52bcb-0826-409b-8467-5707ce0bc655.changelog
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382//state/0/2/331_93b83d4f-cd35-48fb-ace6-23fdb45ca04f.changelog
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382//state/0/2/139_fff70708-7f85-48c7-a3a4-9be416615621.changelog.crc
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382//state/0/2/161_1d9ffa66-759d-4254-89bf-827f67bf0659.changelog
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382//state/0/2/467_ae6450bb-e588-43c3-b948-b60e40b87333.changelog.crc
+/tmp/spark-checkpoints/stateful-s1-microbatch-1794140382//state/0/2/182_8c4808c8-0184-4852-9217-a7690960fd2a.changelog
+--- driver log (spark-microbatch-s1-smoke_submit.log, appended after the run): pipelined / state store / commit lines
+ 487 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:155
+ 487 INFO DAGScheduler: ResultStage N (start at StatefulPipelineJava.java:155) finished in X ms
+ 487 INFO DAGScheduler: Final stage: ResultStage N (start at StatefulPipelineJava.java:155)
+ 487       "rocksdbReplayChangeLogLatencyMs" : X
+ 487       "rocksdbNumReplayChangelogFiles" : X
+ 487       "rocksdbChangeLogWriterCommitLatencyMs" : X
+ 485 INFO DAGScheduler: ShuffleMapStage N (start at StatefulPipelineJava.java:155) finished in X ms
+   1 [StatefulPipelineJava] workload=s1 mode=microbatch id=d1d4727e-d6d2-48a4-9027-582e440ba320 trigger=micro-batch startingOffsets=latest watermark=5s window=10s gapMs=5000 timeoutMs=5000 stateStore=org.a
+   1 INFO SparkContext: Created broadcast 999 from start at StatefulPipelineJava.java:155
+   1 INFO SparkContext: Created broadcast 996 from start at StatefulPipelineJava.java:155
+   1 INFO SparkContext: Created broadcast 995 from start at StatefulPipelineJava.java:155
+   1 INFO SparkContext: Created broadcast 992 from start at StatefulPipelineJava.java:155

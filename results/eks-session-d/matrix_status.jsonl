@@ -1,0 +1,13 @@
+{"label":"spark-rtm-s4-r1","attempt":1,"ok":1,"seconds":800}
+{"label":"flink-auto-ro-s1-update-steps-r1","attempt":1,"ok":0,"seconds":613}
+{"label":"flink-auto-ro-s1-update-steps-r1","attempt":2,"ok":1,"seconds":1953}
+{"label":"flink-auto-s1-update-steps-r1","attempt":1,"ok":1,"seconds":2892}
+{"label":"spark-rtm-manual-s1-steps-r1","attempt":1,"ok":1,"seconds":3164}
+{"label":"flink-reactive-s1-update-steps-r1","attempt":1,"ok":0,"seconds":1034}
+{"label":"flink-reactive-s1-update-steps-r1","attempt":2,"ok":0,"seconds":611}
+{"label":"spark-mb-da-s1-steps-r1","attempt":1,"ok":1,"seconds":3199}
+{"label":"flink-peak-s1-update-steps-r1","attempt":1,"ok":1,"seconds":3252}
+{"label":"spark-rtm-peak-s1-steps-r1","attempt":1,"ok":1,"seconds":3252}
+{"label":"flink-auto-s1-update-steps-r2","attempt":1,"ok":1,"seconds":3399}
+{"label":"spark-rtm-manual-s1-steps-r2","attempt":1,"ok":1,"seconds":3188}
+{"label":"spark-mb-da-s1-steps-r2","attempt":1,"ok":1,"seconds":3617}

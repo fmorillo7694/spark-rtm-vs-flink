@@ -1,0 +1,27 @@
+{
+ "prefix": "stateful/spark-rtm-sw1-s3-r3-1794445953/",
+ "objects": 117,
+ "bytes": 575593928,
+ "by_dir": {
+  "(root)": {
+   "objects": 2,
+   "bytes": 45
+  },
+  "commits": {
+   "objects": 7,
+   "bytes": 1800
+  },
+  "offsets": {
+   "objects": 7,
+   "bytes": 7242
+  },
+  "sources": {
+   "objects": 2,
+   "bytes": 54
+  },
+  "state": {
+   "objects": 99,
+   "bytes": 575584787
+  }
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "prefix": "stateful/flink-ds-s2-et-r3-1794440228/",
+ "objects": 43,
+ "bytes": 153742260,
+ "by_dir": {
+  "chk-*": {
+   "objects": 1,
+   "bytes": 41895
+  },
+  "shared": {
+   "objects": 42,
+   "bytes": 153700365
+  }
+ }
+}

@@ -1,0 +1,8 @@
+st-producer-0-6255f   0/1   Completed   0     7m32s
+st-producer-1-fzlvb   0/1   Completed   0     7m32s
+st-producer-2-dcqbg   0/1   Completed   0     7m32s
+st-producer-3-fzlht   0/1   Completed   0     7m32s
+st-producer-4-xvjh5   0/1   Completed   0     7m32s
+st-producer-5-z4dlt   0/1   Completed   0     7m32s
+st-producer-6-b7f2x   0/1   Completed   0     7m32s
+st-producer-7-w6pp5   0/1   Completed   0     7m32s

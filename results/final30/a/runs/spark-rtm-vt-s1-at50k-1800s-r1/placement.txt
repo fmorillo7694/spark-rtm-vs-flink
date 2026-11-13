@@ -1,0 +1,19 @@
+spark ip-192-168-108-13.ec2.internal stateful-bench-driver
+spark ip-192-168-76-2.ec2.internal stateful-bench-s1-rtm-2e9d77a1cfd0f99c-exec-1
+spark ip-192-168-108-13.ec2.internal stateful-bench-s1-rtm-2e9d77a1cfd0f99c-exec-2
+kafka ip-192-168-105-231.ec2.internal bench-brokers-0
+kafka ip-192-168-70-232.ec2.internal bench-brokers-1
+kafka ip-192-168-96-219.ec2.internal bench-brokers-2
+kafka ip-192-168-94-72.ec2.internal bench-entity-operator-786975569f-r2mdq
+kafka ip-192-168-94-72.ec2.internal st-consumer-btxwn
+kafka ip-192-168-70-232.ec2.internal st-producer-0-s5965
+kafka ip-192-168-96-219.ec2.internal st-producer-1-2nzpl
+kafka ip-192-168-105-231.ec2.internal st-producer-2-sl5rk
+kafka ip-192-168-70-232.ec2.internal st-producer-3-bnv7z
+kafka ip-192-168-105-231.ec2.internal st-producer-4-65wns
+kafka ip-192-168-94-72.ec2.internal st-producer-5-5frx9
+kafka ip-192-168-96-219.ec2.internal st-producer-6-gccxh
+kafka ip-192-168-70-232.ec2.internal st-producer-7-8fl8n
+kafka ip-192-168-94-72.ec2.internal stateful-runner-cnxfb
+kafka ip-192-168-94-72.ec2.internal strimzi-cluster-operator-8455547d9f-lnbdj
+engine_nodes=dedicated shared_with_kafka_ns=[]

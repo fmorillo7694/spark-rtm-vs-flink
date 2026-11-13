@@ -18,7 +18,9 @@
   <properties>
     <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <flink.version>2.2.0</flink.version>
+    <flink.version>2.3.0</flink.version>
+    <!-- No flink-connector-kafka targets Flink 2.3 on Maven Central yet (checked 2026-11-06);
+         5.0.0-2.2 is the newest 2.x build and runs on the 2.3 runtime. -->
     <kafka.connector.version>5.0.0-2.2</kafka.connector.version>
   </properties>
 

@@ -1,0 +1,62 @@
+{
+  "workload": "s5",
+  "input": "results/local-stateful/captures/orders.jsonl",
+  "payments": "results/local-stateful/captures/payments.jsonl",
+  "orders": 120000,
+  "payments_in": 101995,
+  "payments_outside_bound": 5981,
+  "engines": {
+    "flink-ds-bt100-s5": {
+      "truth_pairs": 96014,
+      "output_records": 96014,
+      "missing": 0,
+      "spurious": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "spurious": [],
+        "dup": []
+      },
+      "pass": true
+    },
+    "flink-ds-s5": {
+      "truth_pairs": 96014,
+      "output_records": 96014,
+      "missing": 0,
+      "spurious": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "spurious": [],
+        "dup": []
+      },
+      "pass": true
+    },
+    "spark-mb1s-s5": {
+      "truth_pairs": 96014,
+      "output_records": 96014,
+      "missing": 0,
+      "spurious": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "spurious": [],
+        "dup": []
+      },
+      "pass": true
+    },
+    "spark-microbatch-s5": {
+      "truth_pairs": 96014,
+      "output_records": 96014,
+      "missing": 0,
+      "spurious": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "spurious": [],
+        "dup": []
+      },
+      "pass": true
+    }
+  }
+}

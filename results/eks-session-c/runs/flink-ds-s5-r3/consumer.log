@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-s5-r3 warmup=60s window=300s
+[consumer] seen=18030 kept=0 (warmup)
+[consumer] seen=104030 kept=0 (warmup)
+[consumer] seen=213030 kept=0 (warmup)
+[consumer] seen=322030 kept=0 (warmup)
+[consumer] seen=421643 kept=0 (warmup)
+[consumer] seen=540643 kept=0 (warmup)
+[consumer] seen=648643 kept=0 (warmup)
+[consumer] seen=755643 kept=0 (warmup)
+[consumer] seen=863643 kept=0 (warmup)
+[consumer] seen=973643 kept=0 (warmup)
+[consumer] seen=1079643 kept=0 (warmup)
+[consumer] seen=1190643 kept=9000 (steady)
+[consumer] seen=1294643 kept=113000 (steady)
+[consumer] seen=1403643 kept=222000 (steady)
+[consumer] seen=1507643 kept=326000 (steady)
+[consumer] seen=1614340 kept=432697 (steady)
+[consumer] seen=1631454 kept=449811 (steady)
+[consumer] seen=1742454 kept=560811 (steady)
+[consumer] seen=1927454 kept=745811 (steady)
+[consumer] seen=2059454 kept=877811 (steady)
+[consumer] seen=2170454 kept=988811 (steady)
+[consumer] seen=2276454 kept=1094811 (steady)
+[consumer] seen=2383454 kept=1201811 (steady)
+[consumer] seen=2490454 kept=1308811 (steady)
+[consumer] seen=2591454 kept=1409811 (steady)
+[consumer] seen=2687454 kept=1505811 (steady)
+[consumer] seen=2774454 kept=1592811 (steady)
+[consumer] seen=2839454 kept=1657811 (steady)
+[consumer] seen=2896741 kept=1715098 (steady)
+[consumer] seen=2983741 kept=1802098 (steady)
+[consumer] seen=3073741 kept=1892098 (steady)
+[consumer] seen=3154741 kept=1973098 (steady)
+[consumer] seen=3219741 kept=2038098 (steady)
+[consumer] seen=3281741 kept=2100098 (steady)
+[consumer] seen=3337741 kept=2156098 (steady)
+[consumer] seen=3389741 kept=2208098 (steady)
+[consumer] seen=3436741 kept=2255098 (steady)
+[consumer] seen=3483741 kept=2302098 (steady)
+[consumer] seen=3526741 kept=2345098 (steady)
+[consumer] seen=3568741 kept=2387098 (steady)
+[consumer] seen=3612591 kept=2430948 (steady)
+[consumer] seen=3646341 kept=2464698 (steady)
+[consumer] seen=3674230 kept=2492587 (steady)
+[consumer] seen=3762234 kept=2580591 (steady)
+[consumer] seen=3780421 kept=2598778 (steady)
+[consumer] seen=3978421 kept=2796778 (steady)
+[consumer] seen=4112421 kept=2930778 (steady)
+[consumer] seen=4212421 kept=3030778 (steady)
+[consumer] seen=4295421 kept=3113778 (steady)
+[consumer] seen=4367421 kept=3185778 (steady)
+[consumer] seen=4432421 kept=3250778 (steady)
+[consumer] seen=4480421 kept=3298778 (steady)
+[consumer] seen=4540421 kept=3358778 (steady)
+[consumer] seen=4582079 kept=3400436 (steady)
+[consumer] seen=4643079 kept=3461436 (steady)
+[consumer] seen=4719079 kept=3537436 (steady)
+[consumer] seen=4794079 kept=3612436 (steady)
+[consumer] seen=4863079 kept=3681436 (steady)
+[consumer] seen=4926079 kept=3744436 (steady)
+[consumer] seen=4985079 kept=3803436 (steady)
+[consumer] seen=5040079 kept=3858436 (steady)
+[consumer] seen=5092079 kept=3910436 (steady)
+[consumer] seen=5142079 kept=3960436 (steady)
+[consumer] seen=5178959 kept=3997316 (steady)
+[consumer] seen=5226959 kept=4045316 (steady)
+[consumer] seen=5262136 kept=4080493 (steady)
+[consumer] seen=5306989 kept=4125346 (steady)
+[consumer] seen=5346870 kept=4165227 (steady)
+[consumer] seen=5399870 kept=4218227 (steady)
+[consumer] seen=5451870 kept=4270227 (steady)
+[consumer] seen=5500870 kept=4319227 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-s5-r3",
+  "topic": "st-output",
+  "kept_records": 4334227,
+  "seen_records": 5515870,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 14447.4,
+  "started_at": 1794319371.661,
+  "ended_at": 1794319731.695,
+  "pipeline_ms": {
+    "count": 4334227,
+    "p50": 18489.086,
+    "p95": 87010.688,
+    "p99": 101161.324,
+    "max": 114587.43,
+    "mean": 29654.365
+  },
+  "e2e_ms": {
+    "count": 4334227,
+    "p50": 18548.264,
+    "p95": 87083.461,
+    "p99": 101224.732,
+    "max": 114667.625,
+    "mean": 29699.714
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-s5-r3_summary.json

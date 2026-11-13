@@ -9,9 +9,10 @@ ART = os.path.join(os.path.dirname(__file__), "..", "ARTICLE.md")
 OUT = os.path.join(os.path.dirname(__file__), "..", "docs", "charts")
 C_HDR = "#2C3E50"; C_ALT = "#F4F6F8"
 
-# short slug per table (article order) for filenames
+# short slug per table (article order) for filenames. Must match the tables in ARTICLE.md
+# top-to-bottom; update this list whenever a table is added/removed.
 SLUGS = ["language-matrix", "rtm-vs-microbatch", "local-latency", "eks-allocation",
-         "eks-results", "datarate-sweep", "recovery"]
+         "eks-results", "datarate-sweep", "json-path-control", "local-matrix", "recovery"]
 
 def parse_tables(md):
     out=[]; cur=[]
@@ -52,6 +53,10 @@ def render(rows, fname, title=None):
     print("wrote", os.path.basename(p))
 
 tables=parse_tables(open(ART).read())
+if len(tables) != len(SLUGS):
+    raise SystemExit(f"!! {len(tables)} tables in ARTICLE.md but {len(SLUGS)} slugs — "
+                     f"update SLUGS to match (table headers: "
+                     f"{[t[0] for t in tables]})")
 for i,(rows,slug) in enumerate(zip(tables, SLUGS), 1):
     render(rows, f"T{i}_{slug}.png")
 print(f"\n{len(tables)} table images in {OUT}")

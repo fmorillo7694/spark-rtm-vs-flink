@@ -1,0 +1,74 @@
+# pyspark-rtm-p6-r2 evidence at 2026-11-12T17:01:16Z ckpt=pyspark-rtm-p6-43b-1794500962
+--- driver log lines
+26/11/12 16:29:37 INFO SparkContext: Submitted application: rtm-pyspark-native
+[pyspark-native] STARTED RTM query id=dd0bd3ce-428f-4a9a-85f1-9f80618462b2 trigger=RealTime(60 seconds) ckpt=s3a://rtm-flink-bench-ckpt-__ACCOUNT__/pyspark-rtm-p6-43b-1794500962
+async-log-write threads: 1
+AsyncProgressTrackingMicroBatchExecution frames: 1
+--- checkpoint s3://rtm-flink-bench-ckpt-__ACCOUNT__/pyspark-rtm-p6-43b-1794500962 (LastModified UTC, key)
+[offsets]
+2026-11-12T16:29:50+00:00	pyspark-rtm-p6-43b-1794500962/offsets/
+2026-11-12T16:30:55+00:00	pyspark-rtm-p6-43b-1794500962/offsets/0
+2026-11-12T16:31:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/1
+2026-11-12T16:40:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/10
+2026-11-12T16:41:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/11
+2026-11-12T16:42:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/12
+2026-11-12T16:43:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/13
+2026-11-12T16:44:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/14
+2026-11-12T16:45:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/15
+2026-11-12T16:46:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/16
+2026-11-12T16:47:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/17
+2026-11-12T16:48:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/18
+2026-11-12T16:49:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/19
+2026-11-12T16:32:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/2
+2026-11-12T16:50:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/20
+2026-11-12T16:51:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/21
+2026-11-12T16:52:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/22
+2026-11-12T16:53:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/23
+2026-11-12T16:54:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/24
+2026-11-12T16:55:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/25
+2026-11-12T16:56:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/26
+2026-11-12T16:57:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/27
+2026-11-12T16:58:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/28
+2026-11-12T16:59:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/29
+2026-11-12T16:33:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/3
+2026-11-12T17:00:57+00:00	pyspark-rtm-p6-43b-1794500962/offsets/30
+2026-11-12T16:34:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/4
+2026-11-12T16:35:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/5
+2026-11-12T16:36:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/6
+2026-11-12T16:37:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/7
+2026-11-12T16:38:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/8
+2026-11-12T16:39:56+00:00	pyspark-rtm-p6-43b-1794500962/offsets/9
+[commits]
+2026-11-12T16:29:50+00:00	pyspark-rtm-p6-43b-1794500962/commits/
+2026-11-12T16:30:56+00:00	pyspark-rtm-p6-43b-1794500962/commits/0
+2026-11-12T16:31:56+00:00	pyspark-rtm-p6-43b-1794500962/commits/1
+2026-11-12T16:40:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/10
+2026-11-12T16:41:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/11
+2026-11-12T16:42:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/12
+2026-11-12T16:43:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/13
+2026-11-12T16:44:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/14
+2026-11-12T16:45:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/15
+2026-11-12T16:46:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/16
+2026-11-12T16:47:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/17
+2026-11-12T16:48:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/18
+2026-11-12T16:49:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/19
+2026-11-12T16:32:56+00:00	pyspark-rtm-p6-43b-1794500962/commits/2
+2026-11-12T16:50:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/20
+2026-11-12T16:51:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/21
+2026-11-12T16:52:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/22
+2026-11-12T16:53:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/23
+2026-11-12T16:54:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/24
+2026-11-12T16:55:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/25
+2026-11-12T16:56:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/26
+2026-11-12T16:57:58+00:00	pyspark-rtm-p6-43b-1794500962/commits/27
+2026-11-12T16:58:58+00:00	pyspark-rtm-p6-43b-1794500962/commits/28
+2026-11-12T16:59:58+00:00	pyspark-rtm-p6-43b-1794500962/commits/29
+2026-11-12T16:33:56+00:00	pyspark-rtm-p6-43b-1794500962/commits/3
+2026-11-12T17:00:58+00:00	pyspark-rtm-p6-43b-1794500962/commits/30
+2026-11-12T16:34:56+00:00	pyspark-rtm-p6-43b-1794500962/commits/4
+2026-11-12T16:35:56+00:00	pyspark-rtm-p6-43b-1794500962/commits/5
+2026-11-12T16:36:56+00:00	pyspark-rtm-p6-43b-1794500962/commits/6
+2026-11-12T16:37:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/7
+2026-11-12T16:38:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/8
+2026-11-12T16:39:57+00:00	pyspark-rtm-p6-43b-1794500962/commits/9
+--- latest commit log entry

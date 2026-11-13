@@ -1,0 +1,167 @@
+[11:15:25] matrix: 30 runs (plan C), budget 18000s, s3://<BUCKET>/stateful-c/20261110T111415Z dry_run=0
+[11:15:25] ######## spark-rtm-s4-r1 attempt=1 elapsed=11s
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18168996}
+    kept=14582976 p50=6.584 p99=605.667 max=1313.864
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-rtm-s4-r1/
+[11:23:43] ######## flink-ds-bt100-s4-r1 attempt=1 elapsed=509s
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14583000 p50=6.349 p99=17.867 max=134.914
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-bt100-s4-r1/
+[11:32:39] ######## flink-ds-s4-r1 attempt=1 elapsed=1045s
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14582823 p50=6.404 p99=17.391 max=235.407
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-s4-r1/
+[11:40:55] ######## spark-rtm-s4-r2 attempt=1 elapsed=1541s
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14580913 p50=6.62 p99=505.538 max=1137.803
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-rtm-s4-r2/
+[11:48:46] ######## flink-ds-bt100-s4-r2 attempt=1 elapsed=2012s
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14583615 p50=6.371 p99=15.486 max=225.833
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-bt100-s4-r2/
+[11:57:02] ######## flink-ds-s4-r2 attempt=1 elapsed=2508s
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14583000 p50=6.277 p99=18.372 max=116.773
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-s4-r2/
+[12:05:18] ######## spark-rtm-s4-r3 attempt=1 elapsed=3004s
+    {"workload":"s4","producer_pods_done":8,"originals":18848434,"sent":18848434,"input_records":18848434,"payments_records":0,"output_records":18471165}
+    kept=14542332 p50=6.603 p99=389.135 max=1113.24
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-rtm-s4-r3/
+[12:13:09] ######## flink-ds-bt100-s4-r3 attempt=1 elapsed=3475s
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14583471 p50=6.414 p99=32.199 max=237.981
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-bt100-s4-r3/
+[12:21:32] ######## flink-ds-s4-r3 attempt=1 elapsed=3978s
+    {"workload":"s4","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18471225}
+    kept=14583000 p50=6.305 p99=27.735 max=230.582
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-s4-r3/
+[12:29:48] ######## flink-ds-bt100-s5-r1 attempt=1 elapsed=4474s
+    {"workload":"s5","producer_pods_done":8,"originals":10336272,"sent":19122727,"input_records":10336272,"payments_records":8786455,"output_records":8268451}
+    kept=4923436 p50=5669.102 p99=73145.048 max=88248.508
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-bt100-s5-r1/
+[12:40:12] ######## spark-mb-s5-r1 attempt=1 elapsed=5098s
+    {"workload":"s5","producer_pods_done":8,"originals":10336238,"sent":19122664,"input_records":10336238,"payments_records":8786426,"output_records":8268424}
+    kept=6345967 p50=10528.589 p99=17079.147 max=19031.115
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-mb-s5-r1/
+[12:48:08] ######## flink-ds-s5-r1 attempt=1 elapsed=5574s
+    {"workload":"s5","producer_pods_done":8,"originals":10336272,"sent":19122727,"input_records":10336272,"payments_records":8786455,"output_records":8268451}
+    kept=4850463 p50=6461.153 p99=75153.545 max=87184.867
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-s5-r1/
+[12:58:28] ######## spark-mb1s-s5-r1 attempt=1 elapsed=6194s
+    {"workload":"s5","producer_pods_done":8,"originals":10336272,"sent":19122727,"input_records":10336272,"payments_records":8786455,"output_records":8268451}
+    kept=6585737 p50=10316.884 p99=17124.729 max=19181.703
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-mb1s-s5-r1/
+[13:06:37] ######## flink-ds-bt100-s5-r2 attempt=1 elapsed=6683s
+    {"workload":"s5","producer_pods_done":8,"originals":10336238,"sent":19122667,"input_records":10336238,"payments_records":8786429,"output_records":8268428}
+    kept=4970415 p50=6934.084 p99=70015.077 max=81685.438
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-bt100-s5-r2/
+[13:16:49] ######## spark-mb-s5-r2 attempt=1 elapsed=7295s
+    {"workload":"s5","producer_pods_done":8,"originals":10336272,"sent":19122727,"input_records":10336272,"payments_records":8786455,"output_records":8268451}
+    kept=6572355 p50=10301.616 p99=17386.462 max=20156.791
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-mb-s5-r2/
+[13:24:46] ######## flink-ds-s5-r2 attempt=1 elapsed=7772s
+    {"workload":"s5","producer_pods_done":8,"originals":10336272,"sent":19122727,"input_records":10336272,"payments_records":8786455,"output_records":8268451}
+    kept=4757668 p50=8380.698 p99=81482.002 max=92857.891
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-s5-r2/
+[13:35:10] ######## spark-mb1s-s5-r2 attempt=1 elapsed=8396s
+    {"workload":"s5","producer_pods_done":8,"originals":10336272,"sent":19122727,"input_records":10336272,"payments_records":8786455,"output_records":8268451}
+    kept=6624863 p50=10180.107 p99=16915.259 max=19000.111
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-mb1s-s5-r2/
+[13:43:19] ######## flink-ds-bt100-s5-r3 attempt=1 elapsed=8885s
+    {"workload":"s5","producer_pods_done":8,"originals":10336238,"sent":19122671,"input_records":10336238,"payments_records":8786433,"output_records":8268430}
+    kept=4857128 p50=5924.937 p99=76483.591 max=89164.172
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-bt100-s5-r3/
+[13:53:43] ######## spark-mb-s5-r3 attempt=1 elapsed=9509s
+    {"workload":"s5","producer_pods_done":8,"originals":10336238,"sent":19122664,"input_records":10336238,"payments_records":8786426,"output_records":8268424}
+    kept=6456691 p50=10847.719 p99=17539.485 max=19989.863
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-mb-s5-r3/
+[14:01:39] ######## flink-ds-s5-r3 attempt=1 elapsed=9985s
+    {"workload":"s5","producer_pods_done":8,"originals":10336272,"sent":19122727,"input_records":10336272,"payments_records":8786455,"output_records":8268451}
+    kept=4334227 p50=18489.086 p99=101161.324 max=114587.43
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-s5-r3/
+[14:12:40] ######## spark-mb1s-s5-r3 attempt=1 elapsed=10646s
+    {"workload":"s5","producer_pods_done":8,"originals":10336272,"sent":19122727,"input_records":10336272,"payments_records":8786455,"output_records":8268451}
+    kept=6535862 p50=11301.736 p99=18618.797 max=21246.943
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-mb1s-s5-r3/
+[14:20:38] ######## spark-rtm-s4-at100k-r1 attempt=1 elapsed=11124s
+    {"workload":"s4","producer_pods_done":8,"originals":38000875,"sent":38000875,"input_records":38000875,"payments_records":0,"output_records":37239529}
+    kept=29408503 p50=6.526 p99=574.294 max=1145.682
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-rtm-s4-at100k-r1/
+[14:28:30] ######## flink-ds-bt100-s4-at100k-r1 attempt=1 elapsed=11596s
+    {"workload":"s4","producer_pods_done":8,"originals":38000875,"sent":38000875,"input_records":38000875,"payments_records":0,"output_records":37239531}
+    kept=29399287 p50=6.027 p99=18.168 max=146.983
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-bt100-s4-at100k-r1/
+[14:36:45] ######## flink-ds-s4-at100k-r1 attempt=1 elapsed=12091s
+    {"workload":"s4","producer_pods_done":8,"originals":38000875,"sent":38000875,"input_records":38000875,"payments_records":0,"output_records":37239531}
+    kept=29400844 p50=6.123 p99=27.186 max=606.268
+[s3_sync] 12 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-s4-at100k-r1/
+[14:45:02] ######## flink-ds-bt100-s5-at54k-r1 attempt=1 elapsed=12588s
+    {"workload":"s5","producer_pods_done":8,"originals":20672000,"sent":38244428,"input_records":20672000,"payments_records":17572428,"output_records":10098458}
+    kept=3509629 p50=130096.617 p99=228452.554 max=240613.797
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-bt100-s5-at54k-r1/
+[15:00:29] ######## spark-mb-s5-at54k-r1 attempt=1 elapsed=13515s
+    {"workload":"s5","producer_pods_done":8,"originals":20672068,"sent":38244557,"input_records":20672068,"payments_records":17572489,"output_records":12155437}
+    kept=8813184 p50=69494.898 p99=156183.331 max=166855.281
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-mb-s5-at54k-r1/
+[15:08:26] ######## flink-ds-s5-at54k-r1 attempt=1 elapsed=13992s
+    {"workload":"s5","producer_pods_done":8,"originals":20671932,"sent":38244301,"input_records":20671932,"payments_records":17572369,"output_records":10295944}
+    kept=3565276 p50=126187.133 p99=227000.543 max=237103.062
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-s5-at54k-r1/
+[15:24:23] ######## spark-mb1s-s5-at54k-r1 attempt=1 elapsed=14949s
+    {"workload":"s5","producer_pods_done":8,"originals":20672068,"sent":38244557,"input_records":20672068,"payments_records":17572489,"output_records":12107999}
+    kept=8947403 p50=69024.477 p99=157070.796 max=171136.188
+[s3_sync] 11 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-mb1s-s5-at54k-r1/
+[15:32:22] ######## spark-rtm-s1-kill-r1 attempt=1 elapsed=15428s
+[15:36:08]     killed spark worker stateful-bench-s1-rtm-51b9bfa1c616fb30-exec-1
+    {"workload":"s1","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":18848496}
+    kept=14610775 p50=4525.688 p99=83226.549 max=84368.188
+[s3_sync] 14 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/spark-rtm-s1-kill-r1/
+[15:40:03] ######## flink-ds-s1-update-kill-r1 attempt=1 elapsed=15889s
+[15:44:21]     killed flink worker flink-stateful-taskmanager-1-1
+    {"workload":"s1-update","producer_pods_done":8,"originals":18848496,"sent":18848496,"input_records":18848496,"payments_records":0,"output_records":21199012}
+    kept=17231657 p50=7.127 p99=61018.099 max=63636.098
+[s3_sync] 14 files -> s3://<BUCKET>/stateful-c/20261110T111415Z/runs/flink-ds-s1-update-kill-r1/
+[15:48:16] MATRIX DONE elapsed=16382s
+[15:48:16] exit: cleaning up
+[15:48:20] self-teardown: uploading runner log, scaling nodegroups engine-ng bench-ng of rtm-flink-bench4 to 0
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+  File "/usr/local/lib/python3.12/site-packages/boto3/__init__.py", line 93, in client
+    return _get_default_session().client(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/boto3/session.py", line 337, in client
+    return self._session.create_client(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/botocore/session.py", line 1031, in create_client
+    client = client_creator.create_client(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/botocore/client.py", line 161, in create_client
+    client_args = self._get_client_args(
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/botocore/client.py", line 561, in _get_client_args
+    return args_creator.get_client_args(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/botocore/args.py", line 121, in get_client_args
+    final_args = self.compute_client_args(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/botocore/args.py", line 265, in compute_client_args
+    endpoint_config = self._compute_endpoint_config(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/botocore/args.py", line 459, in _compute_endpoint_config
+    return self._resolve_endpoint(**resolve_endpoint_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/botocore/args.py", line 577, in _resolve_endpoint
+    return endpoint_bridge.resolve(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/botocore/client.py", line 675, in resolve
+    resolved = self.endpoint_resolver.construct_endpoint(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/botocore/regions.py", line 237, in construct_endpoint
+    result = self._endpoint_for_partition(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/botocore/regions.py", line 285, in _endpoint_for_partition
+    raise NoRegionError()
+botocore.exceptions.NoRegionError: You must specify a region.

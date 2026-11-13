@@ -1,0 +1,99 @@
+{
+  "workload": "s2",
+  "input": "results/local-stateful/captures/input.jsonl",
+  "input_events": 131886,
+  "input_distinct_event_ids": 120000,
+  "engines": {
+    "flink-ds-eo-s2": {
+      "unique_input_events": 120000,
+      "output_records": 120000,
+      "distinct_output_event_ids": 120000,
+      "missing": 0,
+      "extra": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "dup": []
+      },
+      "pass": true
+    },
+    "flink-ds-s2-et": {
+      "unique_input_events": 120000,
+      "output_records": 120000,
+      "distinct_output_event_ids": 120000,
+      "missing": 0,
+      "extra": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "dup": []
+      },
+      "pass": true
+    },
+    "flink-ds-s2": {
+      "unique_input_events": 120000,
+      "output_records": 120000,
+      "distinct_output_event_ids": 120000,
+      "missing": 0,
+      "extra": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "dup": []
+      },
+      "pass": true
+    },
+    "flink-sql-s2-rt": {
+      "unique_input_events": 120000,
+      "output_records": 120000,
+      "distinct_output_event_ids": 120000,
+      "missing": 0,
+      "extra": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "dup": []
+      },
+      "pass": true
+    },
+    "flink-sql-s2-ttl60": {
+      "unique_input_events": 120000,
+      "output_records": 120000,
+      "distinct_output_event_ids": 120000,
+      "missing": 0,
+      "extra": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "dup": []
+      },
+      "pass": true
+    },
+    "flink-sql-s2": {
+      "unique_input_events": 120000,
+      "output_records": 120000,
+      "distinct_output_event_ids": 120000,
+      "missing": 0,
+      "extra": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "dup": []
+      },
+      "pass": true
+    },
+    "spark-rtm-s2": {
+      "unique_input_events": 120000,
+      "output_records": 120000,
+      "distinct_output_event_ids": 120000,
+      "missing": 0,
+      "extra": 0,
+      "emitted_more_than_once": 0,
+      "samples": {
+        "missing": [],
+        "dup": []
+      },
+      "pass": true
+    }
+  }
+}

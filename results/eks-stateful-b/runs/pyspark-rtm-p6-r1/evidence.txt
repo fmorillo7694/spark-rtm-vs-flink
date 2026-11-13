@@ -1,0 +1,24 @@
+# pyspark-rtm-p6-r1 evidence at 2026-11-09T18:43:03Z ckpt=pyspark-rtm-p6-43b-1794249338
+--- driver log lines
+26/11/09 18:36:08 INFO SparkContext: Submitted application: rtm-pyspark-native
+[pyspark-native] STARTED RTM query id=5c5844c8-b28d-4a11-bf36-75dd02092fee trigger=RealTime(60 seconds) ckpt=s3a://rtm-flink-bench-ckpt-__ACCOUNT__/pyspark-rtm-p6-43b-1794249338
+async-log-write threads: 1
+AsyncProgressTrackingMicroBatchExecution frames: 1
+--- checkpoint s3://rtm-flink-bench-ckpt-__ACCOUNT__/pyspark-rtm-p6-43b-1794249338 (LastModified UTC, key)
+[offsets]
+2026-11-09T18:36:40+00:00	pyspark-rtm-p6-43b-1794249338/offsets/
+2026-11-09T18:37:45+00:00	pyspark-rtm-p6-43b-1794249338/offsets/0
+2026-11-09T18:38:45+00:00	pyspark-rtm-p6-43b-1794249338/offsets/1
+2026-11-09T18:39:45+00:00	pyspark-rtm-p6-43b-1794249338/offsets/2
+2026-11-09T18:40:45+00:00	pyspark-rtm-p6-43b-1794249338/offsets/3
+2026-11-09T18:41:45+00:00	pyspark-rtm-p6-43b-1794249338/offsets/4
+2026-11-09T18:42:45+00:00	pyspark-rtm-p6-43b-1794249338/offsets/5
+[commits]
+2026-11-09T18:36:40+00:00	pyspark-rtm-p6-43b-1794249338/commits/
+2026-11-09T18:37:46+00:00	pyspark-rtm-p6-43b-1794249338/commits/0
+2026-11-09T18:38:46+00:00	pyspark-rtm-p6-43b-1794249338/commits/1
+2026-11-09T18:39:46+00:00	pyspark-rtm-p6-43b-1794249338/commits/2
+2026-11-09T18:40:46+00:00	pyspark-rtm-p6-43b-1794249338/commits/3
+2026-11-09T18:41:46+00:00	pyspark-rtm-p6-43b-1794249338/commits/4
+2026-11-09T18:42:46+00:00	pyspark-rtm-p6-43b-1794249338/commits/5
+--- latest commit log entry

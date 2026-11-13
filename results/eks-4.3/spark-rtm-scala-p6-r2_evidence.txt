@@ -1,0 +1,62 @@
+# spark-rtm-scala-p6-r2 evidence at 2026-11-06T20:07:14Z  ckpt_suffix=-p6-43-1793995193 trigger=60s
+--- driver log lines
+[RtmPipeline] mode=rtm id=de2418f4-7438-45cc-adc3-34feb4238c7a runId=04953ec4-3e55-41f3-98cc-0b77e35ca830 trigger=RealTime(60 seconds) asyncProgressTrackingEnabled=auto ckpt=s3a://rtm-flink-bench-ckpt-__ACCOUNT__/spark-rtm-scala-p6-43-1793995193
+async-log-write threads: 0
+AsyncProgressTrackingMicroBatchExecution frames: 0
+--- checkpoint s3://rtm-flink-bench-ckpt-__ACCOUNT__/spark-rtm-scala-p6-43-1793995193/ (LastModified UTC, key)
+[offsets]
+2026-11-06T20:00:25+00:00	spark-rtm-scala-p6-43-1793995193/offsets/
+2026-11-06T20:01:31+00:00	spark-rtm-scala-p6-43-1793995193/offsets/0
+2026-11-06T20:02:31+00:00	spark-rtm-scala-p6-43-1793995193/offsets/1
+2026-11-06T20:11:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/10
+2026-11-06T20:12:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/11
+2026-11-06T20:13:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/12
+2026-11-06T20:14:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/13
+2026-11-06T20:15:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/14
+2026-11-06T20:16:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/15
+2026-11-06T20:17:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/16
+2026-11-06T20:18:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/17
+2026-11-06T20:19:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/18
+2026-11-06T20:20:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/19
+2026-11-06T20:03:31+00:00	spark-rtm-scala-p6-43-1793995193/offsets/2
+2026-11-06T20:21:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/20
+2026-11-06T20:22:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/21
+2026-11-06T20:23:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/22
+2026-11-06T20:24:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/23
+2026-11-06T20:04:31+00:00	spark-rtm-scala-p6-43-1793995193/offsets/3
+2026-11-06T20:05:31+00:00	spark-rtm-scala-p6-43-1793995193/offsets/4
+2026-11-06T20:06:31+00:00	spark-rtm-scala-p6-43-1793995193/offsets/5
+2026-11-06T20:07:31+00:00	spark-rtm-scala-p6-43-1793995193/offsets/6
+2026-11-06T20:08:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/7
+2026-11-06T20:09:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/8
+2026-11-06T20:10:32+00:00	spark-rtm-scala-p6-43-1793995193/offsets/9
+[commits]
+2026-11-06T20:00:26+00:00	spark-rtm-scala-p6-43-1793995193/commits/
+2026-11-06T20:01:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/0
+2026-11-06T20:02:31+00:00	spark-rtm-scala-p6-43-1793995193/commits/1
+2026-11-06T20:11:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/10
+2026-11-06T20:12:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/11
+2026-11-06T20:13:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/12
+2026-11-06T20:14:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/13
+2026-11-06T20:15:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/14
+2026-11-06T20:16:33+00:00	spark-rtm-scala-p6-43-1793995193/commits/15
+2026-11-06T20:17:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/16
+2026-11-06T20:18:33+00:00	spark-rtm-scala-p6-43-1793995193/commits/17
+2026-11-06T20:19:33+00:00	spark-rtm-scala-p6-43-1793995193/commits/18
+2026-11-06T20:20:33+00:00	spark-rtm-scala-p6-43-1793995193/commits/19
+2026-11-06T20:03:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/2
+2026-11-06T20:21:33+00:00	spark-rtm-scala-p6-43-1793995193/commits/20
+2026-11-06T20:22:33+00:00	spark-rtm-scala-p6-43-1793995193/commits/21
+2026-11-06T20:23:33+00:00	spark-rtm-scala-p6-43-1793995193/commits/22
+2026-11-06T20:24:33+00:00	spark-rtm-scala-p6-43-1793995193/commits/23
+2026-11-06T20:04:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/3
+2026-11-06T20:05:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/4
+2026-11-06T20:06:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/5
+2026-11-06T20:07:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/6
+2026-11-06T20:08:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/7
+2026-11-06T20:09:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/8
+2026-11-06T20:10:32+00:00	spark-rtm-scala-p6-43-1793995193/commits/9
+
+aws: [ERROR]: An error occurred (RequestTimeTooSkewed) when calling the ListObjectsV2 operation: The difference between the request time and the current time is too large.
+--- latest commit log entry ()
+

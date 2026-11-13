@@ -1,0 +1,943 @@
+[
+ {
+  "label": "flink-ds-bt100-s1-update-at100k-r1",
+  "cpu_mean": 3.0025479452054795,
+  "cpu_peak": 5.502000000000001,
+  "mem_mean_gib": 6.120505136986301,
+  "mem_peak_gib": 7.0146484375,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 3257,
+   "dur_max_ms": 4143,
+   "upload_avg_mb": 75.579764,
+   "state_max_mb": 246.135501
+  }
+ },
+ {
+  "label": "flink-ds-bt100-s1-update-r1",
+  "cpu_mean": 1.9780416666666667,
+  "cpu_peak": 3.5969999999999995,
+  "mem_mean_gib": 5.620144314236111,
+  "mem_peak_gib": 6.12890625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2435,
+   "dur_max_ms": 2875,
+   "upload_avg_mb": 39.448754,
+   "state_max_mb": 128.743121
+  }
+ },
+ {
+  "label": "flink-ds-bt100-s1-update-r2",
+  "cpu_mean": 2.0597777777777777,
+  "cpu_peak": 4.477,
+  "mem_mean_gib": 5.730536566840278,
+  "mem_peak_gib": 6.203125,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2712,
+   "dur_max_ms": 3322,
+   "upload_avg_mb": 46.649941,
+   "state_max_mb": 150.14286
+  }
+ },
+ {
+  "label": "flink-ds-bt100-s1-update-r3",
+  "cpu_mean": 1.9497808219178083,
+  "cpu_peak": 4.2059999999999995,
+  "mem_mean_gib": 5.663059182363014,
+  "mem_peak_gib": 6.21484375,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2321,
+   "dur_max_ms": 2909,
+   "upload_avg_mb": 38.596063,
+   "state_max_mb": 126.060832
+  }
+ },
+ {
+  "label": "flink-ds-bt100-s2-at100k-r1",
+  "cpu_mean": 2.6283333333333334,
+  "cpu_peak": 5.31,
+  "mem_mean_gib": 5.509806315104167,
+  "mem_peak_gib": 5.7900390625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2722,
+   "dur_max_ms": 3646,
+   "upload_avg_mb": 59.971587,
+   "state_max_mb": 260.771731
+  }
+ },
+ {
+  "label": "flink-ds-bt100-s2-r1",
+  "cpu_mean": 1.5981527777777778,
+  "cpu_peak": 4.2090000000000005,
+  "mem_mean_gib": 5.343098958333333,
+  "mem_peak_gib": 5.6318359375,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1445,
+   "dur_max_ms": 1956,
+   "upload_avg_mb": 29.280183,
+   "state_max_mb": 124.647316
+  }
+ },
+ {
+  "label": "flink-ds-bt100-s2-r2",
+  "cpu_mean": 1.6723611111111112,
+  "cpu_peak": 4.299,
+  "mem_mean_gib": 5.336710611979167,
+  "mem_peak_gib": 5.625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1515,
+   "dur_max_ms": 2087,
+   "upload_avg_mb": 29.336534,
+   "state_max_mb": 124.864521
+  }
+ },
+ {
+  "label": "flink-ds-bt100-s2-r3",
+  "cpu_mean": 1.5969444444444445,
+  "cpu_peak": 3.058,
+  "mem_mean_gib": 5.336669921875,
+  "mem_peak_gib": 5.62109375,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1410,
+   "dur_max_ms": 1950,
+   "upload_avg_mb": 29.339188,
+   "state_max_mb": 125.042361
+  }
+ },
+ {
+  "label": "flink-ds-bt100-s3-at100k-r1",
+  "cpu_mean": 5.451375,
+  "cpu_peak": 6.016,
+  "mem_mean_gib": 6.592013888888889,
+  "mem_peak_gib": 7.560546875,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 4189,
+   "dur_max_ms": 5570,
+   "upload_avg_mb": 108.859246,
+   "state_max_mb": 263.5421
+  }
+ },
+ {
+  "label": "flink-ds-bt100-s3-r1",
+  "cpu_mean": 3.422083333333333,
+  "cpu_peak": 5.577999999999999,
+  "mem_mean_gib": 5.971354166666667,
+  "mem_peak_gib": 6.7421875,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 4293,
+   "dur_max_ms": 5636,
+   "upload_avg_mb": 63.381067,
+   "state_max_mb": 211.231904
+  }
+ },
+ {
+  "label": "flink-ds-bt100-s3-r2",
+  "cpu_mean": 3.309486111111111,
+  "cpu_peak": 5.615,
+  "mem_mean_gib": 5.977959526909722,
+  "mem_peak_gib": 6.806640625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 4335,
+   "dur_max_ms": 5893,
+   "upload_avg_mb": 63.21382,
+   "state_max_mb": 210.209094
+  }
+ },
+ {
+  "label": "flink-ds-bt100-s3-r3",
+  "cpu_mean": 3.4471249999999998,
+  "cpu_peak": 5.7219999999999995,
+  "mem_mean_gib": 6.0279541015625,
+  "mem_peak_gib": 6.8359375,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 4276,
+   "dur_max_ms": 5576,
+   "upload_avg_mb": 63.201381,
+   "state_max_mb": 209.948596
+  }
+ },
+ {
+  "label": "flink-ds-eo-s2-r1",
+  "cpu_mean": 3.3534166666666665,
+  "cpu_peak": 6.024,
+  "mem_mean_gib": 5.357137044270833,
+  "mem_peak_gib": 5.662109375,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1727,
+   "dur_max_ms": 2081,
+   "upload_avg_mb": 29.394732,
+   "state_max_mb": 125.351907
+  }
+ },
+ {
+  "label": "flink-ds-eo-s2-r2",
+  "cpu_mean": 3.2928333333333333,
+  "cpu_peak": 5.9830000000000005,
+  "mem_mean_gib": 5.410047743055555,
+  "mem_peak_gib": 5.6630859375,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1632,
+   "dur_max_ms": 2343,
+   "upload_avg_mb": 29.507909,
+   "state_max_mb": 126.095493
+  }
+ },
+ {
+  "label": "flink-ds-s1-update-at100k-r0",
+  "cpu_mean": 4.714753424657534,
+  "cpu_peak": 5.99,
+  "mem_mean_gib": 6.081134952910959,
+  "mem_peak_gib": 6.7861328125,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 3395,
+   "dur_max_ms": 4372,
+   "upload_avg_mb": 76.961276,
+   "state_max_mb": 251.027494
+  }
+ },
+ {
+  "label": "flink-ds-s1-update-at100k-r1",
+  "cpu_mean": 4.741575342465754,
+  "cpu_peak": 6.0280000000000005,
+  "mem_mean_gib": 6.182978381849315,
+  "mem_peak_gib": 7.1005859375,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 3280,
+   "dur_max_ms": 4292,
+   "upload_avg_mb": 77.445021,
+   "state_max_mb": 251.795094
+  }
+ },
+ {
+  "label": "flink-ds-s1-update-r1",
+  "cpu_mean": 3.392888888888889,
+  "cpu_peak": 5.191,
+  "mem_mean_gib": 5.675089518229167,
+  "mem_peak_gib": 6.2607421875,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2680,
+   "dur_max_ms": 3396,
+   "upload_avg_mb": 41.87823,
+   "state_max_mb": 136.100878
+  }
+ },
+ {
+  "label": "flink-ds-s1-update-r2",
+  "cpu_mean": 3.555763888888889,
+  "cpu_peak": 6.0120000000000005,
+  "mem_mean_gib": 5.683553059895833,
+  "mem_peak_gib": 6.119140625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2371,
+   "dur_max_ms": 2905,
+   "upload_avg_mb": 39.202564,
+   "state_max_mb": 127.541763
+  }
+ },
+ {
+  "label": "flink-ds-s1-update-r3",
+  "cpu_mean": 3.3970555555555557,
+  "cpu_peak": 6.015000000000001,
+  "mem_mean_gib": 5.639906141493055,
+  "mem_peak_gib": 6.142578125,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2453,
+   "dur_max_ms": 3110,
+   "upload_avg_mb": 40.899518,
+   "state_max_mb": 136.594173
+  }
+ },
+ {
+  "label": "flink-ds-s1-window-r1",
+  "cpu_mean": 3.1519305555555555,
+  "cpu_peak": 5.058,
+  "mem_mean_gib": 5.959269205729167,
+  "mem_peak_gib": 6.6533203125,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2640,
+   "dur_max_ms": 3616,
+   "upload_avg_mb": 53.435093,
+   "state_max_mb": 184.821927
+  }
+ },
+ {
+  "label": "flink-ds-s1-window-r2",
+  "cpu_mean": 3.142263888888889,
+  "cpu_peak": 5.525,
+  "mem_mean_gib": 5.944118923611111,
+  "mem_peak_gib": 6.705078125,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2468,
+   "dur_max_ms": 3285,
+   "upload_avg_mb": 52.965722,
+   "state_max_mb": 183.378519
+  }
+ },
+ {
+  "label": "flink-ds-s2-at100k-r1",
+  "cpu_mean": 4.447722222222223,
+  "cpu_peak": 5.936,
+  "mem_mean_gib": 5.437540690104167,
+  "mem_peak_gib": 5.841796875,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2823,
+   "dur_max_ms": 3883,
+   "upload_avg_mb": 59.78991,
+   "state_max_mb": 259.766303
+  }
+ },
+ {
+  "label": "flink-ds-s2-r1",
+  "cpu_mean": 3.0906249999999997,
+  "cpu_peak": 4.715999999999999,
+  "mem_mean_gib": 5.337822808159722,
+  "mem_peak_gib": 5.6640625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1593,
+   "dur_max_ms": 2310,
+   "upload_avg_mb": 29.371338,
+   "state_max_mb": 125.161642
+  }
+ },
+ {
+  "label": "flink-ds-s2-r2",
+  "cpu_mean": 3.359402777777778,
+  "cpu_peak": 6.024,
+  "mem_mean_gib": 5.353936089409722,
+  "mem_peak_gib": 5.6337890625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1616,
+   "dur_max_ms": 2314,
+   "upload_avg_mb": 29.425569,
+   "state_max_mb": 125.50315
+  }
+ },
+ {
+  "label": "flink-ds-s2-r3",
+  "cpu_mean": 3.248388888888889,
+  "cpu_peak": 5.246,
+  "mem_mean_gib": 5.33203125,
+  "mem_peak_gib": 5.6259765625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1615,
+   "dur_max_ms": 2305,
+   "upload_avg_mb": 29.410457,
+   "state_max_mb": 125.358325
+  }
+ },
+ {
+  "label": "flink-ds-s3-at100k-r1",
+  "cpu_mean": 5.469236111111111,
+  "cpu_peak": 6.052,
+  "mem_mean_gib": 6.508232964409722,
+  "mem_peak_gib": 7.501953125,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 4274,
+   "dur_max_ms": 5635,
+   "upload_avg_mb": 111.788736,
+   "state_max_mb": 265.270692
+  }
+ },
+ {
+  "label": "flink-ds-s3-r1",
+  "cpu_mean": 4.871944444444445,
+  "cpu_peak": 5.946,
+  "mem_mean_gib": 6.045206705729167,
+  "mem_peak_gib": 6.78125,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 4486,
+   "dur_max_ms": 5727,
+   "upload_avg_mb": 65.052203,
+   "state_max_mb": 216.418532
+  }
+ },
+ {
+  "label": "flink-ds-s3-r2",
+  "cpu_mean": 4.7704305555555555,
+  "cpu_peak": 6.031000000000001,
+  "mem_mean_gib": 5.994954427083333,
+  "mem_peak_gib": 6.6923828125,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 4334,
+   "dur_max_ms": 5495,
+   "upload_avg_mb": 65.013236,
+   "state_max_mb": 216.183242
+  }
+ },
+ {
+  "label": "flink-ds-s3-r3",
+  "cpu_mean": 4.939208333333333,
+  "cpu_peak": 6.036,
+  "mem_mean_gib": 6.017754448784722,
+  "mem_peak_gib": 6.748046875,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 4458,
+   "dur_max_ms": 5637,
+   "upload_avg_mb": 64.876666,
+   "state_max_mb": 215.154514
+  }
+ },
+ {
+  "label": "flink-sql-bt100-s1-at100k-r1",
+  "cpu_mean": 3.1992083333333334,
+  "cpu_peak": 4.899,
+  "mem_mean_gib": 6.506673177083333,
+  "mem_peak_gib": 7.296875,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 4947,
+   "dur_max_ms": 6204,
+   "upload_avg_mb": 81.50043,
+   "state_max_mb": 202.859011
+  }
+ },
+ {
+  "label": "flink-sql-bt100-s1-r1",
+  "cpu_mean": 2.1336666666666666,
+  "cpu_peak": 4.207,
+  "mem_mean_gib": 6.045247395833333,
+  "mem_peak_gib": 6.712890625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2466,
+   "dur_max_ms": 3000,
+   "upload_avg_mb": 44.560991,
+   "state_max_mb": 153.610822
+  }
+ },
+ {
+  "label": "flink-sql-bt100-s1-r2",
+  "cpu_mean": 2.0518194444444444,
+  "cpu_peak": 4.301,
+  "mem_mean_gib": 6.064914279513889,
+  "mem_peak_gib": 6.583984375,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 3921,
+   "dur_max_ms": 4778,
+   "upload_avg_mb": 39.921463,
+   "state_max_mb": 137.293103
+  }
+ },
+ {
+  "label": "flink-sql-bt100-s1-r3",
+  "cpu_mean": 2.03475,
+  "cpu_peak": 4.742,
+  "mem_mean_gib": 6.049587673611111,
+  "mem_peak_gib": 6.685546875,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2844,
+   "dur_max_ms": 3515,
+   "upload_avg_mb": 44.546758,
+   "state_max_mb": 150.965268
+  }
+ },
+ {
+  "label": "flink-sql-bt100-s2-at100k-r1",
+  "cpu_mean": 3.2837083333333332,
+  "cpu_peak": 5.43,
+  "mem_mean_gib": 6.151869032118055,
+  "mem_peak_gib": 6.833984375,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2943,
+   "dur_max_ms": 3707,
+   "upload_avg_mb": 61.76681,
+   "state_max_mb": 234.322726
+  }
+ },
+ {
+  "label": "flink-sql-bt100-s2-r1",
+  "cpu_mean": 1.9346712328767124,
+  "cpu_peak": 4.041,
+  "mem_mean_gib": 5.787109375,
+  "mem_peak_gib": 6.3046875,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1703,
+   "dur_max_ms": 2233,
+   "upload_avg_mb": 34.753285,
+   "state_max_mb": 150.588826
+  }
+ },
+ {
+  "label": "flink-sql-bt100-s2-r2",
+  "cpu_mean": 1.9283055555555555,
+  "cpu_peak": 4.907,
+  "mem_mean_gib": 5.790622287326389,
+  "mem_peak_gib": 6.310546875,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1697,
+   "dur_max_ms": 2400,
+   "upload_avg_mb": 34.75365,
+   "state_max_mb": 150.896579
+  }
+ },
+ {
+  "label": "flink-sql-bt100-s2-r3",
+  "cpu_mean": 2.0226944444444444,
+  "cpu_peak": 4.599,
+  "mem_mean_gib": 5.815483940972222,
+  "mem_peak_gib": 6.306640625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1752,
+   "dur_max_ms": 2479,
+   "upload_avg_mb": 34.83716,
+   "state_max_mb": 151.341922
+  }
+ },
+ {
+  "label": "flink-sql-eo-s2-r1",
+  "cpu_mean": 3.6311805555555554,
+  "cpu_peak": 6.061,
+  "mem_mean_gib": 5.889919704861111,
+  "mem_peak_gib": 6.400390625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1975,
+   "dur_max_ms": 2527,
+   "upload_avg_mb": 34.828105,
+   "state_max_mb": 151.454214
+  }
+ },
+ {
+  "label": "flink-sql-eo-s2-r2",
+  "cpu_mean": 3.8109444444444445,
+  "cpu_peak": 6.016,
+  "mem_mean_gib": 5.836751302083333,
+  "mem_peak_gib": 6.3369140625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 2041,
+   "dur_max_ms": 2684,
+   "upload_avg_mb": 34.872379,
+   "state_max_mb": 151.950651
+  }
+ },
+ {
+  "label": "flink-sql-s1-at100k-r1",
+  "cpu_mean": 3.240972602739726,
+  "cpu_peak": 5.212,
+  "mem_mean_gib": 6.530046018835616,
+  "mem_peak_gib": 7.556640625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 4803,
+   "dur_max_ms": 10143,
+   "upload_avg_mb": 80.488827,
+   "state_max_mb": 203.688027
+  }
+ },
+ {
+  "label": "flink-sql-s1-r1",
+  "cpu_mean": 2.1019027777777777,
+  "cpu_peak": 4.258,
+  "mem_mean_gib": 6.095675998263889,
+  "mem_peak_gib": 6.697265625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 3115,
+   "dur_max_ms": 4378,
+   "upload_avg_mb": 43.792801,
+   "state_max_mb": 151.362636
+  }
+ },
+ {
+  "label": "flink-sql-s1-r2",
+  "cpu_mean": 2.175097222222222,
+  "cpu_peak": 4.888999999999999,
+  "mem_mean_gib": 6.128485785590278,
+  "mem_peak_gib": 6.7998046875,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 3160,
+   "dur_max_ms": 7679,
+   "upload_avg_mb": 47.208173,
+   "state_max_mb": 164.595573
+  }
+ },
+ {
+  "label": "flink-sql-s1-r3",
+  "cpu_mean": 2.0555694444444446,
+  "cpu_peak": 4.507,
+  "mem_mean_gib": 5.989515516493055,
+  "mem_peak_gib": 6.5556640625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 4023,
+   "dur_max_ms": 5155,
+   "upload_avg_mb": 42.187399,
+   "state_max_mb": 144.729316
+  }
+ },
+ {
+  "label": "flink-sql-s2-at100k-r1",
+  "cpu_mean": 5.028219178082192,
+  "cpu_peak": 5.962,
+  "mem_mean_gib": 6.173480308219178,
+  "mem_peak_gib": 6.84765625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 3234,
+   "dur_max_ms": 4520,
+   "upload_avg_mb": 61.909724,
+   "state_max_mb": 235.109628
+  }
+ },
+ {
+  "label": "flink-sql-s2-r1",
+  "cpu_mean": 3.6600694444444444,
+  "cpu_peak": 6.077,
+  "mem_mean_gib": 5.830118815104167,
+  "mem_peak_gib": 6.3447265625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1999,
+   "dur_max_ms": 2775,
+   "upload_avg_mb": 34.789311,
+   "state_max_mb": 151.439793
+  }
+ },
+ {
+  "label": "flink-sql-s2-r2",
+  "cpu_mean": 3.4840555555555555,
+  "cpu_peak": 5.992,
+  "mem_mean_gib": 5.848578559027778,
+  "mem_peak_gib": 6.3515625,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1855,
+   "dur_max_ms": 2538,
+   "upload_avg_mb": 34.117045,
+   "state_max_mb": 146.568629
+  }
+ },
+ {
+  "label": "flink-sql-s2-r3",
+  "cpu_mean": 3.5699027777777776,
+  "cpu_peak": 5.9,
+  "mem_mean_gib": 5.817084418402778,
+  "mem_peak_gib": 6.345703125,
+  "flink_ckpt": {
+   "completed": 7,
+   "total": 8,
+   "failed": 1,
+   "dur_avg_ms": 1951,
+   "dur_max_ms": 2483,
+   "upload_avg_mb": 34.686751,
+   "state_max_mb": 150.612237
+  }
+ },
+ {
+  "label": "spark-mb-s1-r1",
+  "cpu_mean": 3.2344794520547944,
+  "cpu_peak": 4.397,
+  "mem_mean_gib": 8.382384417808218,
+  "mem_peak_gib": 9.0283203125
+ },
+ {
+  "label": "spark-mb-s1-r2",
+  "cpu_mean": 3.3005,
+  "cpu_peak": 5.07,
+  "mem_mean_gib": 8.393324110243055,
+  "mem_peak_gib": 9.0185546875
+ },
+ {
+  "label": "spark-rtm-s1-at100k-r0",
+  "cpu_mean": 5.523191780821918,
+  "cpu_peak": 6.015000000000001,
+  "mem_mean_gib": 8.678590539383562,
+  "mem_peak_gib": 9.771484375
+ },
+ {
+  "label": "spark-rtm-s1-at100k-r1",
+  "cpu_mean": 5.507301369863014,
+  "cpu_peak": 6.023,
+  "mem_mean_gib": 8.802961793664384,
+  "mem_peak_gib": 10.1708984375
+ },
+ {
+  "label": "spark-rtm-s1-r1",
+  "cpu_mean": 3.570527777777778,
+  "cpu_peak": 6.006,
+  "mem_mean_gib": 8.217827690972221,
+  "mem_peak_gib": 9.2236328125
+ },
+ {
+  "label": "spark-rtm-s1-r2",
+  "cpu_mean": 3.736111111111111,
+  "cpu_peak": 5.994999999999999,
+  "mem_mean_gib": 8.218641493055555,
+  "mem_peak_gib": 9.322265625
+ },
+ {
+  "label": "spark-rtm-s1-r3",
+  "cpu_mean": 3.8488611111111113,
+  "cpu_peak": 6.013,
+  "mem_mean_gib": 8.301459418402779,
+  "mem_peak_gib": 9.2138671875
+ },
+ {
+  "label": "spark-rtm-s2-at100k-r1",
+  "cpu_mean": 5.500194444444444,
+  "cpu_peak": 6.037000000000001,
+  "mem_mean_gib": 8.493272569444445,
+  "mem_peak_gib": 9.69140625
+ },
+ {
+  "label": "spark-rtm-s2-r1",
+  "cpu_mean": 3.3753611111111113,
+  "cpu_peak": 5.598,
+  "mem_mean_gib": 8.104600694444445,
+  "mem_peak_gib": 9.109375
+ },
+ {
+  "label": "spark-rtm-s2-r2",
+  "cpu_mean": 3.460861111111111,
+  "cpu_peak": 5.847999999999999,
+  "mem_mean_gib": 8.206380208333334,
+  "mem_peak_gib": 9.123046875
+ },
+ {
+  "label": "spark-rtm-s2-r3",
+  "cpu_mean": 3.3552916666666666,
+  "cpu_peak": 5.694999999999999,
+  "mem_mean_gib": 8.287909613715279,
+  "mem_peak_gib": 9.3017578125
+ },
+ {
+  "label": "spark-rtm-s3-at100k-r1",
+  "cpu_mean": 5.583972222222222,
+  "cpu_peak": 6.031000000000001,
+  "mem_mean_gib": 8.303304036458334,
+  "mem_peak_gib": 9.3603515625
+ },
+ {
+  "label": "spark-rtm-s3-r1",
+  "cpu_mean": 5.4912222222222224,
+  "cpu_peak": 6.029,
+  "mem_mean_gib": 8.43484157986111,
+  "mem_peak_gib": 9.55859375
+ },
+ {
+  "label": "spark-rtm-s3-r2",
+  "cpu_mean": 5.530722222222222,
+  "cpu_peak": 6.045999999999999,
+  "mem_mean_gib": 8.4932861328125,
+  "mem_peak_gib": 9.5263671875
+ },
+ {
+  "label": "spark-rtm-s3-r3",
+  "cpu_mean": 5.525708333333333,
+  "cpu_peak": 6.029,
+  "mem_mean_gib": 8.543443467881945,
+  "mem_peak_gib": 9.5947265625
+ },
+ {
+  "label": "spark-rtm-sw1-s1-at100k-r1",
+  "cpu_mean": 5.41275,
+  "cpu_peak": 6.022,
+  "mem_mean_gib": 9.056532118055555,
+  "mem_peak_gib": 10.4580078125
+ },
+ {
+  "label": "spark-rtm-sw1-s1-r1",
+  "cpu_mean": 5.590736111111111,
+  "cpu_peak": 6.09,
+  "mem_mean_gib": 8.377251519097221,
+  "mem_peak_gib": 9.439453125
+ },
+ {
+  "label": "spark-rtm-sw1-s1-r2",
+  "cpu_mean": 5.582222222222223,
+  "cpu_peak": 6.209,
+  "mem_mean_gib": 8.388712565104166,
+  "mem_peak_gib": 9.513671875
+ },
+ {
+  "label": "spark-rtm-sw1-s1-r3",
+  "cpu_mean": 5.619083333333333,
+  "cpu_peak": 6.029,
+  "mem_mean_gib": 8.394287109375,
+  "mem_peak_gib": 9.5234375
+ },
+ {
+  "label": "spark-rtm-sw1-s2-at100k-r1",
+  "cpu_mean": 5.506555555555556,
+  "cpu_peak": 6.05,
+  "mem_mean_gib": 8.485826280381945,
+  "mem_peak_gib": 9.76171875
+ },
+ {
+  "label": "spark-rtm-sw1-s2-r1",
+  "cpu_mean": 5.552694444444445,
+  "cpu_peak": 6.056,
+  "mem_mean_gib": 8.201836480034721,
+  "mem_peak_gib": 9.279296875
+ },
+ {
+  "label": "spark-rtm-sw1-s2-r2",
+  "cpu_mean": 2.8047222222222223,
+  "cpu_peak": 6.063,
+  "mem_mean_gib": 8.08095974392361,
+  "mem_peak_gib": 9.2939453125
+ },
+ {
+  "label": "spark-rtm-sw1-s2-r3",
+  "cpu_mean": 5.611319444444445,
+  "cpu_peak": 6.034000000000001,
+  "mem_mean_gib": 8.276285807291666,
+  "mem_peak_gib": 9.291015625
+ },
+ {
+  "label": "spark-rtm-sw1-s3-at100k-r1",
+  "cpu_mean": 5.612583333333333,
+  "cpu_peak": 6.036,
+  "mem_mean_gib": 8.419840494791666,
+  "mem_peak_gib": 9.5576171875
+ },
+ {
+  "label": "spark-rtm-sw1-s3-r1",
+  "cpu_mean": 5.581416666666667,
+  "cpu_peak": 6.025,
+  "mem_mean_gib": 8.768107096354166,
+  "mem_peak_gib": 9.828125
+ },
+ {
+  "label": "spark-rtm-sw1-s3-r2",
+  "cpu_mean": 5.548958333333333,
+  "cpu_peak": 6.043,
+  "mem_mean_gib": 8.571953667534721,
+  "mem_peak_gib": 9.75
+ },
+ {
+  "label": "spark-rtm-sw1-s3-r3",
+  "cpu_mean": 5.731763888888889,
+  "cpu_peak": 6.1850000000000005,
+  "mem_mean_gib": 8.52761501736111,
+  "mem_peak_gib": 9.4912109375
+ }
+]

@@ -9,7 +9,7 @@ metadata:
 spec:
   image: "__REGISTRY__/rtm-bench/flink:__TAG__"
   imagePullPolicy: Always
-  flinkVersion: v2_0
+  flinkVersion: v2_3
   flinkConfiguration:
     taskmanager.numberOfTaskSlots: "3"
     execution.buffer-timeout: "0 ms"
@@ -27,7 +27,7 @@ spec:
         - name: flink-main-container
           env:
             - name: ENABLE_BUILT_IN_PLUGINS
-              value: "flink-s3-fs-presto-2.2.0.jar"
+              value: "flink-s3-fs-presto-2.3.0.jar"
   jobManager:
     resource:
       memory: "2048m"

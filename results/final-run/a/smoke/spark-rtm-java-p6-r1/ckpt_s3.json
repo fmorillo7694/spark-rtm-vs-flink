@@ -1,0 +1,23 @@
+{
+ "prefix": "spark-rtm-java-p6-43b-1794417657/",
+ "objects": 12,
+ "bytes": 3919,
+ "by_dir": {
+  "(root)": {
+   "objects": 2,
+   "bytes": 45
+  },
+  "commits": {
+   "objects": 4,
+   "bytes": 87
+  },
+  "offsets": {
+   "objects": 4,
+   "bytes": 3729
+  },
+  "sources": {
+   "objects": 2,
+   "bytes": 58
+  }
+ }
+}

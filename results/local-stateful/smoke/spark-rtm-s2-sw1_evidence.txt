@@ -1,0 +1,54 @@
+# spark-rtm-s2-sw1 spark evidence at 2026-11-08T12:34:14Z
+async-log-write threads: 0
+AsyncProgressTrackingMicroBatchExecution frames: 0
+--- active stages (pipelined shuffle => source stage and stateful stage RUNNING together)
+stage 3 ACTIVE tasks 6 active 6 start at StatefulPipelineJava.java:153
+stage 2 ACTIVE tasks 6 active 6 start at StatefulPipelineJava.java:153
+--- driver log: pipelined / state store / commit lines
+   1 [StatefulPipelineJava] workload=s2 mode=rtm id=2f47e67f-4c4e-4d4d-910f-17911ef85294 trigger=RealTime(60 seconds) startingOffsets=latest watermark=5s window=10s gapMs=5000 timeoutMs=5000 stateStore=org.apache.spark.sql.ex
+   1 26/11/08 12:33:31 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:153
+   1 26/11/08 12:33:31 INFO SparkContext: Created broadcast 3 from start at StatefulPipelineJava.java:153
+   1 26/11/08 12:33:31 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[16] at start at StatefulPipelineJava.java:153), which has no missing parents
+   1 26/11/08 12:33:31 INFO DAGScheduler: Submitting ResultStage 3 concurrently with its running pipelined producer(s) List(ShuffleMapStage 2)
+   1 26/11/08 12:33:31 INFO DAGScheduler: Submitting 6 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[16] at start at StatefulPipelineJava.java:153) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+   1 26/11/08 12:33:31 INFO DAGScheduler: Submitting 6 missing tasks from ResultStage 3 (MapPartitionsRDD[19] at start at StatefulPipelineJava.java:153) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5))
+   1 26/11/08 12:33:31 INFO DAGScheduler: Registering RDD 16 (start at StatefulPipelineJava.java:153) as input to shuffle 1
+   1 26/11/08 12:33:31 INFO DAGScheduler: Got job 1 (start at StatefulPipelineJava.java:153) with 6 output partitions
+   1 26/11/08 12:33:31 INFO DAGScheduler: Final stage: ResultStage 3 (start at StatefulPipelineJava.java:153)
+   1 26/11/08 12:33:30 INFO MicroBatchExecution: Committed offsets for batch 0. Metadata OffsetSeqMetadata(0,1794141148769,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state
+   1 26/11/08 12:33:30 INFO DAGScheduler: ShuffleMapStage 0 (start at StatefulPipelineJava.java:153) finished in 59836 ms
+   1 26/11/08 12:33:30 INFO DAGScheduler: ResultStage 1 (start at StatefulPipelineJava.java:153) finished in 60128 ms
+   1 26/11/08 12:33:30 INFO DAGScheduler: Replaying 0 deferred completion(s) for pipelined consumer ResultStage 1 now that its producers finished
+   1 26/11/08 12:33:30 INFO DAGScheduler: Job 0 finished: start at StatefulPipelineJava.java:153, took 60276.248485 ms
+--- checkpoint /tmp/spark-checkpoints/stateful-s2-rtm-1794141141/
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141/:
+commits
+metadata
+offsets
+sources
+state
+
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141//state/0:
+0
+1
+2
+3
+4
+5
+_metadata
+[commits]
+0
+[latest commit]
+v2
+{"nextBatchWatermarkMs":1794141205139,"stateUniqueIds":{"0":[["f43801cc-5e29-4846-a461-cacb5d1fef39"],["79db3bb9-90bc-4f3d-9fb9-27f180efd21f"],["da9c642e-41cb-443f-a26b-3affcc00bb42"],["ab25e9fc-7fab-40f3-b858-2b1a5acef180"],["133ef07c-77b4-41cb-af21-9ce234bcab48"],["3c71a9d9-7c57-401f-b587-58c9fc68fbd2"]]}}
+[state files, partition 0]
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141//state/0/2/.2_49271917-b183-482b-8e71-14d7110b694d.changelog.crc.69274ccc-d3ba-4ee8-8da5-f46e7c14a784.tmp
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141//state/0/2/.2_49271917-b183-482b-8e71-14d7110b694d.changelog.8ceb7cc1-a722-456b-86fe-a21ef09380dd.tmp
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141//state/0/2/.1_da9c642e-41cb-443f-a26b-3affcc00bb42.changelog.crc.crc
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141//state/0/2/..2_49271917-b183-482b-8e71-14d7110b694d.changelog.8ceb7cc1-a722-456b-86fe-a21ef09380dd.tmp.crc
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141//state/0/2/1_da9c642e-41cb-443f-a26b-3affcc00bb42.changelog
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141//state/0/2/.1_da9c642e-41cb-443f-a26b-3affcc00bb42.changelog.crc
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141//state/0/2/1_da9c642e-41cb-443f-a26b-3affcc00bb42.changelog.crc
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141//state/0/2/..2_49271917-b183-482b-8e71-14d7110b694d.changelog.crc.69274ccc-d3ba-4ee8-8da5-f46e7c14a784.tmp.crc
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141//state/0/0/1_f43801cc-5e29-4846-a461-cacb5d1fef39.changelog
+/tmp/spark-checkpoints/stateful-s2-rtm-1794141141//state/0/0/.2_59952e6e-80a8-4f47-9f5e-c9aa5bb44526.changelog.42c2b97b-763e-4589-ba3c-d1340b090496.tmp

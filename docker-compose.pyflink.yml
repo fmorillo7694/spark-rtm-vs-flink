@@ -9,7 +9,7 @@ networks:
 
 services:
   jobmanager:
-    image: pyflink-bench:2.2.0
+    image: pyflink-bench:2.3.0
     pull_policy: never
     container_name: flink-jobmanager
     hostname: jobmanager
@@ -34,7 +34,7 @@ services:
       start_period: 10s
 
   taskmanager:
-    image: pyflink-bench:2.2.0
+    image: pyflink-bench:2.3.0
     pull_policy: never
     container_name: flink-taskmanager
     hostname: taskmanager

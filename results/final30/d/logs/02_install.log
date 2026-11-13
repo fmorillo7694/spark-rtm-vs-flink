@@ -1,0 +1,87 @@
+==> [1/5] metrics-server (pod CPU/mem). Installed via EKS addon (see cluster.yaml).
+deployment.apps/metrics-server patched
+    default gp3 (encrypted) StorageClass for EBS-CSI dynamic volumes
+storageclass.storage.k8s.io/gp3 created
+storageclass.storage.k8s.io/gp2 patched
+==> [2/5] Strimzi operator
+namespace/kafka created
+clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-leader-election created
+deployment.apps/strimzi-cluster-operator created
+customresourcedefinition.apiextensions.k8s.io/kafkanodepools.kafka.strimzi.io created
+clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-global created
+configmap/strimzi-cluster-operator created
+rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator created
+clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-namespaced created
+rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-watched created
+clusterrolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-kafka-broker-delegation created
+customresourcedefinition.apiextensions.k8s.io/kafkaconnectors.kafka.strimzi.io created
+customresourcedefinition.apiextensions.k8s.io/kafkabridges.kafka.strimzi.io created
+clusterrole.rbac.authorization.k8s.io/strimzi-kafka-broker created
+customresourcedefinition.apiextensions.k8s.io/kafkarebalances.kafka.strimzi.io created
+customresourcedefinition.apiextensions.k8s.io/kafkatopics.kafka.strimzi.io created
+customresourcedefinition.apiextensions.k8s.io/kafkausers.kafka.strimzi.io created
+customresourcedefinition.apiextensions.k8s.io/kafkaconnects.kafka.strimzi.io created
+clusterrole.rbac.authorization.k8s.io/strimzi-cluster-operator-watched created
+serviceaccount/strimzi-cluster-operator created
+rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-entity-operator-delegation created
+clusterrole.rbac.authorization.k8s.io/strimzi-kafka-client created
+customresourcedefinition.apiextensions.k8s.io/strimzipodsets.core.strimzi.io created
+customresourcedefinition.apiextensions.k8s.io/kafkamirrormaker2s.kafka.strimzi.io created
+clusterrole.rbac.authorization.k8s.io/strimzi-entity-operator created
+clusterrolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-kafka-client-delegation created
+customresourcedefinition.apiextensions.k8s.io/kafkas.kafka.strimzi.io created
+rolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator-leader-election created
+clusterrolebinding.rbac.authorization.k8s.io/strimzi-cluster-operator created
+    waiting for Strimzi operator...
+Waiting for deployment "strimzi-cluster-operator" rollout to finish: 0 of 1 updated replicas are available...
+deployment "strimzi-cluster-operator" successfully rolled out
+    waiting for Strimzi CRDs to register...
+customresourcedefinition.apiextensions.k8s.io/kafkas.kafka.strimzi.io condition met
+customresourcedefinition.apiextensions.k8s.io/kafkanodepools.kafka.strimzi.io condition met
+customresourcedefinition.apiextensions.k8s.io/kafkatopics.kafka.strimzi.io condition met
+==> [3/5] Kafka cluster (3 brokers, KRaft)
+kafkanodepool.kafka.strimzi.io/brokers created
+kafka.kafka.strimzi.io/bench created
+kafkatopic.kafka.strimzi.io/input-events created
+kafkatopic.kafka.strimzi.io/output-events created
+    waiting for Kafka to be ready (this takes a few min)...
+kafka.kafka.strimzi.io/bench condition met
+==> [4/5] (no cert-manager: the Flink operator webhook is disabled below)
+==> [5/5] Flink + Spark Kubernetes operators (helm)
+"flink-operator-repo" has been added to your repositories
+"spark-operator" has been added to your repositories
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "spark-operator" chart repository
+...Successfully got an update from the "flink-operator-repo" chart repository
+Update Complete. ⎈Happy Helming!⎈
+namespace/flink created
+namespace/spark created
+Release "flink-kubernetes-operator" does not exist. Installing it now.
+NAME: flink-kubernetes-operator
+LAST DEPLOYED: Thu Nov 12 12:28:40 2026
+NAMESPACE: flink
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+Release "spark-operator" does not exist. Installing it now.
+NAME: spark-operator
+LAST DEPLOYED: Thu Nov 12 12:28:49 2026
+NAMESPACE: spark
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
+==> operators installed:
+NAME                                        READY   STATUS    RESTARTS   AGE
+bench-brokers-0                             1/1     Running   0          92s
+bench-brokers-1                             1/1     Running   0          92s
+bench-brokers-2                             1/1     Running   0          92s
+bench-entity-operator-697cd496b9-kth7d      1/1     Running   0          49s
+strimzi-cluster-operator-8455547d9f-nt65g   1/1     Running   0          2m19s
+NAME                                         READY   STATUS    RESTARTS   AGE
+flink-kubernetes-operator-67d494b5bc-t74wz   1/1     Running   0          16s
+NAME                                         READY   STATUS              RESTARTS   AGE
+spark-operator-controller-579ccc68fb-b4bm7   0/1     ContainerCreating   0          5s
+spark-operator-webhook-57fccbb555-jvmpf      0/1     ContainerCreating   0          5s
+rc=0

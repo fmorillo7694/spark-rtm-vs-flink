@@ -1,0 +1,11 @@
+{"label":"spark-rtm-s3-at50k-1800s-r1","attempt":1,"ok":1,"seconds":2407}
+{"label":"flink-ds-bt100-s3-at50k-1800s-r1","attempt":1,"ok":1,"seconds":2028}
+{"label":"spark-rtm-java-p6-r2","attempt":1,"ok":1,"seconds":1931}
+{"label":"spark-rtm-vt-s3-at50k-1800s-r1","attempt":1,"ok":1,"seconds":2692}
+{"label":"flink-ds-s3-at50k-1800s-r1","attempt":1,"ok":1,"seconds":1995}
+{"label":"flink-p6-r2","attempt":1,"ok":1,"seconds":1945}
+{"label":"spark-rtm-s3-at50k-1800s-r2","attempt":1,"ok":1,"seconds":2688}
+{"label":"flink-ds-bt100-s3-at50k-1800s-r2","attempt":1,"ok":1,"seconds":1994}
+{"label":"pyspark-rtm-p6-r2","attempt":1,"ok":1,"seconds":1915}
+{"label":"spark-rtm-vt-s3-at50k-1800s-r2","attempt":1,"ok":1,"seconds":2685}
+{"label":"flink-ds-s3-at50k-1800s-r2","attempt":1,"ok":1,"seconds":1992}

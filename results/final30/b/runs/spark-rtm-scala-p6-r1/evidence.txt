@@ -1,0 +1,73 @@
+# spark-rtm-scala-p6-r1 evidence at 2026-11-12T13:20:50Z ckpt=spark-rtm-scala-p6-43b-1794487720
+--- driver log lines
+[RtmPipeline] mode=rtm id=83f2eb20-d1be-41b4-be7e-a7fcdead56d1 runId=72869d49-4baa-47a4-8ddc-e29ef4856d67 trigger=RealTime(60 seconds) asyncProgressTrackingEnabled=auto ckpt=s3a://rtm-flink-bench-ckpt-__ACCOUNT__/spark-rtm-scala-p6-43b-1794487720
+async-log-write threads: 1
+AsyncProgressTrackingMicroBatchExecution frames: 1
+--- checkpoint s3://rtm-flink-bench-ckpt-__ACCOUNT__/spark-rtm-scala-p6-43b-1794487720 (LastModified UTC, key)
+[offsets]
+2026-11-12T12:49:42+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/
+2026-11-12T12:50:47+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/0
+2026-11-12T12:51:47+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/1
+2026-11-12T13:00:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/10
+2026-11-12T13:01:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/11
+2026-11-12T13:02:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/12
+2026-11-12T13:03:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/13
+2026-11-12T13:04:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/14
+2026-11-12T13:05:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/15
+2026-11-12T13:06:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/16
+2026-11-12T13:07:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/17
+2026-11-12T13:08:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/18
+2026-11-12T13:09:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/19
+2026-11-12T12:52:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/2
+2026-11-12T13:10:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/20
+2026-11-12T13:11:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/21
+2026-11-12T13:12:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/22
+2026-11-12T13:13:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/23
+2026-11-12T13:14:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/24
+2026-11-12T13:15:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/25
+2026-11-12T13:16:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/26
+2026-11-12T13:17:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/27
+2026-11-12T13:18:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/28
+2026-11-12T13:19:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/29
+2026-11-12T12:53:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/3
+2026-11-12T13:20:49+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/30
+2026-11-12T12:54:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/4
+2026-11-12T12:55:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/5
+2026-11-12T12:56:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/6
+2026-11-12T12:57:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/7
+2026-11-12T12:58:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/8
+2026-11-12T12:59:48+00:00	spark-rtm-scala-p6-43b-1794487720/offsets/9
+[commits]
+2026-11-12T12:49:42+00:00	spark-rtm-scala-p6-43b-1794487720/commits/
+2026-11-12T12:50:48+00:00	spark-rtm-scala-p6-43b-1794487720/commits/0
+2026-11-12T12:51:48+00:00	spark-rtm-scala-p6-43b-1794487720/commits/1
+2026-11-12T13:00:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/10
+2026-11-12T13:01:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/11
+2026-11-12T13:02:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/12
+2026-11-12T13:03:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/13
+2026-11-12T13:04:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/14
+2026-11-12T13:05:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/15
+2026-11-12T13:06:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/16
+2026-11-12T13:07:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/17
+2026-11-12T13:08:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/18
+2026-11-12T13:09:50+00:00	spark-rtm-scala-p6-43b-1794487720/commits/19
+2026-11-12T12:52:48+00:00	spark-rtm-scala-p6-43b-1794487720/commits/2
+2026-11-12T13:10:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/20
+2026-11-12T13:11:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/21
+2026-11-12T13:12:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/22
+2026-11-12T13:13:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/23
+2026-11-12T13:14:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/24
+2026-11-12T13:15:49+00:00	spark-rtm-scala-p6-43b-1794487720/commits/25
+2026-11-12T13:16:50+00:00	spark-rtm-scala-p6-43b-1794487720/commits/26
+2026-11-12T13:17:50+00:00	spark-rtm-scala-p6-43b-1794487720/commits/27
+2026-11-12T13:18:50+00:00	spark-rtm-scala-p6-43b-1794487720/commits/28
+2026-11-12T13:19:50+00:00	spark-rtm-scala-p6-43b-1794487720/commits/29
+2026-11-12T12:53:48+00:00	spark-rtm-scala-p6-43b-1794487720/commits/3
+2026-11-12T13:20:50+00:00	spark-rtm-scala-p6-43b-1794487720/commits/30
+2026-11-12T12:54:48+00:00	spark-rtm-scala-p6-43b-1794487720/commits/4
+2026-11-12T12:55:48+00:00	spark-rtm-scala-p6-43b-1794487720/commits/5
+2026-11-12T12:56:48+00:00	spark-rtm-scala-p6-43b-1794487720/commits/6
+2026-11-12T12:57:48+00:00	spark-rtm-scala-p6-43b-1794487720/commits/7
+2026-11-12T12:58:48+00:00	spark-rtm-scala-p6-43b-1794487720/commits/8
+2026-11-12T12:59:48+00:00	spark-rtm-scala-p6-43b-1794487720/commits/9
+--- latest commit log entry

@@ -1,0 +1,27 @@
+{
+ "prefix": "stateful/spark-mb1s-s5-at16k-r1-1794445514/",
+ "objects": 3577,
+ "bytes": 972649723,
+ "by_dir": {
+  "(root)": {
+   "objects": 2,
+   "bytes": 45
+  },
+  "commits": {
+   "objects": 63,
+   "bytes": 62856
+  },
+  "offsets": {
+   "objects": 64,
+   "bytes": 83454
+  },
+  "sources": {
+   "objects": 4,
+   "bytes": 111
+  },
+  "state": {
+   "objects": 3444,
+   "bytes": 972503257
+  }
+ }
+}

@@ -1,0 +1,6 @@
+{"batchId":0,"timestamp":"2026-11-10T12:06:08.490Z","batchDuration":62836,"numInputRows":2729056,"walCommit":3,"commitOffsets":2,"stateOperators":[]}
+{"batchId":1,"timestamp":"2026-11-10T12:07:11.363Z","batchDuration":60922,"numInputRows":3024856,"walCommit":1,"commitOffsets":0,"stateOperators":[]}
+{"batchId":2,"timestamp":"2026-11-10T12:08:12.295Z","batchDuration":60829,"numInputRows":3017418,"walCommit":0,"commitOffsets":1,"stateOperators":[]}
+{"batchId":3,"timestamp":"2026-11-10T12:09:13.131Z","batchDuration":60724,"numInputRows":3012452,"walCommit":2,"commitOffsets":0,"stateOperators":[]}
+{"batchId":4,"timestamp":"2026-11-10T12:10:13.863Z","batchDuration":60741,"numInputRows":3011232,"walCommit":1,"commitOffsets":0,"stateOperators":[]}
+{"batchId":5,"timestamp":"2026-11-10T12:11:14.612Z","batchDuration":60703,"numInputRows":3013230,"walCommit":1,"commitOffsets":0,"stateOperators":[]}

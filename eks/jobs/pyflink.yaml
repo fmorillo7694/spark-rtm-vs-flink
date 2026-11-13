@@ -1,5 +1,5 @@
 # PyFlink Table API job as a FlinkDeployment (application mode, python entrypoint).
-# Uses the pyflink image (Flink 2.2 + python + apache-flink + sql-kafka connector).
+# Uses the pyflink image (Flink 2.3 + python + apache-flink + sql-kafka connector).
 # Bundle tuning is in the job itself (python.fn-execution.bundle.time=1).
 apiVersion: flink.apache.org/v1beta1
 kind: FlinkDeployment
@@ -28,14 +28,14 @@ spec:
         - name: flink-main-container
           env:
             - name: ENABLE_BUILT_IN_PLUGINS
-              value: "flink-s3-fs-presto-2.2.0.jar"
+              value: "flink-s3-fs-presto-2.3.0.jar"
   jobManager:
     resource: { memory: "2048m", cpu: 1 }
   taskManager:
     replicas: 3
     resource: { memory: "4096m", cpu: 3 }
   job:
-    jarURI: "local:///opt/flink/opt/flink-python-2.2.0.jar"   # python driver shim
+    jarURI: "local:///opt/flink/opt/flink-python-2.3.0.jar"   # python driver shim
     entryClass: "org.apache.flink.client.python.PythonDriver"
     args:
       - "-pyclientexec"

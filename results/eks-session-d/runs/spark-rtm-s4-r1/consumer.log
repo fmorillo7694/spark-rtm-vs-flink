@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=spark-rtm-s4-r1 warmup=60s window=300s
+[consumer] seen=0 kept=0 (warmup)
+[consumer] seen=188000 kept=0 (warmup)
+[consumer] seen=431806 kept=0 (warmup)
+[consumer] seen=675806 kept=0 (warmup)
+[consumer] seen=919806 kept=0 (warmup)
+[consumer] seen=1162806 kept=0 (warmup)
+[consumer] seen=1406806 kept=0 (warmup)
+[consumer] seen=1649806 kept=0 (warmup)
+[consumer] seen=1892806 kept=0 (warmup)
+[consumer] seen=2136806 kept=0 (warmup)
+[consumer] seen=2379806 kept=0 (warmup)
+[consumer] seen=2622806 kept=6000 (steady)
+[consumer] seen=2865806 kept=249000 (steady)
+[consumer] seen=3109806 kept=493000 (steady)
+[consumer] seen=3353555 kept=736749 (steady)
+[consumer] seen=3595555 kept=978749 (steady)
+[consumer] seen=3840555 kept=1223749 (steady)
+[consumer] seen=4083555 kept=1466749 (steady)
+[consumer] seen=4327555 kept=1710749 (steady)
+[consumer] seen=4570555 kept=1953749 (steady)
+[consumer] seen=4814555 kept=2197749 (steady)
+[consumer] seen=5058555 kept=2441749 (steady)
+[consumer] seen=5301555 kept=2684749 (steady)
+[consumer] seen=5545555 kept=2928749 (steady)
+[consumer] seen=5789555 kept=3172749 (steady)
+[consumer] seen=6033555 kept=3416749 (steady)
+[consumer] seen=6260602 kept=3643796 (steady)
+[consumer] seen=6520602 kept=3903796 (steady)
+[consumer] seen=6763602 kept=4146796 (steady)
+[consumer] seen=7007602 kept=4390796 (steady)
+[consumer] seen=7251602 kept=4634796 (steady)
+[consumer] seen=7495602 kept=4878796 (steady)
+[consumer] seen=7738602 kept=5121796 (steady)
+[consumer] seen=7981602 kept=5364796 (steady)
+[consumer] seen=8225602 kept=5608796 (steady)
+[consumer] seen=8469602 kept=5852796 (steady)
+[consumer] seen=8712602 kept=6095796 (steady)
+[consumer] seen=8956602 kept=6339796 (steady)
+[consumer] seen=9165589 kept=6548783 (steady)
+[consumer] seen=9447589 kept=6830783 (steady)
+[consumer] seen=9691589 kept=7074783 (steady)
+[consumer] seen=9935589 kept=7318783 (steady)
+[consumer] seen=10179589 kept=7562783 (steady)
+[consumer] seen=10422589 kept=7805783 (steady)
+[consumer] seen=10666589 kept=8049783 (steady)
+[consumer] seen=10910589 kept=8293783 (steady)
+[consumer] seen=11154589 kept=8537783 (steady)
+[consumer] seen=11397589 kept=8780783 (steady)
+[consumer] seen=11641589 kept=9024783 (steady)
+[consumer] seen=11885589 kept=9268783 (steady)
+[consumer] seen=12115522 kept=9498716 (steady)
+[consumer] seen=12378522 kept=9761716 (steady)
+[consumer] seen=12621522 kept=10004716 (steady)
+[consumer] seen=12865522 kept=10248716 (steady)
+[consumer] seen=13108522 kept=10491716 (steady)
+[consumer] seen=13351522 kept=10734716 (steady)
+[consumer] seen=13595522 kept=10978716 (steady)
+[consumer] seen=13838522 kept=11221716 (steady)
+[consumer] seen=14081522 kept=11464716 (steady)
+[consumer] seen=14325522 kept=11708716 (steady)
+[consumer] seen=14569522 kept=11952716 (steady)
+[consumer] seen=14813522 kept=12196716 (steady)
+[consumer] seen=15057522 kept=12440716 (steady)
+[consumer] seen=15301236 kept=12684430 (steady)
+[consumer] seen=15544236 kept=12927430 (steady)
+[consumer] seen=15788236 kept=13171430 (steady)
+[consumer] seen=16031236 kept=13414430 (steady)
+[consumer] seen=16275236 kept=13658430 (steady)
+[consumer] seen=16518236 kept=13901430 (steady)
+[consumer] seen=16762236 kept=14145430 (steady)
+[consumer] seen=17005236 kept=14388430 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "spark-rtm-s4-r1",
+  "topic": "st-output",
+  "kept_records": 14583430,
+  "seen_records": 17200236,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 48611.4,
+  "started_at": 1794339336.894,
+  "ended_at": 1794339696.925,
+  "pipeline_ms": {
+    "count": 14583430,
+    "p50": 6.66,
+    "p95": 7.768,
+    "p99": 409.45,
+    "max": 934.126,
+    "mean": 14.953
+  },
+  "e2e_ms": {
+    "count": 14583430,
+    "p50": 32.344,
+    "p95": 40.898,
+    "p99": 569.094,
+    "max": 955.156,
+    "mean": 43.701
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/spark-rtm-s4-r1_summary.json

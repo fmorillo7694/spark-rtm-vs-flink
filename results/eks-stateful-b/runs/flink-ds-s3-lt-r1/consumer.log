@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-s3-lt-r1 warmup=60s window=300s
+[consumer] seen=1336 kept=0 (warmup)
+[consumer] seen=158305 kept=0 (warmup)
+[consumer] seen=353113 kept=0 (warmup)
+[consumer] seen=516093 kept=0 (warmup)
+[consumer] seen=737580 kept=0 (warmup)
+[consumer] seen=925351 kept=0 (warmup)
+[consumer] seen=1145479 kept=0 (warmup)
+[consumer] seen=1338777 kept=0 (warmup)
+[consumer] seen=1533308 kept=0 (warmup)
+[consumer] seen=1726669 kept=0 (warmup)
+[consumer] seen=1921368 kept=0 (warmup)
+[consumer] seen=2115029 kept=10662 (steady)
+[consumer] seen=2308517 kept=204150 (steady)
+[consumer] seen=2502060 kept=397693 (steady)
+[consumer] seen=2696547 kept=592180 (steady)
+[consumer] seen=2837711 kept=733344 (steady)
+[consumer] seen=3077955 kept=973588 (steady)
+[consumer] seen=3254273 kept=1149906 (steady)
+[consumer] seen=3508996 kept=1404629 (steady)
+[consumer] seen=3703610 kept=1599243 (steady)
+[consumer] seen=3897050 kept=1792683 (steady)
+[consumer] seen=4090393 kept=1986026 (steady)
+[consumer] seen=4286221 kept=2181854 (steady)
+[consumer] seen=4479544 kept=2375177 (steady)
+[consumer] seen=4672298 kept=2567931 (steady)
+[consumer] seen=4866715 kept=2762348 (steady)
+[consumer] seen=5062153 kept=2957786 (steady)
+[consumer] seen=5178771 kept=3074404 (steady)
+[consumer] seen=5417871 kept=3313504 (steady)
+[consumer] seen=5659630 kept=3555263 (steady)
+[consumer] seen=5853599 kept=3749232 (steady)
+[consumer] seen=6047176 kept=3942809 (steady)
+[consumer] seen=6241042 kept=4136675 (steady)
+[consumer] seen=6434708 kept=4330341 (steady)
+[consumer] seen=6629536 kept=4525169 (steady)
+[consumer] seen=6823950 kept=4719583 (steady)
+[consumer] seen=7017713 kept=4913346 (steady)
+[consumer] seen=7211366 kept=5106999 (steady)
+[consumer] seen=7406165 kept=5301798 (steady)
+[consumer] seen=7519951 kept=5415584 (steady)
+[consumer] seen=7761369 kept=5657002 (steady)
+[consumer] seen=8011347 kept=5906980 (steady)
+[consumer] seen=8207087 kept=6102720 (steady)
+[consumer] seen=8400322 kept=6295955 (steady)
+[consumer] seen=8594859 kept=6490492 (steady)
+[consumer] seen=8788732 kept=6684365 (steady)
+[consumer] seen=8980165 kept=6875798 (steady)
+[consumer] seen=9175398 kept=7071031 (steady)
+[consumer] seen=9368847 kept=7264480 (steady)
+[consumer] seen=9563156 kept=7458789 (steady)
+[consumer] seen=9757651 kept=7653284 (steady)
+[consumer] seen=9864345 kept=7759978 (steady)
+[consumer] seen=10097780 kept=7993413 (steady)
+[consumer] seen=10364342 kept=8259975 (steady)
+[consumer] seen=10559067 kept=8454700 (steady)
+[consumer] seen=10752666 kept=8648299 (steady)
+[consumer] seen=10946647 kept=8842280 (steady)
+[consumer] seen=11141192 kept=9036825 (steady)
+[consumer] seen=11334818 kept=9230451 (steady)
+[consumer] seen=11529449 kept=9425082 (steady)
+[consumer] seen=11722804 kept=9618437 (steady)
+[consumer] seen=11917273 kept=9812906 (steady)
+[consumer] seen=12114004 kept=10009637 (steady)
+[consumer] seen=12208844 kept=10104477 (steady)
+[consumer] seen=12435256 kept=10330889 (steady)
+[consumer] seen=12711345 kept=10606978 (steady)
+[consumer] seen=12905210 kept=10800843 (steady)
+[consumer] seen=13099613 kept=10995246 (steady)
+[consumer] seen=13293232 kept=11188865 (steady)
+[consumer] seen=13487742 kept=11383375 (steady)
+[consumer] seen=13682364 kept=11577997 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-s3-lt-r1",
+  "topic": "st-output",
+  "kept_records": 11693366,
+  "seen_records": 13797733,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 38977.9,
+  "started_at": 1794244540.021,
+  "ended_at": 1794244900.037,
+  "pipeline_ms": {
+    "count": 11693366,
+    "p50": 641.546,
+    "p95": 2866.324,
+    "p99": 4173.777,
+    "max": 6542.649,
+    "mean": 828.669
+  },
+  "e2e_ms": {
+    "count": 11693366,
+    "p50": 754.066,
+    "p95": 2990.011,
+    "p99": 4346.067,
+    "max": 6942.424,
+    "mean": 945.217
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-s3-lt-r1_summary.json

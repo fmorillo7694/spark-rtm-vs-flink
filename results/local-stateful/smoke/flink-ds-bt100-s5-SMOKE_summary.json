@@ -1,0 +1,27 @@
+{
+  "engine": "flink-ds-bt100-s5-SMOKE",
+  "topic": "st-output",
+  "kept_records": 96381,
+  "seen_records": 127640,
+  "window_seconds": 40,
+  "warmup_seconds": 20,
+  "throughput_eps": 2409.5,
+  "started_at": 1794227004.123,
+  "ended_at": 1794227064.181,
+  "pipeline_ms": {
+    "count": 96381,
+    "p50": 56.468,
+    "p95": 101.023,
+    "p99": 106.067,
+    "max": 228.657,
+    "mean": 56.281
+  },
+  "e2e_ms": {
+    "count": 96381,
+    "p50": 166.118,
+    "p95": 272.544,
+    "p99": 297.723,
+    "max": 428.743,
+    "mean": 165.932
+  }
+}

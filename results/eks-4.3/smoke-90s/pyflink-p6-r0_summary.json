@@ -1,0 +1,25 @@
+{
+  "engine": "pyflink-p6-r0",
+  "topic": "output-events",
+  "kept_records": 2999281,
+  "seen_records": 3922363,
+  "window_seconds": 90,
+  "warmup_seconds": 30,
+  "throughput_eps": 33325.3,
+  "pipeline_ms": {
+    "count": 2999281,
+    "p50": 8.433,
+    "p95": 13.322,
+    "p99": 38.732,
+    "max": 118.567,
+    "mean": 9.549
+  },
+  "e2e_ms": {
+    "count": 2999281,
+    "p50": 17.017,
+    "p95": 26.167,
+    "p99": 62.302,
+    "max": 172.658,
+    "mean": 18.291
+  }
+}

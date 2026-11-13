@@ -1,0 +1,17 @@
+--- pre-launch self-teardown verification 2026-11-11T11:57:13Z
+IAM runner role policies: rtm-flink-ckpt-s3	rtm-flink-bench5-runner-scale-down
+simulate eks:UpdateNodegroupConfig engine-ng: allowed	allowed
+simulate eks:UpdateNodegroupConfig bench-ng: allowed	allowed
+SA annotation: arn:aws:iam::<ACCOUNT_ID>:role/rtm-flink-bench5-stateful-runner
+can-i delete kafkas.kafka.strimzi.io -n kafka: 
+can-i delete kafkanodepools.kafka.strimzi.io -n kafka: 
+can-i delete persistentvolumeclaims -n kafka: 
+can-i list persistentvolumes: 
+can-i patch deployments/cluster-autoscaler -n kube-system --subresource=scale: 
+CA deployment: 1
+can-i delete kafkas.kafka.strimzi.io -n kafka: yes
+can-i delete kafkanodepools.kafka.strimzi.io -n kafka: yes
+can-i delete persistentvolumeclaims -n kafka: yes
+can-i list persistentvolumes: yes
+can-i get deployments/cluster-autoscaler -n kube-system: yes
+can-i patch deployments/cluster-autoscaler -n kube-system --subresource=scale: yes

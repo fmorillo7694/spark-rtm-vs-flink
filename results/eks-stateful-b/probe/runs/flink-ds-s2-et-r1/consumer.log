@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-s2-et-r1 warmup=60s window=300s
+[consumer] seen=136010 kept=0 (warmup)
+[consumer] seen=387010 kept=0 (warmup)
+[consumer] seen=636010 kept=0 (warmup)
+[consumer] seen=863348 kept=0 (warmup)
+[consumer] seen=1133348 kept=0 (warmup)
+[consumer] seen=1381348 kept=0 (warmup)
+[consumer] seen=1629348 kept=0 (warmup)
+[consumer] seen=1878348 kept=0 (warmup)
+[consumer] seen=2127348 kept=0 (warmup)
+[consumer] seen=2375348 kept=0 (warmup)
+[consumer] seen=2623348 kept=0 (warmup)
+[consumer] seen=2871348 kept=6000 (steady)
+[consumer] seen=3120348 kept=255000 (steady)
+[consumer] seen=3368348 kept=503000 (steady)
+[consumer] seen=3617348 kept=752000 (steady)
+[consumer] seen=3828334 kept=962986 (steady)
+[consumer] seen=4117414 kept=1252066 (steady)
+[consumer] seen=4366414 kept=1501066 (steady)
+[consumer] seen=4614414 kept=1749066 (steady)
+[consumer] seen=4862414 kept=1997066 (steady)
+[consumer] seen=5110414 kept=2245066 (steady)
+[consumer] seen=5358414 kept=2493066 (steady)
+[consumer] seen=5607414 kept=2742066 (steady)
+[consumer] seen=5855414 kept=2990066 (steady)
+[consumer] seen=6104414 kept=3239066 (steady)
+[consumer] seen=6352414 kept=3487066 (steady)
+[consumer] seen=6601414 kept=3736066 (steady)
+[consumer] seen=6804346 kept=3938998 (steady)
+[consumer] seen=7103264 kept=4237916 (steady)
+[consumer] seen=7352264 kept=4486916 (steady)
+[consumer] seen=7600264 kept=4734916 (steady)
+[consumer] seen=7848264 kept=4982916 (steady)
+[consumer] seen=8097264 kept=5231916 (steady)
+[consumer] seen=8346264 kept=5480916 (steady)
+[consumer] seen=8593264 kept=5727916 (steady)
+[consumer] seen=8843264 kept=5977916 (steady)
+[consumer] seen=9091264 kept=6225916 (steady)
+[consumer] seen=9340264 kept=6474916 (steady)
+[consumer] seen=9589264 kept=6723916 (steady)
+[consumer] seen=9780331 kept=6914983 (steady)
+[consumer] seen=10089499 kept=7224151 (steady)
+[consumer] seen=10337499 kept=7472151 (steady)
+[consumer] seen=10585499 kept=7720151 (steady)
+[consumer] seen=10834499 kept=7969151 (steady)
+[consumer] seen=11083499 kept=8218151 (steady)
+[consumer] seen=11331499 kept=8466151 (steady)
+[consumer] seen=11580499 kept=8715151 (steady)
+[consumer] seen=11829499 kept=8964151 (steady)
+[consumer] seen=12077499 kept=9212151 (steady)
+[consumer] seen=12325499 kept=9460151 (steady)
+[consumer] seen=12573499 kept=9708151 (steady)
+[consumer] seen=12757350 kept=9892002 (steady)
+[consumer] seen=13074350 kept=10209002 (steady)
+[consumer] seen=13323350 kept=10458002 (steady)
+[consumer] seen=13571350 kept=10706002 (steady)
+[consumer] seen=13819350 kept=10954002 (steady)
+[consumer] seen=14067350 kept=11202002 (steady)
+[consumer] seen=14316350 kept=11451002 (steady)
+[consumer] seen=14564350 kept=11699002 (steady)
+[consumer] seen=14813350 kept=11948002 (steady)
+[consumer] seen=15061350 kept=12196002 (steady)
+[consumer] seen=15309350 kept=12444002 (steady)
+[consumer] seen=15557350 kept=12692002 (steady)
+[consumer] seen=15734350 kept=12869002 (steady)
+[consumer] seen=16057350 kept=13192002 (steady)
+[consumer] seen=16306350 kept=13441002 (steady)
+[consumer] seen=16554350 kept=13689002 (steady)
+[consumer] seen=16804350 kept=13939002 (steady)
+[consumer] seen=17053350 kept=14188002 (steady)
+[consumer] seen=17301350 kept=14436002 (steady)
+[consumer] seen=17550350 kept=14685002 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-s2-et-r1",
+  "topic": "st-output",
+  "kept_records": 14881002,
+  "seen_records": 17746350,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 49603.3,
+  "started_at": 1794230312.851,
+  "ended_at": 1794230672.875,
+  "pipeline_ms": {
+    "count": 14881002,
+    "p50": 6.563,
+    "p95": 45.279,
+    "p99": 1700.493,
+    "max": 3050.701,
+    "mean": 58.167
+  },
+  "e2e_ms": {
+    "count": 14881002,
+    "p50": 26.494,
+    "p95": 84.494,
+    "p99": 1725.085,
+    "max": 3071.131,
+    "mean": 78.49
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-s2-et-r1_summary.json

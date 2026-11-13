@@ -1,0 +1,23 @@
+# spark-rtm-scala-p6-r3 evidence at 2026-11-09T20:29:02Z ckpt=spark-rtm-scala-p6-43b-1794255713
+--- driver log lines
+[RtmPipeline] mode=rtm id=c54fab3c-f8f2-4bcd-ab05-aa7b06725d56 runId=ac4dc0ff-66af-4c2e-aaef-fcbbb7cfc203 trigger=RealTime(60 seconds) asyncProgressTrackingEnabled=auto ckpt=s3a://rtm-flink-bench-ckpt-__ACCOUNT__/spark-rtm-scala-p6-43b-1794255713
+async-log-write threads: 1
+AsyncProgressTrackingMicroBatchExecution frames: 1
+--- checkpoint s3://rtm-flink-bench-ckpt-__ACCOUNT__/spark-rtm-scala-p6-43b-1794255713 (LastModified UTC, key)
+[offsets]
+2026-11-09T20:22:19+00:00	spark-rtm-scala-p6-43b-1794255713/offsets/
+2026-11-09T20:23:25+00:00	spark-rtm-scala-p6-43b-1794255713/offsets/0
+2026-11-09T20:24:25+00:00	spark-rtm-scala-p6-43b-1794255713/offsets/1
+2026-11-09T20:25:25+00:00	spark-rtm-scala-p6-43b-1794255713/offsets/2
+2026-11-09T20:26:25+00:00	spark-rtm-scala-p6-43b-1794255713/offsets/3
+2026-11-09T20:27:25+00:00	spark-rtm-scala-p6-43b-1794255713/offsets/4
+2026-11-09T20:28:25+00:00	spark-rtm-scala-p6-43b-1794255713/offsets/5
+[commits]
+2026-11-09T20:22:19+00:00	spark-rtm-scala-p6-43b-1794255713/commits/
+2026-11-09T20:23:26+00:00	spark-rtm-scala-p6-43b-1794255713/commits/0
+2026-11-09T20:24:25+00:00	spark-rtm-scala-p6-43b-1794255713/commits/1
+2026-11-09T20:25:26+00:00	spark-rtm-scala-p6-43b-1794255713/commits/2
+2026-11-09T20:26:26+00:00	spark-rtm-scala-p6-43b-1794255713/commits/3
+2026-11-09T20:27:26+00:00	spark-rtm-scala-p6-43b-1794255713/commits/4
+2026-11-09T20:28:26+00:00	spark-rtm-scala-p6-43b-1794255713/commits/5
+--- latest commit log entry

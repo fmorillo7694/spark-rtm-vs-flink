@@ -1,0 +1,21 @@
+# flink-ds-s1-update flink evidence at 2026-11-08T12:40:57Z job=f2614dbe486d2bd1002fed633670fe12
+--- checkpoint config
+{"mode":"exactly_once","interval":60000,"timeout":600000,"min_pause":0,"max_concurrent":1,"externalization":{"enabled":false,"delete_on_cancellation":true},"state_backend":"EmbeddedRocksDBStateBackend","checkpoint_storage":"FileSystemCheckpointStorage","unaligned_checkpoints":false,"tolerable_failed_checkpoints":0,"aligned_checkpoint_timeout":0,"checkpoints_after_tasks_finish":true,"state_changelog_enabled":false,"changelog_periodic_materialization_interval":600000,"changelog_storage":"memory"}
+--- checkpoint counts
+{'restored': 0, 'total': 3, 'in_progress': 0, 'completed': 2, 'failed': 1}
+latest completed: id 2 state_size 1657753 checkpointed_size 1657753 duration_ms 126
+  ckpt 2 COMPLETED trigger 1794141611369 dur_ms 126 size 1657753 
+  ckpt 1 COMPLETED trigger 1794141551368 dur_ms 72 size 144612 
+--- JM log: checkpoint failures
+2026-11-08 12:39:10,612 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using failover strategy org.apache.flink.runtime.executiongraph.failover.RestartPipelinedRegionFailoverStrategy@a7b5d34 for flink-stateful-s1-update-at-least-once (f2614dbe486d2bd1002fed633670fe12).
+2026-11-08 12:39:11,080 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job f2614dbe486d2bd1002fed633670fe12 since Checkpoint triggering task Source: kafka-source (1/6) of job f2614dbe486d2bd1002fed633670fe12 is not being executed at the momen
+--- job vertices
+6 RUNNING Source: kafka-source
+6 RUNNING s1-update-mode-window -> kafka-sink: Writer -> kafka-sink: Committer
+--- TM log: state backend
+   6 2026-11-08 12:39:11,295 INFO  org.apache.flink.state.rocksdb.RocksDBKeyedStateBackendBuilder [] - Finished building RocksDB keyed state-backend at /tmp/tm_172.19.0.4:40367-adce79/tmp/job_f2614dbe486d2bd1002fed633670fe12_
+   6 2026-11-08 12:39:11,239 INFO  org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackend   [] - Getting shared memory for RocksDB: shareScope=SLOT, managed=true
+   6 2026-11-08 12:39:11,056 INFO  org.apache.flink.runtime.state.StateBackendLoader            [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory
+   6 2026-11-08 12:39:11,041 INFO  org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackend   [] - Using predefined options: DEFAULT.
+   6 2026-11-08 12:39:11,041 INFO  org.apache.flink.runtime.state.StateBackendLoader            [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory
+   6 2026-11-08 12:39:10,911 INFO  org.apache.flink.streaming.runtime.tasks.StreamTask          [] - Loading state backend via factory org.apache.flink.state.rocksdb.EmbeddedRocksDBStateBackendFactory

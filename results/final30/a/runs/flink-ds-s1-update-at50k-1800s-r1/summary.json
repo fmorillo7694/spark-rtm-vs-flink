@@ -1,0 +1,35 @@
+{
+  "engine": "flink-ds-s1-update-at50k-1800s-r1",
+  "topic": "st-output",
+  "kept_records": 89280638,
+  "seen_records": 92134112,
+  "window_seconds": 1800,
+  "warmup_seconds": 60,
+  "throughput_eps": 49600.4,
+  "started_at": 1794490271.492,
+  "ended_at": 1794492131.504,
+  "pipeline_ms": {
+    "count": 89280638,
+    "p50": 6.878,
+    "p95": 193.139,
+    "p99": 1589.958,
+    "max": 2907.235,
+    "mean": 58.484
+  },
+  "e2e_ms": {
+    "count": 89280638,
+    "p50": 27.52,
+    "p95": 228.476,
+    "p99": 1617.053,
+    "max": 2976.242,
+    "mean": 80.387
+  },
+  "window_ms": {
+    "count": 89280638,
+    "p50": -4870.0,
+    "p95": -493.0,
+    "p99": -93.0,
+    "max": 52.0,
+    "mean": -4941.314
+  }
+}

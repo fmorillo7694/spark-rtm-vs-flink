@@ -1,0 +1,3 @@
+smoke-a stateful/sessd-smoke-a-20261110T191830Z
+main stateful/sessd-20261110T192841Z launched 2026-11-10T19:28:41Z BUDGET_S=37800
+2026-11-10T22:53:28Z main-job self-teardown neutralized (kafka/pvc delete RBAC, kube-system binding, IAM scale-down detached); restore with the D2 launch

@@ -1,0 +1,27 @@
+{
+  "engine": "flink-sql-s2-ttl60-SMOKE",
+  "topic": "st-output",
+  "kept_records": 120419,
+  "seen_records": 174239,
+  "window_seconds": 40,
+  "warmup_seconds": 20,
+  "throughput_eps": 3010.5,
+  "started_at": 1794222639.713,
+  "ended_at": 1794222699.82,
+  "pipeline_ms": {
+    "count": 120419,
+    "p50": 6.284,
+    "p95": 7.922,
+    "p99": 9.268,
+    "max": 58.698,
+    "mean": 6.408
+  },
+  "e2e_ms": {
+    "count": 120419,
+    "p50": 116.933,
+    "p95": 207.679,
+    "p99": 216.12,
+    "max": 224.178,
+    "mean": 116.754
+  }
+}

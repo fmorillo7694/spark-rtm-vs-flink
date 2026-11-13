@@ -1,0 +1,27 @@
+{
+  "engine": "spark-rtm-s2-ckpt5s-r1",
+  "topic": "st-output",
+  "kept_records": 14839056,
+  "seen_records": 17783214,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 49463.5,
+  "started_at": 1794261865.38,
+  "ended_at": 1794262225.396,
+  "pipeline_ms": {
+    "count": 14839056,
+    "p50": 55.533,
+    "p95": 2125.627,
+    "p99": 2525.516,
+    "max": 3377.127,
+    "mean": 621.613
+  },
+  "e2e_ms": {
+    "count": 14839056,
+    "p50": 252.972,
+    "p95": 2158.971,
+    "p99": 2558.248,
+    "max": 3404.853,
+    "mean": 705.15
+  }
+}

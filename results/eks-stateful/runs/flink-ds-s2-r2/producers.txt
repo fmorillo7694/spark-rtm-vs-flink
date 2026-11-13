@@ -1,0 +1,8 @@
+st-producer-0-xkcqt   0/1   Completed   0     6m43s
+st-producer-1-jqfpq   0/1   Completed   0     6m43s
+st-producer-2-hqx8l   0/1   Completed   0     6m43s
+st-producer-3-nsdk9   0/1   Completed   0     6m43s
+st-producer-4-xx5zv   0/1   Completed   0     6m43s
+st-producer-5-krlzh   0/1   Completed   0     6m43s
+st-producer-6-5pzpk   0/1   Completed   0     6m43s
+st-producer-7-gjjwn   0/1   Completed   0     6m43s

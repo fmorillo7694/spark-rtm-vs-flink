@@ -1,0 +1,11 @@
+--- self-teardown preflight rtm-flink-bench6b 2026-11-11T17:28:29Z
+Job env: BUDGET_S=28800 PLAN_SET=FB SELF_TEARDOWN=1 CLUSTER=rtm-flink-bench6b 
+IAM: rtm-flink-ckpt-s3	rtm-flink-bench6b-runner-scale-down
+simulate engine-ng: allowed	allowed
+simulate bench-ng: allowed	allowed
+can-i delete kafkas.kafka.strimzi.io -n kafka: yes
+can-i delete kafkanodepools.kafka.strimzi.io -n kafka: yes
+can-i delete persistentvolumeclaims -n kafka: yes
+can-i list persistentvolumes: yes
+can-i get nodes/proxy: yes
+runner: [17:28:12] ######## spark-rtm-s1-r1 attempt=1 elapsed=11s

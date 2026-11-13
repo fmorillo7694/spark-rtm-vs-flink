@@ -1,0 +1,8 @@
+# teardown verification rtm-flink-bench7a 2026-11-12T17:45:56Z
+cluster: []
+stacks not DELETE_COMPLETE: []
+instances: []
+tagged volumes: []
+schedules: []
+NAT gateways: <NAT_ID>:available 
+unattached volumes (region, checked after A's delete): [<VOLUME_ID>@2026-11-10T19:27:03+00:00 <VOLUME_ID>@2026-11-10T19:27:03.035000+00:00 <VOLUME_ID>@2026-11-10T19:27:03.044000+00:00 ] = the 3 bench4 leftovers

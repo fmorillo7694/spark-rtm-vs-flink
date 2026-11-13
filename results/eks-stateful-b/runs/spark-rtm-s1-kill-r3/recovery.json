@@ -1,0 +1,8 @@
+{
+  "run": "spark-rtm-s1-kill-r3",
+  "kill_epoch": 1794258260.0,
+  "pre_rate": 49663.0,
+  "outage_s": 71.0,
+  "recover_s": 148.0,
+  "dup_records": 80934
+}

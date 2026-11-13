@@ -1,0 +1,15 @@
+{
+ "prefix": "stateful/flink-ds-s1-update-at50k-1800s-r2-1794502570/",
+ "objects": 55,
+ "bytes": 203026236,
+ "by_dir": {
+  "chk-*": {
+   "objects": 1,
+   "bytes": 108565
+  },
+  "shared": {
+   "objects": 54,
+   "bytes": 202917671
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{
+  "engine": "spark-mb-da-s1-steps-r2",
+  "topic": "st-output",
+  "kept_records": 158555291,
+  "seen_records": 160502697,
+  "window_seconds": 2700,
+  "warmup_seconds": 60,
+  "throughput_eps": 58724.2,
+  "started_at": 1794367142.108,
+  "ended_at": 1794369902.251,
+  "pipeline_ms": {
+    "count": 158555291,
+    "p50": 5150.2,
+    "p95": 10670.29,
+    "p99": 16994.035,
+    "max": 31686.887,
+    "mean": 5782.536
+  },
+  "e2e_ms": {
+    "count": 158555291,
+    "p50": 6009.52,
+    "p95": 12392.392,
+    "p99": 19609.061,
+    "max": 38257.609,
+    "mean": 6702.764
+  },
+  "window_ms": {
+    "count": 158555291,
+    "p50": 658.0,
+    "p95": 7994.0,
+    "p99": 13570.0,
+    "max": 27468.0,
+    "mean": 912.939
+  }
+}

@@ -1,0 +1,8 @@
+st-producer-0-d78nm   0/1   Completed   0     6m43s
+st-producer-1-2mdsz   0/1   Completed   0     6m43s
+st-producer-2-dth7w   0/1   Completed   0     6m43s
+st-producer-3-448s6   0/1   Completed   0     6m43s
+st-producer-4-cdstt   0/1   Completed   0     6m43s
+st-producer-5-j9dgd   0/1   Completed   0     6m43s
+st-producer-6-68522   0/1   Completed   0     6m43s
+st-producer-7-26xnk   0/1   Completed   0     6m43s

@@ -1,0 +1,11 @@
+{
+ "prefix": "stateful/flink-ds-s4-at50k-1800s-r2-1794504304/",
+ "objects": 1,
+ "bytes": 10364,
+ "by_dir": {
+  "chk-*": {
+   "objects": 1,
+   "bytes": 10364
+  }
+ }
+}

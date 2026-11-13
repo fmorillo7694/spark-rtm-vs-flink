@@ -1,0 +1,15 @@
+{
+ "prefix": "stateful/flink-ds-s1-update-r3-1794443068/",
+ "objects": 43,
+ "bytes": 133322618,
+ "by_dir": {
+  "chk-*": {
+   "objects": 1,
+   "bytes": 46709
+  },
+  "shared": {
+   "objects": 42,
+   "bytes": 133275909
+  }
+ }
+}

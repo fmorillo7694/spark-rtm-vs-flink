@@ -1,0 +1,16 @@
+# evidence at 2026-11-09T18:06:08Z
+async-log-write threads: 0
+AsyncProgressTrackingMicroBatchExecution frames: 0
+--- active stages (pipelined: source + stateful stage RUNNING together)
+5 ACTIVE 6 6 start at StatefulPipelineJava.java:244
+4 ACTIVE 6 6 start at StatefulPipelineJava.java:244
+--- driver log: pipelined / commits / batch starts (boundary split input)
+[StatefulPipelineJava] workload=s3-lt mode=rtm id=8444a465-5c7e-44f1-a0ec-9e0fcdd191af trigger=RealTime(60 seconds) outputMode=update startingOffsets=latest watermark=5s window=10s gapMs=5000 timeoutMs=5000 stateStore=org.apache.spark.sql.e
+26/11/09 17:59:50 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/09 17:59:50 INFO DAGScheduler: Submitting ResultStage 1 concurrently with its running pipelined producer(s) List(ShuffleMapStage 0)
+26/11/09 18:01:36 INFO MicroBatchExecution: Committed offsets for batch 0. Metadata OffsetSeqMetadata(0,1794247187164,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDBStateStorePr
+26/11/09 18:01:38 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/09 18:01:38 INFO DAGScheduler: Submitting ResultStage 3 concurrently with its running pipelined producer(s) List(ShuffleMapStage 2)
+26/11/09 18:04:37 INFO MicroBatchExecution: Committed offsets for batch 1. Metadata OffsetSeqMetadata(0,1794247297949,HashMap(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.RocksDBStateStorePr
+26/11/09 18:04:37 INFO SparkContext: Starting job: start at StatefulPipelineJava.java:244
+26/11/09 18:04:37 INFO DAGScheduler: Submitting ResultStage 5 concurrently with its running pipelined producer(s) List(ShuffleMapStage 4)

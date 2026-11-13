@@ -1,0 +1,70 @@
+# Stateful Flink SQL job (bench.StatefulSql: s1 TUMBLE TVF | s2 ROW_NUMBER dedup) as a
+# FlinkDeployment, same p6 sizing as flink-stateful-datastream.yaml.
+#
+# Placeholders: <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com v43d <ACCOUNT_ID> s2-ttl60 (s1|s2)
+#   at-least-once (at-least-once|exactly-once) flink-sql-s2-ttl60-r1-1794424046 60000 5 10
+apiVersion: flink.apache.org/v1beta1
+kind: FlinkDeployment
+metadata:
+  name: flink-stateful
+  namespace: flink
+  labels: { bench: stateful }
+spec:
+  image: "<ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/flink:v43d"
+  imagePullPolicy: Always
+  flinkVersion: v2_3
+  flinkConfiguration:
+    taskmanager.numberOfTaskSlots: "3"
+    execution.buffer-timeout: "0 ms"   # job arg 11 sets the same value (0 tuned, 100 Flink default)
+    restart-strategy.type: "fixed-delay"
+    restart-strategy.fixed-delay.attempts: "10"
+    restart-strategy.fixed-delay.delay: "2 s"
+    # RocksDB native memory metrics (final run sampler; equal on every Flink stateful arm)
+    state.backend.rocksdb.metrics.block-cache-usage: "true"
+    state.backend.rocksdb.metrics.size-all-mem-tables: "true"
+    state.backend.rocksdb.metrics.estimate-table-readers-mem: "true"
+    state.backend.rocksdb.metrics.estimate-live-data-size: "true"
+  serviceAccount: flink
+  podTemplate:
+    spec:
+      nodeSelector: { bench/role: engine }
+      tolerations: [{ key: bench/role, operator: Equal, value: engine, effect: NoSchedule }]
+      containers:
+        - name: flink-main-container
+          env:
+            - name: ENABLE_BUILT_IN_PLUGINS
+              value: "flink-s3-fs-presto-2.3.0.jar"
+  jobManager:
+    resource:
+      memory: "2048m"
+      cpu: 1
+  taskManager:
+    podTemplate:
+      spec:
+        affinity:
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector: { matchLabels: { component: taskmanager } }
+                topologyKey: kubernetes.io/hostname
+    replicas: 2
+    resource:
+      memory: "6144m"
+      cpu: 3
+  job:
+    jarURI: "local:///opt/flink/usrlib/flink-sql.jar"
+    entryClass: "bench.StatefulSql"
+    args:
+      - "s2-ttl60"
+      - "bench-kafka-bootstrap.kafka.svc:9092"
+      - "st-input"
+      - "st-output"
+      - "6"
+      - "60000"
+      - "s3://<BUCKET>/stateful/flink-sql-s2-ttl60-r1-1794424046"
+      - "at-least-once"
+      - "latest"
+      - "5"
+      - "10"
+      - "0"
+    parallelism: 6
+    upgradeMode: stateless

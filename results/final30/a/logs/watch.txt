@@ -1,0 +1,183 @@
+=== 2026-11-12T11:11:56Z rtm-flink-bench7a
+disk broker-0: overlay         100G  5.4G   95G   6% /
+disk broker-1: overlay         100G  5.3G   95G   6% /
+disk broker-2: overlay         100G  5.7G   95G   6% /
+runner [11:09:02] ######## spark-rtm-s1-at50k-1800s-r1 attempt=1 elapsed=6s
+=== 2026-11-12T11:16:19Z rtm-flink-bench7a
+st-consumer-lm9pr                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-lm9pr                           561m    31Mi     
+disk broker-0: /dev/nvme1n1     98G  5.3G   93G   6% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G  5.3G   93G   6% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G  5.3G   93G   6% /var/lib/kafka/data-0
+runner [11:09:02] ######## spark-rtm-s1-at50k-1800s-r1 attempt=1 elapsed=6s
+=== 2026-11-12T11:43:46Z rtm-flink-bench7a
+st-consumer-lm9pr                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-lm9pr                           545m    990Mi    
+disk broker-0: /dev/nvme1n1     98G   24G   75G  24% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   24G   75G  24% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   24G   75G  24% /var/lib/kafka/data-0
+runner [11:09:02] ######## spark-rtm-s1-at50k-1800s-r1 attempt=1 elapsed=6s
+=== 2026-11-12T11:49:44Z rtm-flink-bench7a
+st-consumer-ksgzk                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-ksgzk                           459m    37Mi     
+disk broker-0: /dev/nvme1n1     98G  5.4G   93G   6% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G  5.5G   93G   6% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G  5.5G   93G   6% /var/lib/kafka/data-0
+runner [11:09:02] ######## spark-rtm-s1-at50k-1800s-r1 attempt=1 elapsed=6s
+runner     kept=89332996 p50=39.696 p99=7263.705 max=9446.229
+runner [11:46:42] ######## flink-ds-bt100-s1-update-at50k-1800s-r1 attempt=1 elapsed=2266s
+=== 2026-11-12T11:53:48Z rtm-flink-bench7a
+st-consumer-ksgzk                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-ksgzk                           463m    177Mi    
+disk broker-0: /dev/nvme1n1     98G  8.2G   90G   9% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G  8.2G   90G   9% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G  8.2G   90G   9% /var/lib/kafka/data-0
+runner [11:09:02] ######## spark-rtm-s1-at50k-1800s-r1 attempt=1 elapsed=6s
+runner     kept=89332996 p50=39.696 p99=7263.705 max=9446.229
+runner [11:46:42] ######## flink-ds-bt100-s1-update-at50k-1800s-r1 attempt=1 elapsed=2266s
+=== 2026-11-12T12:40:00Z rtm-flink-bench7a
+latency-consumer-rqkzb                      6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top latency-consumer-rqkzb                      502m    302Mi    
+disk broker-0: /dev/nvme1n1     98G   34G   65G  34% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   34G   65G  34% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   34G   65G  34% /var/lib/kafka/data-0
+runner     kept=89332996 p50=39.696 p99=7263.705 max=9446.229
+runner [11:46:42] ######## flink-ds-bt100-s1-update-at50k-1800s-r1 attempt=1 elapsed=2266s
+runner     kept=89280277 p50=55.188 p99=1245.03 max=2628.242
+runner [12:19:55] ######## spark-rtm-java-p6-r1 attempt=1 elapsed=4259s
+=== 2026-11-12T12:51:41Z rtm-flink-bench7a
+latency-consumer-rqkzb                      6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top latency-consumer-rqkzb                      493m    482Mi    
+disk broker-0: /dev/nvme1n1     98G   41G   57G  42% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   41G   57G  42% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   41G   57G  42% /var/lib/kafka/data-0
+runner     kept=89332996 p50=39.696 p99=7263.705 max=9446.229
+runner [11:46:42] ######## flink-ds-bt100-s1-update-at50k-1800s-r1 attempt=1 elapsed=2266s
+runner     kept=89280277 p50=55.188 p99=1245.03 max=2628.242
+runner [12:19:55] ######## spark-rtm-java-p6-r1 attempt=1 elapsed=4259s
+=== 2026-11-12T12:57:36Z rtm-flink-bench7a
+disk broker-0: /dev/nvme1n1     98G   21G   78G  22% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   21G   78G  22% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   21G   78G  22% /var/lib/kafka/data-0
+runner     kept=89280277 p50=55.188 p99=1245.03 max=2628.242
+runner [12:19:55] ######## spark-rtm-java-p6-r1 attempt=1 elapsed=4259s
+runner     kept=59997674 p50=6.279 p99=30.345 max=361.216
+runner [12:52:06] ######## spark-rtm-vt-s1-at50k-1800s-r1 attempt=1 elapsed=6190s
+=== 2026-11-12T13:12:29Z rtm-flink-bench7a
+st-consumer-btxwn                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-btxwn                           644m    490Mi    
+disk broker-0: /dev/nvme1n1     98G   31G   68G  32% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   31G   68G  32% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   31G   68G  32% /var/lib/kafka/data-0
+runner     kept=89280277 p50=55.188 p99=1245.03 max=2628.242
+runner [12:19:55] ######## spark-rtm-java-p6-r1 attempt=1 elapsed=4259s
+runner     kept=59997674 p50=6.279 p99=30.345 max=361.216
+runner [12:52:06] ######## spark-rtm-vt-s1-at50k-1800s-r1 attempt=1 elapsed=6190s
+=== 2026-11-12T13:46:44Z rtm-flink-bench7a
+st-consumer-dqlwt                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-dqlwt                           555m    518Mi    
+disk broker-0: /dev/nvme1n1     98G   20G   79G  20% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   20G   79G  20% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   20G   79G  20% /var/lib/kafka/data-0
+runner     kept=59997674 p50=6.279 p99=30.345 max=361.216
+runner [12:52:06] ######## spark-rtm-vt-s1-at50k-1800s-r1 attempt=1 elapsed=6190s
+runner     kept=89280903 p50=13.259 p99=4300.991 max=6133.303
+runner [13:29:52] ######## flink-ds-s1-update-at50k-1800s-r1 attempt=1 elapsed=8456s
+=== 2026-11-12T14:01:45Z rtm-flink-bench7a
+st-consumer-dqlwt                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-dqlwt                           634m    1032Mi   
+disk broker-0: /dev/nvme1n1     98G   21G   78G  22% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   21G   78G  22% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   21G   78G  22% /var/lib/kafka/data-0
+runner     kept=59997674 p50=6.279 p99=30.345 max=361.216
+runner [12:52:06] ######## spark-rtm-vt-s1-at50k-1800s-r1 attempt=1 elapsed=6190s
+runner     kept=89280903 p50=13.259 p99=4300.991 max=6133.303
+runner [13:29:52] ######## flink-ds-s1-update-at50k-1800s-r1 attempt=1 elapsed=8456s
+=== 2026-11-12T14:25:03Z rtm-flink-bench7a
+latency-consumer-pgptw                      6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top latency-consumer-pgptw                      399m    323Mi    
+disk broker-0: /dev/nvme1n1     98G   35G   64G  36% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   35G   64G  36% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   35G   64G  36% /var/lib/kafka/data-0
+runner     kept=89280903 p50=13.259 p99=4300.991 max=6133.303
+runner [13:29:52] ######## flink-ds-s1-update-at50k-1800s-r1 attempt=1 elapsed=8456s
+runner     kept=89280638 p50=6.878 p99=1589.958 max=2907.235
+runner [14:03:04] ######## flink-p6-r1 attempt=1 elapsed=10448s
+=== 2026-11-12T14:36:07Z rtm-flink-bench7a
+disk broker-0: /dev/nvme1n1     98G   42G   57G  43% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   42G   57G  43% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   42G   57G  43% /var/lib/kafka/data-0
+runner     kept=89280638 p50=6.878 p99=1589.958 max=2907.235
+runner [14:03:04] ######## flink-p6-r1 attempt=1 elapsed=10448s
+runner     kept=59997893 p50=6.095 p99=32.889 max=440.394
+runner [14:35:32] ######## spark-rtm-s1-at50k-1800s-r2 attempt=1 elapsed=12396s
+=== 2026-11-12T15:02:19Z rtm-flink-bench7a
+st-consumer-r8j97                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-r8j97                           611m    717Mi    
+disk broker-0: /dev/nvme1n1     98G   35G   64G  36% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   35G   64G  36% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   35G   64G  36% /var/lib/kafka/data-0
+runner     kept=89280638 p50=6.878 p99=1589.958 max=2907.235
+runner [14:03:04] ######## flink-p6-r1 attempt=1 elapsed=10448s
+runner     kept=59997893 p50=6.095 p99=32.889 max=440.394
+runner [14:35:32] ######## spark-rtm-s1-at50k-1800s-r2 attempt=1 elapsed=12396s
+=== 2026-11-12T15:27:33Z rtm-flink-bench7a
+st-consumer-lbc65                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-lbc65                           467m    425Mi    
+disk broker-0: /dev/nvme1n1     98G   24G   75G  24% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   24G   75G  24% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   24G   75G  24% /var/lib/kafka/data-0
+runner     kept=59997893 p50=6.095 p99=32.889 max=440.394
+runner [14:35:32] ######## spark-rtm-s1-at50k-1800s-r2 attempt=1 elapsed=12396s
+runner     kept=89157986 p50=41.203 p99=7703.774 max=10216.154
+runner [15:13:16] ######## flink-ds-bt100-s1-update-at50k-1800s-r2 attempt=1 elapsed=14660s
+=== 2026-11-12T15:37:34Z rtm-flink-bench7a
+st-consumer-lbc65                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-lbc65                           474m    771Mi    
+disk broker-0: /dev/nvme1n1     98G   24G   75G  25% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   24G   75G  25% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   24G   75G  25% /var/lib/kafka/data-0
+runner     kept=59997893 p50=6.095 p99=32.889 max=440.394
+runner [14:35:32] ######## spark-rtm-s1-at50k-1800s-r2 attempt=1 elapsed=12396s
+runner     kept=89157986 p50=41.203 p99=7703.774 max=10216.154
+runner [15:13:16] ######## flink-ds-bt100-s1-update-at50k-1800s-r2 attempt=1 elapsed=14660s
+=== 2026-11-12T16:02:37Z rtm-flink-bench7a
+latency-consumer-6bc5g                      6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top latency-consumer-6bc5g                      528m    237Mi    
+disk broker-0: /dev/nvme1n1     98G   31G   68G  32% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   31G   68G  32% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   31G   68G  32% /var/lib/kafka/data-0
+runner     kept=89157986 p50=41.203 p99=7703.774 max=10216.154
+runner [15:13:16] ######## flink-ds-bt100-s1-update-at50k-1800s-r2 attempt=1 elapsed=14660s
+runner     kept=89278503 p50=55.481 p99=1401.962 max=3246.435
+runner [15:46:29] ######## pyspark-rtm-p6-r1 attempt=1 elapsed=16653s
+=== 2026-11-12T16:11:43Z rtm-flink-bench7a
+latency-consumer-6bc5g                      6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top latency-consumer-6bc5g                      540m    378Mi    
+disk broker-0: /dev/nvme1n1     98G   37G   62G  38% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   37G   62G  38% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   37G   62G  38% /var/lib/kafka/data-0
+runner     kept=89157986 p50=41.203 p99=7703.774 max=10216.154
+runner [15:13:16] ######## flink-ds-bt100-s1-update-at50k-1800s-r2 attempt=1 elapsed=14660s
+runner     kept=89278503 p50=55.481 p99=1401.962 max=3246.435
+runner [15:46:29] ######## pyspark-rtm-p6-r1 attempt=1 elapsed=16653s
+=== 2026-11-12T16:37:01Z rtm-flink-bench7a
+st-consumer-clhpb                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-clhpb                           657m    428Mi    
+disk broker-0: /dev/nvme1n1     98G   30G   69G  30% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   30G   69G  30% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   30G   69G  30% /var/lib/kafka/data-0
+runner     kept=89278503 p50=55.481 p99=1401.962 max=3246.435
+runner [15:46:29] ######## pyspark-rtm-p6-r1 attempt=1 elapsed=16653s
+runner     kept=59993519 p50=6.312 p99=33.997 max=257.447
+runner [16:18:25] ######## spark-rtm-vt-s1-at50k-1800s-r2 attempt=1 elapsed=18569s
+=== 2026-11-12T16:53:01Z rtm-flink-bench7a
+st-consumer-clhpb                           6Gi      10Gi     <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/rtm-bench/load:v43d   0     <none>   <none>
+top st-consumer-clhpb                           741m    993Mi    
+disk broker-0: /dev/nvme1n1     98G   40G   58G  41% /var/lib/kafka/data-0
+disk broker-1: /dev/nvme1n1     98G   40G   58G  41% /var/lib/kafka/data-0
+disk broker-2: /dev/nvme1n1     98G   40G   58G  41% /var/lib/kafka/data-0
+runner     kept=89278503 p50=55.481 p99=1401.962 max=3246.435
+runner [15:46:29] ######## pyspark-rtm-p6-r1 attempt=1 elapsed=16653s
+runner     kept=59993519 p50=6.312 p99=33.997 max=257.447
+runner [16:18:25] ######## spark-rtm-vt-s1-at50k-1800s-r2 attempt=1 elapsed=18569s

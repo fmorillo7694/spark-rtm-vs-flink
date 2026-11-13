@@ -1,0 +1,35 @@
+{
+  "engine": "flink-auto-s1-update-scalein-r1",
+  "topic": "st-output",
+  "kept_records": 141193351,
+  "seen_records": 145612763,
+  "window_seconds": 2700,
+  "warmup_seconds": 60,
+  "throughput_eps": 52293.8,
+  "started_at": 1794405025.54,
+  "ended_at": 1794407785.554,
+  "pipeline_ms": {
+    "count": 141193351,
+    "p50": 11.191,
+    "p95": 1905.384,
+    "p99": 12519.703,
+    "max": 20953.359,
+    "mean": 477.025
+  },
+  "e2e_ms": {
+    "count": 141193351,
+    "p50": 83.019,
+    "p95": 9691.161,
+    "p99": 15205.454,
+    "max": 22043.127,
+    "mean": 1335.021
+  },
+  "window_ms": {
+    "count": 141193351,
+    "p50": -4535.0,
+    "p95": -74.0,
+    "p99": 7741.5,
+    "max": 18435.0,
+    "mean": -4529.771
+  }
+}

@@ -1,0 +1,4 @@
+[s5] flink-ds-bt100-s5        PASS  {"truth_pairs": 96014, "output_records": 96014, "missing": 0, "spurious": 0, "emitted_more_than_once": 0}
+[s5] flink-ds-s5              PASS  {"truth_pairs": 96014, "output_records": 96014, "missing": 0, "spurious": 0, "emitted_more_than_once": 0}
+[s5] spark-mb1s-s5            PASS  {"truth_pairs": 96014, "output_records": 96014, "missing": 0, "spurious": 0, "emitted_more_than_once": 0}
+[s5] spark-microbatch-s5      PASS  {"truth_pairs": 96014, "output_records": 96014, "missing": 0, "spurious": 0, "emitted_more_than_once": 0}

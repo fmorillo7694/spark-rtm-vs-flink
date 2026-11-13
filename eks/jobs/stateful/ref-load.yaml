@@ -1,0 +1,28 @@
+# S4 reference table loader: writes the static {user_id, tier, region} table (common/joindata.py
+# rules, user_id 1..__REF_ROWS__ except user_id % 50) to the compacted st-ref topic and exits.
+# Run by eks/stateful/run_matrix_incluster.sh before the engine of every S4 run is deployed, so
+# both engines load the identical table at start.
+# Placeholders: __REGISTRY__ __TAG__ __RUN__ __REF_ROWS__
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: st-ref-load
+  namespace: kafka
+  labels: { bench: stateful, run: "__RUN__" }
+spec:
+  backoffLimit: 1
+  template:
+    metadata:
+      labels: { app: st-ref-load, bench: stateful }
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: loader
+          image: "__REGISTRY__/rtm-bench/load:__TAG__"
+          imagePullPolicy: Always
+          command: ["python", "producer.py"]
+          args: ["--bootstrap", "bench-kafka-bootstrap.kafka.svc:9092", "--topic", "st-ref",
+                 "--ref-rows", "__REF_ROWS__", "--ref-miss-mod", "50"]
+          resources:
+            requests: { cpu: "1", memory: 512Mi }
+            limits:   { cpu: "2", memory: 1Gi }

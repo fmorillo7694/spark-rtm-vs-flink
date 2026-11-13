@@ -12,14 +12,15 @@ spec:
   imagePullPolicy: Always
   mainClass: __MAINCLASS__
   mainApplicationFile: "__JAR__"
-  sparkVersion: "4.1.2"
+  sparkVersion: "4.3.0"
   arguments:
-    - "rtm"
+    - "__MODE__"              # rtm | microbatch
     - "bench-kafka-bootstrap.kafka.svc:9092"
     - "input-events"
     - "output-events"
     - "s3a://rtm-flink-bench-ckpt-__ACCOUNT__/__CKPTNAME__"
     - "60 seconds"
+    - "__ASYNC__"             # auto = Spark default (4.3: async progress tracking on); false = control arm
   sparkConf:
     spark.sql.adaptive.enabled: "false"
     spark.sql.shuffle.partitions: "6"

@@ -1,0 +1,102 @@
+[consumer] <- bench-kafka-bootstrap.kafka.svc:9092 topic=st-output engine=flink-ds-s2-et-r3 warmup=60s window=300s
+[consumer] seen=126000 kept=0 (warmup)
+[consumer] seen=395000 kept=0 (warmup)
+[consumer] seen=644426 kept=0 (warmup)
+[consumer] seen=893426 kept=0 (warmup)
+[consumer] seen=1142426 kept=0 (warmup)
+[consumer] seen=1391426 kept=0 (warmup)
+[consumer] seen=1640426 kept=0 (warmup)
+[consumer] seen=1889426 kept=0 (warmup)
+[consumer] seen=2137426 kept=0 (warmup)
+[consumer] seen=2386426 kept=0 (warmup)
+[consumer] seen=2635426 kept=0 (warmup)
+[consumer] seen=2884426 kept=10000 (steady)
+[consumer] seen=3133426 kept=259000 (steady)
+[consumer] seen=3382426 kept=508000 (steady)
+[consumer] seen=3594752 kept=720326 (steady)
+[consumer] seen=3878752 kept=1004326 (steady)
+[consumer] seen=4127752 kept=1253326 (steady)
+[consumer] seen=4375752 kept=1501326 (steady)
+[consumer] seen=4624752 kept=1750326 (steady)
+[consumer] seen=4873752 kept=1999326 (steady)
+[consumer] seen=5122752 kept=2248326 (steady)
+[consumer] seen=5370752 kept=2496326 (steady)
+[consumer] seen=5619752 kept=2745326 (steady)
+[consumer] seen=5868752 kept=2994326 (steady)
+[consumer] seen=6117752 kept=3243326 (steady)
+[consumer] seen=6365752 kept=3491326 (steady)
+[consumer] seen=6572690 kept=3698264 (steady)
+[consumer] seen=6862690 kept=3988264 (steady)
+[consumer] seen=7111690 kept=4237264 (steady)
+[consumer] seen=7359690 kept=4485264 (steady)
+[consumer] seen=7608690 kept=4734264 (steady)
+[consumer] seen=7856690 kept=4982264 (steady)
+[consumer] seen=8105690 kept=5231264 (steady)
+[consumer] seen=8353690 kept=5479264 (steady)
+[consumer] seen=8600690 kept=5726264 (steady)
+[consumer] seen=8850690 kept=5976264 (steady)
+[consumer] seen=9098690 kept=6224264 (steady)
+[consumer] seen=9347690 kept=6473264 (steady)
+[consumer] seen=9572502 kept=6698076 (steady)
+[consumer] seen=9844502 kept=6970076 (steady)
+[consumer] seen=10093502 kept=7219076 (steady)
+[consumer] seen=10342502 kept=7468076 (steady)
+[consumer] seen=10590502 kept=7716076 (steady)
+[consumer] seen=10838502 kept=7964076 (steady)
+[consumer] seen=11087502 kept=8213076 (steady)
+[consumer] seen=11335502 kept=8461076 (steady)
+[consumer] seen=11583502 kept=8709076 (steady)
+[consumer] seen=11829502 kept=8955076 (steady)
+[consumer] seen=12079502 kept=9205076 (steady)
+[consumer] seen=12328502 kept=9454076 (steady)
+[consumer] seen=12574559 kept=9700133 (steady)
+[consumer] seen=12825559 kept=9951133 (steady)
+[consumer] seen=13073559 kept=10199133 (steady)
+[consumer] seen=13321559 kept=10447133 (steady)
+[consumer] seen=13569559 kept=10695133 (steady)
+[consumer] seen=13818559 kept=10944133 (steady)
+[consumer] seen=14067559 kept=11193133 (steady)
+[consumer] seen=14316559 kept=11442133 (steady)
+[consumer] seen=14565559 kept=11691133 (steady)
+[consumer] seen=14813559 kept=11939133 (steady)
+[consumer] seen=15062559 kept=12188133 (steady)
+[consumer] seen=15310559 kept=12436133 (steady)
+[consumer] seen=15552659 kept=12678233 (steady)
+[consumer] seen=15807659 kept=12933233 (steady)
+[consumer] seen=16055659 kept=13181233 (steady)
+[consumer] seen=16304659 kept=13430233 (steady)
+[consumer] seen=16552659 kept=13678233 (steady)
+[consumer] seen=16800659 kept=13926233 (steady)
+[consumer] seen=17049659 kept=14175233 (steady)
+[consumer] seen=17298659 kept=14424233 (steady)
+[consumer] seen=17547659 kept=14673233 (steady)
+
+========== LATENCY SUMMARY ==========
+{
+  "engine": "flink-ds-s2-et-r3",
+  "topic": "st-output",
+  "kept_records": 14881233,
+  "seen_records": 17755659,
+  "window_seconds": 300,
+  "warmup_seconds": 60,
+  "throughput_eps": 49604.1,
+  "started_at": 1794234920.292,
+  "ended_at": 1794235280.315,
+  "pipeline_ms": {
+    "count": 14881233,
+    "p50": 6.843,
+    "p95": 70.429,
+    "p99": 1794.755,
+    "max": 3010.666,
+    "mean": 62.381
+  },
+  "e2e_ms": {
+    "count": 14881233,
+    "p50": 27.454,
+    "p95": 118.575,
+    "p99": 1818.29,
+    "max": 3089.078,
+    "mean": 83.208
+  }
+}
+[consumer] wrote (no raw csv) and /tmp/flink-ds-s2-et-r3_summary.json

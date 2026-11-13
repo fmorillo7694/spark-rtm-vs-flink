@@ -1,0 +1,33 @@
+{
+  "engine": "spark-rtm-s1-sw1-SMOKE",
+  "topic": "st-output",
+  "kept_records": 210001,
+  "seen_records": 264061,
+  "window_seconds": 70,
+  "warmup_seconds": 20,
+  "throughput_eps": 3000.0,
+  "pipeline_ms": {
+    "count": 210001,
+    "p50": 6.741,
+    "p95": 8.314,
+    "p99": 330.009,
+    "max": 1041.156,
+    "mean": 14.222
+  },
+  "e2e_ms": {
+    "count": 210001,
+    "p50": 8.831,
+    "p95": 11.073,
+    "p99": 335.875,
+    "max": 1045.957,
+    "mean": 16.498
+  },
+  "window_ms": {
+    "count": 210001,
+    "p50": -4996.0,
+    "p95": -492.0,
+    "p99": -95.0,
+    "max": 8.0,
+    "mean": -4986.693
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "engine": "recovery-smoke",
+  "topic": "st-rec-out",
+  "kept_records": 238620,
+  "seen_records": 254600,
+  "window_seconds": 140,
+  "warmup_seconds": 10,
+  "throughput_eps": 1704.4,
+  "started_at": 1794221660.028,
+  "ended_at": 1794221810.103,
+  "pipeline_ms": {
+    "count": 238620,
+    "p50": 6.458,
+    "p95": 19056.158,
+    "p99": 23709.436,
+    "max": 24832.354,
+    "mean": 2644.886
+  },
+  "e2e_ms": {
+    "count": 238620,
+    "p50": 142.843,
+    "p95": 19079.473,
+    "p99": 23729.486,
+    "max": 24872.23,
+    "mean": 2735.667
+  },
+  "window_ms": {
+    "count": 238620,
+    "p50": -4224.5,
+    "p95": 14584.0,
+    "p99": 14678.0,
+    "max": 24492.0,
+    "mean": -2490.639
+  }
+}
