@@ -1,0 +1,24 @@
+# GitHub Pages (Jekyll) config. Serves the post at /post/piece1-4.3.html so Medium's
+# "Import a story" can pull the text and charts from one URL. The README is the site index.
+title: "Spark 4.3 Real-time Mode vs Flink 2.3"
+description: "Reproducible latency, state, recovery, scaling and cost benchmark"
+theme: jekyll-theme-primer
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Only the post, its charts, the README and the docs it links are part of the site.
+# Raw results, scripts and job code stay in the repo, not on the site.
+exclude:
+  - results/
+  - eks/
+  - bench/
+  - spark/
+  - flink/
+  - common/
+  - "docker-compose.*.yml"
+  - FINAL30_PLAN.md
+  - FINAL_RUN_PLAN.md
+  - SCALING_PLAN.md
+  - post/charts/numbers.json
+  - post/charts/cost_table.md
