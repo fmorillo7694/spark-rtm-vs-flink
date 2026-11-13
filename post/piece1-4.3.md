@@ -105,8 +105,9 @@ within the 30-minute rows.*
 
 *Hatched bars are the published 4.1.2 / 2.2.0 numbers.*
 
-**RTM's p99 went from 642 ms to 30.3 ms.** <!-- TODO: the original post's text says 669 ms; its run summary says 642 ms --> The cause is a 4.3 change: RTM now enables
-**asynchronous progress tracking** by default (SPARK-58131; TODO: verify the JIRA number). Offsets and commit-log writes move
+**RTM's p99 went from 642 ms to 30.3 ms.** The cause is a 4.3 change: RTM now enables
+**asynchronous progress tracking** by default ([SPARK-58131](https://issues.apache.org/jira/browse/SPARK-58131), listed in the
+[4.3.0 release notes](https://spark.apache.org/releases/spark-release-4-3-0.html)). Offsets and commit-log writes move
 off the data path onto a single background `async-log-write` thread. I confirmed it in every
 run: that thread is in the driver's jstack, the query runs as
 `AsyncProgressTrackingMicroBatchExecution`, and the commit log entries have the async format.
@@ -188,7 +189,7 @@ exchange (the `keyBy` / shuffle into the stateful operator):
 - **Flink:** `execution.buffer-timeout`. **Default 100 ms, tuned 0 ms** (flush per record).
 
 Plus a third Spark arm, **vendor-tuned**: the settings from Databricks' latency benchmark repo
-(TODO: link) that exist in OSS 4.3. That's a 10 ms shuffle flush and
+([databricks-solutions/latency-benchmarks](https://github.com/databricks-solutions/latency-benchmarks)) that exist in OSS 4.3. That's a 10 ms shuffle flush and
 `spark.sql.streaming.stateStore.rocksdb.trackTotalNumberOfRows=false`. The repo's other big
 setting, async state checkpointing, is DBR-only, so it's not in this arm.
 
@@ -727,11 +728,9 @@ burst shorter than ~14-15 s is invisible here, with either sampler.
 ### What it costs
 
 **Equal hardware means equal dollars per hour.** Both engines ran on the same two m5.2xlarge
-engine nodes at **$0.384/h each, on-demand, Linux, us-east-1** (per
-[instances.vantage.sh](https://instances.vantage.sh/aws/ec2/m5.2xlarge) and
-[instances.usage.ai](https://instances.usage.ai/aws/ec2/m5.2xlarge), read 2026-11-10; TODO:
-re-check against the
-[AWS on-demand pricing page](https://aws.amazon.com/ec2/pricing/on-demand/) before publishing).
+engine nodes at **$0.384/h each, on-demand, Linux, us-east-1** (per the
+[AWS on-demand pricing page](https://aws.amazon.com/ec2/pricing/on-demand/); cross-checked on
+[instances.vantage.sh](https://instances.vantage.sh/aws/ec2/m5.2xlarge)).
 At 50k evt/s that's $0.768/h for 180M events/h, **$0.0043 per million events for both
 engines.** If you size the cluster the way I did, the engine choice doesn't change the bill.
 
@@ -938,11 +937,3 @@ cluster.
 | recovery, 50k | `spark-rtm-s1-kill`, `flink-ds-s1-update-kill` | Recovery |
 | checkpoint interval | `spark-rtm-s1-ckpt*`, `flink-ds-s1-update-ckpt*`, `spark-rtm-s2-ckpt*`, `flink-ds-s2-et-ckpt*` | Checkpoint interval |
 | scaling | `*-s1-update-steps`, `*-s1-steps`, `*-s1-update-scalein` | Scaling |
-
-**Open before publishing (TODO):**
-
-- SPARK-58131 is the JIRA quoted for async progress tracking in RTM; the behaviour is verified
-  from the jars and jstack, the JIRA number is not.
-- Link: the Databricks latency-benchmark repo.
-- The original post's text quotes 669 ms for Spark RTM Java p99; its run summary says 642 ms.
-  This post uses 642; decide whether to note the discrepancy.
