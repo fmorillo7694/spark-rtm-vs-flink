@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+  Cover / LinkedIn summary card for piece1-4.3.md. 1080x1350 CSS px, rendered at 2x (2160x2700, 4:5):
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu \
+      --hide-scrollbars --force-device-scale-factor=2 --window-size=1080,1350 \
+      --screenshot=post/charts/cover_summary.png post/cover/summary.html
+  Every number is from post/piece1-4.3.md (stateless table, stateful table, S1 resources table).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root { --bg:#161d2b; --spark:#ff9b00; --flink:#4aa8ff; --text:#f4f6fa; --muted:#a6afbf; --dim:#7d8799; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:1080px; height:1350px; background:var(--bg); color:var(--text);
+    font-family:-apple-system, "SF Pro Display", "Helvetica Neue", Inter, Arial, sans-serif; }
+  .page { padding:54px 68px 0; }
+  .kicker { color:var(--spark); font-weight:800; letter-spacing:4px; font-size:19px; }
+  h1 { font-size:56px; line-height:1.02; font-weight:800; letter-spacing:-1.8px; margin-top:18px; }
+  h1 .b { color:var(--flink); }
+  .tag { font-size:28px; font-weight:800; letter-spacing:-0.6px; margin-top:20px; }
+  .tag .b { color:var(--flink); }
+  .sub { color:var(--muted); font-size:18px; margin-top:12px; line-height:1.35; }
+  .legend { display:flex; gap:34px; align-items:center; margin-top:20px; font-size:19px; font-weight:700; }
+  .legend .sw { display:inline-block; width:16px; height:16px; border-radius:3px; margin-right:10px; vertical-align:-1px; }
+  .legend .note { color:var(--muted); font-weight:400; font-size:17px; }
+  h2 { font-size:27px; font-weight:800; letter-spacing:-0.6px; margin-top:22px; }
+  h2 .n { color:var(--spark); }
+  .desc { color:var(--muted); font-size:17px; margin-top:5px; }
+  .rows { margin-top:10px; }
+  .row { display:flex; align-items:center; height:30px; margin-bottom:6px; }
+  .lab { width:236px; text-align:right; padding-right:16px; font-size:18px; font-weight:700; line-height:1.1; }
+  .track { flex:1; display:flex; align-items:center; }
+  .bar { height:28px; border-radius:6px; display:flex; align-items:center; padding-left:14px;
+    font-weight:800; font-size:19px; color:#161d2b; white-space:nowrap; }
+  .bar.s { background:var(--spark); } .bar.f { background:var(--flink); }
+  .bar.ghost { background:transparent; border:2px dashed var(--dim); color:var(--muted); }
+  .out { margin-left:12px; font-weight:800; font-size:19px; white-space:nowrap; }
+  .out.s { color:var(--spark); } .out.f { color:var(--flink); }
+  .flag { margin-left:18px; font-weight:800; font-size:14px; letter-spacing:1px; white-space:nowrap; }
+  .flag.s { color:var(--spark); } .flag.f { color:var(--flink); }
+  .fn { color:var(--dim); font-size:15px; margin-top:6px; line-height:1.35; }
+  .fn b { color:var(--muted); }
+  .bottom { color:var(--flink); font-size:25px; font-weight:800; letter-spacing:-0.4px; margin-top:22px;
+    padding-bottom:16px; border-bottom:1px solid #2b3446; }
+  .foot { color:var(--dim); font-size:15px; margin-top:14px; line-height:1.6; }
+  .foot b { color:var(--muted); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="kicker">BENCHMARK · KAFKA → KAFKA · 30-MINUTE RUNS · AMAZON EKS</div>
+  <h1>Real-time streaming:<br><span class="b">Spark 4.3 RTM vs Flink 2.3</span></h1>
+  <div class="tag">The stateless tail is fixed. <span class="b">State is the new story.</span></div>
+  <div class="sub">Same pipeline, same 7 cores / 14 GB, S3 checkpoints every 60 s. Stateless at 100k/s, stateful at 50k/s.</div>
+  <div class="legend">
+    <span><span class="sw" style="background:var(--spark)"></span>Spark 4.3 RTM</span>
+    <span><span class="sw" style="background:var(--flink)"></span>Apache Flink 2.3</span>
+  </div>
+
+  <h2><span class="n">1.</span> Stateless latency: now a tie</h2>
+  <div class="desc">p99 at 100k events/s. Both medians are ~6 ms.</div>
+  <div class="rows" id="r1"></div>
+  <div class="fn">4.3 moves offset commits off the data path (<b>async progress tracking</b>): Spark's p99 drops <b>21x</b>.</div>
+
+  <h2><span class="n">2.</span> Stateful latency: Flink's tail is 2.8x lower</h2>
+  <div class="desc">p99, 10 s windowed aggregation per user, 50k events/s, both engines tuned.</div>
+  <div class="rows" id="r2"></div>
+  <div class="fn">Median <b>6.9 vs 13.4 ms</b>. Dedup: same gap. Sessions with timers: Spark can't hold 50k/s (<b>0.76x</b>).</div>
+
+  <h2><span class="n">3.</span> CPU: similar average, Spark hits its limit</h2>
+  <div class="desc">Peak engine cores, windowed aggregation at 50k/s (mean 3.5 vs 3.9). Stateless: 1.1 vs 1.7 cores.</div>
+  <div class="rows" id="r3"></div>
+
+  <h2><span class="n">4.</span> Memory: Flink runs on ~2/3 of Spark's</h2>
+  <div class="desc">Engine working set, GiB.</div>
+  <div class="rows" id="r4"></div>
+  <div class="fn">Most of the gap is JVM heap: peak <b>3.2 vs 6.2 GiB</b>.</div>
+
+  <div class="bottom">Stateless: either engine works. Stateful: Flink is faster and leaner.</div>
+  <div class="foot">Benchmark by <b>Francisco Morillo</b> · full method &amp; raw results on GitHub<br>
+    github.com/fmorillo7694/spark-rtm-vs-flink &nbsp;·&nbsp; Spark 4.3.0 · Flink 2.3.0 · Kafka 4.1 · Amazon EKS</div>
+</div>
+<script>
+// [label, value, text, cls, flag]; cls: s = Spark, f = Flink, g = ghost (published 4.1.2 reference)
+const sections = {
+  r1: { max: 642, rows: [
+    ["Spark 4.1 RTM (before)", 642, "642 ms", "g", ""],
+    ["Spark 4.3 RTM", 30.3, "30.3 ms", "s", ""],
+    ["Flink 2.3", 27.4, "27.4 ms", "f", ""],
+  ]},
+  r2: { max: 7481, rows: [
+    ["Flink, tuned", 1575, "1.6 s", "f", ""],
+    ["Spark, vendor-tuned", 4454, "4.5 s", "s", ""],
+    ["Spark, default", 7481, "7.5 s", "s", ""],
+  ]},
+  r3: { max: 6.17, rows: [
+    ["Flink, tuned", 4.31, "4.3 cores", "f", "THROTTLED 3.5%"],
+    ["Spark, default", 6.17, "6.2 cores", "s", "THROTTLED 16.7%"],
+  ]},
+  r4: { max: 9.5, rows: [
+    ["Flink, stateless", 5.5, "5.5 GiB", "f", ""],
+    ["Spark, stateless", 8.1, "8.1 GiB", "s", ""],
+    ["Flink, stateful", 7.1, "7.1 GiB", "f", ""],
+    ["Spark, stateful", 9.5, "9.5 GiB", "s", ""],
+  ]},
+};
+const TRACK = 1080 - 68 * 2 - 236;   // px available for the bar column
+const FLAG_ROOM = 190;               // keep room for a right-hand flag
+for (const [id, sec] of Object.entries(sections)) {
+  const host = document.getElementById(id);
+  const hasFlag = sec.rows.some(r => r[4]);
+  const full = TRACK - (hasFlag ? FLAG_ROOM : 0);
+  for (const [lab, v, txt, cls, flag] of sec.rows) {
+    const w = Math.max(10, Math.round(full * v / sec.max));
+    const inside = w >= 150;
+    const c = cls === "g" ? "ghost" : cls;
+    const tc = cls === "g" ? "" : cls;
+    host.insertAdjacentHTML("beforeend",
+      `<div class="row"><div class="lab">${lab}</div><div class="track">` +
+      `<div class="bar ${c}" style="width:${w}px">${inside ? txt : ""}</div>` +
+      (inside ? "" : `<span class="out ${tc}">${txt}</span>`) +
+      (flag ? `<span class="flag ${cls}">${flag}</span>` : "") +
+      `</div></div>`);
+  }
+}
+</script>
+</body>
+</html>
