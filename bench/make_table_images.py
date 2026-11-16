@@ -4,7 +4,7 @@ Medium copy of the post: Medium has no tables, so every GFM table in post/piece1
 rendered to a PNG and the copy references the image instead. The GitHub post keeps real tables.
 
   post/piece1-4.3.md  ->  post/charts/tables/tNN_<slug>.png   (one per table, order of appearance)
-                      ->  post/piece1-4.3-medium.md           (tables replaced by ![alt](png))
+                      ->  post/spark-4-3-rtm-vs-flink-2-3.md           (tables replaced by ![alt](png))
 
 Images are 1400 px wide (7 in at 200 dpi) so Medium's ~700 px column shows every table at the
 same 0.5x scale. Column widths come from measured text: headers wrap first; if the data still
@@ -29,7 +29,7 @@ from make_charts import C_FLINK  # noqa: E402,F401  (shared palette + rcParams, 
 
 ROOT = os.path.join(HERE, "..")
 SRC = os.path.join(ROOT, "post", "piece1-4.3.md")
-DST = os.path.join(ROOT, "post", "piece1-4.3-medium.md")
+DST = os.path.join(ROOT, "post", "spark-4-3-rtm-vs-flink-2-3.md")  # Medium copy; its Pages URL is what Medium imports
 OUT_REL = "charts/tables"
 OUT = os.path.join(ROOT, "post", OUT_REL)
 PAGES_BASE = "https://fmorillo7694.github.io/spark-rtm-vs-flink"
