@@ -16,7 +16,7 @@
     09_cpu_timeline.png  tables/t09_what_rtm_can_t_do_yet_feature.png
 -->
 
-# Spark 4.3 Real-time Mode vs Flink 2.3: the tail got fixed, then I added state
+# Spark 4.3 Real-time Mode vs Flink 2.3: Spark Caught Up on Stateless. Flink Still Wins on State.
 
 ![Spark 4.3 RTM vs Flink 2.3: latency, CPU and memory at a glance](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/cover_summary.png)
 

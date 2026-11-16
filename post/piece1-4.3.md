@@ -9,7 +9,7 @@
     14_scalein_timeline.png  08_resources_per_10k.png  09_cpu_timeline.png
 -->
 
-# Spark 4.3 Real-time Mode vs Flink 2.3: the tail got fixed, then I added state
+# Spark 4.3 Real-time Mode vs Flink 2.3: Spark Caught Up on Stateless. Flink Still Wins on State.
 
 *Six months ago I benchmarked Spark 4.1's new Real-time Mode against Flink. RTM tied Flink at
 the median and lost by ~20x at the tail. Spark 4.3 is out, and it fixes that tail for stateless
