@@ -446,6 +446,13 @@ def main():
     # Medium's "Import a story" does not resolve relative image paths, so the Medium copy
     # points every image at its absolute GitHub Pages URL.
     text = text.replace("](charts/", f"]({PAGES_BASE}/post/charts/")
+    # Cover: the summary card (post/cover/summary.html -> charts/cover_summary.png) goes right under
+    # the title, so it is the story's first image and Medium picks it as the cover.
+    title = re.search(r"^# .*\n", text, re.M)
+    assert title, "expected the post's H1 title"
+    cover = (f"\n![Spark 4.3 RTM vs Flink 2.3: latency, CPU and memory at a glance]"
+             f"({PAGES_BASE}/post/charts/cover_summary.png)\n")
+    text = text[:title.end()] + cover + text[title.end():]
     with open(DST, "w") as fh:
         fh.write(text)
     print(f"wrote {os.path.relpath(DST, ROOT)}: {len(tables)} tables replaced, {len(imgs)} images listed")

@@ -18,6 +18,8 @@
 
 # Spark 4.3 Real-time Mode vs Flink 2.3: the tail got fixed, then I added state
 
+![Spark 4.3 RTM vs Flink 2.3: latency, CPU and memory at a glance](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/cover_summary.png)
+
 *Six months ago I benchmarked Spark 4.1's new Real-time Mode against Flink. RTM tied Flink at
 the median and lost by ~20x at the tail. Spark 4.3 is out, and it fixes that tail for stateless
 jobs. It also lets RTM run stateful queries for the first time. So I re-ran the original
