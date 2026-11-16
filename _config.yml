@@ -11,7 +11,7 @@ kramdown:
 # post's own H1 as the story title.
 defaults:
   - scope:
-      path: "post/piece1-4.3-medium.md"
+      path: "post/spark-4-3-rtm-vs-flink-2-3.md"
     values:
       layout: plain
 

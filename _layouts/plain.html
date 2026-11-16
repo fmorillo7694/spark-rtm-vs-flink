@@ -4,16 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Spark 4.3 Real-time Mode vs Flink 2.3: Spark Caught Up on Stateless. Flink Still Wins on State.</title>
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Spark 4.3 Real-time Mode vs Flink 2.3: Spark Caught Up on Stateless. Flink Still Wins on State.">
+  <meta property="og:image" content="https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/cover_summary.png">
+  <meta property="og:image:type" content="image/png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/cover_summary.png">
   <style>
     body { max-width: 760px; margin: 2rem auto; padding: 0 1rem; font: 18px/1.6 Georgia, serif; color: #222; background: #fff; }
     img { max-width: 100%; height: auto; }
+    figure { margin: 1.5rem 0; }
     pre, code { font-family: Menlo, Consolas, monospace; font-size: 0.85em; }
     pre { overflow-x: auto; background: #f6f8fa; padding: 0.75rem; }
   </style>
 </head>
 <body>
 <article>
-{{ content }}
+{%- comment -%} Importers look for images in <figure>, so each standalone image paragraph becomes a figure. {%- endcomment -%}
+{{ content | replace: '<p><img ', '<figure><img ' | replace: ' /></p>', ' /></figure>' }}
 </article>
 </body>
 </html>
