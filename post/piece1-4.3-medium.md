@@ -24,7 +24,7 @@ jobs. It also lets RTM run stateful queries for the first time. So I re-ran the 
 benchmark and then added three stateful workloads, plus joins. Short version: the stateless gap
 is gone (the tails are now about even); the stateful gap is the new story.*
 
-![Spark 4.3 fixed the stateless RTM tail. Stateful RTM still commits synchronously.](charts/00_hero.png)
+![Spark 4.3 fixed the stateless RTM tail. Stateful RTM still commits synchronously.](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/00_hero.png)
 
 *Pipeline p99 on EKS. Stateless at 100k evt/s; stateful at 50k evt/s. The 4.1.2 bar is the
 original post's published number.*
@@ -84,14 +84,14 @@ Same pipeline as before (filter, compute, uppercase, stamp, write to Kafka), sam
 
 Stateless EKS, geomean across runs (p99 min-max in brackets).
 
-![Table: stateless EKS results per engine on Spark 4.3 / Flink 2.3 - pipeline p50 and p99 ms, published 4.1.2 / 2.2.0 p99, CPU cores and working set GiB](charts/tables/t01_part_1_stateless_on_4_3_2_3.png)
+![Table: stateless EKS results per engine on Spark 4.3 / Flink 2.3 - pipeline p50 and p99 ms, published 4.1.2 / 2.2.0 p99, CPU cores and working set GiB](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/tables/t01_part_1_stateless_on_4_3_2_3.png)
 
 *ms unless noted. CPU and working set are the engine pods summed, from kubelet cAdvisor. The
 async-off row used a higher-overhead consumer image, which plausibly explains most of a uniform
 ~30% drop against the 30-minute rows. The comparison is like-for-like within the 30-minute
 rows.*
 
-![Stateless EKS: 4.3 vs published 4.1.2](charts/01_stateless_eks.png)
+![Stateless EKS: 4.3 vs published 4.1.2](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/01_stateless_eks.png)
 
 *Hatched bars are the published 4.1.2 / 2.2.0 numbers.*
 
@@ -174,12 +174,12 @@ setting, async state checkpointing, is DBR-only.
 
 Stateful EKS, 50k evt/s: pipeline p50 / p99 in ms, geomean across runs.
 
-![Table: stateful p50 / p99 ms for S1 windowed agg, S2 dedup and S3 sessions, Spark at default, 1 ms and vendor-tuned vs Flink at default and 0 ms buffer timeout](charts/tables/t02_both_at_defaults_both_tuned.png)
+![Table: stateful p50 / p99 ms for S1 windowed agg, S2 dedup and S3 sessions, Spark at default, 1 ms and vendor-tuned vs Flink at default and 0 ms buffer timeout](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/tables/t02_both_at_defaults_both_tuned.png)
 
 *The Spark 1 ms column was measured with 5-minute windows. On S3, Spark falls behind, so its
 latency is a backlog, not a latency (see point 4).*
 
-![Stateful 2x2 plus vendor-tuned Spark](charts/02_stateful_2x2.png)
+![Stateful 2x2 plus vendor-tuned Spark](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/02_stateful_2x2.png)
 
 **1. Tuned Flink wins every stateful workload**, at the median and at the tail. Against the best
 Spark arm (vendor-tuned), Flink's p50 is ~1.9x lower (6.9 vs 13.4 ms on S1, 7.0 vs 13.1 ms on S2)
@@ -206,7 +206,7 @@ records/s, 0.76x, backlog +17 s/min), not enough. Flink keeps up at 39.0k record
 8.3 ms p50. This is a throughput limit of OSS RTM's stateful path on this hardware, not a
 latency number.
 
-![Latency CCDF, one representative run per cell](charts/03_latency_ccdf.png)
+![Latency CCDF, one representative run per cell](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/03_latency_ccdf.png)
 
 *Representative run = the run with the median p99 of its cell. Histogram buckets are 1/10/100 ms
 lower bounds.*
@@ -230,7 +230,7 @@ Flink isn't free either. Its S1/S2 checkpoints take ~3.0-3.3 s end to end (align
 ~134-155 MiB of RocksDB state, ~61-72 MiB uploaded per incremental checkpoint), and its p99 sits
 at checkpoints too. The difference is that records keep flowing while Flink uploads.
 
-![Checkpoint cost on both engines](charts/07_checkpoints.png)
+![Checkpoint cost on both engines](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/07_checkpoints.png)
 
 *Flink: per-checkpoint end-to-end duration and size from the REST checkpoint history. Spark:
 commit-to-commit time minus the 60 s trigger, from the driver log.*
@@ -245,9 +245,9 @@ If the tail is the boundary pause, a longer trigger should mean fewer pauses. It
 pause has more to catch up. Pipeline p50 / p99 (ms) vs checkpoint interval (Flink) = trigger
 (Spark), Spark at default flush, Flink at 0 ms:
 
-![Table: p50 / p99 ms by checkpoint interval (5 s to 300 s) for Spark and Flink on S1 and S2](charts/tables/t03_the_checkpoint_interval_is_a.png)
+![Table: p50 / p99 ms by checkpoint interval (5 s to 300 s) for Spark and Flink on S1 and S2](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/tables/t03_the_checkpoint_interval_is_a.png)
 
-![Checkpoint interval trade-off](charts/04_checkpoint_interval.png)
+![Checkpoint interval trade-off](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/04_checkpoint_interval.png)
 
 On Spark, a 5 s trigger cuts the p99 to ~2.8 s but quadruples the median, because batches
 restart every 5 s. A 300 s trigger keeps the median but pushes p99 to 17 s. No setting gets
@@ -260,11 +260,11 @@ differs slightly from the 2x2 table.
 At steady state on S1, I deleted one worker pod (a Spark executor or a Flink TaskManager) and
 let the engine recover from the last checkpoint.
 
-![Table (Recovery: kill a worker mid-stream): , output stops for, back to ≥ 90% rate with e2e < 1 s, records re-emitted, windows checked, lost, overcounted](charts/tables/t04_recovery_kill_a_worker_mid.png)
+![Table (Recovery: kill a worker mid-stream): , output stops for, back to ≥ 90% rate with e2e < 1 s, records re-emitted, windows checked, lost, overcounted](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/tables/t04_recovery_kill_a_worker_mid.png)
 
 *Re-emitted = output records minus input records.*
 
-![Recovery timeline](charts/05_recovery_timeline.png)
+![Recovery timeline](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/05_recovery_timeline.png)
 
 Flink restarts from the last checkpoint within 9-10 s, replays up to 60 s of input (the ~2.3M
 re-emitted updates on an at-least-once sink), and is back to full rate with sub-second latency in
@@ -306,12 +306,12 @@ apply, and the vendor-tuned Spark settings change nothing here (p99 287 ms, 279-
 
 S4 at 50k evt/s, geomean across runs (p99 min-max in brackets).
 
-![Table: S4 stream-static enrichment - Spark RTM broadcast join vs Flink map, p50 / p99 ms, CPU, working set and JVM heap](charts/tables/t05_s4_stream_static_enrichment_rtm.png)
+![Table: S4 stream-static enrichment - Spark RTM broadcast join vs Flink map, p50 / p99 ms, CPU, working set and JVM heap](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/tables/t05_s4_stream_static_enrichment_rtm.png)
 
 *ms unless noted. At 100k evt/s (5-minute windows) the picture is the same: p50 ~6 ms on both,
 Spark p99 574 ms, Flink 18-27 ms.*
 
-![S4 broadcast join](charts/10_s4_broadcast_join.png)
+![S4 broadcast join](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/10_s4_broadcast_join.png)
 
 The median is a tie at ~6.5 ms. The tail is **~13.5x** (275 ms vs 20.3 ms at Flink's 0 ms, 15x
 vs its 100 ms default). In a local smoke, Spark's slow records all fell at the RTM batch boundary (I haven't
@@ -336,9 +336,9 @@ Flink. Spark: watermarked join with a time-range condition. Flink:
 S5 runs below saturation: `S5_RATE=1000` per producer pod (~8k orders/s plus ~6.8k payments/s,
 ~15k records/s), and one step up at 2000 per pod (~30k records/s).
 
-![Table: S5 stream-stream interval join at 1000 and 2000 evt/s per pod - Spark micro-batch vs Flink intervalJoin latency, output rate, CPU and throttling](charts/tables/t06_s5_stream_stream_interval_join.png)
+![Table: S5 stream-stream interval join at 1000 and 2000 evt/s per pod - Spark micro-batch vs Flink intervalJoin latency, output rate, CPU and throttling](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/tables/t06_s5_stream_stream_interval_join.png)
 
-![S5 interval join](charts/11_s5_interval_join.png)
+![S5 interval join](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/11_s5_interval_join.png)
 
 - **Below saturation, Flink's interval join wins at the median and the tail.** At ~15k
   records/s it is 7.5-61 ms at p50 and 0.65-0.69 s at p99, against 3.3-3.4 s and 5.5-5.7 s for
@@ -369,13 +369,13 @@ that does scale.
 
 Phases 1/2/3 = 50k/100k/50k. Node-hours are relative to the same engine's static-peak arm.
 
-![Table: scaling under changing load - p99 per phase, worst 1 s p99, longest output stall, node-hours vs peak and lost / overcounted per arm](charts/tables/t07_scaling_under_changing_load.png)
+![Table: scaling under changing load - p99 per phase, worst 1 s p99, longest output stall, node-hours vs peak and lost / overcounted per arm](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/tables/t07_scaling_under_changing_load.png)
 
-![Scaling timeline](charts/12_scaling_timeline.png)
+![Scaling timeline](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/12_scaling_timeline.png)
 
 *p99 per 30 s and running worker pods.*
 
-![Scaling summary](charts/13_scaling_summary.png)
+![Scaling summary](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/13_scaling_summary.png)
 
 **Correctness held everywhere.** Every arm, including every restart and rescale, had 0 lost and 0
 overcounted windows (a 1% user sample, ~1.3M settled windows per load profile). What changes is
@@ -407,7 +407,7 @@ the best of any autoscaled arm. But **it never scaled back in** on this profile,
 
 **Scale-in (100k -> 25k).** A second profile starts at 100k and drops to 25k.
 
-![Scale-in timeline](charts/14_scalein_timeline.png)
+![Scale-in timeline](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/14_scalein_timeline.png)
 
 *p99 per 30 s and running TaskManagers.*
 
@@ -453,12 +453,12 @@ the input rate. Memory is JVM-sized, so it reflects configuration as much as nee
 
 Mean over runs, engine pods summed.
 
-![Table: S1 resources per arm - p99, CPU, working set, CPU throttling, JVM heap, checkpoint MB/h and S3 PUTs/h](charts/tables/t08_resources_and_cost.png)
+![Table: S1 resources per arm - p99, CPU, working set, CPU throttling, JVM heap, checkpoint MB/h and S3 PUTs/h](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/tables/t08_resources_and_cost.png)
 
 *S2 follows the same pattern. Stateless: Flink 1.06 cores, Spark 1.74. Spark on S3 (did not hold
 rate) is pinned at 94-96% throttled.*
 
-![CPU, memory, throttling and JVM heap](charts/08_resources_per_10k.png)
+![CPU, memory, throttling and JVM heap](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/08_resources_per_10k.png)
 
 - **Mean CPU is close; peaks and throttling are not.** On S1/S2, tuned Flink and default Spark
   use about the same average CPU (3.4-3.9 cores, 0.67-0.77 per 10k evt/s). But Spark's peak is
@@ -478,7 +478,7 @@ rate) is pinned at 94-96% throttled.*
 
 The CPU timeline shows where Spark's bursts come from:
 
-![CPU over time, one run per engine](charts/09_cpu_timeline.png)
+![CPU over time, one run per engine](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/09_cpu_timeline.png)
 
 Stateful Spark is a sawtooth: CPU climbs 10-30 s after each batch boundary, as the executors
 drain the ~300k records that queued during the synchronous commit. Stateful Flink is flat at this
@@ -515,7 +515,7 @@ settings, so free node CPU only helps if you resize the pods, which nothing here
 
 These are not head-to-head numbers, because only one engine can run them.
 
-![Table: feature gaps, Flink 2.3 vs OSS Spark 4.3 RTM, for joins, CEP, broadcast state, session windows, Python state, sinks, checkpointing, timers and output modes](charts/tables/t09_what_rtm_can_t_do_yet_feature.png)
+![Table: feature gaps, Flink 2.3 vs OSS Spark 4.3 RTM, for joins, CEP, broadcast state, session windows, Python state, sinks, checkpointing, timers and output modes](https://fmorillo7694.github.io/spark-rtm-vs-flink/post/charts/tables/t09_what_rtm_can_t_do_yet_feature.png)
 
 ---
 
