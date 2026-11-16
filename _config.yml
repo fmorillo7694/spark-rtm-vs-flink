@@ -7,6 +7,14 @@ markdown: kramdown
 kramdown:
   input: GFM
 
+# The Medium copy gets a bare layout (no site header), so Medium's importer takes the
+# post's own H1 as the story title.
+defaults:
+  - scope:
+      path: "post/piece1-4.3-medium.md"
+    values:
+      layout: plain
+
 # Only the post, its charts, the README and the docs it links are part of the site.
 # Raw results, scripts and job code stay in the repo, not on the site.
 exclude:
